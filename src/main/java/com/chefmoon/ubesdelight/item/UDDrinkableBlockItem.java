@@ -5,8 +5,10 @@ import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.effect.StatusEffect;
@@ -14,6 +16,8 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffectUtil;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.stat.Stats;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
@@ -75,19 +79,27 @@ public class UDDrinkableBlockItem extends BlockItem {
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack heldStack = user.getStackInHand(hand);
-        if (heldStack.isFood()) {
-            if (user.canConsume(heldStack.getItem().getFoodComponent().isAlwaysEdible())) {
-                user.setCurrentHand(hand);
-
-                return TypedActionResult.consume(heldStack);
-            } else {
-                return TypedActionResult.fail(heldStack);
-            }
+    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        ItemStack container = stack.getRecipeRemainder();
+        PlayerEntity player;
+        super.finishUsing(stack, world, user);
+        if (!world.isClient()) {
+            this.affectConsumer(stack, world, user);
         }
+        if (stack.isEmpty()) {
+            return container;
+        } else {
+            if (user instanceof PlayerEntity) {
+                player = (PlayerEntity) user;
+                if (!player.getAbilities().creativeMode && !player.getInventory().insertStack(container)) {
+                    player.dropItem(container, false);
+                }
+            }
+            return stack;
+        }
+    }
 
-        return ItemUsage.consumeHeldItem(world, user, hand);
+    public void affectConsumer(ItemStack stack, World world, LivingEntity user) {
     }
 
     @Environment(EnvType.CLIENT)

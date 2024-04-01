@@ -62,7 +62,7 @@ public enum ItemsRegistry {
 
     //Drinks
     MILK_TEA_UBE("milk_tea_ube", () -> new UDDrinkableItem(food(FoodItem.MILK_TEA_UBE.get(), Items.GLASS_BOTTLE, 16), true)),
-    HALO_HALO("halo_halo", () -> new UDDrinkableBlockItem(BlocksRegistry.GLASS_CUP_HALO_HALO.get(), food(FoodItem.HALO_HALO.get(), Items.GLASS_BOTTLE, 16), true, false)),
+    HALO_HALO("halo_halo", () -> new UDDrinkableBlockItem(BlocksRegistry.GLASS_CUP_HALO_HALO.get(), food(FoodItem.HALO_HALO.get(), Items.GLASS_BOTTLE, 16), true, true)),
 
     //Partial Vegetables
     GARLIC_CHOP("garlic_chop", () -> new UDConsumableItem(food(FoodItem.GARLIC_CHOP.get())), null, .4f),

@@ -143,10 +143,9 @@ public class CookingRecipes {
                         List.of(Ingredient.fromTag(CommonTags.C_RAW_CHICKEN),
                                 Ingredient.fromTag(CommonTags.C_CROPS_LEMONGRASS),
                                 Ingredient.fromTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)))
-                .criterion(RecipeUtil.hasItemTag(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS), RecipeProvider.conditionsFromTag(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS))
+                .criterion(RecipeUtil.hasItemTag(CommonTags.C_RAW_CHICKEN), RecipeProvider.conditionsFromTag(CommonTags.C_RAW_CHICKEN))
                 .criterion(RecipeUtil.hasItemTag(CommonTags.C_CROPS_LEMONGRASS), RecipeProvider.conditionsFromTag(CommonTags.C_CROPS_LEMONGRASS))
                 .criterion(RecipeUtil.hasItemTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), RecipeProvider.conditionsFromTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK))
-                .criterion(RecipeUtil.hasItemTag(CommonTags.C_VEGETABLES_GINGER), RecipeProvider.conditionsFromTag(CommonTags.C_VEGETABLES_GINGER))
                 .offerTo(exporter, suffix(RecipeProvider.getItemPath(ItemsRegistry.CHICKEN_INASAL.get())));
 
         CookingPotRecipeJsonBuilder.create(CookingPotRecipeCategory.MEALS, ItemsRegistry.CHICKEN_INASAL_RICE.get(), 3.0F, 200,
@@ -173,6 +172,15 @@ public class CookingRecipes {
                 .criterion(RecipeProvider.hasItem(ItemsRegistry.SINANGAG.get()), RecipeProvider.conditionsFromItem(ItemsRegistry.SINANGAG.get()))
                 .criterion(RecipeUtil.hasItemTag(CommonTags.C_COOKED_EGGS), RecipeProvider.conditionsFromTag(CommonTags.C_COOKED_EGGS))
                 .offerTo(exporter, suffix(RecipeProvider.getItemPath(ItemsRegistry.BANGSILOG.get())));
+
+        CookingPotRecipeJsonBuilder.create(CookingPotRecipeCategory.MEALS, ItemsRegistry.BANGSILOG.get(), 3.0F, 200,
+                        List.of(Ingredient.fromTag(CompatibilityTags.MINECRAFT_FISHES),
+                                Ingredient.ofItems(ItemsRegistry.SINANGAG.get()),
+                                Ingredient.fromTag(CommonTags.C_COOKED_EGGS)))
+                .criterion(RecipeUtil.hasItemTag(CompatibilityTags.MINECRAFT_FISHES), RecipeProvider.conditionsFromTag(CompatibilityTags.MINECRAFT_FISHES))
+                .criterion(RecipeProvider.hasItem(ItemsRegistry.SINANGAG.get()), RecipeProvider.conditionsFromItem(ItemsRegistry.SINANGAG.get()))
+                .criterion(RecipeUtil.hasItemTag(CommonTags.C_COOKED_EGGS), RecipeProvider.conditionsFromTag(CommonTags.C_COOKED_EGGS))
+                .offerTo(exporter, suffix(RecipeProvider.getItemPath(ItemsRegistry.BANGSILOG.get()) + "_extra"));
 
         CookingPotRecipeJsonBuilder.create(CookingPotRecipeCategory.MEALS, ItemsRegistry.SISIG.get(), 4.0F, 200,
                         List.of(Ingredient.fromTag(CommonTags.C_RAW_PORK),

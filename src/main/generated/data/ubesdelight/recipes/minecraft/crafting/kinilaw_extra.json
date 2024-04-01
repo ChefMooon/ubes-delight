@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "minecraft:fishes"
+    },
+    {
+      "tag": "c:crops/onion"
+    },
+    {
+      "tag": "c:vegetables/garlic"
+    },
+    {
+      "tag": "c:vegetables/ginger"
+    },
+    {
+      "tag": "c:crops/lemongrass"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "ubesdelight:kinilaw"
+  }
+}

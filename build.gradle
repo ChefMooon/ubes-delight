@@ -24,8 +24,8 @@ repositories {
 			includeGroup "maven.modrinth"
 		}
 	}
-	/* REI Integration */
-	maven { url "https://maven.shedaniel.me/" }
+	maven { url = "https://maven.shedaniel.me/" } // REI
+	//maven { url = "https://maven.terraformersmc.com/" } // EMI
 }
 
 dependencies {
@@ -50,7 +50,8 @@ dependencies {
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:$rei_version"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version"
 
-
+	// EMI API (Prep)
+	//modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
 }
 
 base {
@@ -136,7 +137,7 @@ publishing {
 modrinth {
 	token = System.getenv("MODRINTH_TOKEN") // This is the default. Remember to have the MODRINTH_TOKEN environment variable set or else this will fail, or set it to whatever you want - just make sure it stays private!
 	projectId = "PYjpoAys" // This can be the project ID or the slug. Either will work!
-	versionNumber = "0.1.5b-1.20.1" // You don't need to set this manually. Will fail if Modrinth has this version already
+	versionNumber = project.mod_version-project.minecraft_version // You don't need to set this manually. Will fail if Modrinth has this version already
 	versionType = "alpha" // This is the default -- can also be `beta` or `alpha`
 	uploadFile = remapJar // With Loom, this MUST be set to `remapJar` instead of `jar`!
 	gameVersions = ["1.20","1.20.1"] // Must be an array, even with only one version

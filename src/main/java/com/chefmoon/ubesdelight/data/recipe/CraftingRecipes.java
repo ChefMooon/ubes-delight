@@ -115,6 +115,16 @@ public class CraftingRecipes {
                 .criterion(RecipeUtil.hasAny(), RecipeUtil.conditionsFromItems(Items.BOWL, ItemsRegistry.GARLIC.get(), ItemsRegistry.GINGER.get()))
                 .offerTo(exporter, suffix(RecipeProvider.getRecipeName(ItemsRegistry.KINILAW.get())));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemsRegistry.KINILAW.get())
+                .input(CompatibilityTags.MINECRAFT_FISHES)
+                .input(CommonTags.C_CROPS_ONION)
+                .input(CommonTags.C_VEGETABLES_GARLIC)
+                .input(CommonTags.C_VEGETABLES_GINGER)
+                .input(CommonTags.C_CROPS_LEMONGRASS)
+                .input(Items.BOWL)
+                .criterion(RecipeUtil.hasAny(), RecipeUtil.conditionsFromItems(Items.BOWL, ItemsRegistry.GARLIC.get(), ItemsRegistry.GINGER.get()))
+                .offerTo(exporter, suffix(RecipeProvider.getRecipeName(ItemsRegistry.KINILAW.get()) + "_extra"));
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemsRegistry.LUMPIA_WRAPPER.get(), 32)
                 .input(CommonTags.C_GRAIN)
                 .input(CommonTags.C_EGGS)
