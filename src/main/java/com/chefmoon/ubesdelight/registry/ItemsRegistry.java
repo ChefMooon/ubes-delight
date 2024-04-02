@@ -27,16 +27,16 @@ public enum ItemsRegistry {
     ROLLING_PIN_WOOD("rolling_pin_wood", () -> new RollingPinItem(UDToolMaterials.RP_WOOD, base())),
 
     //Wild Vegetables
-    WILD_UBE("wild_ube", () -> new UDBlockItem(BlocksRegistry.WILD_UBE.get()), null, .65f),
-    WILD_GARLIC("wild_garlic", () -> new UDBlockItem(BlocksRegistry.WILD_GARLIC.get()), null, .65f),
-    WILD_GINGER("wild_ginger", () -> new UDBlockItem(BlocksRegistry.WILD_GINGER.get()), null, .65f),
-    WILD_LEMONGRASS("wild_lemongrass", () -> new UDBlockItem(BlocksRegistry.WILD_LEMONGRASS.get()), null, .65f),
+    WILD_UBE("wild_ube", () -> new UDBlockItem(BlocksRegistry.WILD_UBE.get(), base()), null, .65f),
+    WILD_GARLIC("wild_garlic", () -> new UDBlockItem(BlocksRegistry.WILD_GARLIC.get(), base()), null, .65f),
+    WILD_GINGER("wild_ginger", () -> new UDBlockItem(BlocksRegistry.WILD_GINGER.get(), base()), null, .65f),
+    WILD_LEMONGRASS("wild_lemongrass", () -> new UDBlockItem(BlocksRegistry.WILD_LEMONGRASS.get(), base()), null, .65f),
 
     //Vegetable Crates
-    UBE_CRATE("ube_crate", () -> new UDBlockItem((BlocksRegistry.UBE_CRATE.get()))),
-    GARLIC_CRATE("garlic_crate", () -> new UDBlockItem((BlocksRegistry.GARLIC_CRATE.get()))),
-    GINGER_CRATE("ginger_crate", () -> new UDBlockItem((BlocksRegistry.GINGER_CRATE.get()))),
-    LEMONGRASS_CRATE("lemongrass_crate", () -> new UDBlockItem((BlocksRegistry.LEMONGRASS_CRATE.get()))),
+    UBE_CRATE("ube_crate", () -> new UDBlockItem(BlocksRegistry.UBE_CRATE.get(), base())),
+    GARLIC_CRATE("garlic_crate", () -> new UDBlockItem(BlocksRegistry.GARLIC_CRATE.get(), base())),
+    GINGER_CRATE("ginger_crate", () -> new UDBlockItem(BlocksRegistry.GINGER_CRATE.get(), base())),
+    LEMONGRASS_CRATE("lemongrass_crate", () -> new UDBlockItem(BlocksRegistry.LEMONGRASS_CRATE.get(), base())),
 
     //Feasts
     UBE_CAKE("ube_cake", () -> new UDBlockItem(BlocksRegistry.UBE_CAKE.get(), noStack()), null, 1.f),

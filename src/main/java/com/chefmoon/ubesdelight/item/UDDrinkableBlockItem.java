@@ -38,7 +38,7 @@ public class UDDrinkableBlockItem extends BlockItem {
         this.hasCustomTooltip = false;
     }
 
-    public UDDrinkableBlockItem(Block block, Settings settings, boolean hasFoodEffectTooltip, Boolean hasCustomTooltip) {
+    public UDDrinkableBlockItem(Block block, Settings settings, boolean hasFoodEffectTooltip, boolean hasCustomTooltip) {
         super(block, settings);
         this.hasFoodEffectTooltip = hasFoodEffectTooltip;
         this.hasCustomTooltip = hasCustomTooltip;
@@ -50,7 +50,7 @@ public class UDDrinkableBlockItem extends BlockItem {
         super.appendTooltip(stack, world, tooltip, context);
         if (UbesDelightMod.CONFIG.isFoodEffectTooltip()) {
             if (hasCustomTooltip) {
-                tooltip.add(UbesDelightMod.tooltip("tooltip." + this).formatted(Formatting.BLUE));
+                tooltip.add(UbesDelightMod.tooltip("tooltip." + this).formatted(Formatting.GRAY));
             }
             if (hasFoodEffectTooltip) {
                 addFoodEffectTooltip(stack, tooltip, 1.f);

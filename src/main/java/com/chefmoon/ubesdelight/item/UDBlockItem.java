@@ -1,7 +1,6 @@
 package com.chefmoon.ubesdelight.item;
 
 import com.chefmoon.ubesdelight.UbesDelightMod;
-import com.nhoryzon.mc.farmersdelight.item.ModItemSettings;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -18,10 +17,6 @@ import java.util.List;
 public class UDBlockItem extends BlockItem {
 
     private final boolean hasCustomTooltip;
-    public UDBlockItem(Block block) {
-        super(block, new ModItemSettings());
-        this.hasCustomTooltip = false;
-    }
 
     public UDBlockItem(Block block, Settings settings) {
         super(block, settings);
