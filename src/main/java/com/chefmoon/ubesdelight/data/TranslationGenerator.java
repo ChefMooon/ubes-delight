@@ -30,7 +30,7 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(TOOLTIP + "baking_mat.invalid_item", "Invalid Items");
         translationBuilder.add(TOOLTIP + "baking_mat.invalid_tool", "Invalid Tool");
 
-        translationBuilder.add(TOOLTIP + ItemsRegistry.HALO_HALO.get(), "Right Click with a Knife to rotate. Break with Knife to pickup");
+        translationBuilder.add(TOOLTIP + ItemsRegistry.HALO_HALO.get(), "Right Click with a Knife to rotate. Break with Knife to pickup.");
 
         translationBuilder.add(ItemsRegistry.KALAN.get(), "Kalan");
         translationBuilder.add(ItemsRegistry.BAKING_MAT_BAMBOO.get(), "Bamboo Baking Mat");
