@@ -1,0 +1,29 @@
+{
+  "parent": "ubesdelight:main/craft_baking_mat",
+  "criteria": {
+    "baking_mat": {
+      "conditions": {},
+      "trigger": "ubesdelight:use_baking_mat"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "ubesdelight.advancement.use_baking_mat.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "ubesdelight:ensaymada_ube_raw"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ubesdelight.advancement.use_baking_mat"
+    }
+  },
+  "requirements": [
+    [
+      "baking_mat"
+    ]
+  ]
+}

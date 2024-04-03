@@ -1,25 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "minecraft:minecraft/crafting/ube_from_ube_crate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_ube": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "ubesdelight:ube"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_ube_crate": {
+    "has_any_ingredient": {
       "conditions": {
         "items": [
           {
@@ -30,18 +12,23 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:minecraft/crafting/ube_from_ube_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_ube",
-      "has_ube_crate",
+      "has_any_ingredient",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/ube_from_ube_crate"
+      "ubesdelight:minecraft/crafting/ube_from_ube_crate"
     ]
   },
   "sends_telemetry_event": false

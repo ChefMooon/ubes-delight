@@ -1,6 +1,7 @@
 package com.chefmoon.ubesdelight.block;
 
 import com.chefmoon.ubesdelight.UbesDelightMod;
+import com.chefmoon.ubesdelight.registry.SoundsRegistry;
 import com.chefmoon.ubesdelight.tag.CommonTags;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -13,7 +14,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
@@ -103,8 +103,7 @@ public class LumpiaFeast extends Block {
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos,
-                                                BlockPos posFrom) {
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
         return direction == Direction.DOWN && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState()
                 : super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
     }
@@ -142,7 +141,7 @@ public class LumpiaFeast extends Block {
         if (servings > 0) {
             if (player.getMainHandStack().isIn(CommonTags.C_TOOLS_KNIVES)) {
                 world.setBlockState(pos, state.with(getServingsProperty(), servings - 1), 3);
-                world.playSound(null, pos, SoundEvents.BLOCK_CHAIN_STEP, SoundCategory.BLOCKS, 1.f, 1.f);
+                world.playSound(null, pos, SoundsRegistry.BLOCK_LUMPIA_FEAST_REMOVE.get(), SoundCategory.BLOCKS, 1.f, 1.f);
                 if (!player.getInventory().insertStack(serving)) {
                     player.dropItem(serving, false);
                 }

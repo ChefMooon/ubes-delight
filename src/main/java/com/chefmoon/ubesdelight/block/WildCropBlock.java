@@ -16,6 +16,7 @@ import java.util.Set;
 
 public class WildCropBlock extends PlantBlock implements Fertilizable {
     public static final Set<Block> PLANT_ON_LIST = Set.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.PODZOL);
+    public static final int WILD_CROP_LIMIT = 10;
 
     protected static final VoxelShape SHAPE = Block.createCuboidShape(2.d, .0d, 2.d, 14.d, 13.d, 14.d);
 
@@ -35,7 +36,7 @@ public class WildCropBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        int wildCropLimit = 10;
+        int wildCropLimit = WILD_CROP_LIMIT;
 
         for (BlockPos blockpos : BlockPos.iterate(pos.add(-4, -1, -4), pos.add(4, 1, 4))) {
             if (world.getBlockState(blockpos).isOf(this)) {

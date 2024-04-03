@@ -10,6 +10,7 @@ public class CompatibilityTags {
     public static final String MINECRAFT = "minecraft";
     public static final TagKey<Item> MINECRAFT_LEAVES = TagUtil.getItemTagKey(MINECRAFT, "leaves");
     public static final TagKey<Item> MINECRAFT_TERRACOTTA = TagUtil.getItemTagKey(MINECRAFT, "terracotta");
+    public static final TagKey<Item> MINECRAFT_FISHES = TagUtil.getItemTagKey(MINECRAFT, "fishes");
 
     public static final String CREATE = "create";
     public static final TagKey<Block> CREATE_FAN_HEATERS = TagUtil.getBlockTagKey(CREATE, "fan_heaters");
@@ -20,7 +21,6 @@ public class CompatibilityTags {
     public static final TagKey<Block> FARMERS_DELIGHT_WILD_CROPS = TagUtil.getBlockTagKey(FARMERS_DELIGHT, "wild_crops");
     public static final TagKey<Item> FARMERS_DELIGHT_WILD_CROPS_ITEM = TagUtil.getItemTagKey(FARMERS_DELIGHT, "wild_crops");
     public static final TagKey<Item> FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS = TagUtil.getItemTagKey(FARMERS_DELIGHT, "cabbage_roll_ingredients");
-    public static final TagKey<Item> FARMERS_DELIGHT_MILK_BOTTLE = TagUtil.getItemTagKey(FARMERS_DELIGHT, "milk_bottle");
 
     public static final String SUPPLEMENTARIES = "supplementaries";
     public static final TagKey<Item> SUPPLEMENTARIES_COOKIES = TagUtil.getItemTagKey(SUPPLEMENTARIES, "cookies");
@@ -28,5 +28,9 @@ public class CompatibilityTags {
     public static final String DEHYDRATION = "dehydration";
     public static final TagKey<Item> DEHYDRATION_HYDRATING_DRINKS = TagUtil.getItemTagKey(DEHYDRATION, "hydrating_drinks");
     public static final TagKey<Item> DEHYDRATION_HYDRATING_STEW = TagUtil.getItemTagKey(DEHYDRATION, "hydrating_stew");
+
+    public static final String ORIGINS = "origins";
+    public static final TagKey<Item> ORIGINS_MEAT = TagUtil.getItemTagKey(ORIGINS, "meat");
+    public static final TagKey<Item> ORIGINS_IGNORE_DIET = TagUtil.getItemTagKey(ORIGINS, "ignore_diet");
 
 }

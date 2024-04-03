@@ -1,19 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ginger": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "ubesdelight:ginger"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_ginger_crate": {
+    "has_any_ingredient": {
       "conditions": {
         "items": [
           {
@@ -27,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:minecraft/crafting/ginger_from_ginger_crate"
+        "recipe": "ubesdelight:minecraft/crafting/ginger_from_ginger_crate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_ginger",
-      "has_ginger_crate",
+      "has_any_ingredient",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/ginger_from_ginger_crate"
+      "ubesdelight:minecraft/crafting/ginger_from_ginger_crate"
     ]
   },
   "sends_telemetry_event": false

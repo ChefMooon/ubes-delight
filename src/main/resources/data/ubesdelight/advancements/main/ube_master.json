@@ -1,0 +1,103 @@
+{
+  "parent": "ubesdelight:main/place_kalan",
+  "criteria": {
+    "ube_cookie": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:cookie_ube"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "ube_cake": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:ube_cake_slice"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "polvorone_ube": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:polvorone_ube"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "pandesal_ube": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:pandesal_ube"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "hopia_ube": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:hopia_ube"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "ube_milk_tea": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:milk_tea_ube"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "ubesdelight.advancement.ube_master.desc"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "ubesdelight:ube_cake_slice"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ubesdelight.advancement.ube_master"
+    }
+  },
+  "requirements": [
+    [
+      "ube_cookie"
+    ],
+    [
+      "ube_cake"
+    ],
+    [
+      "polvorone_ube"
+    ],
+    [
+      "pandesal_ube"
+    ],
+    [
+      "hopia_ube"
+    ],
+    [
+      "ube_milk_tea"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  }
+}

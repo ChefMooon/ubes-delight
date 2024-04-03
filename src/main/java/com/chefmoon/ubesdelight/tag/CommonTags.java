@@ -7,6 +7,7 @@ import net.minecraft.registry.tag.TagKey;
 
 
 public class CommonTags {
+    public static final TagKey<Item> C_ROLLING_PINS = TagUtil.registerCommonItem("rolling_pins");
     public static final TagKey<Item> C_TOOLS_KNIVES = TagUtil.registerCommonItem("tools/knives");
     public static final TagKey<Block> C_MINEABLE_KNIFE = TagUtil.registerCommonBlock("mineable/knife");
     public static final TagKey<Block> C_FARMLAND = TagUtil.registerCommonBlock("farmland");
@@ -19,6 +20,9 @@ public class CommonTags {
     public static final TagKey<Item> C_CROPS_UBE = TagUtil.registerCommonItem("crops/ube");
 
     public static final TagKey<Item> C_CROPS_ONION = TagUtil.registerCommonItem("crops/onion");
+    public static final TagKey<Item> C_CROPS_CABBAGE = TagUtil.registerCommonItem("crops/cabbage");
+    public static final TagKey<Item> C_CROPS_TOMATO = TagUtil.registerCommonItem("crops/tomato");
+    public static final TagKey<Item> C_CROPS_RICE = TagUtil.registerCommonItem("crops/rice");
 
     public static final TagKey<Item> C_FOOD_WRAPPERS = TagUtil.registerCommonItem("food_wrappers");
     public static final TagKey<Item> C_FOOD_WRAPPERS_LUMPIA_WRAPPER = TagUtil.registerCommonItem("food_wrappers/lumpia_wrapper");
@@ -43,9 +47,17 @@ public class CommonTags {
     public static final TagKey<Item> C_VEGETABLES_LEMONGRASS = TagUtil.registerCommonItem("vegetables/lemongrass");
     public static final TagKey<Item> C_VEGETABLES_UBE = TagUtil.registerCommonItem("vegetables/ube");
 
+    public static final TagKey<Item> C_RAW_BEEF = TagUtil.registerCommonItem("raw_beef");
+    public static final TagKey<Item> C_RAW_PORK = TagUtil.registerCommonItem("raw_pork");
+    public static final TagKey<Item> C_RAW_CHICKEN = TagUtil.registerCommonItem("raw_chicken");
     public static final TagKey<Item> C_RAW_FISHES = TagUtil.registerCommonItem("raw_fishes");
     public static final TagKey<Item> C_GRAIN = TagUtil.registerCommonItem("grain");
     public static final TagKey<Item> C_EGGS = TagUtil.registerCommonItem("eggs");
+    public static final TagKey<Item> C_COOKED_EGGS = TagUtil.registerCommonItem("cooked_eggs");
 
     public static final TagKey<Item> C_IRON_INGOTS = TagUtil.registerCommonItem("iron_ingots");
+
+    public static final TagKey<Item> C_DOUGH = TagUtil.registerCommonItem("dough");
+
+    public static final TagKey<Item> C_BONES = TagUtil.registerCommonItem("bones");
 }

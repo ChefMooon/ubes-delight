@@ -39,13 +39,15 @@ public class UbesDelightMod implements ModInitializer {
 
         ItemsRegistry.registerAll();
         BlocksRegistry.registerAll();
-        //BlockEntityTypesRegistry.registerAll();
+        BlockEntityTypesRegistry.registerAll();
         ConfiguredFeaturesRegistry.registerAll();
         PlacementModifiersRegistry.registerAll();
         BiomeFeaturesRegistry.registerAll();
+        RecipeTypesRegistry.registerAll();
+        AdvancementsRegistry.registerAll();
+        SoundsRegistry.registerAll();
         GeneralRegistryUtil.register();
         //ModMessages.registerC2SPackets();
-        //ModMessages.registerS2CPackets();
     }
 
     private void initConfiguration() {

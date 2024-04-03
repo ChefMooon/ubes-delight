@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ubesdelight:item/polvorone_pinipig_stage1"
+  }
+}

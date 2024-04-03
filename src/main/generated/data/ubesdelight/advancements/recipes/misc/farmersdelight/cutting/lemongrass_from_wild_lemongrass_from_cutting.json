@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:farmersdelight/cutting/lemongrass_from_wild_lemongrass_from_cutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tools_knives": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:tools/knives"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_tools_knives",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:farmersdelight/cutting/lemongrass_from_wild_lemongrass_from_cutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

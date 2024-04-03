@@ -1,7 +1,0 @@
-{
-  "parent": "ubesdelight:block/garlic_crop_cross",
-  "textures": {
-    "cross_v1": "ubesdelight:block/ginger_stage3_v1",
-    "cross_v2": "ubesdelight:block/ginger_stage3_v2"
-  }
-}

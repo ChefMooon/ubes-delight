@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "ubesdelight:item/wild_lemongrass"
+    "layer0": "ubesdelight:block/wild_lemongrass_top"
   }
 }

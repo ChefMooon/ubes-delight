@@ -1,0 +1,66 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cabbage_roll_ingredients": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "farmersdelight:cabbage_roll_ingredients"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_crops_lemongrass": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:crops/lemongrass"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_food_wrappers_lumpia_wrapper": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:food_wrappers/lumpia_wrapper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_salad_ingredients": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:salad_ingredients"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:farmersdelight/cooking/lumpia_from_cooking_pot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cabbage_roll_ingredients",
+      "has_salad_ingredients",
+      "has_crops_lemongrass",
+      "has_food_wrappers_lumpia_wrapper",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:farmersdelight/cooking/lumpia_from_cooking_pot"
+    ]
+  },
+  "sends_telemetry_event": false
+}

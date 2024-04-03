@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cocoa_beans": {
+      "conditions": {
+        "items": [
+          {
+            "count": {
+              "min": 3
+            },
+            "items": [
+              "minecraft:cocoa_beans"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_milk": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:milk"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pie_crust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersdelight:pie_crust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_tea_ingredients_sweet_weak": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:tea_ingredients/sweet/weak"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:ubesdelight/baking_mat/chocolate_pie_from_baking_mat"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_milk",
+      "has_cocoa_beans",
+      "has_pie_crust",
+      "has_tea_ingredients_sweet_weak",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:ubesdelight/baking_mat/chocolate_pie_from_baking_mat"
+    ]
+  },
+  "sends_telemetry_event": false
+}

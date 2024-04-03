@@ -5,11 +5,16 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "ChickenEntityBreedingMixin",
+    "EnchantmentEnhancementMixin",
+    "EnchantmentHelperEnhancementMixin",
     "PigEntityBreedingMixin",
+    "accessors.RecipeManagerAccessorMixin",
     "accessors.StructurePoolAccessorMixin"
   ],
   "client": [
-
+    "ItemRendererAccessor",
+    "ItemRendererMixin",
+    "ModelLoaderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

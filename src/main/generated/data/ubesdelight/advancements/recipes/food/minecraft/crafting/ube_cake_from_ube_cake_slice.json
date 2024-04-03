@@ -1,25 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "minecraft:minecraft/crafting/ube_cake_from_ube_cake_slice"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_ube_cake": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "ubesdelight:ube_cake"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_ube_cake_slice": {
+    "has_any_ingredient": {
       "conditions": {
         "items": [
           {
@@ -30,18 +12,23 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:minecraft/crafting/ube_cake_from_ube_cake_slice"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_ube_cake",
-      "has_ube_cake_slice",
+      "has_any_ingredient",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/ube_cake_from_ube_cake_slice"
+      "ubesdelight:minecraft/crafting/ube_cake_from_ube_cake_slice"
     ]
   },
   "sends_telemetry_event": false

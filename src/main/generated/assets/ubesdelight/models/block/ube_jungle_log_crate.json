@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "ubesdelight:block/jungle_log_crate_bottom",
-    "side": "ubesdelight:block/ube_jungle_log_crate_side",
-    "top": "ubesdelight:block/ube_jungle_log_crate_top"
-  }
-}

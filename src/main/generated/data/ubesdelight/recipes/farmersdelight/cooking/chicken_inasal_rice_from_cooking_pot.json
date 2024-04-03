@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 3.0,
+  "ingredients": [
+    {
+      "item": "ubesdelight:chicken_inasal"
+    },
+    {
+      "item": "ubesdelight:sinangag"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "ubesdelight:chicken_inasal_rice"
+  }
+}

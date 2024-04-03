@@ -1,6 +1,0 @@
-{
-  "parent": "ubesdelight:block/crop_cross",
-  "textures": {
-    "cross": "ubesdelight:block/tempwild"
-  }
-}

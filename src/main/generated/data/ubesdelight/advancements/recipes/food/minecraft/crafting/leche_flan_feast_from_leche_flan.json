@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_leche_flan": {
+    "has_any_ingredient": {
       "conditions": {
         "items": [
           {
@@ -13,35 +13,22 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_leche_flan_feast": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "ubesdelight:leche_flan_feast"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:minecraft/crafting/leche_flan_feast_from_leche_flan"
+        "recipe": "ubesdelight:minecraft/crafting/leche_flan_feast_from_leche_flan"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_leche_flan_feast",
-      "has_leche_flan",
+      "has_any_ingredient",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/leche_flan_feast_from_leche_flan"
+      "ubesdelight:minecraft/crafting/leche_flan_feast_from_leche_flan"
     ]
   },
   "sends_telemetry_event": false

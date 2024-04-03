@@ -1,0 +1,37 @@
+{
+  "parent": "ubesdelight:main/root",
+  "criteria": {
+    "kalan": {
+      "conditions": {
+        "location": [
+          {
+            "block": "ubesdelight:kalan",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "ubesdelight.advancement.place_kalan.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "ubesdelight:kalan"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ubesdelight.advancement.place_kalan"
+    }
+  },
+  "requirements": [
+    [
+      "kalan"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

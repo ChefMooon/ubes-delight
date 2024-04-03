@@ -77,6 +77,23 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(ItemsRegistry.BULALO.get())
                 .add(ItemsRegistry.ARROZ_CALDO.get())
                 .add(ItemsRegistry.MECHADO.get());
+
+        // Origins Item Tags
+        getOrCreateTagBuilder(CompatibilityTags.ORIGINS_IGNORE_DIET)
+                .add(ItemsRegistry.CONDENSED_MILK_BOTTLE.get())
+                .add(ItemsRegistry.FISH_SAUCE_BOTTLE.get());
+
+        getOrCreateTagBuilder(CompatibilityTags.ORIGINS_MEAT)
+                .add(ItemsRegistry.LUMPIA.get())
+                .add(ItemsRegistry.TOCINO.get())
+                .add(ItemsRegistry.CHICKEN_INASAL.get())
+                .add(ItemsRegistry.CHICKEN_INASAL_RICE.get())
+                .add(ItemsRegistry.TOSILOG.get())
+                .add(ItemsRegistry.BANGSILOG.get())
+                .add(ItemsRegistry.SISIG.get())
+                .add(ItemsRegistry.BULALO.get())
+                .add(ItemsRegistry.ARROZ_CALDO.get())
+                .add(ItemsRegistry.MECHADO.get());
     }
 
     private void registerCommonItemTags() {
@@ -138,5 +155,8 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(ItemsRegistry.LEMONGRASS.get());
         getOrCreateTagBuilder(CommonTags.C_VEGETABLES_UBE)
                 .add(ItemsRegistry.UBE.get());
+
+        getOrCreateTagBuilder(CommonTags.C_ROLLING_PINS)
+                .add(ItemsRegistry.ROLLING_PIN_WOOD.get());
     }
 }

@@ -3,6 +3,7 @@ package com.chefmoon.ubesdelight.data;
 import com.chefmoon.ubesdelight.block.*;
 import com.chefmoon.ubesdelight.registry.BlocksRegistry;
 import com.chefmoon.ubesdelight.registry.ItemsRegistry;
+import com.chefmoon.ubesdelight.tag.CommonTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
@@ -12,9 +13,12 @@ import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.condition.LootCondition;
+import net.minecraft.loot.condition.MatchToolLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
+import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.state.property.IntProperty;
 
 public class LootTableGenerator extends FabricBlockLootTableProvider {
@@ -25,16 +29,19 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
+        addDrop(BlocksRegistry.GLASS_CUP_HALO_HALO.get(),
+                LootTable.builder().pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
+                        .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(CommonTags.C_TOOLS_KNIVES)))
+                        .with(ItemEntry.builder(BlocksRegistry.GLASS_CUP_HALO_HALO.get()))));
+
         addDrop(BlocksRegistry.KALAN.get());
+
+        addDrop(BlocksRegistry.BAKING_MAT_BAMBOO.get());
 
         addDrop(BlocksRegistry.UBE_CRATE.get());
         addDrop(BlocksRegistry.GARLIC_CRATE.get());
         addDrop(BlocksRegistry.GINGER_CRATE.get());
         addDrop(BlocksRegistry.LEMONGRASS_CRATE.get());
-
-        addDrop(BlocksRegistry.UBE_JUNGLE_LOG_CRATE.get());
-
-        addDrop(BlocksRegistry.UBE_JUNGLE_CRATE.get());
 
         addCustomCropDrop(BlocksRegistry.UBE_CROP.get(),
                 ItemsRegistry.UBE.get(),

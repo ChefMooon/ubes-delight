@@ -1,19 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_garlic": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "ubesdelight:garlic"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_garlic_crate": {
+    "has_any_ingredient": {
       "conditions": {
         "items": [
           {
@@ -27,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:minecraft/crafting/garlic_from_garlic_crate"
+        "recipe": "ubesdelight:minecraft/crafting/garlic_from_garlic_crate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_garlic",
-      "has_garlic_crate",
+      "has_any_ingredient",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/garlic_from_garlic_crate"
+      "ubesdelight:minecraft/crafting/garlic_from_garlic_crate"
     ]
   },
   "sends_telemetry_event": false

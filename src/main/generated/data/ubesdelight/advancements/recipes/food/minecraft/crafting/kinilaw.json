@@ -1,12 +1,14 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bowl": {
+    "has_any_ingredient": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:bowl"
+              "minecraft:bowl",
+              "ubesdelight:garlic",
+              "ubesdelight:ginger"
             ]
           }
         ]
@@ -15,20 +17,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:minecraft/crafting/kinilaw"
+        "recipe": "ubesdelight:minecraft/crafting/kinilaw"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_bowl",
+      "has_any_ingredient",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/kinilaw"
+      "ubesdelight:minecraft/crafting/kinilaw"
     ]
   },
   "sends_telemetry_event": false

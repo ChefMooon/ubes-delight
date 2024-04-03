@@ -1,0 +1,8 @@
+{
+  "parent": "ubesdelight:block/template_drink_feast_stage1",
+  "textures": {
+    "inside": "ubesdelight:block/milk_tea_ube_feast",
+    "particle": "ubesdelight:block/punch_bowl",
+    "punch_bowl": "ubesdelight:block/punch_bowl"
+  }
+}

@@ -1,6 +1,6 @@
 package com.chefmoon.ubesdelight.item.enumeration;
 
-import com.chefmoon.ubesdelight.item.ConsumableItem;
+import com.chefmoon.ubesdelight.item.UDConsumableItem;
 import com.nhoryzon.mc.farmersdelight.registry.EffectsRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -17,29 +17,29 @@ public enum FoodItem {
     LEMONGRASS(2, .4f),
 
     //Finger Foods
-    SINANGAG(7, .45f, () -> new StatusEffectInstance(EffectsRegistry.COMFORT.get(), ConsumableItem.BRIEF_DURATION, 0), 1.f),
-    KINILAW(6, .6f, () -> new StatusEffectInstance(EffectsRegistry.COMFORT.get(), ConsumableItem.SHORT_DURATION, 0), 1.f, true, false, false),
+    SINANGAG(7, .45f, () -> new StatusEffectInstance(EffectsRegistry.COMFORT.get(), UDConsumableItem.BRIEF_DURATION, 0), 1.f),
+    KINILAW(6, .6f, () -> new StatusEffectInstance(EffectsRegistry.COMFORT.get(), UDConsumableItem.SHORT_DURATION, 0), 1.f, true, false, false),
     LUMPIA(7, .7f, null,0.f, true, false, false),
     TOCINO(8, .7f, null,.0f, true, true, false),
     CHICKEN_INASAL(8, .7f, null,.0f, true, true, false),
 
     //Meals
-    CHICKEN_INASAL_RICE(13, .75f, () -> new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), ConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
-    TOSILOG(13, .75f, () -> new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), ConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
-    BANGSILOG(13, .75f, () -> new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), ConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
-    SISIG(13, .7f, () -> new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), ConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
-    BULALO(14, .75f, () -> new StatusEffectInstance(EffectsRegistry.COMFORT.get(), ConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
-    ARROZ_CALDO(14, .75f, () -> new StatusEffectInstance(EffectsRegistry.COMFORT.get(), ConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
-    MECHADO(14, .75f, () -> new StatusEffectInstance(EffectsRegistry.COMFORT.get(), ConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
+    CHICKEN_INASAL_RICE(13, .75f, () -> new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), UDConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
+    TOSILOG(13, .75f, () -> new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), UDConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
+    BANGSILOG(13, .75f, () -> new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), UDConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
+    SISIG(13, .7f, () -> new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), UDConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
+    BULALO(14, .75f, () -> new StatusEffectInstance(EffectsRegistry.COMFORT.get(), UDConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
+    ARROZ_CALDO(14, .75f, () -> new StatusEffectInstance(EffectsRegistry.COMFORT.get(), UDConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
+    MECHADO(14, .75f, () -> new StatusEffectInstance(EffectsRegistry.COMFORT.get(), UDConsumableItem.LONG_DURATION, 0),1.f, true, false, false),
 
 
     //Drinkables
-    CONDENSED_MILK_BOTTLE(0, 0, () -> new StatusEffectInstance(StatusEffects.SPEED, ConsumableItem.SHORT_DURATION, 0), 1.f, false, false, true),
-    FISH_SAUCE_BOTTLE(0, 0, () -> new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, ConsumableItem.SHORT_DURATION, 0), 1.f, false, false, true),
+    CONDENSED_MILK_BOTTLE(0, 0, () -> new StatusEffectInstance(StatusEffects.SPEED, UDConsumableItem.SHORT_DURATION, 0), 1.f, false, false, true),
+    FISH_SAUCE_BOTTLE(0, 0, () -> new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, UDConsumableItem.SHORT_DURATION, 0), 1.f, false, false, true),
 
     //Milk Teas
-    MILK_TEA_UBE(0, 0, () -> new StatusEffectInstance(StatusEffects.NIGHT_VISION, ConsumableItem.SHORT_DURATION, 0), 1.f, false, false, true),
-    HALO_HALO(0, 0, () -> new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), ConsumableItem.MEDIUM_DURATION, 0), 1.f, false, false, true),
+    MILK_TEA_UBE(0, 0, () -> new StatusEffectInstance(StatusEffects.NIGHT_VISION, UDConsumableItem.SHORT_DURATION, 0), 1.f, false, false, true),
+    HALO_HALO(0, 0, () -> new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), UDConsumableItem.MEDIUM_DURATION, 0), 1.f, false, false, true),
 
     //Non-whole vegetables
     GARLIC_CHOP(1, .4f),
@@ -51,7 +51,18 @@ public enum FoodItem {
     POLVORONE(2, .2f, null,.0f, false, true, false),
 
     //Slices
-    UBE_CAKE_SLICE(2, .1f, () -> new StatusEffectInstance(StatusEffects.NIGHT_VISION, ConsumableItem.BRIEF_DURATION, 0), 1.f, false, true, false);
+    UBE_CAKE_SLICE(2, .1f, () -> new StatusEffectInstance(StatusEffects.NIGHT_VISION, UDConsumableItem.BRIEF_DURATION, 0), 1.f, false, true, false),
+
+    //Bread
+    PANDESAL(8, .8f),
+    PANDESAL_UBE(9, .8f, () -> new StatusEffectInstance(StatusEffects.NIGHT_VISION, UDConsumableItem.MEDIUM_DURATION, 0), 1.f),
+    PANDESAL_RAW(2, .3f, () -> new StatusEffectInstance(StatusEffects.HUNGER, UDConsumableItem.BRIEF_DURATION, 0), .3f),
+    ENSAYMADA(9, .9f),
+    ENSAYMADA_UBE(10, .9f, () -> new StatusEffectInstance(StatusEffects.NIGHT_VISION, UDConsumableItem.MEDIUM_DURATION, 0), 1.f),
+    ENSAYMADA_RAW(2, .3f, () -> new StatusEffectInstance(StatusEffects.HUNGER, UDConsumableItem.BRIEF_DURATION, 0), .3f),
+    HOPIA_MUNGGO(7, .7f),
+    HOPIA_UBE(7, .7f, () -> new StatusEffectInstance(StatusEffects.NIGHT_VISION, UDConsumableItem.MEDIUM_DURATION, 0), 1.f),
+    HOPIA_RAW(2, .3f, () -> new StatusEffectInstance(StatusEffects.HUNGER, UDConsumableItem.BRIEF_DURATION, 0), .3f);
 
     private final Supplier<FoodComponent> food;
     FoodItem(int hunger, float saturation) {

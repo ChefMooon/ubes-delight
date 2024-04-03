@@ -10,7 +10,7 @@
     "potatomadz"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/ubes-delight",
+    "homepage": "https://github.com/ChefMooon/ubes-delight/wiki",
     "issues": "https://github.com/ChefMooon/ubes-delight/issues"
   },
 
@@ -28,7 +28,12 @@
     "client": [
       "com.chefmoon.ubesdelight.UbesDelightModClient"
     ],
-    "modmenu": [ "com.chefmoon.ubesdelight.integration.modmenu.UbesDelightModMenu" ]
+    "rei_client": [
+      "com.chefmoon.ubesdelight.integration.rei.UbesDelightREI"
+    ],
+    "modmenu": [
+      "com.chefmoon.ubesdelight.integration.modmenu.UbesDelightModMenu"
+    ]
   },
   "mixins": [
     "ubesdelight.mixins.json"

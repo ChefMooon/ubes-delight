@@ -1,0 +1,90 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bones": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:bones"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_crops_cabbage": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:crops/cabbage"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_crops_lemongrass": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:crops/lemongrass"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_crops_onion": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:crops/onion"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_fish_sauce_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:fish_sauce_bottle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_raw_beef": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:raw_beef"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:farmersdelight/cooking/bulalo_from_cooking_pot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_beef",
+      "has_bones",
+      "has_crops_onion",
+      "has_crops_cabbage",
+      "has_fish_sauce_bottle",
+      "has_crops_lemongrass",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:farmersdelight/cooking/bulalo_from_cooking_pot"
+    ]
+  },
+  "sends_telemetry_event": false
+}

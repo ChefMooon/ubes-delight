@@ -3,6 +3,7 @@
   "category": "food",
   "cookingtime": 600,
   "experience": 0.5,
+  "group": "ubesdelight",
   "ingredient": {
     "item": "minecraft:sugar"
   },

@@ -38,7 +38,7 @@ public class CuttingBoardRecipeJsonBuilder extends RecipeJsonBuilder implements 
         this.tool = tool;
     }
 
-    public static CuttingBoardRecipeJsonBuilder create(Item input, Ingredient tool, Item output, Integer count, Integer chance) {
+    public static CuttingBoardRecipeJsonBuilder create(Item input, Ingredient tool, Item output, Integer count, float chance) {
         return new CuttingBoardRecipeJsonBuilder(Ingredient.ofItems(input), tool, new ItemStack(output), count, chance);
     }
     public static CuttingBoardRecipeJsonBuilder create(Item input, Ingredient tool, Item output, Integer count) {
@@ -46,6 +46,19 @@ public class CuttingBoardRecipeJsonBuilder extends RecipeJsonBuilder implements 
     }
     public static CuttingBoardRecipeJsonBuilder create(Item input, Ingredient tool, Item output) {
         return new CuttingBoardRecipeJsonBuilder(Ingredient.ofItems(input), tool, new ItemStack(output), 1, 1);
+    }
+
+    public CuttingBoardRecipeJsonBuilder output(Item output, Integer count, float chance) {
+        this.results.add(new ChanceResult(new ItemStack(output, count), chance));
+        return this;
+    }
+
+    public CuttingBoardRecipeJsonBuilder output(Item output, float chance) {
+        return this.output(output, 1, chance);
+    }
+
+    public CuttingBoardRecipeJsonBuilder output(Item output) {
+        return this.output(output, 1, 1.0F);
     }
 
     @Override
@@ -69,9 +82,9 @@ public class CuttingBoardRecipeJsonBuilder extends RecipeJsonBuilder implements 
 
     @Override
     public void offerTo(Consumer<RecipeJsonProvider> exporter, Identifier recipeId) {
-        //this.validate(recipeId);
-        this.advancementBuilder.parent(ROOT).criterion("has_the_recipe", RecipeUnlockedCriterion.create(recipeId)).rewards(net.minecraft.advancement.AdvancementRewards.Builder.recipe(recipeId)).criteriaMerger(CriterionMerger.OR);
+        this.validate(recipeId);
         String fdCuttingPrefix = "farmersdelight/cutting/";
+        this.advancementBuilder.parent(ROOT).criterion("has_the_recipe", RecipeUnlockedCriterion.create(recipeId.withPrefixedPath(fdCuttingPrefix))).rewards(net.minecraft.advancement.AdvancementRewards.Builder.recipe(recipeId.withPrefixedPath(fdCuttingPrefix))).criteriaMerger(CriterionMerger.OR);
         exporter.accept(new CuttingBoardRecipeJsonProvider(recipeId.withPrefixedPath(fdCuttingPrefix), this.results, this.ingredient, this.tool, this.soundEventID, this.advancementBuilder, recipeId.withPrefixedPath("recipes/misc/" + fdCuttingPrefix)));
     }
 
@@ -92,7 +105,7 @@ public class CuttingBoardRecipeJsonBuilder extends RecipeJsonBuilder implements 
         private List<ChanceResult> results;
         private final Ingredient ingredient;
         private final Ingredient tool;
-        private String soundEventID;
+        private final String soundEventID;
         private final Advancement.Builder advancementBuilder;
         private final Identifier advancementId;
 
@@ -108,7 +121,6 @@ public class CuttingBoardRecipeJsonBuilder extends RecipeJsonBuilder implements 
         }
 
         public void serialize(JsonObject json) {
-            //TODO: Add a fabric load condition?
             JsonArray ingredients = new JsonArray();
             ingredients.add(this.ingredient.toJson());
             json.add("ingredients", ingredients);

@@ -1,16 +1,18 @@
-// 1.20.1	2023-08-23T14:56:04.4636471	Ube's Delight/Tags for minecraft:item
+// 1.20.1	2024-04-02T12:54:24.6679966	Ube's Delight/Tags for minecraft:item
 c16e7eb6f0768aee26838e1a8a7f32bb2e2cea09 data\c\tags\items\crops\lemongrass.json
 a3c6ba1f4f732242f5a5ab6853d37368011eec88 data\c\tags\items\milk\milk_bottle.json
 b278d5cf10c35581223f819b3b026737e4328b20 data\supplementaries\tags\items\cookies.json
 1a369931fff43be1b86538b04d7cb48fe3ec3113 data\c\tags\items\tea_ingredients.json
 d6a58b5a87f63e78f699ff4a22a42e3de95fdeb8 data\c\tags\items\crops\garlic.json
 b2834d761b83835a49afb3a87c0e81b9e8d5b494 data\farmersdelight\tags\items\wild_crops.json
+6877cb2c0b43d9e96eb9d27f07ca10c69a7faeb5 data\origins\tags\items\meat.json
 4f7fc7c85b8cde0f02b6aaf5699dd51f6602b263 data\c\tags\items\tea_ingredients\sweet\weak.json
 0fa31c6470737f4609651fec6b80652779d8649f data\c\tags\items\food_wrappers\lumpia_wrapper.json
 a5baa635f43fdd97617690eab27e71291d896927 data\c\tags\items\salad_ingredients.json
 7a13bef8ac508d63933308c508237f8ae0e44b69 data\dehydration\tags\items\hydrating_stew.json
 37f3aaad7d39a59568c16932cca4a2c23559a80a data\create\tags\items\upright_on_belt.json
 b13d73a47f7ddd8c6bbd51fd5f55a2ed6a79bb7f data\c\tags\items\crops.json
+71c7c3a8690c45de212fd6f39ef1e6f4bc6df097 data\c\tags\items\rolling_pins.json
 34ffa64266b49a87157ccf311288bd7d74129158 data\c\tags\items\vegetables\ube.json
 e38068d3e243aad20db0a0f80bfcf9075c0c7639 data\c\tags\items\food_wrappers.json
 34ffa64266b49a87157ccf311288bd7d74129158 data\c\tags\items\crops\ube.json
@@ -23,6 +25,7 @@ c2e99c4edb2488e0843dad1278e6461bdfaacdad data\c\tags\items\foods.json
 49ec80c3b30eb690d6ee18204ac109d9930613b8 data\c\tags\items\crops\ginger.json
 e508242511826c27e0f96699882bb7bba0210e5a data\c\tags\items\vegetables.json
 b2834d761b83835a49afb3a87c0e81b9e8d5b494 data\minecraft\tags\items\small_flowers.json
+12a48abb4414417b18c2fa5450c53487515cdd12 data\origins\tags\items\ignore_diet.json
 34ffa64266b49a87157ccf311288bd7d74129158 data\farmersdelight\tags\items\cabbage_roll_ingredients.json
 ec0ab8221cba09c064a19c8ede8f0c896b1d4e91 data\c\tags\items\vegetables\garlic.json
 b8ae9a5d9881e1d182d7c35a427630eceab6c933 data\c\tags\items\seeds.json

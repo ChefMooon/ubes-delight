@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "ubesdelight:ube"
+    },
+    "title": {
+      "translate": "ubesdelight.advancement.root"
+    },
+    "description": {
+      "translate": "ubesdelight.advancement.root.desc"
+    },
+    "background": "minecraft:textures/block/bamboo_block.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "ud_root": {
+      "conditions": {},
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "ud_root"
+    ]
+  ]
+}

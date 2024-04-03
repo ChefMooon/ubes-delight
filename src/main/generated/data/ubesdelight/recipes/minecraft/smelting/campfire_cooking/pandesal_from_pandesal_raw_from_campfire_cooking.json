@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 0.5,
+  "group": "ubesdelight",
+  "ingredient": {
+    "item": "ubesdelight:pandesal_raw"
+  },
+  "result": "ubesdelight:pandesal"
+}

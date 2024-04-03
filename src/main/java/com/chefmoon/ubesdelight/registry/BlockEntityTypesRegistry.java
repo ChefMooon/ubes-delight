@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 
 public enum BlockEntityTypesRegistry {
 
-    BAKING_MAT("baking_mat", BakingMatBlockEntity.class, BakingMatBlockEntity::new, BlocksRegistry.BAKING_MAT);
+    BAKING_MAT_BAMBOO("baking_mat_bamboo", BakingMatBlockEntity.class, BakingMatBlockEntity::new, BlocksRegistry.BAKING_MAT_BAMBOO);
     private final String pathName;
     private final Class<? extends BlockEntity> blockEntityClass;
     private final Supplier<BlockEntityType<? extends BlockEntity>> blockEntityTypeSupplier;

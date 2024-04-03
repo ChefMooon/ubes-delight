@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "ubesdelight:item/hopia_munggo_raw_eating_2"
+  }
+}

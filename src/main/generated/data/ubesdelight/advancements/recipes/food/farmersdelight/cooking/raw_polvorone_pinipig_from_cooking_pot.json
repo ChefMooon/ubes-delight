@@ -1,0 +1,68 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crops_rice": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:crops/rice"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_grain": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:grain"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_milk_powder": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:milk_powder"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_tea_ingredients_sweet_weak": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:tea_ingredients/sweet/weak"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:farmersdelight/cooking/raw_polvorone_pinipig_from_cooking_pot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_grain",
+      "has_tea_ingredients_sweet_weak",
+      "has_milk_powder",
+      "has_crops_rice",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:farmersdelight/cooking/raw_polvorone_pinipig_from_cooking_pot"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,11 +1,10 @@
 {
   "replace": false,
   "values": [
+    "ubesdelight:baking_mat_bamboo",
     "ubesdelight:ube_crate",
     "ubesdelight:garlic_crate",
     "ubesdelight:ginger_crate",
-    "ubesdelight:lemongrass_crate",
-    "ubesdelight:ube_jungle_log_crate",
-    "ubesdelight:ube_jungle_crate"
+    "ubesdelight:lemongrass_crate"
   ]
 }

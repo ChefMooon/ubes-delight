@@ -15,9 +15,11 @@ public class SmeltingRecipes {
         RecipeUtil.offerSmeltCampSmokeRecipe(Items.SUGAR, RecipeCategory.FOOD, ItemsRegistry.SUGAR_BROWN.get(), .5f, 200, exporter);
         RecipeUtil.offerSmeltCampSmokeFromTag(CommonTags.C_MILK_MILK_BOTTLE, ItemsRegistry.MILK_POWDER.get(), .2f, 200, exporter);
 
-        RecipeUtil.offerSmeltCampSmokeRecipe(ItemsRegistry.RAW_POLVORONE.get(), RecipeCategory.FOOD, ItemsRegistry.POLVORONE.get(), .3F, 100, exporter);
-        RecipeUtil.offerSmeltCampSmokeRecipe(ItemsRegistry.RAW_POLVORONE_PINIPIG.get(), RecipeCategory.FOOD, ItemsRegistry.POLVORONE_PINIPIG.get(), .3F, 100, exporter);
-        RecipeUtil.offerSmeltCampSmokeRecipe(ItemsRegistry.RAW_POLVORONE_UBE.get(), RecipeCategory.FOOD, ItemsRegistry.POLVORONE_UBE.get(), .3F, 100, exporter);
-        RecipeUtil.offerSmeltCampSmokeRecipe(ItemsRegistry.RAW_POLVORONE_CC.get(), RecipeCategory.FOOD, ItemsRegistry.POLVORONE_CC.get(), .3F, 100, exporter);
+        RecipeUtil.offerSmeltCampSmokeRecipe(ItemsRegistry.PANDESAL_RAW.get(), RecipeCategory.FOOD, ItemsRegistry.PANDESAL.get(), .5F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeRecipe(ItemsRegistry.PANDESAL_UBE_RAW.get(), RecipeCategory.FOOD, ItemsRegistry.PANDESAL_UBE.get(), .5F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeRecipe(ItemsRegistry.ENSAYMADA_RAW.get(), RecipeCategory.FOOD, ItemsRegistry.ENSAYMADA.get(), .5F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeRecipe(ItemsRegistry.ENSAYMADA_UBE_RAW.get(), RecipeCategory.FOOD, ItemsRegistry.ENSAYMADA_UBE.get(), .5F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeRecipe(ItemsRegistry.HOPIA_MUNGGO_RAW.get(), RecipeCategory.FOOD, ItemsRegistry.HOPIA_MUNGGO.get(), .5F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeRecipe(ItemsRegistry.HOPIA_UBE_RAW.get(), RecipeCategory.FOOD, ItemsRegistry.HOPIA_UBE.get(), .5F, 200, exporter);
     }
 }

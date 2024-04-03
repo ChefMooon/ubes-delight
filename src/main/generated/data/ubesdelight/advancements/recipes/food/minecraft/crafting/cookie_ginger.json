@@ -1,11 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ginger": {
+    "has_any_ingredient": {
       "conditions": {
         "items": [
           {
-            "tag": "c:vegetables/ginger"
+            "items": [
+              "ubesdelight:ginger"
+            ]
           }
         ]
       },
@@ -13,33 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:minecraft/crafting/cookie_ginger"
+        "recipe": "ubesdelight:minecraft/crafting/cookie_ginger"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_wheat": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:wheat"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_ginger",
-      "has_wheat",
+      "has_any_ingredient",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/cookie_ginger"
+      "ubesdelight:minecraft/crafting/cookie_ginger"
     ]
   },
   "sends_telemetry_event": false

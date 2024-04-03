@@ -1,0 +1,49 @@
+{
+  "parent": "ubesdelight:main/place_kalan",
+  "criteria": {
+    "milk_tea_ube_feast": {
+      "conditions": {
+        "location": [
+          {
+            "block": "ubesdelight:milk_tea_ube_feast",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "halo_halo_feast": {
+      "conditions": {
+        "location": [
+          {
+            "block": "ubesdelight:halo_halo_feast",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "ubesdelight.advancement.place_drinkable_feast.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "ubesdelight:halo_halo_feast"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ubesdelight.advancement.place_drinkable_feast"
+    }
+  },
+  "requirements": [
+    [
+      "milk_tea_ube_feast",
+      "halo_halo_feast"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

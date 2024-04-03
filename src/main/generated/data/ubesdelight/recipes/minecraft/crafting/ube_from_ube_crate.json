@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "ubesdelight",
   "ingredients": [
     {
       "item": "ubesdelight:ube_crate"

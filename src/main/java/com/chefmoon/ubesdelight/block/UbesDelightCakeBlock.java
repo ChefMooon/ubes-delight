@@ -160,7 +160,7 @@ public class UbesDelightCakeBlock extends Block {
             world.removeBlock(pos, false);
         }
         ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), getCakeSliceStack());
-        world.playSound(null, pos, SoundEvents.BLOCK_WOOL_BREAK, SoundCategory.PLAYERS, 0.8F, 0.8F);
+        world.playSound(null, pos, SoundEvents.BLOCK_WOOL_BREAK, SoundCategory.PLAYERS, 0.8F, 0.8F); // Add correct subtitle?
 
         return ActionResult.SUCCESS;
     }

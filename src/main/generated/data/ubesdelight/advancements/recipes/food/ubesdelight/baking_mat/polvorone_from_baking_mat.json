@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_polvorone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:raw_polvorone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:ubesdelight/baking_mat/polvorone_from_baking_mat"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_polvorone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:ubesdelight/baking_mat/polvorone_from_baking_mat"
+    ]
+  },
+  "sends_telemetry_event": false
+}

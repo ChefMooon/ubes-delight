@@ -37,7 +37,7 @@ public class LemongrassStalkCropBlock extends PlantBlock implements Fertilizable
             Block.createCuboidShape(1.d, .0d, 1.d, 15.d, 16.d, 15.d)
     };
     public LemongrassStalkCropBlock() {
-        super(FabricBlockSettings.copyOf(Blocks.WHEAT));
+        super(FabricBlockSettings.copyOf(Blocks.WHEAT).strength(0.2F));
         setDefaultState(getStateManager().getDefaultState().with(AGE, 0).with(SUPPORTING, false));
     }
 

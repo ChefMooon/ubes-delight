@@ -1,45 +1,34 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "minecraft:minecraft/crafting/cookie_ube"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_ube": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "c:vegetables/ube"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_wheat": {
+    "has_any_ingredient": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:wheat"
+              "ubesdelight:ube"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:minecraft/crafting/cookie_ube"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_ube",
-      "has_wheat",
+      "has_any_ingredient",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/cookie_ube"
+      "ubesdelight:minecraft/crafting/cookie_ube"
     ]
   },
   "sends_telemetry_event": false

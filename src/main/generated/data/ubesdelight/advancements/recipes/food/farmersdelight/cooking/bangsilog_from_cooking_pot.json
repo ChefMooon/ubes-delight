@@ -1,0 +1,57 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cooked_eggs": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:cooked_eggs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_raw_fishes": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:raw_fishes"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sinangag": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:sinangag"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:farmersdelight/cooking/bangsilog_from_cooking_pot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_fishes",
+      "has_sinangag",
+      "has_cooked_eggs",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:farmersdelight/cooking/bangsilog_from_cooking_pot"
+    ]
+  },
+  "sends_telemetry_event": false
+}

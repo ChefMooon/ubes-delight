@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "ubesdelight:block/wild_lemongrass_bottom"
+    },
+    "half=upper": {
+      "model": "ubesdelight:block/wild_lemongrass_top"
+    }
+  }
+}

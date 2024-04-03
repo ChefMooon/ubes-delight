@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:minecraft/crafting/kalan"
+        "recipe": "ubesdelight:minecraft/crafting/kalan"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/kalan"
+      "ubesdelight:minecraft/crafting/kalan"
     ]
   },
   "sends_telemetry_event": false

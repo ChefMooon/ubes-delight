@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_condensed_milk_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:condensed_milk_bottle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_eggs": {
+      "conditions": {
+        "items": [
+          {
+            "count": {
+              "min": 2
+            },
+            "tag": "c:eggs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_tea_ingredients_sweet_weak": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:tea_ingredients/sweet/weak"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:farmersdelight/cooking/leche_flan_from_cooking_pot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_eggs",
+      "has_tea_ingredients_sweet_weak",
+      "has_condensed_milk_bottle",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:farmersdelight/cooking/leche_flan_from_cooking_pot"
+    ]
+  },
+  "sends_telemetry_event": false
+}

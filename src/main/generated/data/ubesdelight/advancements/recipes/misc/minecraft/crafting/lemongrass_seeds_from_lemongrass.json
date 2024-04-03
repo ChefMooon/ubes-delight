@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_lemongrass": {
+    "has_any_ingredient": {
       "conditions": {
         "items": [
           {
@@ -13,35 +13,22 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_lemongrass_seeds": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "ubesdelight:lemongrass_seeds"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:minecraft/crafting/lemongrass_seeds_from_lemongrass"
+        "recipe": "ubesdelight:minecraft/crafting/lemongrass_seeds_from_lemongrass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_lemongrass_seeds",
-      "has_lemongrass",
+      "has_any_ingredient",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/lemongrass_seeds_from_lemongrass"
+      "ubesdelight:minecraft/crafting/lemongrass_seeds_from_lemongrass"
     ]
   },
   "sends_telemetry_event": false

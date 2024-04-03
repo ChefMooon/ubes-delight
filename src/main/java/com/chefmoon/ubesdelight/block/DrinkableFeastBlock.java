@@ -1,6 +1,7 @@
 package com.chefmoon.ubesdelight.block;
 
 import com.chefmoon.ubesdelight.UbesDelightMod;
+import com.chefmoon.ubesdelight.registry.SoundsRegistry;
 import com.chefmoon.ubesdelight.tag.CommonTags;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -14,7 +15,6 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
@@ -44,7 +44,7 @@ public class DrinkableFeastBlock extends Block {
     public Item servingItem;
 
     public DrinkableFeastBlock(Item servingItem) {
-        super(FabricBlockSettings.copyOf(Blocks.GLASS));
+        super(FabricBlockSettings.copyOf(Blocks.GLASS).notSolid());
         this.servingItem = servingItem;
         setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(SERVINGS, MAX_SERVINGS));
     }
@@ -82,10 +82,26 @@ public class DrinkableFeastBlock extends Block {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.isClient() && dispenseDrink(world, pos, state, player, hand).isAccepted()) {
-            return ActionResult.SUCCESS;
+        ItemStack serving = getServingStack(state);
+        ItemStack heldItem = player.getStackInHand(hand);
+
+        if (world.isClient()) {
+            if (heldItem.isOf(serving.getItem())) {
+                if (addDrink(world, pos, state, player, hand).isAccepted()) {
+                    return ActionResult.SUCCESS;
+                }
+            } else {
+                if (dispenseDrink(world, pos, state, player, hand).isAccepted()) {
+                    return ActionResult.SUCCESS;
+                }
+            }
         }
-        return dispenseDrink(world, pos, state, player, hand);
+
+        if (heldItem.isOf(serving.getItem())) {
+            return addDrink(world, pos, state, player, hand);
+        } else {
+            return dispenseDrink(world, pos, state, player, hand);
+        }
     }
 
     @Override
@@ -111,7 +127,7 @@ public class DrinkableFeastBlock extends Block {
 
     @Override
     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
-        return MAX_SERVINGS - state.get(SERVINGS);
+        return state.get(getServingsProperty());
     }
 
     @Override
@@ -130,23 +146,19 @@ public class DrinkableFeastBlock extends Block {
     protected ActionResult dispenseDrink(World world, BlockPos pos, BlockState state, PlayerEntity player, Hand hand) {
         int servings = state.get(getServingsProperty());
 
-        if (servings == 0) {
-            return ActionResult.FAIL;
-        }
-
-        ItemStack serving = getServingStack(state);
-        ItemStack heldItem = player.getStackInHand(hand);
-
-        if (servings > 0 ) {
+        if (servings > 0) {
+            ItemStack serving = getServingStack(state);
+            ItemStack heldItem = player.getStackInHand(hand);
             if (heldItem.isOf(Items.GLASS_BOTTLE)) {
                 world.setBlockState(pos, state.with(getServingsProperty(), servings - 1), 3);
-                world.playSound(null, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.PLAYERS, 0.8F, 0.8F);
+                world.playSound(null, pos, SoundsRegistry.BLOCK_DRINKABLE_FEAST_REMOVE.get(), SoundCategory.PLAYERS, 0.8F, 0.8F);
                 if (!player.getAbilities().creativeMode) {
                     heldItem.decrement(1);
+                    if (!player.getInventory().insertStack(serving)) {
+                        player.dropItem(serving, false);
+                    }
                 }
-                if (!player.getInventory().insertStack(serving)) {
-                    player.dropItem(serving, false);
-                }
+                return ActionResult.SUCCESS;
             } else {
                 if (world.isClient()) {
                     player.sendMessage(UbesDelightMod.tooltip("container.halo_halo_feast"), true);
@@ -154,6 +166,27 @@ public class DrinkableFeastBlock extends Block {
             }
         }
 
-        return ActionResult.SUCCESS;
+        return ActionResult.FAIL;
+    }
+
+    protected ActionResult addDrink(World world, BlockPos pos, BlockState state, PlayerEntity player, Hand hand) {
+        int servings = state.get(getServingsProperty());
+
+        if (servings < MAX_SERVINGS) {
+            ItemStack heldItem = player.getStackInHand(hand);
+            ItemStack container = new ItemStack(Items.GLASS_BOTTLE);
+            world.setBlockState(pos, state.with(getServingsProperty(), servings + 1), 3);
+            //TODO: make a add sound
+            world.playSound(null, pos, SoundsRegistry.BLOCK_DRINKABLE_FEAST_ADD.get(), SoundCategory.PLAYERS, 0.8F, 0.8F);
+            if (!player.getAbilities().creativeMode) {
+                heldItem.decrement(1);
+                if (!player.getInventory().insertStack(container)) {
+                    player.dropItem(container, false);
+                }
+            }
+            return ActionResult.SUCCESS;
+        }
+
+        return ActionResult.FAIL;
     }
 }

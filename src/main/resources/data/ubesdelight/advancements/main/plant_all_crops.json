@@ -1,0 +1,81 @@
+{
+  "parent": "ubesdelight:main/get_ud_seed",
+  "criteria": {
+    "ube": {
+      "conditions": {
+        "location": [
+          {
+            "block": "ubesdelight:ube_crop",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "garlic": {
+      "conditions": {
+        "location": [
+          {
+            "block": "ubesdelight:garlic_crop",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "ginger": {
+      "conditions": {
+        "location": [
+          {
+            "block": "ubesdelight:ginger_crop",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "lemongrass": {
+      "conditions": {
+        "location": [
+          {
+            "block": "ubesdelight:lemongrass_stalk_crop",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "ubesdelight.advancement.plant_all_crops.desc"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "ubesdelight:lemongrass"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ubesdelight.advancement.plant_all_crops"
+    }
+  },
+  "requirements": [
+    [
+      "ube"
+    ],
+    [
+      "garlic"
+    ],
+    [
+      "ginger"
+    ],
+    [
+      "lemongrass"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  }
+}
