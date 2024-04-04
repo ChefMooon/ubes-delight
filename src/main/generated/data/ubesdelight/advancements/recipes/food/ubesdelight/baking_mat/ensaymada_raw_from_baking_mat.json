@@ -1,21 +1,21 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dough": {
+    "has_foods_doughs": {
       "conditions": {
         "items": [
           {
-            "tag": "c:dough"
+            "tag": "c:foods/doughs"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_milk": {
+    "has_milks": {
       "conditions": {
         "items": [
           {
-            "tag": "c:milk"
+            "tag": "c:milks"
           }
         ]
       },
@@ -40,9 +40,9 @@
   },
   "requirements": [
     [
-      "has_dough",
+      "has_foods_doughs",
       "has_tea_ingredients_sweet_weak",
-      "has_milk",
+      "has_milks",
       "has_the_recipe"
     ]
   ],

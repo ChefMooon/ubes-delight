@@ -13,11 +13,21 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_raw_pork": {
+    "has_crops_ginger": {
       "conditions": {
         "items": [
           {
-            "tag": "c:raw_pork"
+            "tag": "c:crops/ginger"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods_raw_meats_raw_pork": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:foods/raw_meats/raw_pork"
           }
         ]
       },
@@ -38,23 +48,13 @@
         "recipe": "ubesdelight:farmersdelight/cooking/tocino_from_cooking_pot"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vegetables_ginger": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "c:vegetables/ginger"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_raw_pork",
+      "has_foods_raw_meats_raw_pork",
       "has_tea_ingredients_sweet_weak",
-      "has_vegetables_ginger",
+      "has_crops_ginger",
       "has_beetroot",
       "has_the_recipe"
     ]

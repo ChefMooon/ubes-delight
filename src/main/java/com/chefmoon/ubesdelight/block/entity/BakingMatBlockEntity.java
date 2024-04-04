@@ -304,7 +304,7 @@ public class BakingMatBlockEntity extends BlockEntity implements ImplementedInve
 
         if (sound != null) {
             playSound(sound, 1.f, 1.f);
-        } else if (tool.getDefaultStack().isIn(CommonTags.C_ROLLING_PINS)){
+        } else if (tool.getDefaultStack().isIn(CommonTags.C_TOOLS_ROLLING_PINS)){
             playSound(SoundsRegistry.BLOCK_BAKING_MAT_ROLLING_PIN.get(), 1.f, .8f);
         }
     }

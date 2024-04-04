@@ -13,11 +13,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_grain": {
+    "has_grains": {
       "conditions": {
         "items": [
           {
-            "tag": "c:grain"
+            "tag": "c:grains"
           }
         ]
       },
@@ -54,7 +54,7 @@
   },
   "requirements": [
     [
-      "has_grain",
+      "has_grains",
       "has_tea_ingredients_sweet_weak",
       "has_milk_powder",
       "has_cookie",

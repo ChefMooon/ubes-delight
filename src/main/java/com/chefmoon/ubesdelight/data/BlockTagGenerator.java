@@ -48,7 +48,9 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
                 .add(BlocksRegistry.WILD_UBE.get())
                 .add(BlocksRegistry.WILD_GARLIC.get())
-                .add(BlocksRegistry.WILD_GINGER.get())
+                .add(BlocksRegistry.WILD_GINGER.get());
+
+        getOrCreateTagBuilder(BlockTags.TALL_FLOWERS)
                 .add(BlocksRegistry.WILD_LEMONGRASS.get());
 
         getOrCreateTagBuilder(BlockTags.CROPS)
@@ -66,8 +68,11 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
 
     private void registerCompatibilityBlockTags() {
         // Create Block Tags
-        getOrCreateTagBuilder(CompatibilityTags.CREATE_FAN_HEATERS)
+        getOrCreateTagBuilder(CompatibilityTags.CREATE_PASSIVE_BOILER_HEATERS)
                 .add(BlocksRegistry.KALAN.get());
+
+        getOrCreateTagBuilder(CompatibilityTags.CREATE_BRITTLE)
+                .add(BlocksRegistry.BAKING_MAT_BAMBOO.get());
 
         // Farmer's Delight Block Tags
         getOrCreateTagBuilder(CompatibilityTags.FARMERS_DELIGHT_HEAT_SOURCES)

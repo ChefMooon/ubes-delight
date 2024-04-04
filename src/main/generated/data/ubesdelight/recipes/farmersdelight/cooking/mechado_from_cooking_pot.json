@@ -4,19 +4,19 @@
   "experience": 4.0,
   "ingredients": [
     {
-      "tag": "c:raw_beef"
+      "tag": "c:foods/raw_meats/raw_beef"
     },
     {
       "tag": "c:crops/onion"
     },
     {
-      "tag": "c:vegetables/garlic"
+      "tag": "c:crops/garlic"
     },
     {
       "tag": "c:crops/tomato"
     },
     {
-      "tag": "c:vegetables"
+      "tag": "c:crops"
     },
     {
       "item": "ubesdelight:fish_sauce_bottle"

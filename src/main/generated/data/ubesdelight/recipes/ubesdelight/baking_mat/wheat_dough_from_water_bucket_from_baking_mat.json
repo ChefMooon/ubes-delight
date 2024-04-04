@@ -26,6 +26,6 @@
     }
   ],
   "tool": {
-    "tag": "c:rolling_pins"
+    "tag": "c:tools/rolling_pins"
   }
 }

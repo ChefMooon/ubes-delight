@@ -1,21 +1,21 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cooked_eggs": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "c:cooked_eggs"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_fishes": {
       "conditions": {
         "items": [
           {
             "tag": "minecraft:fishes"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods_cooked_meats_cooked_eggs": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:foods/cooked_meats/cooked_eggs"
           }
         ]
       },
@@ -44,7 +44,7 @@
     [
       "has_fishes",
       "has_sinangag",
-      "has_cooked_eggs",
+      "has_foods_cooked_meats_cooked_eggs",
       "has_the_recipe"
     ]
   ],

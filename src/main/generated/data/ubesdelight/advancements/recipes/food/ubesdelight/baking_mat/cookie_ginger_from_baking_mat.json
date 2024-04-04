@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rolling_pins": {
+    "has_crops_ginger": {
       "conditions": {
         "items": [
           {
-            "tag": "c:rolling_pins"
+            "tag": "c:crops/ginger"
           }
         ]
       },
@@ -17,11 +17,11 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_vegetables_ginger": {
+    "has_tools_rolling_pins": {
       "conditions": {
         "items": [
           {
-            "tag": "c:vegetables/ginger"
+            "tag": "c:tools/rolling_pins"
           }
         ]
       },
@@ -46,8 +46,8 @@
   "requirements": [
     [
       "has_wheat",
-      "has_vegetables_ginger",
-      "has_rolling_pins",
+      "has_crops_ginger",
+      "has_tools_rolling_pins",
       "has_the_recipe"
     ]
   ],

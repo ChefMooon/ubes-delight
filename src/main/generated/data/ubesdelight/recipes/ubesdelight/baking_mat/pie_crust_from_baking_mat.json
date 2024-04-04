@@ -11,7 +11,7 @@
       "item": "minecraft:wheat"
     },
     {
-      "tag": "c:milk"
+      "tag": "c:milks"
     }
   ],
   "processing_stages": [],
@@ -25,6 +25,6 @@
     }
   ],
   "tool": {
-    "tag": "c:rolling_pins"
+    "tag": "c:tools/rolling_pins"
   }
 }

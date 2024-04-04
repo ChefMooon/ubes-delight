@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -29,7 +30,9 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS)
                 .add(ItemsRegistry.WILD_UBE.get())
                 .add(ItemsRegistry.WILD_GARLIC.get())
-                .add(ItemsRegistry.WILD_GINGER.get())
+                .add(ItemsRegistry.WILD_GINGER.get());
+
+        getOrCreateTagBuilder(ItemTags.TALL_FLOWERS)
                 .add(ItemsRegistry.WILD_LEMONGRASS.get());
     }
     private void registerCompatibiltyItemTags() {
@@ -103,12 +106,30 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .forceAddTag(CommonTags.C_CROPS_GINGER)
                 .forceAddTag(CommonTags.C_CROPS_LEMONGRASS);
         getOrCreateTagBuilder(CommonTags.C_CROPS_GARLIC)
-                .add(ItemsRegistry.GARLIC.get());
+                .add(ItemsRegistry.GARLIC.get())
+                .add(ItemsRegistry.GARLIC_CHOP.get());
         getOrCreateTagBuilder(CommonTags.C_CROPS_GINGER)
-                .add(ItemsRegistry.GINGER.get());
+                .add(ItemsRegistry.GINGER.get())
+                .add(ItemsRegistry.GINGER_CHOP.get());
         getOrCreateTagBuilder(CommonTags.C_CROPS_LEMONGRASS)
                 .add(ItemsRegistry.LEMONGRASS.get());
         getOrCreateTagBuilder(CommonTags.C_CROPS_UBE)
+                .add(ItemsRegistry.UBE.get());
+
+        getOrCreateTagBuilder(CommonTags.C_FOODS_VEGETABLES)
+                .forceAddTag(CommonTags.C_FOODS_VEGETABLES_GARLIC)
+                .forceAddTag(CommonTags.C_FOODS_VEGETABLES_GINGER)
+                .forceAddTag(CommonTags.C_FOODS_VEGETABLES_LEMONGRASS)
+                .forceAddTag(CommonTags.C_FOODS_VEGETABLES_UBE);
+        getOrCreateTagBuilder(CommonTags.C_FOODS_VEGETABLES_GARLIC)
+                .add(ItemsRegistry.GARLIC.get())
+                .add(ItemsRegistry.GARLIC_CHOP.get());
+        getOrCreateTagBuilder(CommonTags.C_FOODS_VEGETABLES_GINGER)
+                .add(ItemsRegistry.GINGER.get())
+                .add(ItemsRegistry.GINGER_CHOP.get());
+        getOrCreateTagBuilder(CommonTags.C_FOODS_VEGETABLES_LEMONGRASS)
+                .add(ItemsRegistry.LEMONGRASS.get());
+        getOrCreateTagBuilder(CommonTags.C_FOODS_VEGETABLES_UBE)
                 .add(ItemsRegistry.UBE.get());
 
         getOrCreateTagBuilder(CommonTags.C_FOOD_WRAPPERS)
@@ -117,11 +138,47 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(ItemsRegistry.LUMPIA_WRAPPER.get());
 
         getOrCreateTagBuilder(CommonTags.C_FOODS)
-                .add(ItemsRegistry.POISONOUS_UBE.get());
+                .add(ItemsRegistry.POISONOUS_UBE.get())
+                .add(ItemsRegistry.UBE.get())
+                .add(ItemsRegistry.GARLIC.get())
+                .add(ItemsRegistry.GARLIC_CHOP.get())
+                .add(ItemsRegistry.GINGER.get())
+                .add(ItemsRegistry.GINGER_CHOP.get())
+                .add(ItemsRegistry.CONDENSED_MILK_BOTTLE.get())
+                .add(ItemsRegistry.FISH_SAUCE_BOTTLE.get())
+                .add(ItemsRegistry.MILK_TEA_UBE.get())
+                .add(ItemsRegistry.HALO_HALO.get())
+                .add(ItemsRegistry.SINANGAG.get())
+                .add(ItemsRegistry.KINILAW.get())
+                .add(ItemsRegistry.LUMPIA.get())
+                .add(ItemsRegistry.TOCINO.get())
+                .add(ItemsRegistry.CHICKEN_INASAL.get())
+                .add(ItemsRegistry.CHICKEN_INASAL_RICE.get())
+                .add(ItemsRegistry.TOSILOG.get())
+                .add(ItemsRegistry.BANGSILOG.get())
+                .add(ItemsRegistry.SISIG.get())
+                .add(ItemsRegistry.BULALO.get())
+                .add(ItemsRegistry.ARROZ_CALDO.get())
+                .add(ItemsRegistry.MECHADO.get())
+                .add(ItemsRegistry.COOKIE_UBE.get())
+                .add(ItemsRegistry.COOKIE_GINGER.get())
+                .add(ItemsRegistry.LECHE_FLAN.get())
+                .add(ItemsRegistry.UBE_CAKE_SLICE.get())
+                .add(ItemsRegistry.POLVORONE.get())
+                .add(ItemsRegistry.POLVORONE_PINIPIG.get())
+                .add(ItemsRegistry.POLVORONE_UBE.get())
+                .add(ItemsRegistry.POLVORONE_CC.get())
+                .add(ItemsRegistry.PANDESAL.get())
+                .add(ItemsRegistry.PANDESAL_UBE.get())
+                .add(ItemsRegistry.ENSAYMADA.get())
+                .add(ItemsRegistry.ENSAYMADA_UBE.get())
+                .add(ItemsRegistry.HOPIA_MUNGGO.get())
+                .add(ItemsRegistry.HOPIA_UBE.get())
+        ;
 
-        getOrCreateTagBuilder(CommonTags.C_MILK)
-                .forceAddTag(CommonTags.C_MILK_MILK_BOTTLE);
-        getOrCreateTagBuilder(CommonTags.C_MILK_MILK_BOTTLE)
+        getOrCreateTagBuilder(CommonTags.C_MILKS)
+                .forceAddTag(CommonTags.C_MILKS_MILK_BOTTLES);
+        getOrCreateTagBuilder(CommonTags.C_MILKS_MILK_BOTTLES)
                 .add(ItemsRegistry.CONDENSED_MILK_BOTTLE.get());
 
         getOrCreateTagBuilder(CommonTags.C_SALAD_INGREDIENTS)
@@ -140,23 +197,30 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(Items.SUGAR)
                 .add(ItemsRegistry.SUGAR_BROWN.get());
 
-        getOrCreateTagBuilder(CommonTags.C_VEGETABLES)
-                .forceAddTag(CommonTags.C_VEGETABLES_GARLIC)
-                .forceAddTag(CommonTags.C_VEGETABLES_GINGER)
-                .forceAddTag(CommonTags.C_VEGETABLES_LEMONGRASS)
-                .forceAddTag(CommonTags.C_VEGETABLES_UBE);
-        getOrCreateTagBuilder(CommonTags.C_VEGETABLES_GARLIC)
-                .add(ItemsRegistry.GARLIC.get())
-                .add(ItemsRegistry.GARLIC_CHOP.get());
-        getOrCreateTagBuilder(CommonTags.C_VEGETABLES_GINGER)
-                .add(ItemsRegistry.GINGER.get())
-                .add(ItemsRegistry.GINGER_CHOP.get());
-        getOrCreateTagBuilder(CommonTags.C_VEGETABLES_LEMONGRASS)
-                .add(ItemsRegistry.LEMONGRASS.get());
-        getOrCreateTagBuilder(CommonTags.C_VEGETABLES_UBE)
-                .add(ItemsRegistry.UBE.get());
-
-        getOrCreateTagBuilder(CommonTags.C_ROLLING_PINS)
+        getOrCreateTagBuilder(CommonTags.C_TOOLS_ROLLING_PINS)
                 .add(ItemsRegistry.ROLLING_PIN_WOOD.get());
+
+        // Create Dough Compat
+        getOrCreateTagBuilder(CommonTags.C_FOODS_DOUGHS)
+                .addOptionalTag(CommonTags.C_DOUGH);
+
+        // Extra compat (To Be Removed)
+        getOrCreateTagBuilder(CommonTags.C_MILKS)
+                .addOptionalTag(CommonTags.C_MILK);
+        getOrCreateTagBuilder(CommonTags.C_MILKS_MILK_BOTTLES)
+                .addOptionalTag(CommonTags.C_MILK_MILK_BOTTLE);
+
+        getOrCreateTagBuilder(CommonTags.C_FOODS_RAW_MEATS_RAW_BEEF)
+                .addOptionalTag(CommonTags.C_RAW_BEEF);
+        getOrCreateTagBuilder(CommonTags.C_FOODS_RAW_MEATS_RAW_PORK)
+                .addOptionalTag(CommonTags.C_RAW_PORK);
+        getOrCreateTagBuilder(CommonTags.C_FOODS_RAW_MEATS_RAW_CHICKEN)
+                .addOptionalTag(CommonTags.C_RAW_CHICKEN);
+        getOrCreateTagBuilder(CommonTags.C_FOODS_RAW_FISHES)
+                .addOptionalTag(CommonTags.C_RAW_FISHES);
+        getOrCreateTagBuilder(CommonTags.C_GRAINS)
+                .addOptionalTag(CommonTags.C_GRAIN);
+        getOrCreateTagBuilder(CommonTags.C_FOODS_COOKED_MEATS_COOKED_EGGS)
+                .addOptionalTag(CommonTags.C_COOKED_EGGS);
     }
 }

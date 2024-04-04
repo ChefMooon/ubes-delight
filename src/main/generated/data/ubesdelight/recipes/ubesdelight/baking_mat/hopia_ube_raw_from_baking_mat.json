@@ -2,13 +2,13 @@
   "type": "ubesdelight:baking_mat",
   "ingredients": [
     {
-      "tag": "c:dough"
+      "tag": "c:foods/doughs"
     },
     {
       "tag": "c:tea_ingredients/sweet/weak"
     },
     {
-      "tag": "c:vegetables/ube"
+      "tag": "c:crops/ube"
     }
   ],
   "processing_stages": [
@@ -33,6 +33,6 @@
     }
   ],
   "tool": {
-    "tag": "c:rolling_pins"
+    "tag": "c:tools/rolling_pins"
   }
 }

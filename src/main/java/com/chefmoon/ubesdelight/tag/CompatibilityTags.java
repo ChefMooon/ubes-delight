@@ -13,7 +13,8 @@ public class CompatibilityTags {
     public static final TagKey<Item> MINECRAFT_FISHES = TagUtil.getItemTagKey(MINECRAFT, "fishes");
 
     public static final String CREATE = "create";
-    public static final TagKey<Block> CREATE_FAN_HEATERS = TagUtil.getBlockTagKey(CREATE, "fan_heaters");
+    public static final TagKey<Block> CREATE_BRITTLE = TagUtil.getBlockTagKey(CREATE, "brittle");
+    public static final TagKey<Block> CREATE_PASSIVE_BOILER_HEATERS = TagUtil.getBlockTagKey(CREATE, "passive_boiler_heaters");
     public static final TagKey<Item> CREATE_UPRIGHT_ON_BELT = TagUtil.getItemTagKey(CREATE, "upright_on_belt");
 
     public static final String FARMERS_DELIGHT = "farmersdelight";

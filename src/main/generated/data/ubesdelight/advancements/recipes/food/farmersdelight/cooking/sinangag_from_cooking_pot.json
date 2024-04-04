@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_crops_garlic": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:crops/garlic"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_crops_rice": {
       "conditions": {
         "items": [
@@ -28,23 +38,13 @@
         "recipe": "ubesdelight:farmersdelight/cooking/sinangag_from_cooking_pot"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vegetables_garlic": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "c:vegetables/garlic"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_sugar",
       "has_crops_rice",
-      "has_vegetables_garlic",
+      "has_crops_garlic",
       "has_the_recipe"
     ]
   ],

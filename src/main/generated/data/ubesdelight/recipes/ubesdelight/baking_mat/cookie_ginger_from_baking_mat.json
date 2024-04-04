@@ -2,7 +2,7 @@
   "type": "ubesdelight:baking_mat",
   "ingredients": [
     {
-      "tag": "c:vegetables/ginger"
+      "tag": "c:crops/ginger"
     },
     {
       "item": "minecraft:wheat"
@@ -24,6 +24,6 @@
     }
   ],
   "tool": {
-    "tag": "c:rolling_pins"
+    "tag": "c:tools/rolling_pins"
   }
 }

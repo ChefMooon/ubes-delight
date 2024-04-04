@@ -1,10 +1,10 @@
 package com.chefmoon.ubesdelight.data.builder;
 
 import com.chefmoon.ubesdelight.UbesDelightMod;
+import com.chefmoon.ubesdelight.recipe.ingredient.ChanceResult;
 import com.chefmoon.ubesdelight.registry.RecipeTypesRegistry;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.nhoryzon.mc.farmersdelight.recipe.ingredient.ChanceResult;
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.CriterionMerger;
 import net.minecraft.advancement.criterion.CriterionConditions;

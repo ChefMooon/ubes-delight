@@ -23,10 +23,10 @@
       "item": "minecraft:sweet_berries"
     },
     {
-      "tag": "c:milk"
+      "tag": "c:milks"
     },
     {
-      "tag": "c:milk"
+      "tag": "c:milks"
     }
   ],
   "processing_stages": [],
@@ -40,6 +40,6 @@
     }
   ],
   "tool": {
-    "tag": "c:rolling_pins"
+    "tag": "c:tools/rolling_pins"
   }
 }

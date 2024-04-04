@@ -94,9 +94,9 @@ public class BakingMatBlock extends BlockWithEntity implements BlockEntityProvid
     private ActionResult onUseByPlayerHand(World world, BakingMatBlockEntity bakingMatBlockEntity, PlayerEntity player, Hand hand) {
         ActionResult result = ActionResult.PASS;
         ItemStack itemHeld = player.getStackInHand(hand);
-        if (!itemHeld.isEmpty() && !itemHeld.isIn(CommonTags.C_ROLLING_PINS)) {
+        if (!itemHeld.isEmpty() && !itemHeld.isIn(CommonTags.C_TOOLS_ROLLING_PINS)) {
             result = tryAddItemFromPlayerHand(world, bakingMatBlockEntity, player, hand);
-        } else if (itemHeld.isEmpty() && !itemHeld.isIn(CommonTags.C_ROLLING_PINS)) {
+        } else if (itemHeld.isEmpty() && !itemHeld.isIn(CommonTags.C_TOOLS_ROLLING_PINS)) {
             result = tryRemoveItemWithPlayerHand(world, bakingMatBlockEntity, player);
         }
         return result;

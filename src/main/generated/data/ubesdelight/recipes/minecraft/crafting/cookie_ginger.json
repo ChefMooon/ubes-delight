@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "c:vegetables/ginger"
+      "tag": "c:crops/ginger"
     },
     {
       "item": "minecraft:wheat"

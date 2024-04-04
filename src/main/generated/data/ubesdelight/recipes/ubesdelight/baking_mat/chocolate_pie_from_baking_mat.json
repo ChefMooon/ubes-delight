@@ -2,13 +2,13 @@
   "type": "ubesdelight:baking_mat",
   "ingredients": [
     {
-      "tag": "c:milk"
+      "tag": "c:milks"
     },
     {
-      "tag": "c:milk"
+      "tag": "c:milks"
     },
     {
-      "tag": "c:milk"
+      "tag": "c:milks"
     },
     {
       "item": "minecraft:cocoa_beans"
@@ -40,6 +40,6 @@
     }
   ],
   "tool": {
-    "tag": "c:rolling_pins"
+    "tag": "c:tools/rolling_pins"
   }
 }

@@ -13,11 +13,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_dough": {
+    "has_foods_doughs": {
       "conditions": {
         "items": [
           {
-            "tag": "c:dough"
+            "tag": "c:foods/doughs"
           }
         ]
       },
@@ -42,7 +42,7 @@
   },
   "requirements": [
     [
-      "has_dough",
+      "has_foods_doughs",
       "has_tea_ingredients_sweet_weak",
       "has_bread",
       "has_the_recipe"

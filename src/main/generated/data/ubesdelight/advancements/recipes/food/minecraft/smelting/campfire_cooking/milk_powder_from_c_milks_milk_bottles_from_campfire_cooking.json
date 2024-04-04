@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_milk_milk_bottle": {
+    "has_milks_milk_bottles": {
       "conditions": {
         "items": [
           {
-            "tag": "c:milk/milk_bottle"
+            "tag": "c:milks/milk_bottles"
           }
         ]
       },
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/smelting/smoking/milk_powder_from_c_milk_milk_bottle_from_smoking"
+        "recipe": "ubesdelight:minecraft/smelting/campfire_cooking/milk_powder_from_c_milks_milk_bottles_from_campfire_cooking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_milk_milk_bottle",
+      "has_milks_milk_bottles",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "ubesdelight:minecraft/smelting/smoking/milk_powder_from_c_milk_milk_bottle_from_smoking"
+      "ubesdelight:minecraft/smelting/campfire_cooking/milk_powder_from_c_milks_milk_bottles_from_campfire_cooking"
     ]
   },
   "sends_telemetry_event": false

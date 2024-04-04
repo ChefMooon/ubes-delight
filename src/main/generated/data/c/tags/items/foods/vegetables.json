@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "#c:foods/vegetables/garlic",
+    "#c:foods/vegetables/ginger",
+    "#c:foods/vegetables/lemongrass",
+    "#c:foods/vegetables/ube",
+    {
+      "id": "#c:vegetables",
+      "required": false
+    }
+  ]
+}

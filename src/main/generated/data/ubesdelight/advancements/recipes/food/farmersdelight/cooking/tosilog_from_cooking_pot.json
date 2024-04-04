@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cooked_eggs": {
+    "has_foods_cooked_meats_cooked_eggs": {
       "conditions": {
         "items": [
           {
-            "tag": "c:cooked_eggs"
+            "tag": "c:foods/cooked_meats/cooked_eggs"
           }
         ]
       },
@@ -46,7 +46,7 @@
     [
       "has_tocino",
       "has_sinangag",
-      "has_cooked_eggs",
+      "has_foods_cooked_meats_cooked_eggs",
       "has_the_recipe"
     ]
   ],

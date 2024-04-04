@@ -13,7 +13,7 @@ public class SmeltingRecipes {
 
     public static void register(Consumer<RecipeJsonProvider> exporter) {
         RecipeUtil.offerSmeltCampSmokeRecipe(Items.SUGAR, RecipeCategory.FOOD, ItemsRegistry.SUGAR_BROWN.get(), .5f, 200, exporter);
-        RecipeUtil.offerSmeltCampSmokeFromTag(CommonTags.C_MILK_MILK_BOTTLE, ItemsRegistry.MILK_POWDER.get(), .2f, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeFromTag(CommonTags.C_MILKS_MILK_BOTTLES, ItemsRegistry.MILK_POWDER.get(), .2f, 200, exporter);
 
         RecipeUtil.offerSmeltCampSmokeRecipe(ItemsRegistry.PANDESAL_RAW.get(), RecipeCategory.FOOD, ItemsRegistry.PANDESAL.get(), .5F, 200, exporter);
         RecipeUtil.offerSmeltCampSmokeRecipe(ItemsRegistry.PANDESAL_UBE_RAW.get(), RecipeCategory.FOOD, ItemsRegistry.PANDESAL_UBE.get(), .5F, 200, exporter);

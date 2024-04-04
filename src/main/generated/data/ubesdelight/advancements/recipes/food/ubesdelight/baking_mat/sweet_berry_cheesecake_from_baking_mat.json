@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_milk": {
+    "has_milks": {
       "conditions": {
         "items": [
           {
-            "tag": "c:milk"
+            "tag": "c:milks"
           }
         ]
       },
@@ -49,7 +49,7 @@
     [
       "has_sweet_berries",
       "has_pie_crust",
-      "has_milk",
+      "has_milks",
       "has_the_recipe"
     ]
   ],

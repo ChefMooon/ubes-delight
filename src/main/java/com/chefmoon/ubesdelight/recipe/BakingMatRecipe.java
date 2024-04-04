@@ -1,9 +1,10 @@
 package com.chefmoon.ubesdelight.recipe;
 
+import com.chefmoon.ubesdelight.UbesDelightMod;
 import com.chefmoon.ubesdelight.block.entity.BakingMatBlockEntity;
 import com.chefmoon.ubesdelight.recipe.ingredient.ChanceResult;
 import com.chefmoon.ubesdelight.registry.RecipeTypesRegistry;
-import com.nhoryzon.mc.farmersdelight.util.RecipeMatcher;
+import com.chefmoon.ubesdelight.util.RecipeMatcher;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
@@ -47,7 +48,6 @@ public class BakingMatRecipe implements Recipe<Inventory> {
 
         List<ItemStack> inputList = new ArrayList<>();
         int inputSlotCount = 0;
-        
         for (int slotOffset = 0; slotOffset < BakingMatBlockEntity.MAX_INGREDIENTS; ++slotOffset) {
             ItemStack itemStack = inventory.getStack(slotOffset);
             if (!itemStack.isEmpty()) {
@@ -62,7 +62,6 @@ public class BakingMatRecipe implements Recipe<Inventory> {
                 processMatch = true;
             }
         }
-
         return inputMatch || processMatch;
     }
 

@@ -11,16 +11,16 @@
       "tag": "c:tea_ingredients/sweet/weak"
     },
     {
-      "tag": "c:milk"
+      "tag": "c:milks"
     },
     {
-      "tag": "c:vegetables/ube"
+      "tag": "c:crops/ube"
     },
     {
-      "tag": "c:milk"
+      "tag": "c:milks"
     },
     {
-      "tag": "c:milk"
+      "tag": "c:milks"
     },
     {
       "item": "minecraft:wheat"
@@ -40,6 +40,6 @@
     }
   ],
   "tool": {
-    "tag": "c:rolling_pins"
+    "tag": "c:tools/rolling_pins"
   }
 }

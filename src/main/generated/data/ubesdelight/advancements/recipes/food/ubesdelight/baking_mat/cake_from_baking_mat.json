@@ -13,11 +13,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_milk": {
+    "has_milks": {
       "conditions": {
         "items": [
           {
-            "tag": "c:milk"
+            "tag": "c:milks"
           }
         ]
       },
@@ -58,7 +58,7 @@
   "requirements": [
     [
       "has_egg",
-      "has_milk",
+      "has_milks",
       "has_tea_ingredients_sweet_weak",
       "has_wheat",
       "has_the_recipe"

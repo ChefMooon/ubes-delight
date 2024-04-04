@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "c:vegetables/ube"
+      "tag": "c:crops/ube"
     },
     {
       "item": "minecraft:wheat"

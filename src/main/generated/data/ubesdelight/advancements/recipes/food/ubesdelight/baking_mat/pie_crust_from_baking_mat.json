@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_milk": {
+    "has_milks": {
       "conditions": {
         "items": [
           {
-            "tag": "c:milk"
+            "tag": "c:milks"
           }
         ]
       },
@@ -36,7 +36,7 @@
   "requirements": [
     [
       "has_wheat",
-      "has_milk",
+      "has_milks",
       "has_the_recipe"
     ]
   ],

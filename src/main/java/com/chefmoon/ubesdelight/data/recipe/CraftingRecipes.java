@@ -94,22 +94,22 @@ public class CraftingRecipes {
                 ItemsRegistry.LECHE_FLAN_FEAST, 1);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemsRegistry.COOKIE_GINGER.get(), 8)
-                .input(CommonTags.C_VEGETABLES_GINGER)
+                .input(CommonTags.C_CROPS_GINGER)
                 .input(Items.WHEAT, 2)
                 .criterion(RecipeUtil.hasAny(), RecipeProvider.conditionsFromItem(ItemsRegistry.GINGER.get()))
                 .offerTo(exporter, suffix(RecipeProvider.getRecipeName(ItemsRegistry.COOKIE_GINGER.get())));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemsRegistry.COOKIE_UBE.get(), 8)
-                .input(CommonTags.C_VEGETABLES_UBE)
+                .input(CommonTags.C_CROPS_UBE)
                 .input(Items.WHEAT, 2)
                 .criterion(RecipeUtil.hasAny(), RecipeProvider.conditionsFromItem(ItemsRegistry.UBE.get()))
                 .offerTo(exporter, suffix(RecipeProvider.getRecipeName(ItemsRegistry.COOKIE_UBE.get())));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemsRegistry.KINILAW.get())
-                .input(CommonTags.C_RAW_FISHES)
+                .input(CommonTags.C_FOODS_RAW_FISHES)
                 .input(CommonTags.C_CROPS_ONION)
-                .input(CommonTags.C_VEGETABLES_GARLIC)
-                .input(CommonTags.C_VEGETABLES_GINGER)
+                .input(CommonTags.C_CROPS_GARLIC)
+                .input(CommonTags.C_CROPS_GINGER)
                 .input(CommonTags.C_CROPS_LEMONGRASS)
                 .input(Items.BOWL)
                 .criterion(RecipeUtil.hasAny(), RecipeUtil.conditionsFromItems(Items.BOWL, ItemsRegistry.GARLIC.get(), ItemsRegistry.GINGER.get()))
@@ -118,15 +118,15 @@ public class CraftingRecipes {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemsRegistry.KINILAW.get())
                 .input(CompatibilityTags.MINECRAFT_FISHES)
                 .input(CommonTags.C_CROPS_ONION)
-                .input(CommonTags.C_VEGETABLES_GARLIC)
-                .input(CommonTags.C_VEGETABLES_GINGER)
+                .input(CommonTags.C_CROPS_GARLIC)
+                .input(CommonTags.C_CROPS_GINGER)
                 .input(CommonTags.C_CROPS_LEMONGRASS)
                 .input(Items.BOWL)
                 .criterion(RecipeUtil.hasAny(), RecipeUtil.conditionsFromItems(Items.BOWL, ItemsRegistry.GARLIC.get(), ItemsRegistry.GINGER.get()))
                 .offerTo(exporter, suffix(RecipeProvider.getRecipeName(ItemsRegistry.KINILAW.get()) + "_extra"));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemsRegistry.LUMPIA_WRAPPER.get(), 32)
-                .input(CommonTags.C_GRAIN)
+                .input(CommonTags.C_GRAINS)
                 .input(CommonTags.C_EGGS)
                 .input(Items.WATER_BUCKET)
                 .criterion(RecipeUtil.hasAny(), RecipeUtil.conditionsFromItems(Items.WATER_BUCKET, Items.EGG, Items.WHEAT))
@@ -137,7 +137,7 @@ public class CraftingRecipes {
                 .pattern("ABA")
                 .pattern(" A ")
                 .input('A', ItemsRegistry.HALO_HALO.get())
-                .input('B', CommonTags.C_MILK)
+                .input('B', CommonTags.C_MILKS)
                 .criterion(RecipeUtil.hasAny(), RecipeUtil.conditionsFromItems(ItemsRegistry.HALO_HALO.get(), ItemsRegistry.CONDENSED_MILK_BOTTLE.get(), Items.MILK_BUCKET))
                 .offerTo(exporter, suffix(RecipeProvider.getRecipeName(ItemsRegistry.HALO_HALO_FEAST.get())));
 
@@ -146,7 +146,7 @@ public class CraftingRecipes {
                 .pattern("ABA")
                 .pattern(" A ")
                 .input('A', ItemsRegistry.MILK_TEA_UBE.get())
-                .input('B', CommonTags.C_MILK)
+                .input('B', CommonTags.C_MILKS)
                 .criterion(RecipeUtil.hasAny(), RecipeUtil.conditionsFromItems(ItemsRegistry.MILK_TEA_UBE.get(), ItemsRegistry.CONDENSED_MILK_BOTTLE.get(), Items.MILK_BUCKET))
                 .offerTo(exporter, suffix(RecipeProvider.getRecipeName(ItemsRegistry.MILK_TEA_UBE_FEAST.get())));
 
@@ -163,7 +163,7 @@ public class CraftingRecipes {
                 .pattern("AAA")
                 .pattern("BEB")
                 .pattern("CFC")
-                .input('A', CommonTags.C_MILK)
+                .input('A', CommonTags.C_MILKS)
                 .input('B', CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)
                 .input('C', Items.WHEAT)
                 .input('E', CommonTags.C_EGGS)

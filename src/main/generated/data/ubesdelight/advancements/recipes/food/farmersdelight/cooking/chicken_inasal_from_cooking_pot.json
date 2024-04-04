@@ -11,11 +11,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_raw_chicken": {
+    "has_foods_raw_meats_raw_chicken": {
       "conditions": {
         "items": [
           {
-            "tag": "c:raw_chicken"
+            "tag": "c:foods/raw_meats/raw_chicken"
           }
         ]
       },
@@ -40,7 +40,7 @@
   },
   "requirements": [
     [
-      "has_raw_chicken",
+      "has_foods_raw_meats_raw_chicken",
       "has_crops_lemongrass",
       "has_tea_ingredients_sweet_weak",
       "has_the_recipe"

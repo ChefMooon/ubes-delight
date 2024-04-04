@@ -3,16 +3,16 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "c:raw_fishes"
+      "tag": "c:foods/raw_fishes"
     },
     {
       "tag": "c:crops/onion"
     },
     {
-      "tag": "c:vegetables/garlic"
+      "tag": "c:crops/garlic"
     },
     {
-      "tag": "c:vegetables/ginger"
+      "tag": "c:crops/ginger"
     },
     {
       "tag": "c:crops/lemongrass"

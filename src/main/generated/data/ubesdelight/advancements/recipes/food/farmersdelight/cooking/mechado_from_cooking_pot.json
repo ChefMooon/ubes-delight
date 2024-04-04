@@ -1,6 +1,26 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_crops": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:crops"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_crops_garlic": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:crops/garlic"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_crops_onion": {
       "conditions": {
         "items": [
@@ -33,11 +53,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_raw_beef": {
+    "has_foods_raw_meats_raw_beef": {
       "conditions": {
         "items": [
           {
-            "tag": "c:raw_beef"
+            "tag": "c:foods/raw_meats/raw_beef"
           }
         ]
       },
@@ -48,35 +68,15 @@
         "recipe": "ubesdelight:farmersdelight/cooking/mechado_from_cooking_pot"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vegetables": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "c:vegetables"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_vegetables_garlic": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "c:vegetables/garlic"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_raw_beef",
+      "has_foods_raw_meats_raw_beef",
       "has_crops_onion",
-      "has_vegetables_garlic",
+      "has_crops_garlic",
       "has_crops_tomato",
-      "has_vegetables",
+      "has_crops",
       "has_fish_sauce_bottle",
       "has_the_recipe"
     ]

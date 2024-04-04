@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_raw_fishes": {
+    "has_foods_raw_fishes": {
       "conditions": {
         "items": [
           {
-            "tag": "c:raw_fishes"
+            "tag": "c:foods/raw_fishes"
           }
         ]
       },
@@ -32,7 +32,7 @@
   },
   "requirements": [
     [
-      "has_raw_fishes",
+      "has_foods_raw_fishes",
       "has_water_bucket",
       "has_the_recipe"
     ]

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_milk_milk_bottle": {
+    "has_milks_milk_bottles": {
       "conditions": {
         "items": [
           {
-            "tag": "c:milk/milk_bottle"
+            "tag": "c:milks/milk_bottles"
           }
         ]
       },
@@ -33,7 +33,7 @@
   "requirements": [
     [
       "has_sugar",
-      "has_milk_milk_bottle",
+      "has_milks_milk_bottles",
       "has_the_recipe"
     ]
   ],

@@ -1,21 +1,31 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dough": {
+    "has_crops_ube": {
       "conditions": {
         "items": [
           {
-            "tag": "c:dough"
+            "tag": "c:crops/ube"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_milk": {
+    "has_foods_doughs": {
       "conditions": {
         "items": [
           {
-            "tag": "c:milk"
+            "tag": "c:foods/doughs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_milks": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:milks"
           }
         ]
       },
@@ -36,24 +46,14 @@
         "recipe": "ubesdelight:ubesdelight/baking_mat/ensaymada_ube_raw_from_baking_mat"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vegetables_ube": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "c:vegetables/ube"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_dough",
+      "has_foods_doughs",
       "has_tea_ingredients_sweet_weak",
-      "has_milk",
-      "has_vegetables_ube",
+      "has_milks",
+      "has_crops_ube",
       "has_the_recipe"
     ]
   ],
