@@ -27,6 +27,8 @@ Ube’s Delight is an addon mod for [Farmer's Delight Fabric](https://modrinth.c
 Detailed information can be found on the [Wiki](https://github.com/ChefMooon/ubes-delight/wiki)
 
 ### Links
-[Farmer's Delight Fabric](https://modrinth.com/mod/farmers-delight-fabric)<br>
+Thank you to all the people that make Farmer's Delight Possible.<br>
+[Farmer's Delight Refabricated](https://modrinth.com/mod/farmers-delight-refabricated)<br>
+[[Deprecated]Farmer's Delight Fabric](https://modrinth.com/mod/farmers-delight-fabric)<br>
 [Original Forge Farmer's Delight](https://modrinth.com/mod/farmers-delight)
 
