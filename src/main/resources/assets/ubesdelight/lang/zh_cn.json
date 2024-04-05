@@ -163,7 +163,7 @@
   "ubesdelight.subtitles.block_lumpia_feast.remove": "拿取菲律宾润饼",
   "ubesdelight.tooltip.baking_mat.invalid_item": "无效的物品",
   "ubesdelight.tooltip.baking_mat.invalid_tool": "无效的工具",
-  "ubesdelight.tooltip.halo_halo": "Right Click with a Knife to rotate. Break with Knife to pickup",
+  "ubesdelight.tooltip.halo_halo": "手持刀右键以旋转。手持刀破坏以掉落。",
   "ubesdelight.tooltip.kalan": "一种菲律宾传统的黏土烤炉。",
   "ubesdelight.tooltip.knife": "需要刀。"
 }
