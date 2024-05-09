@@ -59,10 +59,15 @@ base {
 }
 
 processResources {
-	inputs.property "version", project.version
+	var replaceProperties = [
+			mod_version           : mod_version,
+			minecraft_version     : minecraft_version,
+			minecraft_min_version : minecraft_min_version,
+			minecraft_max_version : minecraft_max_version,
+	]
 
 	filesMatching("fabric.mod.json") {
-		expand "version": project.version
+		expand replaceProperties + [project: project]
 	}
 }
 

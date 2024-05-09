@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/ube_crate"
+        "recipe": "ubesdelight:minecraft/decorations/ube_crate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

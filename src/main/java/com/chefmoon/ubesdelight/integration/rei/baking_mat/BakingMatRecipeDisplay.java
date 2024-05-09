@@ -1,9 +1,9 @@
 package com.chefmoon.ubesdelight.integration.rei.baking_mat;
 
-import com.chefmoon.ubesdelight.integration.rei.ChanceArrayIngredient;
 import com.chefmoon.ubesdelight.integration.rei.UbesDelightREI;
 import com.chefmoon.ubesdelight.recipe.BakingMatRecipe;
 import com.google.common.collect.ImmutableList;
+import it.unimi.dsi.fastutil.Pair;
 import me.shedaniel.math.Point;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
@@ -11,23 +11,29 @@ import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Environment(EnvType.CLIENT)
 public class BakingMatRecipeDisplay extends BasicDisplay {
 
     private final EntryIngredient toolInput;
-    protected final List<ChanceArrayIngredient> chanceOutputs;
-    protected final List<EntryIngredient> mandatoryOutputs;
-    protected final List<EntryIngredient> processStages;
+    private final List<Pair<EntryIngredient, Float>> chanceOutputs;
+    private final List<EntryIngredient> mandatoryOutputs;
+    private final List<EntryIngredient> processStages;
     public BakingMatRecipeDisplay(BakingMatRecipe recipe) {
-        super(EntryIngredients.ofIngredients(recipe.getIngredients()), recipe.getResultList().stream().map(EntryIngredients::of).toList());
-        toolInput = EntryIngredients.ofIngredient(recipe.getTool());
-        mandatoryOutputs = recipe.getMandatoryResult().stream().map(EntryIngredients::of).toList();
-        chanceOutputs = recipe.getVariableResult().stream().map(ChanceArrayIngredient::new).toList();
-        processStages = EntryIngredients.ofIngredients(recipe.getProcessStages());
+        this(EntryIngredients.ofIngredients(recipe.getIngredients()), recipe.getResultList().stream().map(EntryIngredients::of).toList(), Optional.of(recipe.getId()), EntryIngredients.ofIngredient(recipe.getTool()), EntryIngredients.ofIngredients(recipe.getProcessStages()), recipe.getMandatoryResult().stream().map(EntryIngredients::of).toList(), recipe.getVariableResult().stream().map(result -> Pair.of(EntryIngredients.of(result.stack()), result.chance())).toList());
+    }
+
+    public BakingMatRecipeDisplay(List<EntryIngredient> inputs, List<EntryIngredient> outputs, Optional<Identifier> location, EntryIngredient tool, List<EntryIngredient> processStages, List<EntryIngredient> mandatoryOutputs, List<Pair<EntryIngredient, Float>> chanceOutputs) {
+        super(inputs, outputs, location);
+        this.toolInput = tool;
+        this.mandatoryOutputs = mandatoryOutputs;
+        this.chanceOutputs = chanceOutputs;
+        this.processStages = processStages;
     }
 
     public static Point getItemOffset(int x, int y, int index) {
@@ -80,7 +86,7 @@ public class BakingMatRecipeDisplay extends BasicDisplay {
         return toolInput;
     }
 
-    public List<ChanceArrayIngredient> getChanceOutputs() {
+    public List<Pair<EntryIngredient, Float>> getChanceOutputs() {
         return chanceOutputs;
     }
 

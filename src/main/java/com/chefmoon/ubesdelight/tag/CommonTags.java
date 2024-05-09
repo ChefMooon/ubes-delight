@@ -72,4 +72,11 @@ public class CommonTags {
     public static final TagKey<Item> C_MILKS_MILK_BOTTLES = TagUtil.registerCommonItem("milks/milk_bottles");
 
     public static final TagKey<Item> C_FOODS_DOUGHS = TagUtil.registerCommonItem("foods/doughs");
+
+    // Extra compat (To Be Removed)
+    public static final TagKey<Item> C_VEGETABLES = TagUtil.registerCommonItem("vegetables");
+    public static final TagKey<Item> C_VEGETABLES_GARLIC = TagUtil.registerCommonItem("vegetables/garlic");
+    public static final TagKey<Item> C_VEGETABLES_GINGER = TagUtil.registerCommonItem("vegetables/ginger");
+    public static final TagKey<Item> C_VEGETABLES_LEMONGRASS = TagUtil.registerCommonItem("vegetables/lemongrass");
+    public static final TagKey<Item> C_VEGETABLES_UBE = TagUtil.registerCommonItem("vegetables/ube");
 }

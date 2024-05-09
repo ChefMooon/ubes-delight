@@ -230,13 +230,13 @@ public class CookingRecipes {
                                 Ingredient.fromTag(CommonTags.C_CROPS_ONION),
                                 Ingredient.fromTag(CommonTags.C_CROPS_GARLIC),
                                 Ingredient.fromTag(CommonTags.C_CROPS_TOMATO),
-                                Ingredient.fromTag(CommonTags.C_CROPS),
+                                Ingredient.fromTag(CommonTags.C_FOODS_VEGETABLES),
                                 Ingredient.ofItems(ItemsRegistry.FISH_SAUCE_BOTTLE.get())))
                 .criterion(RecipeUtil.hasItemTag(CommonTags.C_FOODS_RAW_MEATS_RAW_BEEF), RecipeProvider.conditionsFromTag(CommonTags.C_FOODS_RAW_MEATS_RAW_BEEF))
                 .criterion(RecipeUtil.hasItemTag(CommonTags.C_CROPS_ONION), RecipeProvider.conditionsFromTag(CommonTags.C_CROPS_ONION))
                 .criterion(RecipeUtil.hasItemTag(CommonTags.C_CROPS_GARLIC), RecipeProvider.conditionsFromTag(CommonTags.C_CROPS_GARLIC))
                 .criterion(RecipeUtil.hasItemTag(CommonTags.C_CROPS_TOMATO), RecipeProvider.conditionsFromTag(CommonTags.C_CROPS_TOMATO))
-                .criterion(RecipeUtil.hasItemTag(CommonTags.C_CROPS), RecipeProvider.conditionsFromTag(CommonTags.C_CROPS))
+                .criterion(RecipeUtil.hasItemTag(CommonTags.C_FOODS_VEGETABLES), RecipeProvider.conditionsFromTag(CommonTags.C_FOODS_VEGETABLES))
                 .criterion(RecipeProvider.hasItem(ItemsRegistry.FISH_SAUCE_BOTTLE.get()), RecipeProvider.conditionsFromItem(ItemsRegistry.FISH_SAUCE_BOTTLE.get()))
                 .offerTo(exporter, suffix(RecipeProvider.getItemPath(ItemsRegistry.MECHADO.get())));
 

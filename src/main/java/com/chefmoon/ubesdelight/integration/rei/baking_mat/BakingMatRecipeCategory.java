@@ -1,9 +1,9 @@
 package com.chefmoon.ubesdelight.integration.rei.baking_mat;
 
 import com.chefmoon.ubesdelight.UbesDelightMod;
-import com.chefmoon.ubesdelight.integration.rei.ChanceArrayIngredient;
 import com.chefmoon.ubesdelight.integration.rei.UbesDelightREI;
 import com.chefmoon.ubesdelight.registry.BlocksRegistry;
+import it.unimi.dsi.fastutil.Pair;
 import me.shedaniel.math.Dimension;
 import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
@@ -17,6 +17,7 @@ import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
@@ -94,13 +95,21 @@ public class BakingMatRecipeCategory implements DisplayCategory<BakingMatRecipeD
         }
 
         int chanceOutputsIte = 0;
-        List<ChanceArrayIngredient> chanceOutputEntries = display.getChanceOutputs();
+        List<Pair<EntryIngredient, Float>> chanceOutputEntries = display.getChanceOutputs();
         for (int i = 0; i < chanceOutputEntries.size(); i++, chanceOutputsIte++) {
             Point slotLoc = new Point(outputBounds.x + chanceOutputsIte * 17, outputBounds.y);
             widgets.add(Widgets.createTexturedWidget(GUI_TEXTURE, new Rectangle(slotLoc.x, slotLoc.y, 16, 16), 16, 48));
-            ChanceArrayIngredient chanceArrayIngredient = chanceOutputEntries.get(i);
+            Pair<EntryIngredient, Float> output = chanceOutputEntries.get(i);
+            EntryIngredient ingredient = output.first();
+            if (!ingredient.isEmpty()) {
+                float chance = output.second();
+                if (chance < 1.0F) {
+                    ingredient = ingredient.map(stack -> stack.copy().tooltip(UbesDelightMod.tooltip("rei.chance", chance < 0.01 ? "<1" : (int) (chance * 100))
+                            .formatted(Formatting.GOLD)));
+                }
+            }
             widgets.add(Widgets.createSlot(new Rectangle(new Point(slotLoc.x, slotLoc.y), new Dimension(16, 16)))
-                    .entries(chanceArrayIngredient).markOutput().disableBackground());
+                    .entries(ingredient).markOutput().disableBackground());
         }
 
         return widgets;

@@ -222,5 +222,26 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .addOptionalTag(CommonTags.C_GRAIN);
         getOrCreateTagBuilder(CommonTags.C_FOODS_COOKED_MEATS_COOKED_EGGS)
                 .addOptionalTag(CommonTags.C_COOKED_EGGS);
+
+        getOrCreateTagBuilder(CommonTags.C_MILK_MILK_BOTTLE)
+                .add(ItemsRegistry.CONDENSED_MILK_BOTTLE.get());
+
+        getOrCreateTagBuilder(CommonTags.C_FOODS_VEGETABLES)
+                .addOptionalTag(CommonTags.C_VEGETABLES);
+        getOrCreateTagBuilder(CommonTags.C_VEGETABLES)
+                .addOptionalTag(CommonTags.C_VEGETABLES_GARLIC)
+                .addOptionalTag(CommonTags.C_VEGETABLES_GINGER)
+                .addOptionalTag(CommonTags.C_VEGETABLES_LEMONGRASS)
+                .addOptionalTag(CommonTags.C_VEGETABLES_UBE);
+        getOrCreateTagBuilder(CommonTags.C_VEGETABLES_GARLIC)
+                .add(ItemsRegistry.GARLIC.get())
+                .add(ItemsRegistry.GARLIC_CHOP.get());
+        getOrCreateTagBuilder(CommonTags.C_VEGETABLES_GINGER)
+                .add(ItemsRegistry.GINGER.get())
+                .add(ItemsRegistry.GINGER_CHOP.get());
+        getOrCreateTagBuilder(CommonTags.C_VEGETABLES_LEMONGRASS)
+                .add(ItemsRegistry.LEMONGRASS.get());
+        getOrCreateTagBuilder(CommonTags.C_VEGETABLES_UBE)
+                .add(ItemsRegistry.UBE.get());
     }
 }

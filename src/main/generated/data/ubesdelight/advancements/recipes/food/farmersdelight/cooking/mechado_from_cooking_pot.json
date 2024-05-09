@@ -1,16 +1,6 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_crops": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "c:crops"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_crops_garlic": {
       "conditions": {
         "items": [
@@ -63,6 +53,16 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_foods_vegetables": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:foods/vegetables"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "ubesdelight:farmersdelight/cooking/mechado_from_cooking_pot"
@@ -76,7 +76,7 @@
       "has_crops_onion",
       "has_crops_garlic",
       "has_crops_tomato",
-      "has_crops",
+      "has_foods_vegetables",
       "has_fish_sauce_bottle",
       "has_the_recipe"
     ]

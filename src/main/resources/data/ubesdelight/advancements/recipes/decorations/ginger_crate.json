@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/ginger_crate"
+        "recipe": "ubesdelight:minecraft/decorations/ginger_crate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

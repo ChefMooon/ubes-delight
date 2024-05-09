@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "ubesdelight",
-  "version": "${version}",
+  "version": "${minecraft_version}-${mod_version}",
 
   "name": "Ube's Delight",
   "description": "An addon mod for Farmer's Delight that adds Filipino inspired crops and food.",
@@ -42,7 +42,7 @@
   "depends": {
     "fabricloader": "*",
     "fabric-api": "*",
-    "minecraft": ">=1.20.0",
+    "minecraft": ">=${minecraft_min_version} <${minecraft_max_version}",
     "java": ">=17",
     "farmersdelight": "*"
   },

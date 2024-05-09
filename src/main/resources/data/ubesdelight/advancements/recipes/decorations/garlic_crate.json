@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/garlic_crate"
+        "recipe": "ubesdelight:minecraft/decorations/garlic_crate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
