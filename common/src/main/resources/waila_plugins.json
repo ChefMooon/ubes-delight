@@ -1,0 +1,7 @@
+{
+  "ubesdelight:plugin": {
+    "initializer": "com.chefmooon.ubesdelight.integration.wthit.UbesDelightWailaPlugin",
+    "side": "*",
+    "required": []
+  }
+}

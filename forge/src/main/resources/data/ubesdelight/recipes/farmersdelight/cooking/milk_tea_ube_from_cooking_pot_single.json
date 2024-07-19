@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 50,
+  "experience": 0.25,
+  "ingredients": [
+    {
+      "tag": "forge:crops/ube"
+    },
+    {
+      "tag": "c:tea_ingredients/sweet/weak"
+    },
+    {
+      "item": "ubesdelight:condensed_milk_bottle"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "item": "ubesdelight:milk_tea_ube"
+  }
+}

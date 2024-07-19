@@ -1,0 +1,27 @@
+{
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "processing_stages": [],
+  "result": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "chance": 0.2,
+      "item": "minecraft:bread"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/rolling_pins"
+  }
+}

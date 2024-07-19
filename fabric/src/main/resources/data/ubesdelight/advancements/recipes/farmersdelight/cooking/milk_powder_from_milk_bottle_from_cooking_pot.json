@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_milks_milk_bottles": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:milks/milk_bottles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:farmersdelight/cooking/milk_powder_from_milk_bottle_from_cooking_pot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_milks_milk_bottles",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:farmersdelight/cooking/milk_powder_from_milk_bottle_from_cooking_pot"
+    ]
+  },
+  "sends_telemetry_event": false
+}

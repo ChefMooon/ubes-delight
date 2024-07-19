@@ -1,0 +1,16 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "ubesdelight:wild_garlic"
+    }
+  ],
+  "result": [
+    {
+      "item": "ubesdelight:garlic"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

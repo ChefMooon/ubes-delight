@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "ubesdelight:wild_lemongrass"
+    }
+  ],
+  "result": [
+    {
+      "item": "ubesdelight:lemongrass"
+    },
+    {
+      "item": "minecraft:lime_dye"
+    },
+    {
+      "chance": 0.5,
+      "item": "minecraft:lime_dye"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

@@ -3,7 +3,7 @@
     <img src="banner.png" alt="Banner">
 </div>
 
-<h1 style="text-align: center;">Fabric/Quilt <br>
+<h1 style="text-align: center;">
     <a href="https://discord.gg/mbuDBHHUws">
         <img src="https://img.shields.io/discord/1159501560997498952?color=5865f2&label=Discord&style=flat" alt="Discord">
     </a>
@@ -22,15 +22,21 @@
 </h1>
 
 
-Ube’s Delight is an addon mod for [Farmer's Delight Fabric](https://modrinth.com/mod/farmers-delight-fabric) that adds Filipino-inspired crops and food.
+Ube’s Delight is an addon mod for Farmer's Delight that adds Filipino-inspired crops and food.
 
 Detailed information can be found on the [Wiki](https://github.com/ChefMooon/ubes-delight/wiki)
+
+Thank you Farmer's Delight Developers and Community!
+
+### Supported Versions
+| Minecraft Version | Fabric/Quilt |  Forge   | NeoForge |
+|-------------------|:------------:|:--------:|:--------:|
+| 1.21              |   Planned✅   |    ❌     | Planned✅ |
+| 1.20.1            |      ✅       | Planned✅ | Planned✅ |
+| 1.19.2            |      ✅       |    ❌     |    ❌     |
 
 ### Links
 
 [Farmer's Delight Refabricated](https://modrinth.com/mod/farmers-delight-refabricated)<br>
 [[Deprecated]Farmer's Delight Fabric](https://modrinth.com/mod/farmers-delight-fabric)<br>
 [Original Forge Farmer's Delight](https://modrinth.com/mod/farmers-delight)
-
-Thank you Farmer's Delight Developers and Community!
-

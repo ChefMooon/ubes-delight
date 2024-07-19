@@ -1,0 +1,29 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 4.0,
+  "ingredients": [
+    {
+      "tag": "forge:raw_beef"
+    },
+    {
+      "tag": "forge:bones"
+    },
+    {
+      "tag": "forge:crops/onion"
+    },
+    {
+      "tag": "forge:crops/cabbage"
+    },
+    {
+      "item": "ubesdelight:fish_sauce_bottle"
+    },
+    {
+      "tag": "forge:crops/lemongrass"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "ubesdelight:bulalo"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:milk"
+    },
+    "B": {
+      "tag": "c:tea_ingredients/sweet/weak"
+    },
+    "C": {
+      "item": "minecraft:wheat"
+    },
+    "E": {
+      "tag": "forge:eggs"
+    },
+    "F": {
+      "tag": "forge:crops/ube"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "BEB",
+    "CFC"
+  ],
+  "result": {
+    "item": "ubesdelight:ube_cake"
+  },
+  "show_notification": true
+}

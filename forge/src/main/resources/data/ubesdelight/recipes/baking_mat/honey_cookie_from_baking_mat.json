@@ -1,0 +1,29 @@
+{
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "processing_stages": [],
+  "result": [
+    {
+      "count": 8,
+      "item": "farmersdelight:honey_cookie"
+    },
+    {
+      "chance": 0.25,
+      "count": 4,
+      "item": "farmersdelight:honey_cookie"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/rolling_pins"
+  }
+}

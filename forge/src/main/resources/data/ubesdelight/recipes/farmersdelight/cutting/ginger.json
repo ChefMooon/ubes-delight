@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "ubesdelight:ginger"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "ubesdelight:ginger_chop"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "forge:crops/rice"
+    },
+    {
+      "tag": "forge:crops/garlic"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "ubesdelight:sinangag"
+  }
+}

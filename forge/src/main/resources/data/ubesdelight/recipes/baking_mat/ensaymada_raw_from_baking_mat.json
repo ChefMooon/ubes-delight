@@ -1,0 +1,41 @@
+{
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "tag": "forge:dough"
+    },
+    {
+      "tag": "c:tea_ingredients/sweet/weak"
+    },
+    {
+      "tag": "forge:milk"
+    }
+  ],
+  "processing_stages": [
+    {
+      "item": "ubesdelight:ensaymada_stage0"
+    },
+    {
+      "item": "ubesdelight:ensaymada_stage1"
+    },
+    {
+      "item": "ubesdelight:ensaymada_stage2"
+    },
+    {
+      "item": "ubesdelight:ensaymada_stage3"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "ubesdelight:ensaymada_raw"
+    },
+    {
+      "chance": 0.25,
+      "item": "ubesdelight:ensaymada_raw"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/rolling_pins"
+  }
+}

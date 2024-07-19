@@ -1,0 +1,39 @@
+{
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "tag": "forge:dough"
+    },
+    {
+      "tag": "c:tea_ingredients/sweet/weak"
+    },
+    {
+      "item": "minecraft:bread"
+    }
+  ],
+  "processing_stages": [
+    {
+      "item": "ubesdelight:pandesal_stage0"
+    },
+    {
+      "item": "ubesdelight:pandesal_stage1"
+    },
+    {
+      "item": "ubesdelight:pandesal_stage2"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "ubesdelight:pandesal_raw"
+    },
+    {
+      "chance": 0.25,
+      "count": 2,
+      "item": "ubesdelight:pandesal_raw"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/rolling_pins"
+  }
+}

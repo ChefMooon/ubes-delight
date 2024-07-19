@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 100,
+  "ingredients": [
+    {
+      "tag": "forge:grain"
+    },
+    {
+      "tag": "c:tea_ingredients/sweet/weak"
+    },
+    {
+      "item": "ubesdelight:milk_powder"
+    },
+    {
+      "tag": "forge:crops/ube"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 4,
+    "item": "ubesdelight:raw_polvorone_ube"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "ubesdelight:halo_halo_feast"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "ubesdelight:halo_halo"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

@@ -1,0 +1,49 @@
+architectury {
+    common(rootProject.enabled_platforms.split(","))
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/ubesdelight.accesswidener")
+}
+
+dependencies {
+    // We depend on fabric loader here to use the fabric @Environment annotations and get the mixin dependencies
+    // Do NOT use other classes from fabric loader
+    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    // Remove the next line if you don't want to depend on the API
+    //modApi "dev.architectury:architectury:${rootProject.architectury_version}"
+
+    // FD Refabricated
+    modImplementation ("vectorwing:FarmersDelight:${minecraft_version}-${fdrf_version}") {
+        exclude(group: "net.fabricmc")
+    }
+
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-api:$rei_version")
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version")
+
+    modCompileOnly("dev.emi:emi-xplat-intermediary:${emi_version}+${minecraft_version}:api")
+
+    modCompileOnly("mcp.mobius.waila:wthit-api:fabric-${wthitVersion}")
+
+}
+
+sourceSets.main {
+    resources { // include generated resources in resources
+        srcDir("src/generated/resources")
+        exclude("src/generated/resources/.cache")
+    }
+}
+
+publishing {
+    publications {
+        mavenCommon(MavenPublication) {
+            artifactId = rootProject.archives_base_name
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+    }
+}

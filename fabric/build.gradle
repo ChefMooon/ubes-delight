@@ -1,0 +1,131 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+architectury {
+    platformSetupLoomIde()
+    fabric()
+}
+
+loom {
+    Project common = project(":common")
+    accessWidenerPath = common.loom.accessWidenerPath
+
+    runs {
+        datagen {
+            client()
+
+            name "Minecraft Data"
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${common.file("src/generated/resources")}"
+            vmArg "-Dfabric-api.datagen.modid=${archives_base_name}"
+            vmArg "-Dporting_lib.datagen.existing_resources=${common.file("src/main/resources")}"
+
+            environmentVariable("DATAGEN", "TRUE")
+        }
+    }
+}
+
+configurations {
+    common
+    shadowCommon // Don't use shadow from the shadow plugin since it *excludes* files.
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentFabric.extendsFrom common
+}
+
+dependencies {
+    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
+    // Remove the next line if you don't want to depend on the API
+    //modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
+
+    // FD Refabricated
+    modImplementation ("vectorwing:FarmersDelight:${minecraft_version}-${fdrf_version}") {
+        exclude(group: "net.fabricmc")
+    }
+
+    // Porting Lib
+    for (String module in porting_lib_modules.split(",")) {
+        include(modApi("io.github.fabricators_of_create.Porting-Lib:$module:$porting_lib_version"))
+    }
+
+    // MidnightLib
+    modImplementation include("maven.modrinth:midnightlib:${project.midnightlib_fabric_version}")
+
+    // ModMenu
+    modLocalRuntime("com.terraformersmc:modmenu:${mod_menu_version}")
+
+    // Recipe Viewers
+    // EMI
+    modCompileOnly("dev.emi:emi-fabric:$emi_version+${minecraft_version}:api") { transitive = false }
+    // JEI
+    modCompileOnly("mezz.jei:jei-$minecraft_version-common-api:$jei_version") { transitive = false }
+    modCompileOnly("mezz.jei:jei-$minecraft_version-fabric-api:$jei_version") { transitive = false }
+    // REI
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:$rei_version") { transitive = false }
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version")
+
+    switch (recipe_viewer.toLowerCase(Locale.ROOT)) {
+        case "jei": modLocalRuntime("mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"); break
+        case "rei": modLocalRuntime("me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"); break
+        case "emi": modLocalRuntime("dev.emi:emi-fabric:${emi_version}+${minecraft_version}"); break
+        case "disabled": break
+        default: println("Unknown recipe viewer specified: ${recipe_viewer}. Must be JEI, REI, EMI, or disabled.")
+    }
+
+    // compile against the API
+    modCompileOnly "mcp.mobius.waila:wthit-api:fabric-${wthitVersion}"
+
+    // run against the full jar
+    modRuntimeOnly "mcp.mobius.waila:wthit:fabric-${wthitVersion}"
+    modRuntimeOnly "lol.bai:badpackets:fabric-${badpacketsVersion}"
+
+
+    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+}
+
+processResources {
+
+}
+
+shadowJar {
+    exclude "architectury.common.json"
+
+    configurations = [project.configurations.shadowCommon]
+    archiveClassifier = "dev-shadow"
+}
+
+remapJar {
+    injectAccessWidener = true
+    input.set shadowJar.archiveFile
+    dependsOn shadowJar
+
+}
+
+sourcesJar {
+    def commonSources = project(":common").sourcesJar
+    dependsOn commonSources
+    from commonSources.archiveFile.map { zipTree(it) }
+}
+
+components.java {
+    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+        skip()
+    }
+}
+
+publishing {
+    publications {
+        mavenFabric(MavenPublication) {
+            artifactId = rootProject.archives_base_name + "-" + project.name
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+    }
+}

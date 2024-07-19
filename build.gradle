@@ -1,157 +1,123 @@
 plugins {
-	id 'fabric-loom' version '1.3-SNAPSHOT'
-	id 'maven-publish'
-	id 'com.modrinth.minotaur' version '2.+'
+    id "architectury-plugin" version "3.4-SNAPSHOT"
+    id "dev.architectury.loom" version "1.5+" apply false
 }
 
-version = "fabric-${project.minecraft_version}-${project.mod_version}"
-group = project.maven_group
-
-repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
-	exclusiveContent {
-		forRepository {
-			maven {
-				name = "Modrinth"
-				url = "https://api.modrinth.com/maven"
-			}
-		}
-		filter {
-			includeGroup "maven.modrinth"
-		}
-	}
-	maven { url = "https://maven.shedaniel.me/" } // REI
-	//maven { url = "https://maven.terraformersmc.com/" } // EMI
+architectury {
+    minecraft = rootProject.minecraft_version
 }
 
-dependencies {
-	// To change the versions see the gradle.properties file
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+subprojects {
+    apply plugin: "dev.architectury.loom"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    loom {
+        silentMojangMappingsLicense()
+    }
 
-	// Farmers Delight API
-	modImplementation "maven.modrinth:farmers-delight-fabric:${project.delight_version}"
+    repositories {
+        // Add repositories to retrieve artifacts from in here.
+        // You should only use this when depending on other mods because
+        // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+        // See https://docs.gradle.org/current/userguide/declaring_repositories.html
+        // for more information about repositories.
+        maven { url "https://maven.parchmentmc.org" } // Parchment mappings
 
-	// Mod Menu API
-	modCompileOnly "maven.modrinth:modmenu:${project.mod_menu}"
-	modCompileOnly ("maven.modrinth:cloth-config:${project.clothconfig_version}") {
-		exclude(group: "net.fabricmc.fabric-api")
-	}
+        maven { url 'https://maven.greenhouseteam.dev/releases/' } // Farmers Delight Refabricated
+        maven { url "https://mvn.devos.one/snapshots/" } // Registrate, Porting Lib, Forge Tags, Milk Lib
+        maven { url "https://mvn.devos.one/releases/" } // Porting Lib
+        maven {
+            url "https://maven.jamieswhiteshirt.com/libs-release" // Reach Entity Attributes (Required by Porting Lib)
+            content { includeGroup "com.jamieswhiteshirt" }
+        }
+        maven {
+            url "https://jitpack.io/" // Fabric ASM
+            content { excludeGroup "io.github.fabricators_of_create" }
+        }
 
-	// REI API
-	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:$rei_version"
-	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version"
+        maven { url 'https://www.cursemaven.com' } // Farmers Delight
 
-	// EMI API (Prep)
-	//modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
+        maven { url "https://maven.ryanliptak.com/" } // Appleskin
+
+        maven { url "https://maven.blamejared.com/" } // JEI
+        maven { url "https://maven.shedaniel.me" } // REI
+        maven { url "https://maven.terraformersmc.com/" } // EMI
+
+        maven { url "https://api.modrinth.com/maven" } // MidnightLib
+
+        maven {
+            url "https://maven2.bai.lol"
+            content {
+                includeGroup "lol.bai"
+                includeGroup "mcp.mobius.waila"
+            }
+        }
+    }
+
+    dependencies {
+        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+        // The following line declares the mojmap mappings, you may use other mappings as well
+        //mappings loom.officialMojangMappings()
+        // The following line declares the yarn mappings you may select this one as well.
+        // mappings "net.fabricmc:yarn:1.20.1+build.10:v2"
+        mappings(loom.layered {
+            it.parchment("org.parchmentmc.data:parchment-${minecraft_version}:${parchment_version}@zip")
+            it.officialMojangMappings { nameSyntheticMembers = false }
+        })
+    }
+
+    tasks.processResources {
+        var replaceProperties = [
+                minecraft_version    : minecraft_version,
+                minecraft_min_version: minecraft_min_version,
+                minecraft_max_version: minecraft_max_version,
+
+                mod_id               : project.mod_id,
+                mod_name             : project.mod_name,
+                mod_version          : project.mod_version,
+                mod_license          : project.mod_license,
+                mod_authors          : project.mod_authors,
+                mod_description      : project.mod_description,
+                mod_credits          : project.mod_credits,
+                mod_homepage         : project.mod_homepage,
+                mod_github           : project.mod_github,
+                mod_issues           : project.mod_issues,
+                mod_discord          : project.mod_discord
+        ]
+
+        inputs.properties replaceProperties
+
+        filesMatching(["META-INF/mods.toml", "fabric.mod.json"]) {
+            expand replaceProperties + [project: project]
+        }
+    }
 }
 
-base {
-	archivesName = project.archives_base_name
-}
+allprojects {
+    apply plugin: "java"
+    apply plugin: "architectury-plugin"
+    apply plugin: "maven-publish"
 
-processResources {
-	var replaceProperties = [
-			mod_version           : mod_version,
-			minecraft_version     : minecraft_version,
-			minecraft_min_version : minecraft_min_version,
-			minecraft_max_version : minecraft_max_version,
-	]
+    base {
+        archivesName = rootProject.archives_base_name
+    }
 
-	filesMatching("fabric.mod.json") {
-		expand replaceProperties + [project: project]
-	}
-}
+    version = "${project.name}-${rootProject.minecraft_version}-${rootProject.mod_version}"
+    group = rootProject.maven_group
 
-loom {
-	runs {
-		//
-		// This adds a new gradle task that runs the datagen API: "gradlew runDatagenClient"
-		//
-		datagenClient {
-			server()
-			name "Data Generation"
-			vmArg "-Dfabric-api.datagen"
-			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
-			vmArg "-Dfabric-api.datagen.modid=${modid}"
+    repositories {
+        // Add repositories to retrieve artifacts from in here.
+        // You should only use this when depending on other mods because
+        // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+        // See https://docs.gradle.org/current/userguide/declaring_repositories.html
+        // for more information about repositories.
+    }
 
-			runDir "build/datagen"
-		}
-	}
-}
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.release = 17
+    }
 
-//
-// Adds the generated files into the jar you distribute to players.
-//
-sourceSets {
-	main {
-		resources {
-			srcDirs += [
-					'src/main/generated'
-			]
-		}
-	}
-}
-
-tasks.withType(JavaCompile).configureEach {
-	// Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
-	it.options.release = 17
-}
-
-java {
-	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-	// if it is present.
-	// If you remove this line, sources will not be generated.
-	withSourcesJar()
-
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
-}
-
-jar {
-	from("LICENSE") {
-		rename { "${it}_${base.archivesName.get()}"}
-	}
-}
-
-// configure the maven publication
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			from components.java
-		}
-	}
-
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
-	}
-}
-
-modrinth {
-	token = System.getenv("MODRINTH_TOKEN") // This is the default. Remember to have the MODRINTH_TOKEN environment variable set or else this will fail, or set it to whatever you want - just make sure it stays private!
-	projectId = "PYjpoAys" // This can be the project ID or the slug. Either will work!
-	versionNumber = project.mod_version-project.minecraft_version // You don't need to set this manually. Will fail if Modrinth has this version already
-	versionType = "alpha" // This is the default -- can also be `beta` or `alpha`
-	uploadFile = remapJar // With Loom, this MUST be set to `remapJar` instead of `jar`!
-	gameVersions = ["1.20","1.20.1"] // Must be an array, even with only one version
-	loaders = ["fabric","quilt"] // Must also be an array - no need to specify this if you're using Loom or ForgeGradle
-	dependencies { // A special DSL for creating dependencies
-		// scope.type
-		// The scope can be `required`, `optional`, `incompatible`, or `embedded`
-		// The type can either be `project` or `version`
-		required.project "fabric-api" // Creates a new required dependency on Fabric API
-		required.project "farmers-delight-fabric"
-	}
+    java {
+        withSourcesJar()
+    }
 }

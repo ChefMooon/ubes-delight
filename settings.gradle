@@ -1,14 +1,14 @@
 pluginManagement {
     repositories {
+        maven { url "https://maven.fabricmc.net/" }
+        maven { url "https://maven.architectury.dev/" }
+        maven { url "https://maven.minecraftforge.net/" }
         gradlePluginPortal()
-        maven {
-            name = 'Fabric'
-            url = 'https://maven.fabricmc.net/'
-        }
-        maven {
-            name = 'Modrinth'
-            url = "https://api.modrinth.com/maven"
-        }
-        mavenCentral()
     }
 }
+
+include("common")
+include("fabric")
+include("forge")
+
+rootProject.name = "ubesdelight"

@@ -1,0 +1,20 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "ubesdelight:garlic"
+    }
+  ],
+  "results": [
+    {
+      "item": "ubesdelight:garlic_chop",
+      "count": 2
+    }
+  ]
+}

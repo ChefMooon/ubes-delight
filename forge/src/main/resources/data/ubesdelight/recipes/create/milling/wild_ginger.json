@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "ubesdelight:wild_ginger"
+    }
+  ],
+  "results": [
+    {
+      "item": "ubesdelight:ginger",
+      "count": 1
+    },
+    {
+      "item": "minecraft:brown_dye",
+      "count": 1,
+      "chance": 0.5
+    }
+  ],
+  "processingTime": 50
+}

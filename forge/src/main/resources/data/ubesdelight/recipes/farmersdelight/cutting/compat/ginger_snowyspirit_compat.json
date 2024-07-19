@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "snowyspirit"
+    }
+  ],
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "snowyspirit:ginger"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "ubesdelight:ginger_chop"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

@@ -1,0 +1,35 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+issueTrackerURL = "${mod_issues}"
+license = "${mod_license}"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+authors = "${mod_authors}"
+description = '''
+${mod_description}
+'''
+logoFile = "assets/ubesdelight/icon.png"
+
+[[dependencies.ubesdelight]]
+modId = "forge"
+mandatory = true
+versionRange = "[47.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.ubesdelight]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.ubesdelight]]
+modId="farmersdelight"
+mandatory=true
+versionRange="[1.2.2,)"
+ordering="NONE"
+side="BOTH"

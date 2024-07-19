@@ -1,0 +1,14 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.2,
+  "ingredients": [
+    {
+      "tag": "forge:milk/milk_bottle"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "item": "ubesdelight:milk_powder"
+  }
+}

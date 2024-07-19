@@ -1,0 +1,42 @@
+{
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "item": "ubesdelight:raw_polvorone_pinipig"
+    },
+    {
+      "item": "ubesdelight:raw_polvorone_pinipig"
+    },
+    {
+      "item": "ubesdelight:raw_polvorone_pinipig"
+    },
+    {
+      "item": "ubesdelight:raw_polvorone_pinipig"
+    }
+  ],
+  "processing_stages": [
+    {
+      "item": "ubesdelight:polvorone_pinipig_stage0"
+    },
+    {
+      "item": "ubesdelight:polvorone_pinipig_stage1"
+    },
+    {
+      "item": "ubesdelight:polvorone_pinipig_stage2"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "ubesdelight:polvorone_pinipig"
+    },
+    {
+      "chance": 0.25,
+      "count": 2,
+      "item": "ubesdelight:polvorone_pinipig"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/rolling_pins"
+  }
+}

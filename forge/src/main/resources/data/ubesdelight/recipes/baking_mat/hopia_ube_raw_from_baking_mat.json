@@ -1,0 +1,38 @@
+{
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "tag": "forge:dough"
+    },
+    {
+      "tag": "c:tea_ingredients/sweet/weak"
+    },
+    {
+      "tag": "forge:crops/ube"
+    }
+  ],
+  "processing_stages": [
+    {
+      "item": "ubesdelight:hopia_ube_stage0"
+    },
+    {
+      "item": "ubesdelight:hopia_ube_stage1"
+    },
+    {
+      "item": "ubesdelight:hopia_ube_stage2"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "ubesdelight:hopia_ube_raw"
+    },
+    {
+      "chance": 0.25,
+      "item": "ubesdelight:hopia_ube_raw"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/rolling_pins"
+  }
+}

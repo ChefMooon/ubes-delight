@@ -1,0 +1,140 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+architectury {
+    platformSetupLoomIde()
+    forge()
+}
+
+loom {
+    accessWidenerPath = project(":common").loom.accessWidenerPath
+
+    forge {
+        convertAccessWideners = true
+        extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
+
+        mixinConfig "ubesdelight-common.mixins.json"
+        mixinConfig "ubesdelight.mixins.json"
+    }
+}
+
+configurations {
+    common
+    shadowCommon // Don't use shadow from the shadow plugin since it *excludes* files.
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentForge.extendsFrom common
+}
+
+dependencies {
+    forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}"
+    // Remove the next line if you don't want to depend on the API
+    //modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
+
+    modImplementation "curse.maven:farmers-delight-398521:${farmersdelight_version}"
+
+    // MidnightLib
+    modImplementation include("maven.modrinth:midnightlib:${project.midnightlib_forge_version}")
+
+    // Appleskin
+    modCompileOnly("squeek.appleskin:appleskin-forge:${appleskin_forge_version}:api")
+    modRuntimeOnly("squeek.appleskin:appleskin-forge:${appleskin_forge_version}")
+
+    // Recipe Viewers
+    // EMI
+    modCompileOnly("dev.emi:emi-forge:$emi_version+${minecraft_version}:api") { transitive = false }
+    // JEI
+    modCompileOnly("mezz.jei:jei-$minecraft_version-common-api:$jei_version") { transitive = false }
+    modCompileOnly("mezz.jei:jei-$minecraft_version-forge-api:$jei_version") { transitive = false }
+    // REI
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-forge:$rei_version") { transitive = false }
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-forge:$rei_version")
+
+    switch (recipe_viewer.toLowerCase(Locale.ROOT)) {
+        case "jei": modLocalRuntime("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"); break
+        case "rei": modLocalRuntime("me.shedaniel:RoughlyEnoughItems-forge:${rei_version}"); break
+        case "emi": modLocalRuntime("dev.emi:emi-forge:${emi_version}+${minecraft_version}"); break
+        case "disabled": break
+        default: println("Unknown recipe viewer specified: ${recipe_viewer}. Must be JEI, REI, EMI, or disabled.")
+    }
+
+    // compile against the API
+    modCompileOnly("mcp.mobius.waila:wthit-api:forge-${wthitVersion}")
+
+    // run against the full jar
+    modLocalRuntime("mcp.mobius.waila:wthit:forge-${wthitVersion}")
+    modLocalRuntime("lol.bai:badpackets:forge-${badpacketsVersion}")
+
+    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+}
+
+processResources {
+    /*var replaceProperties = [
+            minecraft_version    : minecraft_version,
+            minecraft_min_version: minecraft_min_version,
+            minecraft_max_version: minecraft_max_version,
+
+            mod_id               : project.mod_id,
+            mod_name             : project.mod_name,
+            mod_version          : project.mod_version,
+            mod_license          : project.mod_license,
+            mod_authors          : project.mod_authors,
+            mod_description      : project.mod_description,
+            mod_credits          : project.mod_credits,
+            mod_homepage         : project.mod_homepage,
+            mod_github           : project.mod_github
+    ]
+
+    inputs.properties replaceProperties
+
+    filesMatching("META-INF/mods.toml") {
+        expand replaceProperties + [project: project]
+    }
+
+    inputs.property "version", project.version
+
+    filesMatching("META-INF/mods.toml") {
+        expand "version": project.version
+    }*/
+}
+
+shadowJar {
+    exclude "fabric.mod.json"
+    exclude "architectury.common.json"
+
+    configurations = [project.configurations.shadowCommon]
+    archiveClassifier = "dev-shadow"
+}
+
+remapJar {
+    input.set shadowJar.archiveFile
+    dependsOn shadowJar
+}
+
+sourcesJar {
+    def commonSources = project(":common").sourcesJar
+    dependsOn commonSources
+    from commonSources.archiveFile.map { zipTree(it) }
+}
+
+components.java {
+    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+        skip()
+    }
+}
+
+publishing {
+    publications {
+        mavenForge(MavenPublication) {
+            artifactId = rootProject.archives_base_name + "-" + project.name
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+    }
+}

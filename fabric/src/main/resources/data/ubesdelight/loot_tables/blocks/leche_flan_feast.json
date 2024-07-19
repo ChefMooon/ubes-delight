@@ -1,0 +1,195 @@
+{
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:all_of",
+          "terms": [
+            {
+              "block": "ubesdelight:leche_flan_feast",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "bites": "4"
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "tag": "c:tools/knives"
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ubesdelight:leche_flan"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:all_of",
+          "terms": [
+            {
+              "block": "ubesdelight:leche_flan_feast",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "bites": "3"
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "tag": "c:tools/knives"
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ubesdelight:leche_flan"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:all_of",
+          "terms": [
+            {
+              "block": "ubesdelight:leche_flan_feast",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "bites": "2"
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "tag": "c:tools/knives"
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ubesdelight:leche_flan"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:all_of",
+          "terms": [
+            {
+              "block": "ubesdelight:leche_flan_feast",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "bites": "1"
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "tag": "c:tools/knives"
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ubesdelight:leche_flan"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:all_of",
+          "terms": [
+            {
+              "block": "ubesdelight:leche_flan_feast",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "bites": "0"
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "tag": "c:tools/knives"
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ubesdelight:leche_flan"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

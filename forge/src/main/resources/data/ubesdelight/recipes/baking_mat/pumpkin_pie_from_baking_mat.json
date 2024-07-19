@@ -1,0 +1,27 @@
+{
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "item": "minecraft:pumpkin"
+    },
+    {
+      "tag": "c:tea_ingredients/sweet/weak"
+    },
+    {
+      "item": "minecraft:egg"
+    }
+  ],
+  "processing_stages": [],
+  "result": [
+    {
+      "item": "minecraft:pumpkin_pie"
+    },
+    {
+      "chance": 0.25,
+      "item": "minecraft:pumpkin_pie"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/rolling_pins"
+  }
+}
