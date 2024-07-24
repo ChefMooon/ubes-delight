@@ -26,7 +26,7 @@ public class UbesDelightImpl {
         modEventBus.addListener(CommonSetupImpl::init);
         if (FMLEnvironment.dist.isClient()) {
             modEventBus.addListener(UbesDelightClientImpl::init);
-            //modEventBus.addListener(UbesDelightClientImpl::onBuiltinPackRegistration); // this can load custom resource packs
+            modEventBus.addListener(UbesDelightClientImpl::onBuiltinPackRegistration);
         }
 
         UbesDelightSoundsImpl.register(modEventBus);

@@ -19,7 +19,6 @@ public class UbesDelightTags {
         return TagKey.create(Registries.BLOCK, new ResourceLocation(UbesDelight.MOD_ID, path));
     }
 
-    // todo - document these tags on wiki
     public static final TagKey<Biome> WILD_UBE_WHITELIST = getBiomeTag("has_wild_ube_whitelist");
     public static final TagKey<Biome> WILD_UBE_BLACKLIST = getBiomeTag("has_wild_ube_blacklist");
     public static final TagKey<Biome> WILD_GARLIC_WHITELIST = getBiomeTag("has_wild_garlic_whitelist");

@@ -26,11 +26,14 @@ public class UbesDelightClientImpl {
 
     public static void onBuiltinPackRegistration(AddPackFindersEvent event) {
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
+            if (isModLoaded("presencefootsteps")) {
+                registerBuiltinResourcePack(event, Component.literal(UbesDelight.MOD_ID + "/udpresencefootsteps"), "udpresencefootsteps");
+            }
 
             // For future use when Forge Eating Animation Compat works
-            if (isModLoaded("eatinganimation")) {
-                registerBuiltinResourcePack(event, Component.literal(UbesDelight.MOD_ID + "/ubsupporteatinganimation"), "udsupporteatinganimation");
-            }
+            //if (isModLoaded("eatinganimation")) {
+            //    registerBuiltinResourcePack(event, Component.literal(UbesDelight.MOD_ID + "/ubsupporteatinganimation"), "udsupporteatinganimation");
+            //}
         }
     }
 
