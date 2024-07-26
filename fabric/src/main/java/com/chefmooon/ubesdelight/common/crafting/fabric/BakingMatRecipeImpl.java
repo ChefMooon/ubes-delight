@@ -126,32 +126,6 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
         }
 
         return inputMatch || processMatch;
-
-        // todo - remove me after first commit, record old implementation
-//        boolean inputMatch;
-//        boolean processMatch = false;
-//
-//        List<ItemStack> inputList = new ArrayList<>();
-//        int i = 0;
-//
-//        for (int j = 0; j < BakingMatBlockEntity.MAX_INGREDIENTS; j++) {
-//            ItemStack itemStack = inv.getItem(j);
-//            if (!itemStack.isEmpty()) {
-//                i++;
-//                inputList.add(itemStack);
-//            }
-//        }
-//        inputMatch = (i == ingredientList.size() && RecipeMatcher.findMatches(inputList, ingredientList) != null);
-//
-//        if (processStages.size() > 0 && inputList.size() > 0) {
-//            for (Ingredient ingredient : processStages) {
-//                if (Arrays.stream(ingredient.getItems()).findFirst().get().is(inputList.get(0).getItem())) {
-//                    processMatch = true;
-//                }
-//            }
-//        }
-//
-//        return inputMatch || processMatch;
     }
 
     @Override

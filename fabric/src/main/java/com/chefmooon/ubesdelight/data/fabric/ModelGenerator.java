@@ -182,28 +182,6 @@ public class ModelGenerator extends FabricModelProvider {
                         .select(3, Variant.variant().with(VariantProperties.MODEL, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LUMPIA_FEAST, "_stage0")))
                 ));
 
-
-        blockStateModelGenerator.createSimpleFlatItemModel(UbesDelightBlocksImpl.BANANA_LEAF);
-        blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.multiVariant(UbesDelightBlocksImpl.BANANA_LEAF)
-                .with(BlockModelGenerators.createHorizontalFacingDispatch())
-                .with(PropertyDispatch.property(AbstractBananaLeafBlock.NORTH)
-                        .select(true, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                        .select(false, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                )
-                .with(PropertyDispatch.property(AbstractBananaLeafBlock.EAST)
-                        .select(true, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                        .select(false, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                )
-                .with(PropertyDispatch.property(AbstractBananaLeafBlock.SOUTH)
-                        .select(true, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                        .select(false, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                )
-                .with(PropertyDispatch.property(AbstractBananaLeafBlock.WEST)
-                        .select(true, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                        .select(false, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                )
-        );
-
         registerDrinkFeast(UbesDelightBlocksImpl.MILK_TEA_UBE_FEAST, blockStateModelGenerator);
         registerDrinkFeast(UbesDelightBlocksImpl.HALO_HALO_FEAST, blockStateModelGenerator);
 

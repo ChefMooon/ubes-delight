@@ -25,9 +25,6 @@ public class UbesDelightBlocksImpl {
     public static final RegistryObject<Block> KALAN = registerBlock(UbesDelightBlocks.KALAN, KalanBlock::new);
     public static final RegistryObject<Block> BAKING_MAT_BAMBOO = registerBlock(UbesDelightBlocks.BAKING_MAT_BAMBOO, BakingMatBlockImpl::new);
 
-    public static final RegistryObject<Block> BANANA_LEAF = registerBlock(UbesDelightBlocks.BANANA_LEAF,
-            () -> new AbstractBananaLeafBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
-
     public static final RegistryObject<Block> UBE_CRATE = registerBlock(UbesDelightBlocks.UBE_CRATE,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> GARLIC_CRATE = registerBlock(UbesDelightBlocks.GARLIC_CRATE,

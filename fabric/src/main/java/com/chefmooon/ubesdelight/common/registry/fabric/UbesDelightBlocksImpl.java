@@ -19,9 +19,6 @@ public class UbesDelightBlocksImpl {
     public static final Block KALAN = registerBlock(UbesDelightBlocks.KALAN, new KalanBlock());
     public static final Block BAKING_MAT_BAMBOO = registerBlock(UbesDelightBlocks.BAKING_MAT_BAMBOO, new BakingMatBlockImpl());
 
-    public static final Block BANANA_LEAF = registerBlock(UbesDelightBlocks.BANANA_LEAF,
-            new AbstractBananaLeafBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
-
     public static final Block UBE_CRATE = registerBlock(UbesDelightBlocks.UBE_CRATE,
             new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final Block GARLIC_CRATE = registerBlock(UbesDelightBlocks.GARLIC_CRATE,

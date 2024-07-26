@@ -12,8 +12,6 @@ public class UbesDelightBlocks {
     public static final ResourceLocation KALAN = block("kalan");
     public static final ResourceLocation BAKING_MAT_BAMBOO = block("baking_mat_bamboo");
 
-    public static final ResourceLocation BANANA_LEAF = block("banana_leaf");
-
     public static final ResourceLocation UBE_CRATE = block("ube_crate");
     public static final ResourceLocation GARLIC_CRATE = block("garlic_crate");
     public static final ResourceLocation GINGER_CRATE = block("ginger_crate");

@@ -88,9 +88,6 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
         Optional<BakingMatRecipeImpl> matchingRecipe = getMatchingRecipe(new RecipeWrapper(inventory), tool, player);
 
         matchingRecipe.ifPresent(recipe -> {
-            // todo - after first commit - cleanup
-            //List<ItemStack> results = List.of();
-            //List<Ingredient> ingredients = recipe.getIngredients();
             List<Ingredient> processStages = recipe.getProcessStages();
             List<ItemStack> ingredientContainers = getInventoryContainers(inventory);
 

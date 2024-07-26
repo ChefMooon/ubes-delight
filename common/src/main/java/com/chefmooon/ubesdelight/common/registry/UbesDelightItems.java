@@ -32,8 +32,6 @@ public class UbesDelightItems {
     public static final ResourceLocation BAKING_MAT_BAMBOO = item("baking_mat_bamboo");
     public static final ResourceLocation ROLLING_PIN_WOOD = item("rolling_pin_wood");
 
-    public static final ResourceLocation BANANA_LEAF = item("banana_leaf");
-
     public static final ResourceLocation WILD_UBE = item("wild_ube");
     public static final ResourceLocation WILD_GARLIC = item("wild_garlic");
     public static final ResourceLocation WILD_GINGER = item("wild_ginger");

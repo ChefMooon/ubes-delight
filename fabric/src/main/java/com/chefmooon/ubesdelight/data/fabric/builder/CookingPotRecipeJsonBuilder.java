@@ -51,13 +51,6 @@ public class CookingPotRecipeJsonBuilder implements RecipeBuilder {
         return new CookingPotRecipeJsonBuilder(output, outputCount, null, inputs, experience, cookingTime);
     }
 
-    //public static CookingPotRecipeJsonBuilder create(ItemLike output, int outputCount, int cookingTime, List<Ingredient> inputs) {
-    //    return new CookingPotRecipeJsonBuilder(output, outputCount, null, inputs, .0F, cookingTime);
-    //}
-    //public static CookingPotRecipeJsonBuilder create(ItemLike output, int cookingTime, List<Ingredient> inputs) {
-    //    return new CookingPotRecipeJsonBuilder(output, 1, null, inputs, .0F, cookingTime);
-    //}
-
     public CookingPotRecipeJsonBuilder input(TagKey<Item> tag) {
         return this.input(Ingredient.of(tag));
     }

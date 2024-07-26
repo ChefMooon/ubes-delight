@@ -158,25 +158,6 @@ public class DrinkableFeastBlock extends Block {
         return InteractionResult.FAIL;
     }
 
-    // todo - decide if punchbowls have particles?
-    //@Override
-    //public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-    //    //BlockEntity tileEntity = level.getBlockEntity(pos); // Needed?
-    //    if (particleData != null && state.getValue(getServingsProperty()) > 0) {
-    //        double d = (double)pos.getX() + 0.5D;
-    //        double e = (double)pos.getY() + (state.getValue(getServingsProperty()) / 6.0);
-    //        double f = (double)pos.getZ() + 0.5D;
-    //        for(int i = 0; i < 1; ++i) {
-    //            if (random.nextBoolean()) {
-    //                level.addParticle(particleData, d + (random.nextDouble() - 0.5) / 2.0, e + ((1.0 - random.nextDouble()) / 20.0), f + (random.nextDouble() - 0.5) / 2.0, 0.0, 0.0, 0.0);
-    //                if (new java.util.Random().nextInt(10) == 0) {
-    //                    level.playSound(null, pos, UbesDelightSounds.BLOCK_DRINKABLE_FEAST_BUBBLE.get(), SoundSource.BLOCKS, 0.2F, 0.8F);
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
-
     @Override
     public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
         return getOutputSignal((Integer)state.getValue(SERVINGS));

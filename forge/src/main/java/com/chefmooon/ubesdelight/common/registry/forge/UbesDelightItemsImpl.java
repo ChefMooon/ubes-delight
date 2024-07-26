@@ -36,10 +36,6 @@ public class UbesDelightItemsImpl {
     public static final RegistryObject<Item> ROLLING_PIN_WOOD = registerItemWithTab(UbesDelightItems.ROLLING_PIN_WOOD,
             () -> new RollingPinItemImpl(1.0F, 1.0F, UDTiers.ROLLING_PIN_WOOD, basicItem()));
 
-    // todo - remove after dev branch
-    public static final RegistryObject<Item> BANANA_LEAF = registerItem(UbesDelightItems.BANANA_LEAF,
-            () -> new BlockItem(UbesDelightBlocksImpl.BANANA_LEAF.get(), basicItem()));
-
     public static final RegistryObject<Item> WILD_UBE = registerItemWithTab(UbesDelightItems.WILD_UBE,
             () -> new BlockItem(UbesDelightBlocksImpl.WILD_UBE.get(), basicItem()));
     public static final RegistryObject<Item> WILD_GARLIC = registerItemWithTab(UbesDelightItems.WILD_GARLIC,
