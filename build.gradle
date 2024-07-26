@@ -86,7 +86,7 @@ subprojects {
 
         inputs.properties replaceProperties
 
-        filesMatching(["META-INF/mods.toml", "fabric.mod.json"]) {
+        filesMatching(["META-INF/mods.toml", "fabric.mod.json", "pack.mcmeta"]) {
             expand replaceProperties + [project: project]
         }
     }
@@ -101,7 +101,10 @@ allprojects {
         archivesName = rootProject.archives_base_name
     }
 
-    version = "${project.name}-${rootProject.minecraft_version}-${rootProject.mod_version}"
+    def isBeta = true
+    def buildSuffix = isBeta ? "-beta" : ""
+
+    version = "${project.name}-${rootProject.minecraft_version}-${rootProject.mod_version}${buildSuffix}"
     group = rootProject.maven_group
 
     repositories {

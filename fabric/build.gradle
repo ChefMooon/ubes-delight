@@ -81,9 +81,13 @@ dependencies {
     modRuntimeOnly "mcp.mobius.waila:wthit:fabric-${wthitVersion}"
     modRuntimeOnly "lol.bai:badpackets:fabric-${badpacketsVersion}"
 
-
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+
+    // Integration Testing
+    // Fabric Seasons
+    modLocalRuntime("maven.modrinth:fabric-seasons:2.3+1.20")
+    modLocalRuntime("maven.modrinth:fabric-seasons-delight-compat:1.0")
 }
 
 processResources {

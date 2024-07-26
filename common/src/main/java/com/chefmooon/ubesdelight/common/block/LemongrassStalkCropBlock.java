@@ -15,10 +15,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -30,7 +27,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import static com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil.getBlock;
 import static com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil.getItemStack;
 
-public class LemongrassStalkCropBlock extends BushBlock implements BonemealableBlock {
+public class LemongrassStalkCropBlock extends CropBlock {
     public static final IntegerProperty LEMONGRASS_AGE = BlockStateProperties.AGE_5;
     public static final BooleanProperty SUPPORTING = BooleanProperty.create("supporting");
     public static final int MAX_AGE = 5;
@@ -85,7 +82,7 @@ public class LemongrassStalkCropBlock extends BushBlock implements BonemealableB
         return LEMONGRASS_AGE;
     }
 
-    protected int getAge(BlockState state) {
+    public int getAge(BlockState state) {
         return state.getValue(this.getAgeProperty());
     }
 
@@ -100,10 +97,6 @@ public class LemongrassStalkCropBlock extends BushBlock implements BonemealableB
 
     public BlockState withAge(int age) {
         return this.defaultBlockState().setValue(this.getAgeProperty(), age);
-    }
-
-    public boolean isMaxAge(BlockState state) {
-        return state.getValue(this.getAgeProperty()) >= this.getMaxAge();
     }
 
     @Override

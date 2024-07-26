@@ -200,7 +200,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItemsImpl.SINANGAG), RecipeProvider.has(UbesDelightItemsImpl.SINANGAG))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_COOKED_MEATS_COOKED_EGGS), RecipeProvider.has(CommonTags.C_FOODS_COOKED_MEATS_COOKED_EGGS))
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
-                .save(exporter, recipeName(UbesDelightItemsImpl.BANGSILOG) + "_extra");
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.BANGSILOG) + "_extra"));
 
         CookingPotRecipeJsonBuilder.create(UbesDelightItemsImpl.SISIG, 1, 200, 4.0F,
                         List.of(Ingredient.of(CommonTags.C_FOODS_RAW_MEATS_RAW_PORK),

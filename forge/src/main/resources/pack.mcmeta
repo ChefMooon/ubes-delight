@@ -1,6 +1,6 @@
 {
   "pack": {
-    "description": "Ube's Delight",
+    "description": "${mod_id}",
     "pack_format": 15
   }
 }

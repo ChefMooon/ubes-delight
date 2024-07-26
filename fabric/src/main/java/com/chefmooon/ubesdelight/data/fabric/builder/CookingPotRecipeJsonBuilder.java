@@ -120,7 +120,7 @@ public class CookingPotRecipeJsonBuilder implements RecipeBuilder {
         this.ensureValid(recipeId);
         String fdCookingPrefix = "farmersdelight/cooking/";
         this.advancement.parent(ROOT_RECIPE_ADVANCEMENT).addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId.withPrefix(fdCookingPrefix))).rewards(net.minecraft.advancements.AdvancementRewards.Builder.recipe(recipeId.withPrefix(fdCookingPrefix))).requirements(RequirementsStrategy.OR);
-        finishedRecipeConsumer.accept(new Result(recipeId.withPrefix(fdCookingPrefix), this.tab, this.output, this.outputCount, this.container, this.inputs, this.experience, this.cookingTime, this.advancement, recipeId.withPrefix("recipes/" + fdCookingPrefix)));
+        finishedRecipeConsumer.accept(new Result(recipeId.withPrefix(fdCookingPrefix), this.tab, this.output, this.outputCount, this.container, this.inputs, this.experience, this.cookingTime, this.advancement, recipeId.withPrefix("recipes/food/" + fdCookingPrefix)));
     }
 
     private void ensureValid(ResourceLocation id) {
