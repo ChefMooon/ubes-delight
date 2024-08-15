@@ -41,6 +41,15 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(UbesDelightItemsImpl.KALAN, "Kalan");
         translationBuilder.add(UbesDelightItemsImpl.BAKING_MAT_BAMBOO, "Bamboo Baking Mat");
 
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST, "Leaf Feast");
+
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_RICE, "Leaf Feast Rice");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_RICE_GARLIC, "Leaf Feast Sinigang");
+
+//        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_BREAD, "Leaf Feast Bread");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA, "Leaf Feast Ensaymada");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE, "Leaf Feast Ube Ensaymada");
+
         translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_WOOD, "Wood Rolling Pin");
 
         translationBuilder.add(UbesDelightItemsImpl.UBE_CRATE, "Ube Crate");
@@ -211,6 +220,9 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(SUBTITLES + "block_drinkable_feast.remove", "Drink Removed");
 
         translationBuilder.add(SUBTITLES + "block_lumpia_feast.remove", "Lumpia Removed");
+
+        translationBuilder.add(SUBTITLES + "block_leaf_feast.add", "Serving Added");
+        translationBuilder.add(SUBTITLES + "block_leaf_feast.remove", "Serving Removed");
 
         translationBuilder.add(CONFIG + "title", FORMATTED_MOD_ID + " Settings");
         translationBuilder.add(CONFIG + "category.common", "Common Settings");

@@ -6,6 +6,14 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class VoxelShapeUtil {
+    public static VoxelShape[] getRotatedShapes(VoxelShape shape) {
+        // Assumes initial direciton is NORTH, returns in order of Direction.get2DDataValue() make one that handles an input direction?
+        return new VoxelShape[]{
+                rotateVoxelShape(shape, Direction.SOUTH),
+                rotateVoxelShape(shape, Direction.WEST),
+                shape,
+                rotateVoxelShape(shape, Direction.EAST)};
+    }
 
     public static VoxelShape rotateVoxelShape(VoxelShape shape, Direction direction) {
         // Assumes initial direciton is NORTH
@@ -56,5 +64,28 @@ public class VoxelShapeUtil {
             buffer[0] = Shapes.joinUnoptimized(buffer[0], rotated, BooleanOp.OR);
         });
         return buffer[0];
+    }
+
+    // This is to make life easier
+    // Future Ideas
+    // Add a base direction? potential list of shapes of all directions
+    public static class VoxelShapeBuiler {
+        private VoxelShape newShape;
+        public VoxelShapeBuiler(VoxelShape shape) {
+            newShape = shape;
+        }
+        public VoxelShapeBuiler(VoxelShape... shapes) {
+            newShape = Shapes.empty();
+            for (VoxelShape shape : shapes) {
+                newShape = Shapes.or(newShape, shape);
+            }
+        }
+        public VoxelShapeBuiler addBox(VoxelShape shape) {
+            newShape = Shapes.or(newShape, shape);
+            return this;
+        }
+        public VoxelShapeBuiler build() {
+            return this;
+        }
     }
 }

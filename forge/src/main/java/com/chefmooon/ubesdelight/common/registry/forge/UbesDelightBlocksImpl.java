@@ -25,8 +25,18 @@ public class UbesDelightBlocksImpl {
     public static final RegistryObject<Block> KALAN = registerBlock(UbesDelightBlocks.KALAN, KalanBlock::new);
     public static final RegistryObject<Block> BAKING_MAT_BAMBOO = registerBlock(UbesDelightBlocks.BAKING_MAT_BAMBOO, BakingMatBlockImpl::new);
 
-    public static final RegistryObject<Block> BANANA_LEAF = registerBlock(UbesDelightBlocks.BANANA_LEAF,
-            () -> new AbstractBananaLeafBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
+    public static final RegistryObject<Block> LEAF_FEAST = registerBlock(UbesDelightBlocks.LEAF_FEAST,
+            () -> new LeafFeastSimpleBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
+
+    public static final RegistryObject<Block> LEAF_FEAST_RICE = registerBlock(UbesDelightBlocks.LEAF_FEAST_RICE,
+            () -> new LeafFeastRiceBlock(UbesDelightItemsImpl.SINANGAG::get, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+    public static final RegistryObject<Block> LEAF_FEAST_RICE_GARLIC = registerBlock(UbesDelightBlocks.LEAF_FEAST_RICE_GARLIC,
+            () -> new LeafFeastRiceBlock(UbesDelightItemsImpl.SINANGAG::get, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+
+    public static final RegistryObject<Block> LEAF_FEAST_ENSAYMADA = registerBlock(UbesDelightBlocks.LEAF_FEAST_ENSAYMADA,
+            () -> new LeafFeastBreadBlock(UbesDelightItemsImpl.ENSAYMADA::get, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+    public static final RegistryObject<Block> LEAF_FEAST_ENSAYMADA_UBE = registerBlock(UbesDelightBlocks.LEAF_FEAST_ENSAYMADA_UBE,
+            () -> new LeafFeastBreadBlock(UbesDelightItemsImpl.ENSAYMADA_UBE::get, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
 
     public static final RegistryObject<Block> UBE_CRATE = registerBlock(UbesDelightBlocks.UBE_CRATE,
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));

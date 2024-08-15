@@ -1,0 +1,9 @@
+{
+  "parent": "ubesdelight:block/template_leaf_feast_ensaymada",
+  "textures": {
+    "layer0": "ubesdelight:block/leaf_feast_top",
+    "layer1": "ubesdelight:block/leaf_feast_bottom",
+    "layer2": "ubesdelight:block/ensaymada",
+    "particle": "ubesdelight:block/leaf_feast_top"
+  }
+}

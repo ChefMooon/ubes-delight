@@ -52,5 +52,23 @@
         "type": "event"
       }
     ]
+  },
+  "block_leaf_feast_add": {
+    "subtitle": "ubesdelight.subtitles.block_leaf_feast.add",
+    "sounds": [
+      {
+        "name": "block.grass.fall",
+        "type": "event"
+      }
+    ]
+  },
+  "block_leaf_feast_remove": {
+    "subtitle": "ubesdelight.subtitles.block_leaf_feast.remove",
+    "sounds": [
+      {
+        "name": "block.grass.step",
+        "type": "event"
+      }
+    ]
   }
 }

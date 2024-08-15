@@ -1,0 +1,22 @@
+{
+  "credit": "Made with Blockbench",
+  "textures": {
+    "2": "ubesdelight:block/leaf_feast_bottom",
+    "3": "ubesdelight:block/leaf_feast_top",
+    "particle": "ubesdelight:block/leaf_feast_top"
+  },
+  "elements": [
+    {
+      "from": [1, 0, 1],
+      "to": [15, 1, 15],
+      "faces": {
+        "north": {"uv": [1, 0, 15, 1], "rotation": 180, "texture": "#3"},
+        "east": {"uv": [15, 1, 16, 15], "rotation": 90, "texture": "#3"},
+        "south": {"uv": [1, 15, 15, 16], "texture": "#3"},
+        "west": {"uv": [0, 1, 1, 15], "rotation": 90, "texture": "#3"},
+        "up": {"uv": [1, 1, 15, 15], "texture": "#3"},
+        "down": {"uv": [1, 1, 15, 15], "texture": "#2", "cullface": "down"}
+      }
+    }
+  ]
+}

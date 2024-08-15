@@ -7,7 +7,6 @@ import com.nhoryzon.mc.farmersdelight.block.WildPatchBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -19,8 +18,17 @@ public class UbesDelightBlocksImpl {
     public static final Block KALAN = registerBlock(UbesDelightBlocks.KALAN, new KalanBlock());
     public static final Block BAKING_MAT_BAMBOO = registerBlock(UbesDelightBlocks.BAKING_MAT_BAMBOO, new BakingMatBlockImpl());
 
-    public static final Block BANANA_LEAF = registerBlock(UbesDelightBlocks.BANANA_LEAF,
-            new AbstractBananaLeafBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
+    public static final Block LEAF_FEAST = registerBlock(UbesDelightBlocks.LEAF_FEAST,
+            new LeafFeastSimpleBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+    public static final Block LEAF_FEAST_RICE = registerBlock(UbesDelightBlocks.LEAF_FEAST_RICE,
+            new LeafFeastRiceBlock(() -> UbesDelightItemsImpl.SINANGAG, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+    public static final Block LEAF_FEAST_RICE_GARLIC = registerBlock(UbesDelightBlocks.LEAF_FEAST_RICE_GARLIC,
+            new LeafFeastRiceBlock(() -> UbesDelightItemsImpl.SINANGAG, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+
+    public static final Block LEAF_FEAST_ENSAYMADA = registerBlock(UbesDelightBlocks.LEAF_FEAST_ENSAYMADA,
+            new LeafFeastBreadBlock(() -> UbesDelightItemsImpl.ENSAYMADA, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+    public static final Block LEAF_FEAST_ENSAYMADA_UBE = registerBlock(UbesDelightBlocks.LEAF_FEAST_ENSAYMADA_UBE,
+            new LeafFeastBreadBlock(() -> UbesDelightItemsImpl.ENSAYMADA_UBE, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
 
     public static final Block UBE_CRATE = registerBlock(UbesDelightBlocks.UBE_CRATE,
             new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
@@ -31,12 +39,9 @@ public class UbesDelightBlocksImpl {
     public static final Block LEMONGRASS_CRATE = registerBlock(UbesDelightBlocks.LEMONGRASS_CRATE,
             new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 
-    public static final Block WILD_UBE = registerBlock(UbesDelightBlocks.WILD_UBE,
-            new WildPatchBlock());
-    public static final Block WILD_GARLIC = registerBlock(UbesDelightBlocks.WILD_GARLIC,
-            new WildPatchBlock());
-    public static final Block WILD_GINGER = registerBlock(UbesDelightBlocks.WILD_GINGER,
-            new WildPatchBlock());
+    public static final Block WILD_UBE = registerBlock(UbesDelightBlocks.WILD_UBE, new WildPatchBlock());
+    public static final Block WILD_GARLIC = registerBlock(UbesDelightBlocks.WILD_GARLIC, new WildPatchBlock());
+    public static final Block WILD_GINGER = registerBlock(UbesDelightBlocks.WILD_GINGER, new WildPatchBlock());
     public static final Block WILD_LEMONGRASS = registerBlock(UbesDelightBlocks.WILD_LEMONGRASS, new TallWildCropBlock());
 
     public static final Block POTTED_UBE = registerBlock(UbesDelightBlocks.POTTED_UBE,

@@ -18,6 +18,7 @@ import net.minecraft.data.models.blockstates.VariantProperties;
 import net.minecraft.data.models.model.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 import java.util.List;
 
@@ -182,27 +183,44 @@ public class ModelGenerator extends FabricModelProvider {
                         .select(3, Variant.variant().with(VariantProperties.MODEL, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LUMPIA_FEAST, "_stage0")))
                 ));
 
-
-        blockStateModelGenerator.createSimpleFlatItemModel(UbesDelightBlocksImpl.BANANA_LEAF);
-        blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.multiVariant(UbesDelightBlocksImpl.BANANA_LEAF)
+        blockStateModelGenerator.createSimpleFlatItemModel(UbesDelightBlocksImpl.LEAF_FEAST);
+        blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.multiVariant(UbesDelightBlocksImpl.LEAF_FEAST)
                 .with(BlockModelGenerators.createHorizontalFacingDispatch())
-                .with(PropertyDispatch.property(AbstractBananaLeafBlock.NORTH)
-                        .select(true, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                        .select(false, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                )
-                .with(PropertyDispatch.property(AbstractBananaLeafBlock.EAST)
-                        .select(true, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                        .select(false, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                )
-                .with(PropertyDispatch.property(AbstractBananaLeafBlock.SOUTH)
-                        .select(true, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                        .select(false, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                )
-                .with(PropertyDispatch.property(AbstractBananaLeafBlock.WEST)
-                        .select(true, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                        .select(false, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
+                .with(PropertyDispatch.properties(LeafFeastSimpleBlock.RIGHT_CONNECT, LeafFeastSimpleBlock.LEFT_CONNECT)
+                        .select(false, false, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/leaf_feast")))
+                        .select(false, true, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/leaf_feast_tip")))
+                        .select(true, false, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/leaf_feast_end")))
+                        .select(true, true, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/leaf_feast_middle")))
                 )
         );
+
+        registerLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_RICE, "rice",
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE,
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_TIP,
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_END,
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE,
+                blockStateModelGenerator);
+
+        registerLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_RICE_GARLIC, "rice_garlic",
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE,
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_TIP,
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_END,
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE,
+                blockStateModelGenerator);
+
+        registerLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA, "ensaymada",
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA,
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_TIP,
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_END,
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE,
+                blockStateModelGenerator);
+
+        registerLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE, "ensaymada_ube",
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA,
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_TIP,
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_END,
+                UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE,
+                blockStateModelGenerator);
 
         registerDrinkFeast(UbesDelightBlocksImpl.MILK_TEA_UBE_FEAST, blockStateModelGenerator);
         registerDrinkFeast(UbesDelightBlocksImpl.HALO_HALO_FEAST, blockStateModelGenerator);
@@ -423,5 +441,46 @@ public class ModelGenerator extends FabricModelProvider {
         ResourceLocation resourceLocation = UbesDelightModels.TEMPLATE_CROP_CROSS.createWithSuffix(plant, "_top", TextureMapping.cross(ModelLocationUtils.getModelLocation(plant, "_top")), blockStateModelGenerator.modelOutput);
         ResourceLocation resourceLocation2 = UbesDelightModels.TEMPLATE_CROP_CROSS.createWithSuffix(plant, "_bottom", TextureMapping.cross(ModelLocationUtils.getModelLocation(plant, "_bottom")), blockStateModelGenerator.modelOutput);
         blockStateModelGenerator.createDoubleBlock(plant, resourceLocation, resourceLocation2);
+    }
+
+    private static void registerLeafFeastVariant(Block block, String variant, ModelTemplate modelTemplateBase, ModelTemplate modelTemplateTip, ModelTemplate modelTemplateEnd, ModelTemplate modelTemplateMiddle, BlockModelGenerators blockStateModelGenerator) {
+        ResourceLocation templateLeafFeast = modelTemplateBase.create(block,
+                new TextureMapping()
+                        .put(TextureSlot.LAYER0, TextUtils.res("block/leaf_feast_top"))
+                        .put(TextureSlot.LAYER1, TextUtils.res("block/leaf_feast_bottom"))
+                        .put(TextureSlot.LAYER2, TextUtils.res("block/" + variant))
+                        .put(TextureSlot.PARTICLE, TextUtils.res("block/leaf_feast_top")),
+                blockStateModelGenerator.modelOutput);
+        ResourceLocation templateLeafFeastTip = modelTemplateTip.createWithSuffix(block, "_tip",
+                new TextureMapping()
+                        .put(TextureSlot.LAYER0, TextUtils.res("block/leaf_feast_tip_top"))
+                        .put(TextureSlot.LAYER1, TextUtils.res("block/leaf_feast_tip_bottom"))
+                        .put(TextureSlot.LAYER2, TextUtils.res("block/" + variant))
+                        .put(TextureSlot.PARTICLE, TextUtils.res("block/leaf_feast_tip_top")),
+                blockStateModelGenerator.modelOutput);
+        ResourceLocation templateLeafFeastEnd = modelTemplateEnd.createWithSuffix(block, "_end",
+                new TextureMapping()
+                        .put(TextureSlot.LAYER0, TextUtils.res("block/leaf_feast_end_top"))
+                        .put(TextureSlot.LAYER1, TextUtils.res("block/leaf_feast_end_bottom"))
+                        .put(TextureSlot.LAYER2, TextUtils.res("block/" + variant))
+                        .put(TextureSlot.PARTICLE, TextUtils.res("block/leaf_feast_end_top")),
+                blockStateModelGenerator.modelOutput);
+        ResourceLocation templateLeafFeastMiddle = modelTemplateMiddle.createWithSuffix(block, "_middle",
+                new TextureMapping()
+                        .put(TextureSlot.LAYER0, TextUtils.res("block/leaf_feast_top"))
+                        .put(TextureSlot.LAYER1, TextUtils.res("block/leaf_feast_bottom"))
+                        .put(TextureSlot.LAYER2, TextUtils.res("block/" + variant))
+                        .put(TextureSlot.PARTICLE, TextUtils.res("block/leaf_feast_top")),
+                blockStateModelGenerator.modelOutput);
+        blockStateModelGenerator.createSimpleFlatItemModel(block);
+        blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block)
+                .with(BlockModelGenerators.createHorizontalFacingDispatch())
+                .with(PropertyDispatch.properties(LeafFeastSimpleBlock.RIGHT_CONNECT, LeafFeastSimpleBlock.LEFT_CONNECT)
+                        .select(false, false, Variant.variant().with(VariantProperties.MODEL, templateLeafFeast))
+                        .select(false, true, Variant.variant().with(VariantProperties.MODEL, templateLeafFeastTip))
+                        .select(true, false, Variant.variant().with(VariantProperties.MODEL, templateLeafFeastEnd))
+                        .select(true, true, Variant.variant().with(VariantProperties.MODEL, templateLeafFeastMiddle))
+                )
+        );
     }
 }

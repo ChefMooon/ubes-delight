@@ -36,6 +36,7 @@ import java.util.function.Supplier;
 import static com.chefmooon.ubesdelight.common.utility.VoxelShapeUtil.rotateVoxelShapes;
 
 public class LumpiaFeastBlock extends Block {
+    // todo - upgrade to extend LeafFeastSimpleUniversalBlock?
     public static final int MAX_SERVINGS = 3;
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final IntegerProperty SERVINGS = IntegerProperty.create("servings", 0, MAX_SERVINGS);

@@ -28,9 +28,8 @@ public class UbesDelightItemsImpl {
     public static final Item ROLLING_PIN_WOOD = registerItemWithTab(UbesDelightItems.ROLLING_PIN_WOOD,
             new RollingPinItemImpl(1.0F, 1.0F, UDTiers.ROLLING_PIN_WOOD, basicItem()));
 
-    // todo - remove after dev branch
-    public static final Item BANANA_LEAF = registerItem(UbesDelightItems.BANANA_LEAF,
-            new BlockItem(UbesDelightBlocksImpl.BANANA_LEAF, basicItem()));
+    public static final Item LEAF_FEAST = registerItemWithTab(UbesDelightItems.LEAF_FEAST,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST, basicItem()));
 
     public static final Item WILD_UBE = registerItemWithTab(UbesDelightItems.WILD_UBE,
             new BlockItem(UbesDelightBlocksImpl.WILD_UBE, basicItem()));

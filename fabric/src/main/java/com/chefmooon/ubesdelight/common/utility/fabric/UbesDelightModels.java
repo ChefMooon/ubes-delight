@@ -36,9 +36,26 @@ public class UbesDelightModels {
             UbesDelightTextureSlots.CROSS_V1, UbesDelightTextureSlots.CROSS_V2);
     public static final ModelTemplate TEMPLATE_ODD_CROP = block("template_odd_crop",
             UbesDelightTextureSlots.ODD_CROP);
-
     public static final ModelTemplate TEMPLATE_CROP_CROSS = block("template_crop_cross",
             TextureSlot.CROSS);
+
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_RICE = block("template_leaf_feast_rice",
+            TextureSlot.LAYER0, TextureSlot.LAYER1, TextureSlot.LAYER2, TextureSlot.PARTICLE);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_RICE_END = block("template_leaf_feast_rice_end",
+            TextureSlot.LAYER0, TextureSlot.LAYER1, TextureSlot.LAYER2, TextureSlot.PARTICLE);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_RICE_MIDDLE = block("template_leaf_feast_rice_middle",
+            TextureSlot.LAYER0, TextureSlot.LAYER1, TextureSlot.LAYER2, TextureSlot.PARTICLE);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_RICE_TIP = block("template_leaf_feast_rice_tip",
+            TextureSlot.LAYER0, TextureSlot.LAYER1, TextureSlot.LAYER2, TextureSlot.PARTICLE);
+
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA = block("template_leaf_feast_ensaymada",
+            TextureSlot.LAYER0, TextureSlot.LAYER1, TextureSlot.LAYER2, TextureSlot.PARTICLE);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_TIP = block("template_leaf_feast_ensaymada_tip",
+            TextureSlot.LAYER0, TextureSlot.LAYER1, TextureSlot.LAYER2, TextureSlot.PARTICLE);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_END = block("template_leaf_feast_ensaymada_end",
+            TextureSlot.LAYER0, TextureSlot.LAYER1, TextureSlot.LAYER2, TextureSlot.PARTICLE);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE = block("template_leaf_feast_ensaymada_middle",
+            TextureSlot.LAYER0, TextureSlot.LAYER1, TextureSlot.LAYER2, TextureSlot.PARTICLE);
 
     private static ModelTemplate block(String parent, TextureSlot... textureSlots) {
         return new ModelTemplate(Optional.of(UbesDelight.res("block/" + parent)), Optional.empty(), textureSlots);

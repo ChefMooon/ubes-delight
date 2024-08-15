@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,left_connect=false,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada",
+      "y": 90
+    },
+    "facing=east,left_connect=false,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada_end",
+      "y": 90
+    },
+    "facing=east,left_connect=true,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada_tip",
+      "y": 90
+    },
+    "facing=east,left_connect=true,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada_middle",
+      "y": 90
+    },
+    "facing=north,left_connect=false,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada"
+    },
+    "facing=north,left_connect=false,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada_end"
+    },
+    "facing=north,left_connect=true,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada_tip"
+    },
+    "facing=north,left_connect=true,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada_middle"
+    },
+    "facing=south,left_connect=false,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada",
+      "y": 180
+    },
+    "facing=south,left_connect=false,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada_end",
+      "y": 180
+    },
+    "facing=south,left_connect=true,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada_tip",
+      "y": 180
+    },
+    "facing=south,left_connect=true,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada_middle",
+      "y": 180
+    },
+    "facing=west,left_connect=false,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada",
+      "y": 270
+    },
+    "facing=west,left_connect=false,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada_end",
+      "y": 270
+    },
+    "facing=west,left_connect=true,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada_tip",
+      "y": 270
+    },
+    "facing=west,left_connect=true,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_ensaymada_middle",
+      "y": 270
+    }
+  }
+}

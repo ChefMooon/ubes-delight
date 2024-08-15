@@ -1,0 +1,9 @@
+{
+  "parent": "ubesdelight:block/template_leaf_feast_rice_end",
+  "textures": {
+    "layer0": "ubesdelight:block/leaf_feast_end_top",
+    "layer1": "ubesdelight:block/leaf_feast_end_bottom",
+    "layer2": "ubesdelight:block/rice_garlic",
+    "particle": "ubesdelight:block/leaf_feast_end_top"
+  }
+}

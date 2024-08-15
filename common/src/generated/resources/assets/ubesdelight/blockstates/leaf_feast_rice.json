@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,left_connect=false,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_rice",
+      "y": 90
+    },
+    "facing=east,left_connect=false,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_rice_end",
+      "y": 90
+    },
+    "facing=east,left_connect=true,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_rice_tip",
+      "y": 90
+    },
+    "facing=east,left_connect=true,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_rice_middle",
+      "y": 90
+    },
+    "facing=north,left_connect=false,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_rice"
+    },
+    "facing=north,left_connect=false,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_rice_end"
+    },
+    "facing=north,left_connect=true,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_rice_tip"
+    },
+    "facing=north,left_connect=true,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_rice_middle"
+    },
+    "facing=south,left_connect=false,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_rice",
+      "y": 180
+    },
+    "facing=south,left_connect=false,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_rice_end",
+      "y": 180
+    },
+    "facing=south,left_connect=true,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_rice_tip",
+      "y": 180
+    },
+    "facing=south,left_connect=true,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_rice_middle",
+      "y": 180
+    },
+    "facing=west,left_connect=false,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_rice",
+      "y": 270
+    },
+    "facing=west,left_connect=false,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_rice_end",
+      "y": 270
+    },
+    "facing=west,left_connect=true,right_connect=false": {
+      "model": "ubesdelight:block/leaf_feast_rice_tip",
+      "y": 270
+    },
+    "facing=west,left_connect=true,right_connect=true": {
+      "model": "ubesdelight:block/leaf_feast_rice_middle",
+      "y": 270
+    }
+  }
+}

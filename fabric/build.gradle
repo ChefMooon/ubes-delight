@@ -86,8 +86,8 @@ dependencies {
 
     // Integration Testing
     // Fabric Seasons
-    modLocalRuntime("maven.modrinth:fabric-seasons:2.3+1.20")
-    modLocalRuntime("maven.modrinth:fabric-seasons-delight-compat:1.0")
+    //modLocalRuntime("maven.modrinth:fabric-seasons:2.3+1.20")
+    //modLocalRuntime("maven.modrinth:fabric-seasons-delight-compat:1.0")
 }
 
 processResources {
