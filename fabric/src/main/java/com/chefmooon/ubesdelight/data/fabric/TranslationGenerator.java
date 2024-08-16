@@ -247,5 +247,8 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(WAILA_CONFIG + ".punchbowl_servings", "Punch Bowl Servings");
 
         translationBuilder.add(WAILA + ".punchbowl_servings", "Servings");
+
+        translationBuilder.add("tag.item.c.food_wrappers", "Food Wrappers");
+        translationBuilder.add("tag.item.c.food_wrappers.lumpia_wrappers", "Lumpia Wrappers");
     }
 }

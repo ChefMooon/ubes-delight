@@ -1,12 +1,15 @@
-// 1.20.1	2024-07-26T14:23:06.9835369	Ube's Delight/Tags for minecraft:block
-d472beaaaf05cf05edeef96f2a4ba32e4e12e080 data\create\tags\blocks\passive_boiler_heaters.json
+// 1.20.1	2024-08-16T15:26:08.1575551	Ube's Delight/Tags for minecraft:block
 b2834d761b83835a49afb3a87c0e81b9e8d5b494 data\farmersdelight\tags\blocks\wild_crops.json
+d472beaaaf05cf05edeef96f2a4ba32e4e12e080 data\create\tags\blocks\passive_boiler_heaters.json
 d528a1cac26925e888a8cf4812421630612b80e1 data\minecraft\tags\blocks\crops.json
 d472beaaaf05cf05edeef96f2a4ba32e4e12e080 data\farmersdelight\tags\blocks\heat_sources.json
+f30c1cf1e54173b3cf1f3459ef4646d889a3ab67 data\sereneseasons\tags\blocks\autumn_crops.json
+4ffa7638af53ddf4b142e8eb0d2c9ffc11de92d1 data\sereneseasons\tags\blocks\spring_crops.json
 2776aa504c6b58ab3a809c0325abfe3db06be684 data\minecraft\tags\blocks\tall_flowers.json
-83fc4315107c69f101486b3f6cb974ee2990b31e data\minecraft\tags\blocks\maintains_farmland.json
 d1330fcb0c22c9329a729866879624c75fb80fb3 data\c\tags\blocks\mineable\knife.json
 a04cb697144147f60a3ffb78564f6fce98b3ef4f data\minecraft\tags\blocks\small_flowers.json
 3c056625932adf3b0744d2a7a2fa906594be7af1 data\create\tags\blocks\brittle.json
 1574ff291ef8b70b67ecff2750391971f2889292 data\minecraft\tags\blocks\mineable\axe.json
+83fc4315107c69f101486b3f6cb974ee2990b31e data\minecraft\tags\blocks\maintains_farmland.json
+0b67238a40ef5755fd82247179f5fa84e14a0b29 data\sereneseasons\tags\blocks\summer_crops.json
 d472beaaaf05cf05edeef96f2a4ba32e4e12e080 data\minecraft\tags\blocks\mineable\pickaxe.json

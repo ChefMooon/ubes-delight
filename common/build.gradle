@@ -21,7 +21,10 @@ dependencies {
     modCompileOnly("me.shedaniel:RoughlyEnoughItems-api:$rei_version")
     modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version")
 
-    modCompileOnly("dev.emi:emi-xplat-intermediary:${emi_version}+${minecraft_version}:api")
+    modCompileOnly("dev.emi:emi-xplat-intermediary:${emi_version}+${minecraft_version}:api") {
+        transitive = false
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 
     modCompileOnly("mcp.mobius.waila:wthit-api:fabric-${wthitVersion}")
 

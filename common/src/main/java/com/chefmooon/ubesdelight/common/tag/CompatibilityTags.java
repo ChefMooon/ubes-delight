@@ -36,6 +36,14 @@ public class CompatibilityTags {
     public static final TagKey<Item> ORIGINS_MEAT = getItemTagKey(ORIGINS, "meat");
     public static final TagKey<Item> ORIGINS_IGNORE_DIET = getItemTagKey(ORIGINS, "ignore_diet");
 
+    public static final String SERENE_SEASONS = "sereneseasons";
+    public static final TagKey<Block> SERENE_SEASONS_AUTUMN_CROPS_BLOCK = getBlockTagKey(SERENE_SEASONS, "autumn_crops");
+    public static final TagKey<Block> SERENE_SEASONS_SPRING_CROPS_BLOCK = getBlockTagKey(SERENE_SEASONS, "spring_crops");
+    public static final TagKey<Block> SERENE_SEASONS_SUMMER_CROPS_BLOCK = getBlockTagKey(SERENE_SEASONS, "summer_crops");
+    public static final TagKey<Item> SERENE_SEASONS_AUTUMN_CROPS = getItemTagKey(SERENE_SEASONS, "autumn_crops");
+    public static final TagKey<Item> SERENE_SEASONS_SPRING_CROPS = getItemTagKey(SERENE_SEASONS, "spring_crops");
+    public static final TagKey<Item> SERENE_SEASONS_SUMMER_CROPS = getItemTagKey(SERENE_SEASONS, "summer_crops");
+
     public static TagKey<Item> getItemTagKey(String namespace, String path) {
         return TagKey.create(Registries.ITEM, new ResourceLocation(namespace, path));
     }

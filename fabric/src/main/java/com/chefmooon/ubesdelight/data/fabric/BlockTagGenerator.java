@@ -86,5 +86,20 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(UbesDelightBlocksImpl.WILD_GARLIC)
                 .add(UbesDelightBlocksImpl.WILD_GINGER)
                 .add(UbesDelightBlocksImpl.WILD_LEMONGRASS);
+
+        // Serene Seasons
+        getOrCreateTagBuilder(CompatibilityTags.SERENE_SEASONS_AUTUMN_CROPS_BLOCK)
+                .add(UbesDelightBlocksImpl.GARLIC_CROP)
+                .add(UbesDelightBlocksImpl.GINGER_CROP);
+        getOrCreateTagBuilder(CompatibilityTags.SERENE_SEASONS_SPRING_CROPS_BLOCK)
+                .add(UbesDelightBlocksImpl.UBE_CROP)
+                .add(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP)
+                .add(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP);
+        getOrCreateTagBuilder(CompatibilityTags.SERENE_SEASONS_SUMMER_CROPS_BLOCK)
+                .add(UbesDelightBlocksImpl.UBE_CROP)
+                .add(UbesDelightBlocksImpl.GARLIC_CROP)
+                .add(UbesDelightBlocksImpl.GINGER_CROP)
+                .add(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP)
+                .add(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP);
     }
 }

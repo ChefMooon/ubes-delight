@@ -96,6 +96,19 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.BULALO)
                 .add(UbesDelightItemsImpl.ARROZ_CALDO)
                 .add(UbesDelightItemsImpl.MECHADO);
+
+        // Serene Seasons
+        getOrCreateTagBuilder(CompatibilityTags.SERENE_SEASONS_AUTUMN_CROPS)
+                .add(UbesDelightItemsImpl.GARLIC)
+                .add(UbesDelightItemsImpl.GINGER);
+        getOrCreateTagBuilder(CompatibilityTags.SERENE_SEASONS_SPRING_CROPS)
+                .add(UbesDelightItemsImpl.UBE)
+                .add(UbesDelightItemsImpl.LEMONGRASS_SEEDS);
+        getOrCreateTagBuilder(CompatibilityTags.SERENE_SEASONS_SUMMER_CROPS)
+                .add(UbesDelightItemsImpl.UBE)
+                .add(UbesDelightItemsImpl.GARLIC)
+                .add(UbesDelightItemsImpl.GINGER)
+                .add(UbesDelightItemsImpl.LEMONGRASS_SEEDS);
     }
 
     private void registerCommonItemTags() {

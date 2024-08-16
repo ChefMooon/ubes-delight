@@ -71,33 +71,6 @@ dependencies {
 }
 
 processResources {
-    /*var replaceProperties = [
-            minecraft_version    : minecraft_version,
-            minecraft_min_version: minecraft_min_version,
-            minecraft_max_version: minecraft_max_version,
-
-            mod_id               : project.mod_id,
-            mod_name             : project.mod_name,
-            mod_version          : project.mod_version,
-            mod_license          : project.mod_license,
-            mod_authors          : project.mod_authors,
-            mod_description      : project.mod_description,
-            mod_credits          : project.mod_credits,
-            mod_homepage         : project.mod_homepage,
-            mod_github           : project.mod_github
-    ]
-
-    inputs.properties replaceProperties
-
-    filesMatching("META-INF/mods.toml") {
-        expand replaceProperties + [project: project]
-    }
-
-    inputs.property "version", project.version
-
-    filesMatching("META-INF/mods.toml") {
-        expand "version": project.version
-    }*/
 }
 
 shadowJar {

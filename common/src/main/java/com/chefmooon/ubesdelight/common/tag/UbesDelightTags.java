@@ -9,14 +9,11 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class UbesDelightTags {
-    public static final TagKey<Item> FOOD_WRAPPERS = getItemTagKey("food_wrappers");
-    public static final TagKey<Item> FOOD_WRAPPERS_LUMPIA_WRAPPERS = getItemTagKey("food_wrappers/lumpia_wrappers");
-
     public static TagKey<Item> getItemTagKey(String path) {
-        return TagKey.create(Registries.ITEM, new ResourceLocation(UbesDelight.MOD_ID, path));
+        return TagKey.create(Registries.ITEM, UbesDelight.res(path));
     }
     public static TagKey<Block> getBlockTagKey(String path) {
-        return TagKey.create(Registries.BLOCK, new ResourceLocation(UbesDelight.MOD_ID, path));
+        return TagKey.create(Registries.BLOCK, UbesDelight.res(path));
     }
 
     public static final TagKey<Biome> WILD_UBE_WHITELIST = getBiomeTag("has_wild_ube_whitelist");
