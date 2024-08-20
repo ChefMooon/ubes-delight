@@ -18,6 +18,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
         CraftingRecipes.register(exporter);
         CuttingRecipes.register(exporter);
         SmeltingRecipes.register(exporter);
-        BakingMatRecipes.reigster(exporter);
+        BakingMatRecipes.register(exporter);
     }
 }

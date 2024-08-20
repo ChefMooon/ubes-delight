@@ -107,13 +107,13 @@ public class BakingMatEmiRecipe implements EmiRecipe {
         // Mandatory Outputs
         for (int k = 0; k < outputsMandatory.size(); k++) {
             widgets.addSlot(outputsMandatory.get(k), 78 + k * 19, 19)
-                    .customBackground(BACKGROUND, 0, 80, 18, 18);
+                    .customBackground(BACKGROUND, 0, 80, 18, 18).recipeContext(this);
         }
 
         // Chance Outputs
         for (int l = 0; l < outputsChance.size(); l++) {
             widgets.addSlot(outputsChance.get(l), 78 + l * 19, 0)
-                    .customBackground(BACKGROUND, 18, 80, 18, 18);
+                    .customBackground(BACKGROUND, 18, 80, 18, 18).recipeContext(this);
         }
     }
 

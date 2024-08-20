@@ -25,7 +25,7 @@ public class BakingMatRecipes {
     private static final Item SWEET_BERRY_CHEESECAKE = ModItems.SWEET_BERRY_CHEESECAKE.get();
     private static final Item CHOCOLATE_PIE = ModItems.CHOCOLATE_PIE.get();
 
-    public static void reigster(Consumer<FinishedRecipe> exporter) {
+    public static void register(Consumer<FinishedRecipe> exporter) {
 
         // run once then transfer to Fabric/Forge
         //registerAll(exporter);
