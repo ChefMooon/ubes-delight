@@ -102,7 +102,7 @@ allprojects {
     }
 
     def isBeta = true
-    def betaVersion = ""
+    def betaVersion = "-1"
     def buildSuffix = isBeta ? "-beta" + betaVersion : ""
 
     version = "${project.name}-${rootProject.minecraft_version}-${rootProject.mod_version}${buildSuffix}"
