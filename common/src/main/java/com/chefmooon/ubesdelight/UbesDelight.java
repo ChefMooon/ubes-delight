@@ -1,6 +1,5 @@
 package com.chefmooon.ubesdelight;
 
-import com.chefmooon.ubesdelight.common.CommonSetup;
 import com.chefmooon.ubesdelight.common.Configuration;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightSounds;
@@ -29,8 +28,6 @@ public class UbesDelight {
         UbesDelightSounds.init();
         UbesDelightAdvancements.register();
         Configuration.init();
-
-        CommonSetup.init();
     }
 
     @ExpectPlatform
