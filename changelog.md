@@ -8,7 +8,13 @@ NeoForge, and Fabric
 
 ***
 
-## Changelog
+### Added
+- Partial es_mx translation (Thank you TheLegendofSaram!)
+- Partial zh_tw translation (Thank you Ylite-cola!)
+- Complete ru_ru translation (Thank you mpustovoi!) (not documented in V0.2.0-beta-1)
+
+### Updated
+- Complete zh_cn translation (Thank you Qiu_Shui!)
 
 ### Fixed
 
