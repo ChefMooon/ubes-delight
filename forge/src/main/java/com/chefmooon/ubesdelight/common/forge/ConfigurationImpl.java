@@ -2,9 +2,7 @@ package com.chefmooon.ubesdelight.common.forge;
 
 import com.chefmooon.ubesdelight.UbesDelight;
 import eu.midnightdust.lib.config.MidnightConfig;
-import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber
 public class ConfigurationImpl extends MidnightConfig {
 
     //Basic Config

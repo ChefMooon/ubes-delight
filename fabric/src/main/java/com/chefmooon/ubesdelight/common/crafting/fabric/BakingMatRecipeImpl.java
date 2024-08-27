@@ -1,9 +1,9 @@
 package com.chefmooon.ubesdelight.common.crafting.fabric;
 
-import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.block.entity.BakingMatBlockEntity;
 import com.chefmooon.ubesdelight.common.crafting.BakingMatRecipe;
 import com.chefmooon.ubesdelight.common.crafting.ingredient.ChanceResult;
+import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightRecipeSerializersImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightRecipeTypesImpl;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -156,7 +156,7 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return UbesDelightRecipeSerializersImpl.BAKING_MAT.get();
     }
 
     @Override
@@ -248,16 +248,25 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
         public BakingMatRecipeImpl fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
             String groupIn = buf.readUtf(32767);
 
-            NonNullList<Ingredient> ingredientList = NonNullList.withSize(buf.readVarInt(), Ingredient.EMPTY);
-            ingredientList.replaceAll(ignored -> Ingredient.fromNetwork(buf));
+            int i = buf.readVarInt();
+            NonNullList<Ingredient> ingredientList = NonNullList.withSize(i, Ingredient.EMPTY);
+            for (int j = 0; j < ingredientList.size(); ++j) {
+                ingredientList.set(j, Ingredient.fromNetwork(buf));
+            }
 
-            NonNullList<Ingredient> processingStagesList = NonNullList.withSize(buf.readVarInt(), Ingredient.EMPTY);
-            processingStagesList.replaceAll(ignored -> Ingredient.fromNetwork(buf));
+            int k = buf.readVarInt();
+            NonNullList<Ingredient> processingStagesList = NonNullList.withSize(k, Ingredient.EMPTY);
+            for (int l = 0; l < processingStagesList.size(); ++l) {
+                processingStagesList.set(l, Ingredient.fromNetwork(buf));
+            }
 
             Ingredient tool = Ingredient.fromNetwork(buf);
 
-            NonNullList<ChanceResult> resultsList = NonNullList.withSize(buf.readVarInt(), ChanceResult.EMPTY);
-            resultsList.replaceAll(ignored -> ChanceResult.read(buf));
+            int m = buf.readVarInt();
+            NonNullList<ChanceResult> resultsList = NonNullList.withSize(m, ChanceResult.EMPTY);
+            for (int n = 0; n < resultsList.size(); ++n) {
+                resultsList.set(n, ChanceResult.read(buf));
+            }
 
             String soundID = buf.readUtf();
 
@@ -269,12 +278,12 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
             buf.writeUtf(recipe.group);
 
             buf.writeVarInt(recipe.ingredientList.size());
-            for (Ingredient ingredient : recipe.getIngredients()) {
+            for (Ingredient ingredient : recipe.ingredientList) {
                 ingredient.toNetwork(buf);
             }
 
             buf.writeVarInt(recipe.processStages.size());
-            for (Ingredient processingStages : recipe.getProcessStages()) {
+            for (Ingredient processingStages : recipe.processStages) {
                 processingStages.toNetwork(buf);
             }
 

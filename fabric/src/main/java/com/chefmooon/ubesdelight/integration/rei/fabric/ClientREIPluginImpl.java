@@ -1,6 +1,5 @@
 package com.chefmooon.ubesdelight.integration.rei.fabric;
 
-import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.crafting.fabric.BakingMatRecipeImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
@@ -11,7 +10,6 @@ import com.chefmooon.ubesdelight.integration.rei.baking_mat.fabric.BakingMatReci
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
-import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import me.shedaniel.rei.plugin.common.displays.DefaultInformationDisplay;
@@ -20,11 +18,10 @@ import net.minecraft.network.chat.Component;
 import java.util.List;
 
 public class ClientREIPluginImpl implements REIClientPlugin {
-    public static final CategoryIdentifier<BakingMatRecipeDisplay> BAKING_MAT = CategoryIdentifier.of(UbesDelight.MOD_ID, "baking_mat");
     @Override
     public void registerCategories(CategoryRegistry registry) {
         registry.add(new BakingMatRecipeCategory());
-        registry.addWorkstations(BAKING_MAT, EntryStacks.of(UbesDelightBlocksImpl.BAKING_MAT_BAMBOO));
+        registry.addWorkstations(REICategoryIdentifiersImpl.BAKING_MAT, EntryStacks.of(UbesDelightBlocksImpl.BAKING_MAT_BAMBOO));
     }
 
     @Override

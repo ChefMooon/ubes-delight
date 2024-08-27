@@ -31,6 +31,9 @@
     "rei_client": [
       "com.chefmooon.ubesdelight.integration.rei.fabric.ClientREIPluginImpl"
     ],
+    "rei_server": [
+      "com.chefmooon.ubesdelight.integration.rei.fabric.ServerREIPluginImpl"
+    ],
     "emi": [
       "com.chefmooon.ubesdelight.integration.emi.fabric.EMIPluginImpl"
     ]

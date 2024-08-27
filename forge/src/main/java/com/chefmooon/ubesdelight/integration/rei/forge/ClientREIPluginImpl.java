@@ -22,11 +22,10 @@ import java.util.List;
 
 @REIPluginClient
 public class ClientREIPluginImpl implements REIClientPlugin {
-    public static final CategoryIdentifier<BakingMatRecipeDisplay> BAKING_MAT = CategoryIdentifier.of(UbesDelight.MOD_ID, "baking_mat");
     @Override
     public void registerCategories(CategoryRegistry registry) {
         registry.add(new BakingMatRecipeCategory());
-        registry.addWorkstations(BAKING_MAT, EntryStacks.of(UbesDelightBlocksImpl.BAKING_MAT_BAMBOO.get()));
+        registry.addWorkstations(REICategoryIdentifiersImpl.BAKING_MAT, EntryStacks.of(UbesDelightBlocksImpl.BAKING_MAT_BAMBOO.get()));
     }
 
     @Override

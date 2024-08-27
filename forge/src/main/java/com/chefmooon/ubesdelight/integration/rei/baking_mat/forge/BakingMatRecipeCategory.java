@@ -2,7 +2,7 @@ package com.chefmooon.ubesdelight.integration.rei.baking_mat.forge;
 
 import com.chefmooon.ubesdelight.common.registry.forge.UbesDelightBlocksImpl;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
-import com.chefmooon.ubesdelight.integration.rei.forge.ClientREIPluginImpl;
+import com.chefmooon.ubesdelight.integration.rei.forge.REICategoryIdentifiersImpl;
 import it.unimi.dsi.fastutil.Pair;
 import me.shedaniel.math.Dimension;
 import me.shedaniel.math.Point;
@@ -28,7 +28,7 @@ public class BakingMatRecipeCategory implements DisplayCategory<BakingMatRecipeD
 
     @Override
     public CategoryIdentifier<? extends BakingMatRecipeDisplay> getCategoryIdentifier() {
-        return ClientREIPluginImpl.BAKING_MAT;
+        return REICategoryIdentifiersImpl.BAKING_MAT;
     }
 
     @Override
