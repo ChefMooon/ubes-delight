@@ -9,24 +9,14 @@ NeoForge, and Fabric
 ***
 
 ### Added
-- Partial es_mx translation (Thank you TheLegendofSaram!)
-- Partial zh_tw translation (Thank you Ylite-cola!)
-- Complete ru_ru translation (Thank you mpustovoi!) (not documented in V0.2.0-beta-1)
+- placeholder
 
 ### Updated
-- Complete zh_cn translation (Thank you Qiu_Shui!)
+- placeholder
 
 ### Fixed
-
-**Fabric/Forge**
-
-- Fixed Composters Can Compost Nothing [Issue #23](https://github.com/ChefMooon/ubes-delight/issues/23)
-- Fixed players unable to connect to server
-    - Fixed “p_130086” is null on connect
-
-**Forge Only**
-
-- Fixed a server startup crash
-    - Fixed “Failed to register automatic subscribers.”
+- Halo Halo tooltip
+- Wandering Trader trade xp and maxTrades corrected
+- Lemongrass and Lemongrass Seed trades corrected
 
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)

@@ -42,7 +42,7 @@ public class UbesDelightBlockItem extends BlockItem {
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced) {
         if (Configuration.isFoodEffectTooltip()) { // todo - add new config BlockItem tooltips? V0.2.0
             if (hasCustomTooltip) {
-                tooltip.add(TextUtils.getTranslatable("tooltip" + this).withStyle(ChatFormatting.DARK_GRAY));
+                tooltip.add(TextUtils.getTranslatable("tooltip." + this).withStyle(ChatFormatting.DARK_GRAY));
             }
 
             if (hasFoodEffectTooltip) {

@@ -36,7 +36,7 @@ public class VillagerEventsImpl {
             trades.get(1).add(emeraldForItemsTrade(UbesDelightItemsImpl.UBE.get(),26, 16, 2));
             trades.get(1).add(emeraldForItemsTrade(UbesDelightItemsImpl.GARLIC.get(),26, 16, 2));
             trades.get(1).add(emeraldForItemsTrade(UbesDelightItemsImpl.GINGER.get(),26, 16, 2));
-            trades.get(1).add(emeraldForItemsTrade(UbesDelightItemsImpl.LEMONGRASS_SEEDS.get(),20, 16, 5));// 2xp? same as wheat? others same as potato
+            trades.get(1).add(emeraldForItemsTrade(UbesDelightItemsImpl.LEMONGRASS.get(),20, 16, 5));// 2xp? same as wheat? others same as potato
         }
     }
 
@@ -45,10 +45,10 @@ public class VillagerEventsImpl {
         if (!Configuration.wanderingTraderSellsUDItems()) return;
 
         List<VillagerTrades.ItemListing> trades = event.getGenericTrades();
-        trades.add(itemForEmeraldTrade(UbesDelightItemsImpl.UBE.get(),12, 1));
-        trades.add(itemForEmeraldTrade(UbesDelightItemsImpl.GARLIC.get(),12, 1));
-        trades.add(itemForEmeraldTrade(UbesDelightItemsImpl.GINGER.get(),12, 1));
-        trades.add(itemForEmeraldTrade(UbesDelightItemsImpl.LEMONGRASS.get(),12, 1));
+        trades.add(itemForEmeraldTrade(UbesDelightItemsImpl.UBE.get(),1, 12));
+        trades.add(itemForEmeraldTrade(UbesDelightItemsImpl.GARLIC.get(),1, 12));
+        trades.add(itemForEmeraldTrade(UbesDelightItemsImpl.GINGER.get(),1, 12));
+        trades.add(itemForEmeraldTrade(UbesDelightItemsImpl.LEMONGRASS_SEEDS.get(),1, 12));
     }
 
     public static BasicItemListing emeraldForItemsTrade(ItemLike item, int itemCount, int maxTrades, int xp) {

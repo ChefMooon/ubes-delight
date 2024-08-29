@@ -116,7 +116,7 @@ var env = System.getenv()
 
 var changelogFile = rootProject.file("changelog.md")
 var changelogText = changelogFile.exists() ? changelogFile.text : ""
-var vName = mod_name + project.version
+var vName = mod_name + " " + project.version
 
 if (env.MODRINTH_TOKEN) {
     modrinth {
