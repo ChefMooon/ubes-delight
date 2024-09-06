@@ -8,8 +8,14 @@ NeoForge and Fabric.
 
 ***
 
+### Added
+- missing tag translations
+  - needs a bit more testing, let me know if I am missing any!
+- cookies added to c:foods/cookie tag
+
 ### Fixed
 - Fixed unable to launch on Minecraft 1.21.1 (Thank you VaporeonScripts!)
+- Fixed leafy greens tag and Lumpia recipe
 
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)
 

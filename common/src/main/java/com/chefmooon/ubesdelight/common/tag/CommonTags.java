@@ -32,7 +32,7 @@ public class CommonTags {
 
     public static final TagKey<Item> C_FOODS = getCommonItemTagKey("foods");
 
-    public static final TagKey<Item> C_FOOD_LEAFY_GREEN = getCommonItemTagKey("food/leafy_green");
+    public static final TagKey<Item> C_FOODS_LEAFY_GREEN = getCommonItemTagKey("foods/leafy_green");
 
     public static final TagKey<Item> C_SEEDS = getCommonItemTagKey("seeds");
 
@@ -62,6 +62,8 @@ public class CommonTags {
     public static final TagKey<Item> C_FOODS_MILK_BOTTLE = getCommonItemTagKey("foods/milk_bottle");
 
     public static final TagKey<Item> C_FOODS_DOUGH = getCommonItemTagKey("foods/dough");
+
+    public static final TagKey<Item> C_FOODS_COOKIE = getCommonItemTagKey("foods/cookie");
 
     // Might but used for create compat
     public static final TagKey<Item> C_DOUGH = getCommonItemTagKey("dough");

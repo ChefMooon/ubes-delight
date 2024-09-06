@@ -10,4 +10,8 @@ public class TagUtils {
     public static TagKey<Item> getKifeItemTag() {
         return CommonTags.C_TOOLS_KNIFE;
     }
+
+    public static String getTranslationKey(TagKey<Item> tagKey) {
+        return tagKey.location().getPath().replace("/", ".");
+    }
 }

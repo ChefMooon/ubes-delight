@@ -136,11 +136,11 @@ public class CookingRecipes {
 
         CookingPotRecipeJsonBuilder.create(UbesDelightItemsImpl.LUMPIA, 1, 200, 2.0F,
                         nonNullList(Ingredient.of(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS),
-                                Ingredient.of(CommonTags.C_FOOD_LEAFY_GREEN),
+                                Ingredient.of(CommonTags.C_FOODS_LEAFY_GREEN),
                                 Ingredient.of(CommonTags.C_CROPS_LEMONGRASS),
                                 Ingredient.of(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER)))
                 .unlockedBy(RecipeUtil.hasItemTag(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS), RecipeProvider.has(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS))
-                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOOD_LEAFY_GREEN), RecipeProvider.has(CommonTags.C_FOOD_LEAFY_GREEN))
+                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_LEAFY_GREEN), RecipeProvider.has(CommonTags.C_FOODS_LEAFY_GREEN))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_LEMONGRASS), RecipeProvider.has(CommonTags.C_CROPS_LEMONGRASS))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER), RecipeProvider.has(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER))
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)

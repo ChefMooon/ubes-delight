@@ -1,15 +1,15 @@
-// 1.21	2024-09-05T15:26:37.9198387	Ube's Delight/Tags for minecraft:item
+// 1.21	2024-09-06T08:56:22.1471659	Ube's Delight/Tags for minecraft:item
 7142bd3ed04671bbeeefb6a0585e3bd28446da51 data\sereneseasons\tags\item\autumn_crops.json
 279d1b9061cde77fce27a1646050698e7ecc6b8f data\minecraft\tags\item\chicken_food.json
 7b638b15eeb47ac9a249688d612d3eb92477e058 data\minecraft\tags\item\tall_flowers.json
 7883e315c7b230eebfe6a51920246f77a45102dc data\ubesdelight\tags\item\tools\rolling_pin.json
 39551f160cc820cf497838ff9dca5210a8b50b91 data\c\tags\item\foods\vegetable.json
-f8dbd6f4de004a9d0a08f07dae913f59a6a257f4 data\c\tags\item\food\leafy_green.json
 f79ea96a8eae46f174397ae5e4f93ae507e66b45 data\minecraft\tags\item\enchantable\durability.json
 97cb409e8f86d8b038d4ab81540e679f15e9b470 data\minecraft\tags\item\rabbit_food.json
 8f9f33e65018e503dd75014f35525e26ddd2212c data\c\tags\item\foods\ginger.json
 8173b1a2363d8f1a3670812c5d4d9c88b53dcda7 data\c\tags\item\food_wrappers\lumpia_wrapper.json
 dbcd33203aef3a0b4231edb39f16fa66a010e1e0 data\c\tags\item\tea_ingredients\sweet\weak.json
+a8ac530eaabd4becf900e1758a164201600cbe76 data\c\tags\item\foods\cookie.json
 c2a39e6d34eabb4fce58ccf56576e5512a01f88f data\c\tags\item\foods\milk.json
 e365eaaa5e24836db82f1e18993b422d135ff41a data\dehydration\tags\item\hydrating_drinks.json
 e962b08e59aa3e3e071af3aebcc932bd68c4d271 data\c\tags\item\crops.json
@@ -24,6 +24,7 @@ c20b2ac37d4e1e789774abb4859865b7bf68f572 data\c\tags\item\foods\ube.json
 400a5a67f1a2e633ec928937384713999ebfae6f data\origins\tags\item\meat.json
 5d0dc6f0f1a6715d1da2872886885cf0c45c6775 data\sereneseasons\tags\item\spring_crops.json
 009dc1c5b6fd06e9c2393d841ad82e7d14980d41 data\minecraft\tags\item\pig_food.json
+f8dbd6f4de004a9d0a08f07dae913f59a6a257f4 data\c\tags\item\foods\leafy_green.json
 aa4881c28f221aa60eb8e856730ef8a3578d106f data\c\tags\item\tools.json
 409d9e4598405e0522ec1c9538aa18ae1198bbce data\c\tags\item\food_wrappers.json
 db433723554ca0068e238f203205fb258748b3ed data\c\tags\item\foods\garlic.json

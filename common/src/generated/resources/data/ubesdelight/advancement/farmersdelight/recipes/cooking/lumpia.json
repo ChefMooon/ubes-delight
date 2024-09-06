@@ -21,21 +21,21 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_food_leafy_green": {
-      "conditions": {
-        "items": [
-          {
-            "items": "#c:food/leafy_green"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_food_wrappers_lumpia_wrapper": {
       "conditions": {
         "items": [
           {
             "items": "#c:food_wrappers/lumpia_wrapper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods_leafy_green": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/leafy_green"
           }
         ]
       },
@@ -52,7 +52,7 @@
     [
       "has_the_recipe",
       "has_cabbage_roll_ingredients",
-      "has_food_leafy_green",
+      "has_foods_leafy_green",
       "has_crops_lemongrass",
       "has_food_wrappers_lumpia_wrapper"
     ]

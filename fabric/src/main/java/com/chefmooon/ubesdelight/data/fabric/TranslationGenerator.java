@@ -3,11 +3,15 @@ package com.chefmooon.ubesdelight.data.fabric;
 import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
+import com.chefmooon.ubesdelight.common.tag.CommonTags;
+import com.chefmooon.ubesdelight.common.tag.UbesDelightTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 
 import java.util.concurrent.CompletableFuture;
+
+import static com.chefmooon.ubesdelight.common.utility.TagUtils.getTranslationKey;
 
 public class TranslationGenerator extends FabricLanguageProvider {
     public TranslationGenerator(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
@@ -28,6 +32,8 @@ public class TranslationGenerator extends FabricLanguageProvider {
         String WAILA = MOD_ID + ".tooltip.waila";
         String WAILA_CONFIG = "config.waila.plugin_" + MOD_ID;
         String FORMATTED_MOD_ID = "Ube's Delight";
+        String C_TAG = "tag.item.c.";
+        String UD_TAG = "tag.item." + MOD_ID + ".";
 
         translationBuilder.add("itemGroup." + MOD_ID, FORMATTED_MOD_ID);
 
@@ -251,7 +257,24 @@ public class TranslationGenerator extends FabricLanguageProvider {
 
         translationBuilder.add(WAILA + ".punchbowl_servings", "Servings");
 
-        translationBuilder.add("tag.item.c.food_wrappers", "Food Wrappers");
-        translationBuilder.add("tag.item.c.food_wrappers.lumpia_wrappers", "Lumpia Wrappers");
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_FOOD_WRAPPERS), "Food Wrappers");
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER), "Lumpia Wrappers");
+
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_CROPS_UBE), "Ube Crops");
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_CROPS_GARLIC), "Garlic Crops");
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_CROPS_GINGER), "Ginger Crops");
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_CROPS_LEMONGRASS), "Lemongrass Crops");
+
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_FOODS_UBE), "Ube");
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_FOODS_GARLIC), "Garlic");
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_FOODS_GINGER), "Ginger");
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_FOODS_LEMONGRASS), "Lemongrass");
+
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_FOODS_MILK_BOTTLE), "Milk Bottles");
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_TEA_INGREDIENTS), "Tea Ingredients");
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), "Sweet Weak");
+
+        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_TOOLS_ROLLING_PIN), "Rolling Pins");
+        translationBuilder.add(UD_TAG + getTranslationKey(UbesDelightTags.TOOLS_ROLLING_PIN), "Rolling Pins");
     }
 }

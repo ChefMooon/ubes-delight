@@ -229,11 +229,19 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(CommonTags.C_FOODS_MILK_BOTTLE)
                 .add(UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE);
 
-        getOrCreateTagBuilder(CommonTags.C_FOOD_LEAFY_GREEN)
+        getOrCreateTagBuilder(CommonTags.C_FOODS_LEAFY_GREEN)
                 .forceAddTag(CommonTags.C_FOODS_LEMONGRASS);
 
         getOrCreateTagBuilder(CommonTags.C_SEEDS)
                 .add(UbesDelightItemsImpl.LEMONGRASS_SEEDS);
+
+        getOrCreateTagBuilder(CommonTags.C_FOODS_COOKIE)
+                .add(UbesDelightItemsImpl.COOKIE_UBE)
+                .add(UbesDelightItemsImpl.COOKIE_GINGER)
+                .add(UbesDelightItemsImpl.POLVORONE)
+                .add(UbesDelightItemsImpl.POLVORONE_PINIPIG)
+                .add(UbesDelightItemsImpl.POLVORONE_UBE)
+                .add(UbesDelightItemsImpl.POLVORONE_CC);
 
         // Create Dough Compat
         // todo - when create 1.21 releases check compatibility
