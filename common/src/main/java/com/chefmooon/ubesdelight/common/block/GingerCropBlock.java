@@ -27,7 +27,7 @@ public class GingerCropBlock extends CropBlock {
             Block.box(.0d, .0d, .0d, 16.d, 9.d, 16.d)
     };
     public GingerCropBlock() {
-        super(Block.Properties.copy(Blocks.WHEAT));
+        super(Block.Properties.ofFullCopy(Blocks.WHEAT));
     }
 
     @Override

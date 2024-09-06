@@ -1,0 +1,171 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+architectury {
+    platformSetupLoomIde()
+    neoForge()
+}
+
+//loom {
+//    accessWidenerPath = project(":common").loom.accessWidenerPath
+//
+//    neoforge {
+//        //convertAccessWideners = true
+//        extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
+//
+//        mixinConfig "ubesdelight-common.mixins.json"
+//        mixinConfig "ubesdelight.mixins.json"
+//    }
+//}
+
+
+configurations {
+    common
+    shadowCommon // Don't use shadow from the shadow plugin since it *excludes* files.
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentNeoForge.extendsFrom common
+}
+
+dependencies {
+    //forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}"
+    neoForge "net.neoforged:neoforge:${neoforge_version}"
+
+    modImplementation "curse.maven:farmers-delight-398521:${farmersdelight_version}"
+
+    // MidnightLib
+    modImplementation include("maven.modrinth:midnightlib:${project.midnightlib_neoforge_version}")
+
+    // Appleskin
+    //modCompileOnly("squeek.appleskin:appleskin-forge:${appleskin_forge_version}:api")
+    //modRuntimeOnly("squeek.appleskin:appleskin-forge:${appleskin_forge_version}")
+
+    // Recipe Viewers
+    // EMI
+    modCompileOnly("dev.emi:emi-neoforge:$emi_version:api") { transitive = false }
+    // JEI
+    modCompileOnly("mezz.jei:jei-$minecraft_version-common-api:$jei_version") { transitive = false }
+    modCompileOnly("mezz.jei:jei-$minecraft_version-neoforge-api:$jei_version") { transitive = false }
+    // REI
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-neoforge:$rei_version") { transitive = false }
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-neoforge:$rei_version")
+
+    switch (recipe_viewer.toLowerCase(Locale.ROOT)) {
+        case "jei": modLocalRuntime("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"); break
+        case "rei": modLocalRuntime("me.shedaniel:RoughlyEnoughItems-neoforge:${rei_version}"); break
+        case "emi": modLocalRuntime("dev.emi:emi-neoforge:${emi_version}"); break
+        case "disabled": break
+        default: println("Unknown recipe viewer specified: ${recipe_viewer}. Must be JEI, REI, EMI, or disabled.")
+    }
+
+    // compile against the API
+    modCompileOnly("mcp.mobius.waila:wthit-api:neo-${wthitVersion}")
+
+    // run against the full jar
+    modLocalRuntime("mcp.mobius.waila:wthit:neo-${wthitVersion}")
+    modLocalRuntime("lol.bai:badpackets:neo-${badpacketsVersion}")
+
+    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
+}
+
+processResources {
+}
+
+shadowJar {
+    exclude "fabric.mod.json"
+    exclude "architectury.common.json"
+
+    configurations = [project.configurations.shadowCommon]
+    archiveClassifier = "dev-shadow"
+}
+
+remapJar {
+    input.set shadowJar.archiveFile
+    dependsOn shadowJar
+}
+
+sourcesJar {
+    def commonSources = project(":common").sourcesJar
+    dependsOn commonSources
+    from commonSources.archiveFile.map { zipTree(it) }
+}
+
+components.java {
+    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+        skip()
+    }
+}
+
+publishing {
+    publications {
+        mavenForge(MavenPublication) {
+            artifactId = rootProject.archives_base_name + "-" + project.name
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+    }
+}
+
+var env = System.getenv()
+
+var changelogFile = rootProject.file("changelog.md")
+var changelogText = changelogFile.exists() ? changelogFile.text : ""
+var vName = mod_name + " " + project.version
+
+if (env.MODRINTH_TOKEN) {
+    modrinth {
+        token = System.getenv("MODRINTH_TOKEN") // This is the default. Remember to have the MODRINTH_TOKEN environment variable set or else this will fail, or set it to whatever you want - just make sure it stays private!
+        projectId = modrinth_project_id // This can be the project ID or the slug. Either will work!
+        versionName = vName
+        versionNumber = project.version // You don't need to set this manually. Will fail if Modrinth has this version already
+        versionType = mod_version_type // This is the default -- can also be `beta` or `alpha`
+        changelog = changelogText
+        uploadFile = remapJar // With Loom, this MUST be set to `remapJar` instead of `jar`!
+        gameVersions = minecraft_supported_versions.split(",").toList()
+        loaders = ["neoforge"]
+        dependencies {
+            // scope.type
+            // The scope can be `required`, `optional`, `incompatible`, or `embedded`
+            // The type can either be `project` or `version`
+            required.project "farmers-delight"
+            embedded.project "midnightlib"
+            optional.project "jei"
+            optional.project "rei"
+            optional.project "emi"
+        }
+    }
+}
+
+if (env.CURSEFORGE_TOKEN) {
+    curseforge {
+        apiKey = env.CURSEFORGE_TOKEN
+        project {
+            id = curseforge_project_id
+            changelog = changelogText
+            changelogType = 'markdown'
+            releaseType = mod_version_type
+            for (String v : minecraft_supported_versions.split(",").toList()) {
+                addGameVersion v
+            }
+            addGameVersion "NeoForge"
+
+            mainArtifact(remapJar) {
+                displayName = vName
+            }
+
+            relations {
+                requiredDependency "farmers-delight"
+                embeddedLibrary "midnightlib"
+                optionalDependency "jei"
+                optionalDependency "roughly-enough-items"
+                optionalDependency "emi"
+            }
+        }
+    }
+}

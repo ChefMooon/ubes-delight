@@ -2,50 +2,46 @@ package com.chefmooon.ubesdelight.common.block.entity.fabric;
 
 import com.chefmooon.ubesdelight.common.block.entity.BakingMatBlockEntity;
 import com.chefmooon.ubesdelight.common.block.fabric.BakingMatBlockImpl;
-import com.chefmooon.ubesdelight.common.block.fabric.SyncedBlockEntity;
 import com.chefmooon.ubesdelight.common.crafting.fabric.BakingMatRecipeImpl;
-import com.chefmooon.ubesdelight.common.mixin.accessor.RecipeManagerAccessor;
-import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightSounds;
+import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightAdvancementsImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlockEntityTypesImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightRecipeTypesImpl;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandlerContainer;
-import io.github.fabricators_of_create.porting_lib.transfer.item.RecipeWrapper;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemVariant;
 import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
+import vectorwing.farmersdelight.common.crafting.RecipeWrapper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,42 +54,43 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     public static final int MAX_RESULTS = BakingMatBlockEntity.MAX_RESULTS;
     private final ItemStackHandlerContainer inventory;
     private final ItemStackHandlerContainer inputHandler;
-    private ResourceLocation lastRecipeId;
+    private final RecipeManager.CachedCheck<RecipeWrapper, BakingMatRecipeImpl> quickCheck;
 
     public BakingMatBlockEntityImpl(BlockPos pos, BlockState state) {
-        super(UbesDelightBlockEntityTypesImpl.BAKING_MAT_BAMBOO, pos, state);
+        super(UbesDelightBlockEntityTypesImpl.BAKING_MAT_BAMBOO.get(), pos, state);
         inventory = createHandler();
         inputHandler = inventory;
+        this.quickCheck = RecipeManager.createCheck(UbesDelightRecipeTypesImpl.BAKING_MAT.get());
     }
 
     public static void init() {
-        ItemStorage.SIDED.registerForBlockEntity(BakingMatBlockEntityImpl::getStorage, UbesDelightBlockEntityTypesImpl.BAKING_MAT_BAMBOO);
+        ItemStorage.SIDED.registerForBlockEntity(BakingMatBlockEntityImpl::getStorage, UbesDelightBlockEntityTypesImpl.BAKING_MAT_BAMBOO.get());
     }
 
     @Override
-    public void load(CompoundTag tag) {
-        super.load(tag);
-        inventory.deserializeNBT(tag.getCompound("Inventory"));
+    public void loadAdditional(CompoundTag compound, HolderLookup.Provider registries) {
+        super.loadAdditional(compound, registries);
+        inventory.deserializeNBT(registries, compound.getCompound("Inventory"));
     }
 
     @Override
-    public void saveAdditional(CompoundTag tag) {
-        super.saveAdditional(tag);
-        tag.put("Inventory", inventory.serializeNBT());
+    public void saveAdditional(CompoundTag compound, HolderLookup.Provider registries) {
+        super.saveAdditional(compound, registries);
+        compound.put("Inventory", inventory.serializeNBT(registries));
     }
 
     public boolean processItemUsingTool(ItemStack tool, @Nullable Player player) {
         if (level == null) return false;
 
-        Optional<BakingMatRecipeImpl> matchingRecipe = getMatchingRecipe(new RecipeWrapper(inventory), tool, player);
+        Optional<RecipeHolder<BakingMatRecipeImpl>> matchingRecipe = getMatchingRecipe(new RecipeWrapper(inventory), tool, player);
 
         matchingRecipe.ifPresent(recipe -> {
-            List<Ingredient> processStages = recipe.getProcessStages();
+            List<Ingredient> processStages = recipe.value().getProcessStages();
             List<ItemStack> ingredientContainers = getInventoryContainers(inventory);
 
             BlockPos blockPos = getBlockPos();
 
-            if (!recipe.getProcessStages().isEmpty()) {
+            if (!recipe.value().getProcessStages().isEmpty()) {
                 if (!getBlockState().getValue(BakingMatBlockImpl.PROCESSING)) {
                     if (!ingredientContainers.isEmpty()) spawnResults(ingredientContainers);
                     level.setBlockAndUpdate(blockPos, this.getBlockState().setValue(BakingMatBlockImpl.PROCESSING, true));
@@ -104,7 +101,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
                     inventoryChanged();
                 } else if (getBlockState().getValue(BakingMatBlockImpl.PROCESSING)) {
                     int currentStage = getProcessStage(inventory.getItem(0), processStages);
-                    if (currentStage < recipe.getProcessStages().size() - 1) {
+                    if (currentStage < recipe.value().getProcessStages().size() - 1) {
                         ItemStack currentStageItem = inventory.getItem(0);
                         int nextStage = getNextProcessStage(currentStageItem, processStages);
                         if (!processStages.get(nextStage).isEmpty()) {
@@ -114,52 +111,42 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
                             inventory.setItem(0, nextStageItem);
                             inventoryChanged();
                         }
-                    } else if (currentStage == recipe.getProcessStages().size() - 1) {
-                        spawnRolledResults(recipe, blockPos, level, tool, null);
+                    } else if (currentStage == recipe.value().getProcessStages().size() - 1) {
+                        spawnRolledResults(recipe.value(), blockPos, level, tool, null);
                         level.setBlockAndUpdate(blockPos, this.getBlockState().setValue(BakingMatBlockImpl.PROCESSING, false));
                     }
                 }
             } else {
-                spawnRolledResults(recipe, blockPos, level, tool, ingredientContainers);
+                spawnRolledResults(recipe.value(), blockPos, level, tool, ingredientContainers);
             }
 
             triggerAdvancement(player);
-            damagetool(tool, player);
-            playProcessingSound(recipe.getSoundEvent(), tool);
+            if (!level.isClientSide) tool.hurtAndBreak(1, (ServerLevel) level, (ServerPlayer) player, (item) -> {});
+            playProcessingSound(recipe.value().getSoundEvent().orElse(null), tool);
         });
 
         return matchingRecipe.isPresent();
     }
 
-    private Optional<BakingMatRecipeImpl> getMatchingRecipe(RecipeWrapper recipeWrapper, ItemStack toolStack, @Nullable Player player) {
+    private Optional<RecipeHolder<BakingMatRecipeImpl>> getMatchingRecipe(RecipeWrapper inventoryWrapper, ItemStack toolStack, @Nullable Player player) {
         if (level == null) return Optional.empty();
 
-        if (lastRecipeId != null) {
-            Recipe<RecipeWrapper> recipe = ((RecipeManagerAccessor) level.getRecipeManager())
-                    .getRecipeMap(UbesDelightRecipeTypesImpl.BAKING_MAT.get())
-                    .get(lastRecipeId);
-            if (recipe instanceof BakingMatRecipeImpl && recipe.matches(recipeWrapper, level) && ((BakingMatRecipeImpl) recipe).getTool().test(toolStack)) {
-                return Optional.of((BakingMatRecipeImpl) recipe);
+        Optional<RecipeHolder<BakingMatRecipeImpl>> recipe = quickCheck.getRecipeFor(inventoryWrapper, this.level);
+        if (recipe.isPresent()) {
+            if (recipe.get().value().getTool().test(toolStack)) {
+                return recipe;
+            } else if (player != null) {
+                player.displayClientMessage(TextUtils.getTranslatable("tooltip.baking_mat.invalid_tool"), true);
             }
+        } else if (player != null) {
+            player.displayClientMessage(TextUtils.getTranslatable("tooltip.baking_mat.invalid_item"), true);
         }
 
-        List<BakingMatRecipeImpl> recipeList = level.getRecipeManager().getRecipesFor(UbesDelightRecipeTypesImpl.BAKING_MAT.get(), recipeWrapper, level);
-        if (recipeList.isEmpty()) {
-            if (player != null) player.displayClientMessage(TextUtils.getTranslatable("tooltip.baking_mat.invalid_item"), true);
-            return Optional.empty();
-        }
-
-        Optional<BakingMatRecipeImpl> recipe = recipeList.stream().filter(bakingMatRecipeImpl -> bakingMatRecipeImpl.getTool().test(toolStack)).findFirst();
-        if (recipe.isEmpty()) {
-            if (player != null) player.displayClientMessage(TextUtils.getTranslatable("tooltip.baking_mat.invalid_tool"), true);
-            return Optional.empty();
-        }
-        lastRecipeId = recipe.get().getId();
-        return recipe;
+        return Optional.empty();
     }
 
     private void spawnRolledResults(BakingMatRecipeImpl recipe, BlockPos blockPos, Level level, ItemStack tool, @Nullable List<ItemStack> containers) {
-        List<ItemStack> results = recipe.getRollResults(level.random, EnchantmentHelper.getItemEnchantmentLevel(Enchantments.BLOCK_FORTUNE, tool));
+        List<ItemStack> results = recipe.getRollResults(level.random, EnchantmentHelper.getItemEnchantmentLevel(level.registryAccess().registry(Registries.ENCHANTMENT).get().getHolderOrThrow(Enchantments.FORTUNE), tool));
         if (containers != null && !containers.isEmpty()) results.addAll(containers);
         if (!results.isEmpty()) {
             spawnParticles(level, blockPos, results.get(0).copy(), 5);
@@ -180,16 +167,15 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
         }
     }
 
-    private void playProcessingSound(String soundEventID, ItemStack tool) {
-        playProcessingSound(soundEventID, tool, (ItemStack) null);
+    private void playProcessingSound(SoundEvent soundEvent, ItemStack tool) {
+        playProcessingSound(soundEvent, tool, (ItemStack) null);
     }
 
-    private void playProcessingSound(String soundEventID, ItemStack tool, @Nullable ItemStack item) {
-        SoundEvent sound = BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation(soundEventID));
+    private void playProcessingSound(@Nullable SoundEvent soundEvent, ItemStack tool, @Nullable ItemStack item) {
         // NOTE: unused inputs for future implementation of specific results
-        if (sound != null) {
-            playSound(sound, 1.0f, 1.0f);
-        } else if (tool.is(CommonTags.C_TOOLS_ROLLING_PINS)) {
+        if (soundEvent != null) {
+            playSound(soundEvent, 1.0f, 1.0f);
+        } else if (tool.is(CommonTags.C_TOOLS_ROLLING_PIN)) {
             playSound(UbesDelightSounds.BLOCK_BAKING_MAT_ROLLING_PIN.get(), 1.0f, 0.8f);
         }
     }
@@ -199,19 +185,9 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
             level.playSound(null, worldPosition.getX() + 0.5F, worldPosition.getY() + 0.5F, worldPosition.getZ() + 0.5F, sound, SoundSource.BLOCKS, volume, pitch);
     }
 
-    private void damagetool(ItemStack tool, Player player) {
-        if (player != null) {
-            tool.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-        } else {
-            if (tool.hurt(1, level.random, null)) {
-                tool.setCount(0);
-            }
-        }
-    }
-
     private void triggerAdvancement(Player player) {
         if (player instanceof ServerPlayer) {
-            UbesDelightAdvancements.BAKING_MAT.trigger((ServerPlayer) player);
+            UbesDelightAdvancementsImpl.USE_BAKING_MAT.get().trigger((ServerPlayer) player);
         }
     }
 

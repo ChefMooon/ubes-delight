@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "snowyspirit"
+    }
+  ],
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "snowyspirit:ginger"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "ubesdelight:ginger_chop"
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knife"
+  }
+}

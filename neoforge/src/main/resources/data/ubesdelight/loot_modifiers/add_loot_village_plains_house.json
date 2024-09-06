@@ -1,0 +1,11 @@
+{
+  "type": "ubesdelight:add_loot_table",
+  "conditions":
+  [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chests/village/village_plains_house"
+    }
+  ],
+  "lootTable": "ubesdelight:chests/ud_village_plains_house"
+}

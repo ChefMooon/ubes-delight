@@ -1,0 +1,36 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "botanypots"
+    }
+  ],
+  "type":"botanypots:crop",
+  "seed":  {
+    "item":"ubesdelight:lemongrass_seeds"
+  },
+  "categories": ["dirt","farmland"],
+  "growthTicks":1200,
+  "display": {
+    "type":"botanypots:aging",
+    "block":"ubesdelight:lemongrass_stalk_crop"
+  },
+  "drops": [
+    {
+      "chance":1.00,
+      "output": {
+        "item":"ubesdelight:lemongrass"
+      },
+      "minRolls":2,
+      "maxRolls":3
+    },
+    {
+      "chance":0.05,
+      "output": {
+        "item":"ubesdelight:lemongrass_seeds"
+      },
+      "minRolls":1,
+      "maxRolls":2
+    }
+  ]
+}

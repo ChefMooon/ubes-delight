@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ubesdelight:ube_cake_slice"
+    },
+    {
+      "item": "ubesdelight:ube_cake_slice"
+    },
+    {
+      "item": "ubesdelight:ube_cake_slice"
+    },
+    {
+      "item": "ubesdelight:ube_cake_slice"
+    },
+    {
+      "item": "ubesdelight:ube_cake_slice"
+    },
+    {
+      "item": "ubesdelight:ube_cake_slice"
+    },
+    {
+      "item": "ubesdelight:ube_cake_slice"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:ube_cake"
+  }
+}

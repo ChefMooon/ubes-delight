@@ -1,6 +1,7 @@
 package com.chefmooon.ubesdelight.common.block;
 
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlockEntityTypes;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -25,13 +26,24 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 public class BakingMatBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
+    public static final MapCodec<BakingMatBlock> CODEC = simpleCodec(BakingMatBlock::new);
     public static final BooleanProperty PROCESSING = BooleanProperty.create("processing");
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     protected static final VoxelShape SHAPE = Block.box(1.d, .0d, 1.d, 15.d, 1.d, 15.d);
-    public BakingMatBlock() {
-        super(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(1.0f).sound(SoundType.BAMBOO));
+
+    public BakingMatBlock(BlockBehaviour.Properties properties) {
+        super(properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(PROCESSING, Boolean.FALSE).setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
+    }
+    public BakingMatBlock() {
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.0f).sound(SoundType.BAMBOO));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(PROCESSING, Boolean.FALSE).setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return null;
     }
 
     @Override

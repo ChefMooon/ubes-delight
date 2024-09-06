@@ -1,0 +1,43 @@
+{
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "tag": "c:foods/dough"
+    },
+    {
+      "tag": "c:tea_ingredients/sweet/weak"
+    },
+    {
+      "item": "minecraft:bread"
+    }
+  ],
+  "processing_stages": [
+    {
+      "item": "ubesdelight:pandesal_stage0"
+    },
+    {
+      "item": "ubesdelight:pandesal_stage1"
+    },
+    {
+      "item": "ubesdelight:pandesal_stage2"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 4,
+        "id": "ubesdelight:pandesal_raw"
+      }
+    },
+    {
+      "chance": 0.25,
+      "item": {
+        "count": 2,
+        "id": "ubesdelight:pandesal_raw"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/rolling_pin"
+  }
+}

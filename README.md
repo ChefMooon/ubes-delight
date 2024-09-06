@@ -29,11 +29,11 @@ Detailed information can be found on the [Wiki](https://github.com/ChefMooon/ube
 Thank you Farmer's Delight Developers and Community!
 
 ### Supported Versions
-| Minecraft Version | Fabric/Quilt |  Forge   | NeoForge |
-|-------------------|:------------:|:--------:|:--------:|
-| 1.21              |   Planned✅   |    ❌     | Planned✅ |
-| 1.20.1            |      ✅       | Planned✅ | Planned✅ |
-| 1.19.2            |      ✅       |    ❌     |    ❌     |
+| Minecraft Version | Fabric/Quilt | Forge | NeoForge |
+|-------------------|:------------:|:-----:|:--------:|
+| 1.21-1.21.1       |      ✅       |   ❌   |    ✅     |
+| 1.20-1.20.1       |      ✅       |   ✅   |    ✅     |
+| 1.19.2            |      ✅       |   ❌   |    ❌     |
 
 ### Links
 

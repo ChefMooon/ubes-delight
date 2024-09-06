@@ -3,19 +3,16 @@ package com.chefmooon.ubesdelight.common.block;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
-import com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -23,9 +20,10 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 import static com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil.getBlock;
-import static com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil.getItemStack;
+import static com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil.getItemLike;
 
 public class LemongrassStalkCropBlock extends CropBlock {
     public static final IntegerProperty LEMONGRASS_AGE = BlockStateProperties.AGE_5;
@@ -42,7 +40,7 @@ public class LemongrassStalkCropBlock extends CropBlock {
             Block.box(1.d, .0d, 1.d, 15.d, 16.d, 15.d)
     };
     public LemongrassStalkCropBlock() {
-        super(Block.Properties.copy(Blocks.WHEAT).strength(0.2F));
+        super(Block.Properties.ofFullCopy(Blocks.WHEAT).strength(0.2F));
         this.registerDefaultState(this.stateDefinition.any().setValue(LEMONGRASS_AGE, 0).setValue(SUPPORTING, false));
     }
 
@@ -74,8 +72,7 @@ public class LemongrassStalkCropBlock extends CropBlock {
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        // todo - change for 1.21, BuiltInRegistry used for Fabric compat - test more
-        return state.is(Blocks.FARMLAND) || state.is(CommonTags.C_FARMLAND) || state.is(BuiltInRegistryUtil.getBlock(new ResourceLocation("farmersdelight", "rich_soil_farmland")));
+        return state.is(Blocks.FARMLAND) || state.is(CommonTags.C_FARMLAND) || state.is(ModBlocks.RICH_SOIL.get());
     }
 
     protected IntegerProperty getAgeProperty() {
@@ -91,8 +88,8 @@ public class LemongrassStalkCropBlock extends CropBlock {
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
-        return getItemStack(UbesDelightItems.LEMONGRASS);
+    protected ItemLike getBaseSeedId() {
+        return getItemLike(UbesDelightItems.LEMONGRASS);
     }
 
     public BlockState withAge(int age) {
@@ -120,7 +117,7 @@ public class LemongrassStalkCropBlock extends CropBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
         BlockState upperState = level.getBlockState(pos.above());
         if (upperState.getBlock() instanceof LemongrassLeafCropBlock) {
             return !((LemongrassLeafCropBlock) upperState.getBlock()).isMaxAge(upperState);
@@ -146,7 +143,7 @@ public class LemongrassStalkCropBlock extends CropBlock {
             BlockState top = level.getBlockState(pos.above());
             if (top.getBlock() == getBlock(UbesDelightBlocks.LEMONGRASS_LEAF_CROP)) {
                 BonemealableBlock growable = (BonemealableBlock) level.getBlockState(pos.above()).getBlock();
-                if (growable.isValidBonemealTarget(level, pos.above(), top, false)) {
+                if (growable.isValidBonemealTarget(level, pos.above(), top)) {
                     growable.performBonemeal(level, level.random, pos.above(), top);
                 }
             } else {

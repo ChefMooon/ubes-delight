@@ -1,13 +1,11 @@
 package com.chefmooon.ubesdelight.common.item;
 
 import com.chefmooon.ubesdelight.common.Configuration;
-import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
+import vectorwing.farmersdelight.common.utility.TextUtils;
 
 import java.util.List;
 
@@ -25,9 +23,9 @@ public class UbesDelightConsumableItem extends ConsumableItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag isAdvanced) {
         if (Configuration.isFoodEffectTooltip()) {
-            TextUtils.addFoodEffectTooltip(stack, tooltip, 1.0F);
+            TextUtils.addFoodEffectTooltip(stack, tooltip::add, 1.0F, context.tickRate());
         }
     }
 }

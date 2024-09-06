@@ -1,0 +1,14 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 0.2,
+  "ingredients": [
+    {
+      "tag": "c:foods/milk_bottle"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:milk_powder"
+  }
+}

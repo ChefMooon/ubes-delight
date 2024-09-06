@@ -1,0 +1,88 @@
+{
+  "values": {
+    "ubesdelight:lemongrass_seeds": {
+      "chance": 0.3
+    },
+    "ubesdelight:garlic_chop": {
+      "chance": 0.4
+    },
+    "ubesdelight:ginger_chop": {
+      "chance": 0.4
+    },
+    "ubesdelight:lumpia_wrapper": {
+      "chance": 0.4
+    },
+    "ubesdelight:wild_ube": {
+      "chance": 0.65
+    },
+    "ubesdelight:wild_garlic": {
+      "chance": 0.65
+    },
+    "ubesdelight:wild_ginger": {
+      "chance": 0.65
+    },
+    "ubesdelight:wild_lemongrass": {
+      "chance": 0.65
+    },
+    "ubesdelight:ube": {
+      "chance": 0.65
+    },
+    "ubesdelight:garlic": {
+      "chance": 0.65
+    },
+    "ubesdelight:ginger": {
+      "chance": 0.65
+    },
+    "ubesdelight:lemongrass": {
+      "chance": 0.65
+    },
+    "ubesdelight:pandesal": {
+      "chance": 0.7
+    },
+    "ubesdelight:pandesal_ube": {
+      "chance": 0.7
+    },
+    "ubesdelight:ensaymada": {
+      "chance": 0.7
+    },
+    "ubesdelight:ensaymada_ube": {
+      "chance": 0.7
+    },
+    "ubesdelight:hopia_munggo": {
+      "chance": 0.7
+    },
+    "ubesdelight:hopia_ube": {
+      "chance": 0.7
+    },
+    "ubesdelight:cookie_ube": {
+      "chance": 0.85
+    },
+    "ubesdelight:cookie_ginger": {
+      "chance": 0.85
+    },
+    "ubesdelight:polvorone": {
+      "chance": 0.85
+    },
+    "ubesdelight:polvorone_pinipig": {
+      "chance": 0.85
+    },
+    "ubesdelight:polvorone_ube": {
+      "chance": 0.85
+    },
+    "ubesdelight:polvorone_cc": {
+      "chance": 0.85
+    },
+    "ubesdelight:leche_flan": {
+      "chance": 0.85
+    },
+    "ubesdelight:ube_cake_slice": {
+      "chance": 0.85
+    },
+    "ubesdelight:ube_cake": {
+      "chance": 1.0
+    },
+    "ubesdelight:leche_flan_feast": {
+      "chance": 1.0
+    }
+  }
+}

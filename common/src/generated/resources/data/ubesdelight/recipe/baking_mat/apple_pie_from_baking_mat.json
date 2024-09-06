@@ -1,0 +1,51 @@
+{
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "farmersdelight:pie_crust"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "tag": "c:tea_ingredients/sweet/weak"
+    },
+    {
+      "tag": "c:tea_ingredients/sweet/weak"
+    }
+  ],
+  "processing_stages": [],
+  "result": [
+    {
+      "item": {
+        "count": 1,
+        "id": "farmersdelight:apple_pie"
+      }
+    },
+    {
+      "chance": 0.5,
+      "item": {
+        "count": 1,
+        "id": "farmersdelight:apple_pie"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/rolling_pin"
+  }
+}

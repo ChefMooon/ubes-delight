@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "ubesdelight:ud_crates_enabled"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "decoration",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "c:crops/ginger"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:ginger_crate"
+  }
+}

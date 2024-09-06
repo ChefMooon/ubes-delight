@@ -1,0 +1,25 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "assorteddiscoveries"
+      ]
+    }
+  ],
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "assorteddiscoveries:garlic"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "id": "ubesdelight:garlic_chop"
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knife"
+  }
+}

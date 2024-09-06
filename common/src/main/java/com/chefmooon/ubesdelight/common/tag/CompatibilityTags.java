@@ -45,9 +45,9 @@ public class CompatibilityTags {
     public static final TagKey<Item> SERENE_SEASONS_SUMMER_CROPS = getItemTagKey(SERENE_SEASONS, "summer_crops");
 
     public static TagKey<Item> getItemTagKey(String namespace, String path) {
-        return TagKey.create(Registries.ITEM, new ResourceLocation(namespace, path));
+        return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(namespace, path));
     }
     public static TagKey<Block> getBlockTagKey(String namespace, String path) {
-        return TagKey.create(Registries.BLOCK, new ResourceLocation(namespace, path));
+        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(namespace, path));
     }
 }

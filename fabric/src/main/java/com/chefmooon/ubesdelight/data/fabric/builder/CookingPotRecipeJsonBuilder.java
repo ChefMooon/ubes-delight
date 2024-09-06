@@ -1,54 +1,54 @@
 package com.chefmooon.ubesdelight.data.fabric.builder;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.CriterionTriggerInstance;
-import net.minecraft.advancements.RequirementsStrategy;
+import net.minecraft.advancements.AdvancementRequirements;
+import net.minecraft.advancements.AdvancementRewards;
+import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.core.NonNullList;
 import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
-import vectorwing.farmersdelight.common.registry.ModRecipeSerializers;
+import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
 
-import java.util.List;
-import java.util.function.Consumer;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class CookingPotRecipeJsonBuilder implements RecipeBuilder {
 
     private CookingPotRecipeBookTab tab;
-    private final Item output;
+    private final ItemStack output;
     private final int outputCount;
-    private final Item container;
-    private final List<Ingredient> inputs;
+    private final ItemStack container;
+    private final NonNullList<Ingredient> inputs;
     private final float experience;
     private final int cookingTime;
     private final Advancement.Builder advancement = Advancement.Builder.recipeAdvancement();
-    private CookingPotRecipeJsonBuilder(ItemLike output, int outputCount, @Nullable Item container, List<Ingredient> inputs, float experience, int cookingTime) {
-        this.output = output.asItem();
+    private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
+    private CookingPotRecipeJsonBuilder(ItemStack output, int outputCount, @Nullable Item container, NonNullList<Ingredient> inputs, float experience, int cookingTime) {
+        this.output = output;
         this.outputCount = outputCount;
-        this.container = container != null ? container.asItem() : null;
+        this.container = container != null ? new ItemStack(container) : ItemStack.EMPTY;
         this.inputs = inputs;
         this.experience = experience;
         this.cookingTime = cookingTime;
     }
 
-    public static CookingPotRecipeJsonBuilder create(ItemLike output, int outputCount, int cookingTime, float experience, Item container, List<Ingredient> inputs) {
-        return new CookingPotRecipeJsonBuilder(output, outputCount, container, inputs, experience, cookingTime);
+    public static CookingPotRecipeJsonBuilder create(ItemLike output, int outputCount, int cookingTime, float experience, Item container, NonNullList<Ingredient> inputs) {
+        return new CookingPotRecipeJsonBuilder(new ItemStack(output), outputCount, container, inputs, experience, cookingTime);
     }
 
-    public static CookingPotRecipeJsonBuilder create(ItemLike output, int outputCount, int cookingTime, float experience, List<Ingredient> inputs) {
-        return new CookingPotRecipeJsonBuilder(output, outputCount, null, inputs, experience, cookingTime);
+    public static CookingPotRecipeJsonBuilder create(ItemLike output, int outputCount, int cookingTime, float experience, NonNullList<Ingredient> inputs) {
+        return new CookingPotRecipeJsonBuilder(new ItemStack(output), outputCount, null, inputs, experience, cookingTime);
     }
 
     public CookingPotRecipeJsonBuilder input(TagKey<Item> tag) {
@@ -79,8 +79,8 @@ public class CookingPotRecipeJsonBuilder implements RecipeBuilder {
     }
 
     @Override
-    public CookingPotRecipeJsonBuilder unlockedBy(String criterionName, CriterionTriggerInstance criterionTrigger) {
-        this.advancement.addCriterion(criterionName, criterionTrigger);
+    public CookingPotRecipeJsonBuilder unlockedBy(String criterionName, Criterion<?> criterionTrigger) {
+        this.criteria.put(criterionName, criterionTrigger);
         return this;
     }
 
@@ -89,7 +89,7 @@ public class CookingPotRecipeJsonBuilder implements RecipeBuilder {
     }
 
     public CookingPotRecipeJsonBuilder unlockedByAny(ItemLike ... items) {
-        advancement.addCriterion("has_any_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(items).build()));
+        this.criteria.put("has_any_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(items).build()));
         return this;
     }
 
@@ -105,102 +105,26 @@ public class CookingPotRecipeJsonBuilder implements RecipeBuilder {
 
     @Override
     public Item getResult() {
-        return this.output;
+        return this.output.getItem();
     }
 
     @Override
-    public void save(Consumer<FinishedRecipe> finishedRecipeConsumer, ResourceLocation recipeId) {
-        this.ensureValid(recipeId);
-        String fdCookingPrefix = "farmersdelight/cooking/";
-        this.advancement.parent(ROOT_RECIPE_ADVANCEMENT).addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId.withPrefix(fdCookingPrefix))).rewards(net.minecraft.advancements.AdvancementRewards.Builder.recipe(recipeId.withPrefix(fdCookingPrefix))).requirements(RequirementsStrategy.OR);
-        finishedRecipeConsumer.accept(new Result(recipeId.withPrefix(fdCookingPrefix), this.tab, this.output, this.outputCount, this.container, this.inputs, this.experience, this.cookingTime, this.advancement, recipeId.withPrefix("recipes/food/" + fdCookingPrefix)));
-    }
-
-    private void ensureValid(ResourceLocation id) {
-        if (this.advancement.getCriteria().isEmpty()) {
-            throw new IllegalStateException("No way of obtaining recipe " + id);
-        }
-    }
-
-    public static class Result implements FinishedRecipe {
-        private final ResourceLocation id;
-        private final CookingPotRecipeBookTab tab;
-        private final Item output;
-        private final int outputCount;
-        private final Item container;
-        private final List<Ingredient> inputs;
-        private final float experience;
-        private final int cookingTime;
-        private final Advancement.Builder advancement;
-        private final ResourceLocation advancementId;
-
-        public Result(ResourceLocation id, CookingPotRecipeBookTab tab, Item output, int outputCount, Item container, List<Ingredient> inputs, float experience, int cookingTime, Advancement.Builder advancement, ResourceLocation advancementId) {
-            this.id = id;
-            this.tab = tab;
-            this.output = output;
-            this.outputCount = outputCount;
-            this.container = container;
-            this.inputs = inputs;
-            this.experience = experience;
-            this.cookingTime = cookingTime;
-            this.advancement = advancement;
-            this.advancementId = advancementId;
-        }
-
-
-        @Override
-        public void serializeRecipeData(JsonObject json) {
-            if (tab != null) {
-                json.addProperty("recipe_book_tab", tab.toString());
-            }
-
-            json.addProperty("cookingtime", cookingTime);
-
-            if (experience > 0) {
-                json.addProperty("experience", experience);
-            }
-
-            JsonArray arrayIngredients = new JsonArray();
-
-            for (Ingredient input : inputs) {
-                arrayIngredients.add(input.toJson());
-            }
-            json.add("ingredients", arrayIngredients);
-
-            JsonObject objectResult = new JsonObject();
-            objectResult.addProperty("item", BuiltInRegistries.ITEM.getKey(output).toString());
-            if (outputCount > 1) {
-                objectResult.addProperty("count", outputCount);
-            }
-            json.add("result", objectResult);
-
-            if (container != null) {
-                JsonObject objectContainer = new JsonObject();
-                objectContainer.addProperty("item", BuiltInRegistries.ITEM.getKey(container).toString());
-                json.add("container", objectContainer);
-            }
-        }
-
-        @Override
-        public ResourceLocation getId() {
-            return this.id;
-        }
-
-        @Override
-        public RecipeSerializer<?> getType() {
-            return ModRecipeSerializers.COOKING.get();
-        }
-
-        @Nullable
-        @Override
-        public JsonObject serializeAdvancement() {
-            return this.advancement.serializeToJson();
-        }
-
-        @Nullable
-        @Override
-        public ResourceLocation getAdvancementId() {
-            return this.advancementId;
-        }
+    public void save(RecipeOutput output, ResourceLocation id) {
+        ResourceLocation recipeId = id.withPrefix("farmersdelight/cooking/");
+        Advancement.Builder advancementBuilder = output.advancement()
+                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId))
+                .rewards(AdvancementRewards.Builder.recipe(recipeId))
+                .requirements(AdvancementRequirements.Strategy.OR);
+        this.criteria.forEach(advancementBuilder::addCriterion);
+        CookingPotRecipe recipe = new CookingPotRecipe(
+                "",
+                this.tab,
+                this.inputs,
+                new ItemStack(this.output.getItem(), this.outputCount),
+                this.container,
+                this.experience,
+                this.cookingTime
+        );
+        output.accept(recipeId, recipe, advancementBuilder.build(id.withPrefix("farmersdelight/recipes/cooking/")));
     }
 }

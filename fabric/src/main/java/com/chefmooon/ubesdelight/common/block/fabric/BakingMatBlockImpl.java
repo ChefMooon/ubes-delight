@@ -7,7 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -32,8 +32,8 @@ public class BakingMatBlockImpl extends BakingMatBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        InteractionResult result = InteractionResult.PASS;
+    public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        ItemInteractionResult result = ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (!(blockEntity instanceof BakingMatBlockEntityImpl bakingMatBlockEntity)) {
@@ -82,8 +82,8 @@ public class BakingMatBlockImpl extends BakingMatBlock {
         super.onRemove(state, level, pos, newState, isMoving);
     }
 
-    private InteractionResult tryAddItemFromPlayerHand(Level level, BakingMatBlockEntityImpl bakingMatBlockEntity, ItemStack heldStack, ItemStack offHandStack, Player player, InteractionHand hand) {
-        InteractionResult result = InteractionResult.PASS;
+    private ItemInteractionResult tryAddItemFromPlayerHand(Level level, BakingMatBlockEntityImpl bakingMatBlockEntity, ItemStack heldStack, ItemStack offHandStack, Player player, InteractionHand hand) {
+        ItemInteractionResult result = ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
         if (!offHandStack.isEmpty()) {
             if (hand.equals(InteractionHand.MAIN_HAND) && !(heldStack.getItem() instanceof BlockItem)) {
@@ -98,13 +98,13 @@ public class BakingMatBlockImpl extends BakingMatBlock {
             return result;
         } else if (bakingMatBlockEntity.addItem(player.getAbilities().instabuild ? heldStack.copy() : heldStack)) {
             level.playSound(null, bakingMatBlockEntity.getBlockPos(), UbesDelightSounds.BLOCK_BAKING_MAT_ADD.get(), SoundSource.BLOCKS, 1.0f, 0.8f);
-            return InteractionResult.SUCCESS;
+            return ItemInteractionResult.SUCCESS;
         }
 
         return result;
     }
 
-    private InteractionResult tryRemoveItemFromPlayerHand(Level level, BakingMatBlockEntityImpl bakingMatBlockEntity, ItemStack heldStack, ItemStack offHandStack, Player player, InteractionHand hand) {
+    private ItemInteractionResult tryRemoveItemFromPlayerHand(Level level, BakingMatBlockEntityImpl bakingMatBlockEntity, ItemStack heldStack, ItemStack offHandStack, Player player, InteractionHand hand) {
         BlockPos pos = bakingMatBlockEntity.getBlockPos();
         if (!bakingMatBlockEntity.isEmpty()) {
             if (player.isCreative()) {
@@ -114,18 +114,18 @@ public class BakingMatBlockImpl extends BakingMatBlock {
             }
 
             level.playSound(null, bakingMatBlockEntity.getBlockPos(), UbesDelightSounds.BLOCK_BAKING_MAT_REMOVE.get(), SoundSource.BLOCKS, 0.25f, 0.5f);
-            return InteractionResult.SUCCESS;
+            return ItemInteractionResult.SUCCESS;
         }
 
-        return InteractionResult.PASS;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
-    private InteractionResult tryProcessBakingMatUsingToolInHand(Level level, BakingMatBlockEntityImpl bakingMatBlockEntity, ItemStack heldStack, ItemStack offHandStack, Player player, InteractionHand hand) {
-        InteractionResult result = InteractionResult.CONSUME;
+    private ItemInteractionResult tryProcessBakingMatUsingToolInHand(Level level, BakingMatBlockEntityImpl bakingMatBlockEntity, ItemStack heldStack, ItemStack offHandStack, Player player, InteractionHand hand) {
+        ItemInteractionResult result = ItemInteractionResult.CONSUME;
         if (!hand.equals(InteractionHand.MAIN_HAND)) return result;
 
         if (bakingMatBlockEntity.processItemUsingTool(heldStack, player)) {
-            return InteractionResult.SUCCESS;
+            return ItemInteractionResult.SUCCESS;
         }
         return result;
     }

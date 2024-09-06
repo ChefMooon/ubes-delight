@@ -7,13 +7,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-
-import static com.chefmooon.ubesdelight.common.utility.TextUtils.addFoodEffectTooltip;
 
 public class UbesDelightBlockItem extends BlockItem {
     private final boolean hasFoodEffectTooltip;
@@ -39,14 +35,14 @@ public class UbesDelightBlockItem extends BlockItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag isAdvanced) {
         if (Configuration.isFoodEffectTooltip()) { // todo - add new config BlockItem tooltips? V0.2.0
             if (hasCustomTooltip) {
                 tooltip.add(TextUtils.getTranslatable("tooltip." + this).withStyle(ChatFormatting.DARK_GRAY));
             }
 
             if (hasFoodEffectTooltip) {
-                addFoodEffectTooltip(stack, tooltip, 1.0F);
+                vectorwing.farmersdelight.common.utility.TextUtils.addFoodEffectTooltip(stack, tooltip::add, 1.0F, context.tickRate());
             }
         }
     }

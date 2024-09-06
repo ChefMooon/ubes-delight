@@ -1,0 +1,25 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "snowyspirit"
+      ]
+    }
+  ],
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "snowyspirit:ginger"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "id": "ubesdelight:ginger_chop"
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knife"
+  }
+}

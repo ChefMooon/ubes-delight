@@ -7,7 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -40,7 +40,7 @@ public class DrinkableFeastBlock extends Block {
     private final ParticleOptions particleData;
 
     public DrinkableFeastBlock(Supplier<Item> servingItem) {
-        this(servingItem, BlockBehaviour.Properties.copy(Blocks.GLASS).strength(2.0f).sound(SoundType.GLASS));
+        this(servingItem, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).strength(2.0f).sound(SoundType.GLASS));
     }
 
     public DrinkableFeastBlock(Supplier<Item> servingItem, Properties properties) {
@@ -51,7 +51,7 @@ public class DrinkableFeastBlock extends Block {
     }
 
     public DrinkableFeastBlock(Supplier<Item> servingItem, ParticleOptions particleData) {
-        super(BlockBehaviour.Properties.copy(Blocks.GLASS));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS));
         this.servingItem = servingItem;
         this.particleData = particleData;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(SERVINGS, MAX_SERVINGS));
@@ -86,21 +86,9 @@ public class DrinkableFeastBlock extends Block {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public ItemInteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         ItemStack serving = getServingItem(state);
         ItemStack heldItem = player.getItemInHand(hand);
-
-        if (level.isClientSide()) {
-            if (heldItem.is(serving.getItem())) {
-                if (addDrink(level, pos, state, player, hand).consumesAction()) {
-                    return InteractionResult.SUCCESS;
-                }
-            } else {
-                if (dispenseDrink(level, pos, state, player, hand).consumesAction()) {
-                    return InteractionResult.SUCCESS;
-                }
-            }
-        }
 
         if (heldItem.is(serving.getItem())) {
             return addDrink(level, pos, state, player, hand);
@@ -109,11 +97,11 @@ public class DrinkableFeastBlock extends Block {
         }
     }
 
-    protected InteractionResult dispenseDrink(Level world, BlockPos pos, BlockState state, Player player, InteractionHand hand) {
+    protected ItemInteractionResult dispenseDrink(Level world, BlockPos pos, BlockState state, Player player, InteractionHand hand) {
         int servings = state.getValue(getServingsProperty());
 
         if (servings == 0) {
-            return InteractionResult.FAIL;
+            return ItemInteractionResult.FAIL;
         }
 
         if (servings > 0 ) {
@@ -134,10 +122,10 @@ public class DrinkableFeastBlock extends Block {
             }
         }
 
-        return InteractionResult.SUCCESS;
+        return ItemInteractionResult.SUCCESS;
     }
 
-    protected InteractionResult addDrink(Level world, BlockPos pos, BlockState state, Player player, InteractionHand hand) {
+    protected ItemInteractionResult addDrink(Level world, BlockPos pos, BlockState state, Player player, InteractionHand hand) {
         int servings = state.getValue(getServingsProperty());
 
         if (servings < MAX_SERVINGS) {
@@ -152,10 +140,10 @@ public class DrinkableFeastBlock extends Block {
                     player.drop(container, false);
                 }
             }
-            return InteractionResult.SUCCESS;
+            return ItemInteractionResult.SUCCESS;
         }
 
-        return InteractionResult.FAIL;
+        return ItemInteractionResult.FAIL;
     }
 
     @Override
@@ -173,7 +161,7 @@ public class DrinkableFeastBlock extends Block {
     }
 
     @Override
-    public boolean isPathfindable(BlockState state, BlockGetter level, BlockPos pos, PathComputationType type) {
+    public boolean isPathfindable(BlockState state, PathComputationType type) {
         return false;
     }
 }

@@ -7,7 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -64,7 +64,7 @@ public class LumpiaFeastBlock extends Block {
     private static final VoxelShape[] SHAPES_WEST = rotateVoxelShapes(SHAPES_NORTH, Direction.WEST);
 
     public LumpiaFeastBlock(Supplier<Item> servingItem) {
-        super(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL));
         this.servingItem = servingItem;
         this.registerDefaultState(this.stateDefinition.any().setValue(SERVINGS, MAX_SERVINGS));
     }
@@ -94,17 +94,17 @@ public class LumpiaFeastBlock extends Block {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public ItemInteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (level.isClientSide()) {
             if (this.takeServing(level, pos, state, player, hand).consumesAction()) {
-                return InteractionResult.SUCCESS;
+                return ItemInteractionResult.SUCCESS;
             }
         }
 
         return this.takeServing(level, pos, state, player, hand);
     }
 
-    protected InteractionResult takeServing(LevelAccessor level, BlockPos pos, BlockState state, Player player, InteractionHand hand) {
+    protected ItemInteractionResult takeServing(LevelAccessor level, BlockPos pos, BlockState state, Player player, InteractionHand hand) {
         int servings = state.getValue(getServingsProperty());
 
         ItemStack serving = getServingItem();
@@ -117,13 +117,13 @@ public class LumpiaFeastBlock extends Block {
                 if (!player.getInventory().add(serving)) {
                     player.drop(serving, false);
                 }
-                return InteractionResult.SUCCESS;
+                return ItemInteractionResult.SUCCESS;
             } else {
                 player.displayClientMessage(TextUtils.getTranslatable("tooltip.knife"), true);
             }
         }
 
-        return InteractionResult.PASS;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Override
@@ -161,7 +161,7 @@ public class LumpiaFeastBlock extends Block {
     }
 
     @Override
-    public boolean isPathfindable(BlockState state, BlockGetter level, BlockPos pos, PathComputationType type) {
+    public boolean isPathfindable(BlockState state, PathComputationType type) {
         return false;
     }
 }

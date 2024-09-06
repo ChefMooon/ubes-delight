@@ -1,6 +1,7 @@
 package com.chefmooon.ubesdelight.common.item;
 
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
@@ -27,7 +28,7 @@ public class UbesDelightDrinkableBlockItem extends UbesDelightBlockItem {
 
         ItemStack containerStack = new ItemStack(Objects.requireNonNull(stack.getItem().getCraftingRemainingItem()));
         Player player;
-        if (stack.isEdible()) {
+        if (stack.get(DataComponents.FOOD) != null) {
             super.finishUsingItem(stack, level, consumer);
         } else {
             player = consumer instanceof Player ? (Player)consumer : null;

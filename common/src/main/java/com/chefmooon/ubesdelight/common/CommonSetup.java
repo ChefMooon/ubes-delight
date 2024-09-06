@@ -35,6 +35,10 @@ public class CommonSetup {
 
         ComposterBlock.COMPOSTABLES.put(BuiltInRegistryUtil.getItem(UbesDelightItems.COOKIE_UBE), 0.85f);
         ComposterBlock.COMPOSTABLES.put(BuiltInRegistryUtil.getItem(UbesDelightItems.COOKIE_GINGER), 0.85f);
+        ComposterBlock.COMPOSTABLES.put(BuiltInRegistryUtil.getItem(UbesDelightItems.POLVORONE), 0.85f);
+        ComposterBlock.COMPOSTABLES.put(BuiltInRegistryUtil.getItem(UbesDelightItems.POLVORONE_PINIPIG), 0.85f);
+        ComposterBlock.COMPOSTABLES.put(BuiltInRegistryUtil.getItem(UbesDelightItems.POLVORONE_UBE), 0.85f);
+        ComposterBlock.COMPOSTABLES.put(BuiltInRegistryUtil.getItem(UbesDelightItems.POLVORONE_CC), 0.85f);
         ComposterBlock.COMPOSTABLES.put(BuiltInRegistryUtil.getItem(UbesDelightItems.LECHE_FLAN), 0.85f);
         ComposterBlock.COMPOSTABLES.put(BuiltInRegistryUtil.getItem(UbesDelightItems.UBE_CAKE_SLICE), 0.85f);
 

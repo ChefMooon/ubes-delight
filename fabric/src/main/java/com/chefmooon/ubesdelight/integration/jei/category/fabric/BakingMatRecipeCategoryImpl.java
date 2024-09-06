@@ -1,6 +1,5 @@
 package com.chefmooon.ubesdelight.integration.jei.category.fabric;
 
-import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.crafting.fabric.BakingMatRecipeImpl;
 import com.chefmooon.ubesdelight.common.crafting.ingredient.ChanceResult;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
@@ -39,7 +38,7 @@ public class BakingMatRecipeCategoryImpl implements IRecipeCategory<BakingMatRec
 
     public BakingMatRecipeCategoryImpl(IGuiHelper helper) {
         title = TextUtils.getTranslatable("rei.baking_mat");
-        ResourceLocation backgroundImage = new ResourceLocation(UbesDelight.MOD_ID, "textures/gui/emi/baking_mat.png");
+        ResourceLocation backgroundImage = TextUtils.res("textures/gui/emi/baking_mat.png");
         slotLarge = helper.createDrawable(backgroundImage, 0, 80, 18, 18);
         slotChance = helper.createDrawable(backgroundImage, 18, 80, 18, 18);
         background = helper.createDrawable(backgroundImage, 7, 9, 149, 56);

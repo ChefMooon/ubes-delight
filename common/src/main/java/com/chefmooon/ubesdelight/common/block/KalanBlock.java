@@ -10,17 +10,14 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -34,20 +31,19 @@ public class KalanBlock extends Block {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public KalanBlock() {
-        super(BlockBehaviour.Properties.copy(Blocks.BRICKS).lightLevel(UbesDelightBlocks.litBlockEmission(13)));
+        super(Block.Properties.ofFullCopy(Blocks.BRICKS).lightLevel(UbesDelightBlocks.litBlockEmission(13)));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, false));
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        ItemStack heldStack = player.getItemInHand(hand);
+    protected ItemInteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         Item heldItem = heldStack.getItem();
 
         if (state.getValue(LIT)) {
             if (heldStack.is(ItemTags.SHOVELS)) {
                 extinguish(state, level, pos);
-                heldStack.hurtAndBreak(1, player, action -> action.broadcastBreakEvent(hand));
-                return InteractionResult.SUCCESS;
+                heldStack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+                return ItemInteractionResult.SUCCESS;
             } else if (heldItem == Items.WATER_BUCKET) {
                 if (!level.isClientSide()) {
                     level.playSound(null, pos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -56,25 +52,25 @@ public class KalanBlock extends Block {
                 if (!player.isCreative()) {
                     player.setItemInHand(hand, new ItemStack(Items.BUCKET));
                 }
-                return InteractionResult.SUCCESS;
+                return ItemInteractionResult.SUCCESS;
             }
         } else {
             if (heldItem instanceof FlintAndSteelItem) {
                 level.playSound(player, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, MathUtils.RAND.nextFloat() * 0.4F + 0.8F);
                 level.setBlock(pos, state.setValue(BlockStateProperties.LIT, Boolean.TRUE), 11);
-                heldStack.hurtAndBreak(1, player, action -> action.broadcastBreakEvent(hand));
-                return InteractionResult.SUCCESS;
+                heldStack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+                return ItemInteractionResult.SUCCESS;
             } else if (heldItem instanceof FireChargeItem) {
                 level.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, (MathUtils.RAND.nextFloat() - MathUtils.RAND.nextFloat()) * 0.2F + 1.0F);
                 level.setBlock(pos, state.setValue(BlockStateProperties.LIT, Boolean.TRUE), 11);
                 if (!player.isCreative()) {
                     heldStack.shrink(1);
                 }
-                return InteractionResult.SUCCESS;
+                return ItemInteractionResult.SUCCESS;
             }
         }
 
-        return InteractionResult.PASS;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Override
@@ -104,7 +100,7 @@ public class KalanBlock extends Block {
     @Override
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         boolean isLit = level.getBlockState(pos).getValue(KalanBlock.LIT);
-        if (isLit && !entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
+        if (isLit && !entity.fireImmune() && !entity.isSteppingCarefully() && entity instanceof LivingEntity) {
             entity.hurt(UbesDelightDamageTypes.getSimpleDamageSource(level, UbesDelightDamageTypes.KALAN_BURN), 1.0F);
         }
         super.stepOn(level, pos, state, entity);
@@ -121,7 +117,7 @@ public class KalanBlock extends Block {
     }
 
     @Override
-    public boolean isPathfindable(BlockState state, BlockGetter level, BlockPos pos, PathComputationType type) {
+    public boolean isPathfindable(BlockState state, PathComputationType type) {
         return !state.getValue(LIT);
     }
 

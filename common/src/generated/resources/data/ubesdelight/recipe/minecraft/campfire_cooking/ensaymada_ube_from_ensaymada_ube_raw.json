@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "ubesdelight:ensaymada_ube_raw"
+  },
+  "result": {
+    "id": "ubesdelight:ensaymada_ube"
+  }
+}

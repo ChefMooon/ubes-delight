@@ -1,0 +1,33 @@
+{
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "processing_stages": [],
+  "result": [
+    {
+      "item": {
+        "count": 1,
+        "id": "farmersdelight:raw_pasta"
+      }
+    },
+    {
+      "chance": 0.2,
+      "item": {
+        "count": 1,
+        "id": "farmersdelight:raw_pasta"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/rolling_pin"
+  }
+}

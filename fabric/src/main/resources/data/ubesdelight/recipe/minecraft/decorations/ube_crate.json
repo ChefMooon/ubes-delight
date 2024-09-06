@@ -1,0 +1,26 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "ubesdelight:ud_crates_enabled",
+      "values": [
+        "true"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "decoration",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "c:crops/ube"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:ube_crate"
+  }
+}

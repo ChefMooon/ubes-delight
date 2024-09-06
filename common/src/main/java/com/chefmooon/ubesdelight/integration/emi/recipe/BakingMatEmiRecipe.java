@@ -1,6 +1,6 @@
 package com.chefmooon.ubesdelight.integration.emi.recipe;
 
-import com.chefmooon.ubesdelight.UbesDelight;
+import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import com.chefmooon.ubesdelight.integration.emi.UDRecipeCategories;
 import com.mojang.datafixers.util.Pair;
 import dev.emi.emi.api.recipe.EmiRecipe;
@@ -16,7 +16,7 @@ import java.util.List;
 
 public class BakingMatEmiRecipe implements EmiRecipe {
 
-    ResourceLocation BACKGROUND = new ResourceLocation(UbesDelight.MOD_ID, "textures/gui/emi/baking_mat.png");
+    ResourceLocation BACKGROUND = TextUtils.res("textures/gui/emi/baking_mat.png");
     private final ResourceLocation id;
     private final EmiIngredient tool;
     private final List<EmiIngredient> inputs;

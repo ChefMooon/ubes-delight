@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 100,
+  "ingredients": [
+    {
+      "tag": "c:crops/grain"
+    },
+    {
+      "tag": "c:tea_ingredients/sweet/weak"
+    },
+    {
+      "item": "ubesdelight:milk_powder"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 4,
+    "id": "ubesdelight:raw_polvorone"
+  }
+}

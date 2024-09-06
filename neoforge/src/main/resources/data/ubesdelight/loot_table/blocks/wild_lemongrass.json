@@ -1,0 +1,181 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:any_of",
+                  "terms": [
+                    {
+                      "ability": "shears_dig",
+                      "condition": "neoforge:can_item_perform_ability"
+                    },
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "predicates": {
+                          "minecraft:enchantments": [
+                            {
+                              "enchantments": "minecraft:silk_touch",
+                              "levels": {
+                                "min": 1
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "name": "ubesdelight:wild_lemongrass"
+            },
+            {
+              "type": "minecraft:group",
+              "children": [
+                {
+                  "type": "minecraft:item",
+                  "conditions": [
+                    {
+                      "condition": "minecraft:survives_explosion"
+                    }
+                  ],
+                  "name": "ubesdelight:lemongrass_seeds"
+                },
+                {
+                  "type": "minecraft:item",
+                  "conditions": [
+                    {
+                      "condition": "minecraft:survives_explosion"
+                    },
+                    {
+                      "chance": 0.125,
+                      "condition": "minecraft:random_chance"
+                    }
+                  ],
+                  "name": "ubesdelight:lemongrass"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "ubesdelight:wild_lemongrass",
+          "properties": {
+            "half": "lower"
+          }
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "block": {
+              "block": "ubesdelight:wild_lemongrass",
+              "state": {
+                "half": "upper"
+              }
+            }
+          },
+          "offsetY": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:any_of",
+                  "terms": [
+                    {
+                      "ability": "shears_dig",
+                      "condition": "neoforge:can_item_perform_ability"
+                    },
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "predicates": {
+                          "minecraft:enchantments": [
+                            {
+                              "enchantments": "minecraft:silk_touch",
+                              "levels": {
+                                "min": 1
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "name": "ubesdelight:wild_lemongrass"
+            },
+            {
+              "type": "minecraft:group",
+              "children": [
+                {
+                  "type": "minecraft:item",
+                  "conditions": [
+                    {
+                      "condition": "minecraft:survives_explosion"
+                    }
+                  ],
+                  "name": "ubesdelight:lemongrass_seeds"
+                },
+                {
+                  "type": "minecraft:item",
+                  "conditions": [
+                    {
+                      "condition": "minecraft:survives_explosion"
+                    },
+                    {
+                      "chance": 0.125,
+                      "condition": "minecraft:random_chance"
+                    }
+                  ],
+                  "name": "ubesdelight:lemongrass"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "ubesdelight:wild_lemongrass",
+          "properties": {
+            "half": "upper"
+          }
+        },
+        {
+          "condition": "minecraft:location_check",
+          "predicate": {
+            "block": {
+              "block": "ubesdelight:wild_lemongrass",
+              "state": {
+                "half": "lower"
+              }
+            }
+          },
+          "offsetY": -1
+        }
+      ]
+    }
+  ]
+}

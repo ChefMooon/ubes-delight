@@ -1,0 +1,30 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "botanypots"
+      ]
+    }
+  ],
+  "type":"botanypots:crop",
+  "seed":  {
+    "item":"ubesdelight:garlic"
+  },
+  "categories": ["dirt","farmland"],
+  "growthTicks":1200,
+  "display": {
+    "type":"botanypots:aging",
+    "block":"ubesdelight:garlic_crop"
+  },
+  "drops": [
+    {
+      "chance":1.00,
+      "output": {
+        "item":"ubesdelight:garlic"
+      },
+      "minRolls":2,
+      "maxRolls":3
+    }
+  ]
+}

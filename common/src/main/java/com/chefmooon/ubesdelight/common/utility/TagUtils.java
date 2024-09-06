@@ -1,12 +1,13 @@
 package com.chefmooon.ubesdelight.common.utility;
 
-import dev.architectury.injectables.annotations.ExpectPlatform;
+import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 public class TagUtils {
-    @ExpectPlatform
+
+    // 1.21 - Common tags, yay!
     public static TagKey<Item> getKifeItemTag() {
-        throw new AssertionError();
+        return CommonTags.C_TOOLS_KNIFE;
     }
 }

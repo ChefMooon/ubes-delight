@@ -1,0 +1,46 @@
+{
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "item": "ubesdelight:raw_polvorone"
+    },
+    {
+      "item": "ubesdelight:raw_polvorone"
+    },
+    {
+      "item": "ubesdelight:raw_polvorone"
+    },
+    {
+      "item": "ubesdelight:raw_polvorone"
+    }
+  ],
+  "processing_stages": [
+    {
+      "item": "ubesdelight:polvorone_stage0"
+    },
+    {
+      "item": "ubesdelight:polvorone_stage1"
+    },
+    {
+      "item": "ubesdelight:polvorone_stage2"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 4,
+        "id": "ubesdelight:polvorone"
+      }
+    },
+    {
+      "chance": 0.25,
+      "item": {
+        "count": 2,
+        "id": "ubesdelight:polvorone"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/rolling_pin"
+  }
+}

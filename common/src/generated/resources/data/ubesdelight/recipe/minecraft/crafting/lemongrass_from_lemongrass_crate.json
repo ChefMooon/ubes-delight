@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ubesdelight:lemongrass_crate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "ubesdelight:lemongrass"
+  }
+}

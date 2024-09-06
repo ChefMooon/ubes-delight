@@ -1,7 +1,6 @@
 package com.chefmooon.ubesdelight;
 
 import com.chefmooon.ubesdelight.common.Configuration;
-import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightSounds;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,12 +20,12 @@ public class UbesDelight {
         return Component.translatable(MOD_ID + "." + key, args);
     }
     public static ResourceLocation res(String name) {
-        return new ResourceLocation(MOD_ID, name);
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
     }
 
     public static void init() {
         UbesDelightSounds.init();
-        UbesDelightAdvancements.register();
+        //UbesDelightAdvancements.register();
         Configuration.init();
     }
 

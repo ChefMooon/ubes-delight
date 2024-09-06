@@ -1,17 +1,16 @@
 package com.chefmooon.ubesdelight.data.fabric;
 
-import com.chefmooon.ubesdelight.common.block.*;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
-import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.core.HolderLookup;
+
+import java.util.concurrent.CompletableFuture;
 
 public class LootTableGenerator extends FabricBlockLootTableProvider {
 
-    protected LootTableGenerator(FabricDataOutput dataOutput) {
-        super(dataOutput);
+    protected LootTableGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+        super(output, registryLookup);
     }
 
     @Override

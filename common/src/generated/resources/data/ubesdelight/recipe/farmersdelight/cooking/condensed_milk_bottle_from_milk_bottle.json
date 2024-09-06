@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 50,
+  "ingredients": [
+    {
+      "tag": "c:tea_ingredients/sweet/weak"
+    },
+    {
+      "item": "farmersdelight:milk_bottle"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:condensed_milk_bottle"
+  }
+}

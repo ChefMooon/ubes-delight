@@ -4,6 +4,7 @@ import com.chefmooon.ubesdelight.common.crafting.fabric.BakingMatRecipeImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightRecipeTypesImpl;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 
 import java.util.List;
@@ -23,6 +24,6 @@ public class UDRecipesImpl {
     }
 
     public List<BakingMatRecipeImpl> getBakingMatRecipes() {
-        return recipeManager.getAllRecipesFor(UbesDelightRecipeTypesImpl.BAKING_MAT.get()).stream().toList();
+        return recipeManager.getAllRecipesFor(UbesDelightRecipeTypesImpl.BAKING_MAT.get()).stream().map(RecipeHolder::value).toList();
     }
 }

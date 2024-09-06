@@ -41,7 +41,7 @@ dependencies {
     //modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
 
     // FD Refabricated
-    modImplementation ("vectorwing:FarmersDelight:${minecraft_version}-${fdrf_version}") {
+    modImplementation ("vectorwing:FarmersDelight:${fdrf_version}") {
         exclude(group: "net.fabricmc")
     }
 
@@ -58,7 +58,7 @@ dependencies {
 
     // Recipe Viewers
     // EMI
-    modCompileOnly("dev.emi:emi-fabric:$emi_version+${minecraft_version}:api") {
+    modCompileOnly("dev.emi:emi-fabric:$emi_version:api") {
         transitive = false
         exclude(group: "net.fabricmc.fabric-api")
     }
@@ -72,7 +72,7 @@ dependencies {
     switch (recipe_viewer.toLowerCase(Locale.ROOT)) {
         case "jei": modLocalRuntime("mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"); break
         case "rei": modLocalRuntime("me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"); break
-        case "emi": modLocalRuntime("dev.emi:emi-fabric:${emi_version}+${minecraft_version}"); break
+        case "emi": modLocalRuntime("dev.emi:emi-fabric:${emi_version}"); break
         case "disabled": break
         default: println("Unknown recipe viewer specified: ${recipe_viewer}. Must be JEI, REI, EMI, or disabled.")
     }
@@ -160,7 +160,6 @@ if (env.MODRINTH_TOKEN) {
             required.project "fabric-api"
             required.project "farmers-delight-refabricated"
             embedded.project "midnightlib"
-            optional.project "farmers-delight-fabric"
             optional.project "modmenu"
             optional.project "jei"
             optional.project "rei"
@@ -191,7 +190,6 @@ if (env.CURSEFORGE_TOKEN) {
                 requiredDependency "fabric-api"
                 requiredDependency "farmers-delight-refabricated"
                 embeddedLibrary "midnightlib"
-                optionalDependency "farmers-delight-fabric"
                 optionalDependency "modmenu"
                 optionalDependency "jei"
                 optionalDependency "roughly-enough-items"

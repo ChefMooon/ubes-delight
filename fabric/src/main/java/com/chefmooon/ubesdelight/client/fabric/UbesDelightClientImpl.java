@@ -33,7 +33,6 @@ public class UbesDelightClientImpl implements ClientModInitializer {
                 UbesDelightBlocksImpl.UBE_CROP,
                 UbesDelightBlocksImpl.GARLIC_CROP,
                 UbesDelightBlocksImpl.GINGER_CROP,
-                UbesDelightBlocksImpl.LEMONGRASS_CROP,
                 UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP,
                 UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP,
                 UbesDelightBlocksImpl.UBE_CAKE,
@@ -49,12 +48,12 @@ public class UbesDelightClientImpl implements ClientModInitializer {
     public static void onBuiltinPackRegistration() {
         if (isModLoaded("presencefootsteps")) {
             FabricLoader.getInstance().getModContainer(UbesDelight.MOD_ID).ifPresent(udpresencefootsteps ->
-                    ResourceManagerHelper.registerBuiltinResourcePack(new ResourceLocation("udpresencefootsteps"), udpresencefootsteps, ResourcePackActivationType.DEFAULT_ENABLED));
+                    ResourceManagerHelper.registerBuiltinResourcePack(ResourceLocation.parse("udpresencefootsteps"), udpresencefootsteps, ResourcePackActivationType.DEFAULT_ENABLED));
         }
 
         if (isModLoaded("eatinganimationid")) {
             FabricLoader.getInstance().getModContainer(UbesDelight.MOD_ID).ifPresent(udsupporteatinganimation ->
-                    ResourceManagerHelper.registerBuiltinResourcePack(new ResourceLocation("udsupporteatinganimation"), udsupporteatinganimation, ResourcePackActivationType.DEFAULT_ENABLED));
+                    ResourceManagerHelper.registerBuiltinResourcePack(ResourceLocation.parse("udsupporteatinganimation"), udsupporteatinganimation, ResourcePackActivationType.DEFAULT_ENABLED));
         }
     }
 

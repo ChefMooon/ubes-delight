@@ -2,13 +2,14 @@ package com.chefmooon.ubesdelight.common.tag;
 
 import com.chefmooon.ubesdelight.UbesDelight;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class UbesDelightTags {
+
+    public static final TagKey<Item> TOOLS_ROLLING_PIN = getItemTagKey("tools/rolling_pin");
     public static TagKey<Item> getItemTagKey(String path) {
         return TagKey.create(Registries.ITEM, UbesDelight.res(path));
     }

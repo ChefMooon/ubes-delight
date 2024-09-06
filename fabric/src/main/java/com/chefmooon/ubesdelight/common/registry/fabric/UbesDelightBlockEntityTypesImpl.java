@@ -1,23 +1,21 @@
 package com.chefmooon.ubesdelight.common.registry.fabric;
 
+import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.block.entity.fabric.BakingMatBlockEntityImpl;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlockEntityTypes;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
+import io.github.fabricators_of_create.porting_lib.util.DeferredRegister;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
-public class UbesDelightBlockEntityTypesImpl {
-    public static final BlockEntityType<BakingMatBlockEntityImpl> BAKING_MAT_BAMBOO = registerBlockEntityType(UbesDelightBlockEntityTypes.BAKING_MAT_BAMBOO, BakingMatBlockEntityImpl::new, UbesDelightBlocksImpl.BAKING_MAT_BAMBOO);
+import java.util.function.Supplier;
 
-    public static <T extends BlockEntity> BlockEntityType<T> registerBlockEntityType(ResourceLocation location, FabricBlockEntityTypeBuilder.Factory<T> blockEntitySupplier, Block ... blocks) {
-        return Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, location, FabricBlockEntityTypeBuilder.create(blockEntitySupplier, blocks).build(null));
-    }
+public class UbesDelightBlockEntityTypesImpl {
+    public static final DeferredRegister<BlockEntityType<?>> TILES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, UbesDelight.MOD_ID);
+
+    public static final Supplier<BlockEntityType<BakingMatBlockEntityImpl>> BAKING_MAT_BAMBOO = TILES.register(UbesDelightBlockEntityTypes.BAKING_MAT_BAMBOO.getPath(),
+            () -> BlockEntityType.Builder.of(BakingMatBlockEntityImpl::new, UbesDelightBlocksImpl.BAKING_MAT_BAMBOO).build());
 
     public static void register() {
-
+        TILES.register();
     }
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hopia_munggo_raw": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:hopia_munggo_raw"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:minecraft/smelting/hopia_munggo_from_hopia_munggo_raw"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hopia_munggo_raw"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:minecraft/smelting/hopia_munggo_from_hopia_munggo_raw"
+    ]
+  }
+}

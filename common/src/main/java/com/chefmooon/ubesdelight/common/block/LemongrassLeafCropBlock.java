@@ -30,7 +30,7 @@ public class LemongrassLeafCropBlock extends CropBlock {
             Block.box(1.d, .0d, 1.d, 15.d, 14.d, 15.d)
     };
     public LemongrassLeafCropBlock() {
-        super(Block.Properties.copy(Blocks.WHEAT));
+        super(Block.Properties.ofFullCopy(Blocks.WHEAT));
     }
 
     @Override

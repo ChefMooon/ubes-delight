@@ -1,0 +1,87 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crops_garlic": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:crops/garlic"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_crops_onion": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:crops/onion"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_crops_tomato": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:crops/tomato"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_fish_sauce_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:fish_sauce_bottle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods_raw_beef": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/raw_beef"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_foods_vegetable": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/vegetable"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:farmersdelight/cooking/mechado"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_foods_raw_beef",
+      "has_crops_onion",
+      "has_crops_garlic",
+      "has_crops_tomato",
+      "has_foods_vegetable",
+      "has_fish_sauce_bottle"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:farmersdelight/cooking/mechado"
+    ]
+  }
+}

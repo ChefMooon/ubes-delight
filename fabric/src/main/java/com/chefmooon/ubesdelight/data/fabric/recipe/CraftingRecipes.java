@@ -10,14 +10,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 
-import java.util.function.Consumer;
-
 import static com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil.simpleRecipeBuilder;
 
 public class CraftingRecipes {
-    public static void register(Consumer<FinishedRecipe> exporter) {
+    public static void register(RecipeOutput exporter) {
 
-        //registerUncommon(exporter);
+        // todo - move uncommon here, organize them
+        registerUncommon(exporter);
 
         simpleRecipeBuilder(exporter, RecipeCategory.FOOD,
                 UbesDelightItemsImpl.UBE_CRATE, 1,
@@ -89,7 +88,7 @@ public class CraftingRecipes {
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LUMPIA_FEAST)));
     }
 
-    private static void registerUncommon(Consumer<FinishedRecipe> exporter) {
+    private static void registerUncommon(RecipeOutput exporter) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.KALAN)
                 .pattern("AAA")
                 .pattern("ACA")
@@ -113,7 +112,7 @@ public class CraftingRecipes {
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.COOKIE_UBE)));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, UbesDelightItemsImpl.KINILAW)
-                .requires(CommonTags.C_FOODS_RAW_FISHES)
+                .requires(CommonTags.C_FOODS_RAW_FISH)
                 .requires(CommonTags.C_CROPS_ONION)
                 .requires(CommonTags.C_CROPS_GARLIC)
                 .requires(CommonTags.C_CROPS_GINGER)
@@ -133,7 +132,7 @@ public class CraftingRecipes {
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.KINILAW) + "_extra"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, UbesDelightItemsImpl.LUMPIA_WRAPPER, 32)
-                .requires(CommonTags.C_GRAINS)
+                .requires(CommonTags.C_CROPS_GRAIN)
                 .requires(CommonTags.C_EGGS)
                 .requires(Items.WATER_BUCKET)
                 .unlockedBy(RecipeUtil.hasAny(), RecipeUtil.getTriggerfromItems(Items.WATER_BUCKET, Items.EGG, Items.WHEAT))
@@ -144,7 +143,7 @@ public class CraftingRecipes {
                 .pattern("ABA")
                 .pattern(" A ")
                 .define('A', UbesDelightItemsImpl.HALO_HALO)
-                .define('B', CommonTags.C_MILKS)
+                .define('B', CommonTags.C_FOODS_MILK)
                 .unlockedBy(RecipeUtil.hasAny(), RecipeUtil.getTriggerfromItems(UbesDelightItemsImpl.HALO_HALO, UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE, Items.MILK_BUCKET))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.HALO_HALO_FEAST)));
 
@@ -153,7 +152,7 @@ public class CraftingRecipes {
                 .pattern("ABA")
                 .pattern(" A ")
                 .define('A', UbesDelightItemsImpl.MILK_TEA_UBE)
-                .define('B', CommonTags.C_MILKS)
+                .define('B', CommonTags.C_FOODS_MILK)
                 .unlockedBy(RecipeUtil.hasAny(), RecipeUtil.getTriggerfromItems(UbesDelightItemsImpl.MILK_TEA_UBE, UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE, Items.MILK_BUCKET))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.MILK_TEA_UBE_FEAST)));
 
@@ -161,7 +160,7 @@ public class CraftingRecipes {
                 .pattern("AAA")
                 .pattern("BEB")
                 .pattern("CFC")
-                .define('A', CommonTags.C_MILKS)
+                .define('A', CommonTags.C_FOODS_MILK)
                 .define('B', CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)
                 .define('C', Items.WHEAT)
                 .define('E', CommonTags.C_EGGS)

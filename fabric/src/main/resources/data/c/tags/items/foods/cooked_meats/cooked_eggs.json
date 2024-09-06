@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    {
-      "id": "#c:cooked_eggs",
-      "required": false
-    }
-  ]
-}

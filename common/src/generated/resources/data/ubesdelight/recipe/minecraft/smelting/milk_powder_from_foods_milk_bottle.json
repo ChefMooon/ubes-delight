@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.2,
+  "ingredient": {
+    "tag": "c:foods/milk_bottle"
+  },
+  "result": {
+    "id": "ubesdelight:milk_powder"
+  }
+}

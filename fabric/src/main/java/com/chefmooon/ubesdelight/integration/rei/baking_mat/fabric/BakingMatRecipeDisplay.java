@@ -14,6 +14,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.RecipeHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +26,8 @@ public class BakingMatRecipeDisplay extends BasicDisplay {
     private List<Pair<EntryIngredient, Float>> chanceOutputs;
     private final List<EntryIngredient> mandatoryOutputs;
     private final List<EntryIngredient> processStages;
-    public BakingMatRecipeDisplay(BakingMatRecipeImpl recipe) {
-        this(EntryIngredients.ofIngredients(recipe.getIngredients()), recipe.getResultList().stream().map(EntryIngredients::of).toList(), Optional.of(recipe.getId()), EntryIngredients.ofIngredient(recipe.getTool()), EntryIngredients.ofIngredients(recipe.getProcessStages()), recipe.getMandatoryResults().stream().map(EntryIngredients::of).toList(), recipe.getVariableResult().stream().map(result -> Pair.of(EntryIngredients.of(result.stack()), result.chance())).toList());
+    public BakingMatRecipeDisplay(RecipeHolder<BakingMatRecipeImpl> recipe) {
+        this(EntryIngredients.ofIngredients(recipe.value().getIngredients()), recipe.value().getResultList().stream().map(EntryIngredients::of).toList(), Optional.of(recipe.id()), EntryIngredients.ofIngredient(recipe.value().getTool()), EntryIngredients.ofIngredients(recipe.value().getProcessStages()), recipe.value().getMandatoryResults().stream().map(EntryIngredients::of).toList(), recipe.value().getVariableResult().stream().map(result -> Pair.of(EntryIngredients.of(result.stack()), result.chance())).toList());
     }
 
     public BakingMatRecipeDisplay(List<EntryIngredient> inputs, List<EntryIngredient> outputs, Optional<ResourceLocation> location, CompoundTag compoundTag) {

@@ -9,6 +9,6 @@ import java.util.function.Supplier;
 
 public class HaloHaloFeastBlock extends DrinkableFeastBlock {
     public HaloHaloFeastBlock(Supplier<Item> servingItem) {
-        super(servingItem, BlockBehaviour.Properties.copy(Blocks.GLASS).strength(2.0f).sound(SoundType.GLASS).lightLevel(value -> 10));
+        super(servingItem, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).strength(2.0f).sound(SoundType.GLASS).lightLevel(value -> 10));
     }
 }

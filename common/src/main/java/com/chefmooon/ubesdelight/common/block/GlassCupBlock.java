@@ -4,7 +4,7 @@ import com.chefmooon.ubesdelight.common.utility.TagUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -42,7 +42,7 @@ public class GlassCupBlock extends Block {
     // todo - 0.2.1 - use VoxelShapeUtil getRotatedShapes
     protected final VoxelShape[] SHAPES = new VoxelShape[]{CUP_SOUTH, CUP_WEST, CUP_NORTH, CUP_EAST};
     public GlassCupBlock() {
-        super(BlockBehaviour.Properties.copy(Blocks.GLASS).lightLevel(value -> 4));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).lightLevel(value -> 4));
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
     }
 
@@ -52,17 +52,11 @@ public class GlassCupBlock extends Block {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        ItemStack heldStack = player.getItemInHand(hand);
-        if (level.isClientSide()) {
-            if (heldStack.is(TagUtils.getKifeItemTag())) {
-                return rotate(level, pos, state, player);
-            }
-        }
+    public ItemInteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (heldStack.is(TagUtils.getKifeItemTag())) {
             return rotate(level, pos, state, player);
         }
-        return InteractionResult.PASS;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Override
@@ -86,11 +80,11 @@ public class GlassCupBlock extends Block {
         return SHAPES[state.getValue(FACING).get2DDataValue()];
     }
 
-    protected InteractionResult rotate(Level level, BlockPos pos, BlockState state, Player player) {
-        if (player.getBoundingBox().distanceToSqr(pos.getCenter()) < 0.5) return InteractionResult.PASS;
+    protected ItemInteractionResult rotate(Level level, BlockPos pos, BlockState state, Player player) {
+        if (player.getBoundingBox().distanceToSqr(pos.getCenter()) < 0.5) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
-        if (level.setBlock(pos, state.setValue(FACING, state.getValue(FACING).getClockWise()), 3)) return InteractionResult.SUCCESS;
+        if (level.setBlock(pos, state.setValue(FACING, state.getValue(FACING).getClockWise()), 3)) return ItemInteractionResult.SUCCESS;
 
-        return InteractionResult.PASS;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 }

@@ -1,0 +1,29 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 4.0,
+  "ingredients": [
+    {
+      "tag": "c:foods/raw_beef"
+    },
+    {
+      "tag": "c:bones"
+    },
+    {
+      "tag": "c:crops/onion"
+    },
+    {
+      "tag": "c:crops/cabbage"
+    },
+    {
+      "item": "ubesdelight:fish_sauce_bottle"
+    },
+    {
+      "tag": "c:crops/lemongrass"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:bulalo"
+  }
+}

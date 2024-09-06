@@ -7,6 +7,6 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 public class ClientSetupEventsImpl {
 
     public static void onRegisterRenderers() {
-        BlockEntityRenderers.register(UbesDelightBlockEntityTypesImpl.BAKING_MAT_BAMBOO, BakingMatBlockEntityRenderImpl::new);
+        BlockEntityRenderers.register(UbesDelightBlockEntityTypesImpl.BAKING_MAT_BAMBOO.get(), BakingMatBlockEntityRenderImpl::new);
     }
 }

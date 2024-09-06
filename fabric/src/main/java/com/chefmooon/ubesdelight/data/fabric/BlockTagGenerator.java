@@ -34,6 +34,8 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(UbesDelightBlocksImpl.HALO_HALO_FEAST)
                 .add(UbesDelightBlocksImpl.MILK_TEA_UBE_FEAST)
                 .add(UbesDelightBlocksImpl.LUMPIA_FEAST);
+
+        getOrCreateTagBuilder(CommonTags.C_MINEABLE_ROLLING_PIN);
     }
 
     private void registerMinecraftBlockTags() {

@@ -1,7 +1,0 @@
-{
-  "type": "ubesdelight:add_features_by_filter",
-  "allowed_biomes": ["minecraft:jungle", "minecraft:bamboo_jungle", "minecraft:sparse_jungle"],
-  "denied_biomes": ["#forge:is_underground"],
-  "features": "ubesdelight:patch_wild_ginger",
-  "step": "vegetal_decoration"
-}

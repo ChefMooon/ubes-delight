@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ubesdelight:ginger_chop"
+    },
+    {
+      "item": "ubesdelight:ginger_chop"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:ginger"
+  }
+}

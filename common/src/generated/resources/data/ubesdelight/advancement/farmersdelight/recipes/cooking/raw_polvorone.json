@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crops_grain": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:crops/grain"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_milk_powder": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:milk_powder"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_tea_ingredients_sweet_weak": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:tea_ingredients/sweet/weak"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:farmersdelight/cooking/raw_polvorone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_crops_grain",
+      "has_tea_ingredients_sweet_weak",
+      "has_milk_powder"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:farmersdelight/cooking/raw_polvorone"
+    ]
+  }
+}

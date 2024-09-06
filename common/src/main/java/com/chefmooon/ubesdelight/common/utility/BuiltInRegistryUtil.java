@@ -4,6 +4,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 
 public class BuiltInRegistryUtil {
@@ -13,6 +14,10 @@ public class BuiltInRegistryUtil {
 
     public static ItemStack getItemStack(ResourceLocation resourceLocation) {
         return new ItemStack(BuiltInRegistries.ITEM.get(resourceLocation));
+    }
+
+    public static ItemLike getItemLike(ResourceLocation resourceLocation) {
+        return () -> BuiltInRegistries.ITEM.get(resourceLocation);
     }
 
     public static Block getBlock(ResourceLocation resourceLocation) {

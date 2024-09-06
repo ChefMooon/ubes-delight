@@ -1,0 +1,46 @@
+{
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "tag": "c:foods/dough"
+    },
+    {
+      "tag": "c:tea_ingredients/sweet/weak"
+    },
+    {
+      "tag": "c:foods/milk"
+    }
+  ],
+  "processing_stages": [
+    {
+      "item": "ubesdelight:ensaymada_stage0"
+    },
+    {
+      "item": "ubesdelight:ensaymada_stage1"
+    },
+    {
+      "item": "ubesdelight:ensaymada_stage2"
+    },
+    {
+      "item": "ubesdelight:ensaymada_stage3"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 2,
+        "id": "ubesdelight:ensaymada_raw"
+      }
+    },
+    {
+      "chance": 0.25,
+      "item": {
+        "count": 1,
+        "id": "ubesdelight:ensaymada_raw"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/rolling_pin"
+  }
+}

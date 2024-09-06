@@ -1,38 +1,37 @@
 package com.chefmooon.ubesdelight.common.advancement;
 
-import com.chefmooon.ubesdelight.UbesDelight;
-import com.google.gson.JsonObject;
-import net.minecraft.advancements.critereon.AbstractCriterionTriggerInstance;
+import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.ContextAwarePredicate;
-import net.minecraft.advancements.critereon.DeserializationContext;
+import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.SimpleCriterionTrigger;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 
-public class BakingMatTrigger extends SimpleCriterionTrigger<BakingMatTrigger.TriggerInstance> {
-    private static final ResourceLocation ID = new ResourceLocation(UbesDelight.MOD_ID, "use_baking_mat");
-    @Override
-    protected BakingMatTrigger.TriggerInstance createInstance(JsonObject json, ContextAwarePredicate predicate, DeserializationContext deserializationContext) {
-        return new TriggerInstance(predicate);
-    }
+import java.util.Optional;
 
+public class BakingMatTrigger extends SimpleCriterionTrigger<BakingMatTrigger.TriggerInstance> {
     @Override
-    public ResourceLocation getId() {
-        return ID;
+    public Codec<TriggerInstance> codec() {
+        return BakingMatTrigger.TriggerInstance.CODEC;
     }
 
     public void trigger(ServerPlayer player) {
         this.trigger(player, TriggerInstance::test);
     }
 
-    public static class TriggerInstance extends AbstractCriterionTriggerInstance
+    public static record TriggerInstance(Optional<ContextAwarePredicate> player) implements SimpleCriterionTrigger.SimpleInstance
     {
-        public TriggerInstance(ContextAwarePredicate player) {
-            super(BakingMatTrigger.ID, player);
-        }
-
-        public static TriggerInstance simple() {
-            return new TriggerInstance(ContextAwarePredicate.ANY);
+        public static final Codec<BakingMatTrigger.TriggerInstance> CODEC = RecordCodecBuilder.create(
+                builder -> builder.group(
+                        EntityPredicate.ADVANCEMENT_CODEC.optionalFieldOf("player").forGetter(BakingMatTrigger.TriggerInstance::player))
+                        .apply(builder, BakingMatTrigger.TriggerInstance::new)
+        );
+        public static Criterion<TriggerInstance> simple() {
+            return UbesDelightAdvancements.getBakingMatTrigger().get().createCriterion(
+                    new BakingMatTrigger.TriggerInstance(Optional.empty())
+            );
         }
 
         public boolean test() {

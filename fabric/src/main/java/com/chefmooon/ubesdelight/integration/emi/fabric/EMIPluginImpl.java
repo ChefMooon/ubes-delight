@@ -9,6 +9,7 @@ import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 
 public class EMIPluginImpl implements EmiPlugin {
     @Override
@@ -17,10 +18,10 @@ public class EMIPluginImpl implements EmiPlugin {
 
         registry.addWorkstation(UDRecipeCategories.BAKING_MAT, UDRecipeWorkstations.BAKING_MAT);
 
-        for (BakingMatRecipeImpl recipe : registry.getRecipeManager().getAllRecipesFor(UbesDelightRecipeTypesImpl.BAKING_MAT.get())) {
-            registry.addRecipe(new BakingMatEmiRecipe(recipe.getId(), EmiIngredient.of(recipe.getTool()), recipe.getIngredients().stream().map(EmiIngredient::of).toList(),
-                    recipe.getProcessStages().stream().map(EmiIngredient::of).toList(),
-                    recipe.getRollableResults().stream().map(chanceResult -> EmiStack.of(chanceResult.stack()).setChance(chanceResult.chance())).toList()));
+        for (RecipeHolder<BakingMatRecipeImpl> recipe : registry.getRecipeManager().getAllRecipesFor(UbesDelightRecipeTypesImpl.BAKING_MAT.get())) {
+            registry.addRecipe(new BakingMatEmiRecipe(recipe.id(), EmiIngredient.of(recipe.value().getTool()), recipe.value().getIngredients().stream().map(EmiIngredient::of).toList(),
+                    recipe.value().getProcessStages().stream().map(EmiIngredient::of).toList(),
+                    recipe.value().getRollableResults().stream().map(chanceResult -> EmiStack.of(chanceResult.stack()).setChance(chanceResult.chance())).toList()));
         }
     }
 }

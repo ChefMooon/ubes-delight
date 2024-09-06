@@ -14,14 +14,14 @@ dependencies {
     //modApi "dev.architectury:architectury:${rootProject.architectury_version}"
 
     // FD Refabricated
-    modImplementation ("vectorwing:FarmersDelight:${minecraft_version}-${fdrf_version}") {
+    modImplementation ("vectorwing:FarmersDelight:${fdrf_version}") {
         exclude(group: "net.fabricmc")
     }
 
     modCompileOnly("me.shedaniel:RoughlyEnoughItems-api:$rei_version")
     modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version")
 
-    modCompileOnly("dev.emi:emi-xplat-intermediary:${emi_version}+${minecraft_version}:api") {
+    modCompileOnly("dev.emi:emi-xplat-intermediary:${emi_version}:api") {
         transitive = false
         exclude(group: "net.fabricmc.fabric-api")
     }

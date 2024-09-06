@@ -1,25 +1,28 @@
 package com.chefmooon.ubesdelight.common.item.tiers;
 
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 
 import java.util.function.Supplier;
 
 public enum UDTiers implements Tier {
-    ROLLING_PIN_WOOD(0, 131, 2.0F, 0.5F, 15, () -> Ingredient.of(ItemTags.PLANKS))
+    ROLLING_PIN_WOOD(BlockTags.INCORRECT_FOR_WOODEN_TOOL, 131, 2.0F, 0.5F, 15, () -> Ingredient.of(ItemTags.PLANKS))
     ;
 
-    private final int level;
+    private final TagKey<Block> incorrectBlocksForDrops;
     private final int uses;
     private final float speed;
     private final float damage;
     private final int enchantmentValue;
     private final LazyLoadedValue<Ingredient> repairIngredient;
 
-    UDTiers(int level, int uses, float speed, float damage, int enchantmentValue, Supplier repairIngredient) {
-        this.level = level;
+    UDTiers(final TagKey incorrectBlockForDrops, int uses, float speed, float damage, int enchantmentValue, Supplier repairIngredient) {
+        this.incorrectBlocksForDrops = incorrectBlockForDrops;
         this.uses = uses;
         this.speed = speed;
         this.damage = damage;
@@ -43,8 +46,8 @@ public enum UDTiers implements Tier {
     }
 
     @Override
-    public int getLevel() {
-        return this.level;
+    public TagKey<Block> getIncorrectBlocksForDrops() {
+        return this.incorrectBlocksForDrops;
     }
 
     @Override

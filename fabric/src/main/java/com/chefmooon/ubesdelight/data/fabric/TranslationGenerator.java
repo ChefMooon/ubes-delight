@@ -5,14 +5,17 @@ import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.minecraft.core.HolderLookup;
+
+import java.util.concurrent.CompletableFuture;
 
 public class TranslationGenerator extends FabricLanguageProvider {
-    public TranslationGenerator(FabricDataOutput dataOutput) {
-        super(dataOutput, "en_us");
+    public TranslationGenerator(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+        super(dataOutput, "en_us", registryLookup);
     }
 
     @Override
-    public void generateTranslations(TranslationBuilder translationBuilder) {
+    public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
 
         String MOD_ID = UbesDelight.MOD_ID;
         String TOOLTIP = MOD_ID + ".tooltip.";

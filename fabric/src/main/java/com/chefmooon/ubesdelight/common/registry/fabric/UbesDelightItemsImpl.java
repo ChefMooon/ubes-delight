@@ -2,10 +2,10 @@ package com.chefmooon.ubesdelight.common.registry.fabric;
 
 import com.chefmooon.ubesdelight.common.FoodValues;
 import com.chefmooon.ubesdelight.common.item.UbesDelightBlockItem;
+import com.chefmooon.ubesdelight.common.item.UbesDelightConsumableItem;
 import com.chefmooon.ubesdelight.common.item.UbesDelightDrinkableBlockItem;
+import com.chefmooon.ubesdelight.common.item.UbesDelightDrinkableItem;
 import com.chefmooon.ubesdelight.common.item.fabric.RollingPinItemImpl;
-import com.chefmooon.ubesdelight.common.item.fabric.UbesDelightConsumableItemImpl;
-import com.chefmooon.ubesdelight.common.item.fabric.UbesDelightDrinkableItemImpl;
 import com.chefmooon.ubesdelight.common.item.fabric.UbesDelightFuelBlockItemImpl;
 import com.chefmooon.ubesdelight.common.item.tiers.UDTiers;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightItems;
@@ -26,7 +26,7 @@ public class UbesDelightItemsImpl {
     public static final Item BAKING_MAT_BAMBOO = registerItemWithTab(UbesDelightItems.BAKING_MAT_BAMBOO,
             new UbesDelightFuelBlockItemImpl(UbesDelightBlocksImpl.BAKING_MAT_BAMBOO, basicItem(), false, false, 250));
     public static final Item ROLLING_PIN_WOOD = registerItemWithTab(UbesDelightItems.ROLLING_PIN_WOOD,
-            new RollingPinItemImpl(1.0F, 1.0F, UDTiers.ROLLING_PIN_WOOD, basicItem()));
+            new RollingPinItemImpl(UDTiers.ROLLING_PIN_WOOD, basicItem()));
 
     public static final Item WILD_UBE = registerItemWithTab(UbesDelightItems.WILD_UBE,
             new BlockItem(UbesDelightBlocksImpl.WILD_UBE, basicItem()));
@@ -65,14 +65,14 @@ public class UbesDelightItemsImpl {
     public static final Item GINGER = registerItemWithTab(UbesDelightItems.GINGER,
             new ItemNameBlockItem(UbesDelightBlocksImpl.GINGER_CROP, foodItem(FoodValues.GINGER)));
     public static final Item LEMONGRASS = registerItemWithTab(UbesDelightItems.LEMONGRASS,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.LEMONGRASS)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.LEMONGRASS)));
     public static final Item LEMONGRASS_SEEDS = registerItemWithTab(UbesDelightItems.LEMONGRASS_SEEDS,
             new ItemNameBlockItem(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP, basicItem()));
 
     public static final Item CONDENSED_MILK_BOTTLE = registerItemWithTab(UbesDelightItems.CONDENSED_MILK_BOTTLE,
-            new UbesDelightDrinkableItemImpl(drinkItem(FoodValues.CONDENSED_MILK_BOTTLE), true));
+            new UbesDelightDrinkableItem(drinkItem(FoodValues.CONDENSED_MILK_BOTTLE), true));
     public static final Item FISH_SAUCE_BOTTLE = registerItemWithTab(UbesDelightItems.FISH_SAUCE_BOTTLE,
-            new UbesDelightDrinkableItemImpl(drinkItem(FoodValues.FISH_SAUCE_BOTTLE), true));
+            new UbesDelightDrinkableItem(drinkItem(FoodValues.FISH_SAUCE_BOTTLE), true));
     public static final Item MILK_POWDER = registerItemWithTab(UbesDelightItems.MILK_POWDER,
             new Item(basicItem()));
     public static final Item SUGAR_BROWN = registerItemWithTab(UbesDelightItems.SUGAR_BROWN,
@@ -81,19 +81,19 @@ public class UbesDelightItemsImpl {
             new Item(basicItem()));
 
     public static final Item MILK_TEA_UBE = registerItemWithTab(UbesDelightItems.MILK_TEA_UBE,
-            new UbesDelightDrinkableItemImpl(drinkItem(FoodValues.MILK_TEA_UBE), true));
+            new UbesDelightDrinkableItem(drinkItem(FoodValues.MILK_TEA_UBE), true));
     public static final Item HALO_HALO = registerItemWithTab(UbesDelightItems.HALO_HALO,
             new UbesDelightDrinkableBlockItem(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO, drinkItem(FoodValues.HALO_HALO), true, true));
 
     public static final Item GARLIC_CHOP = registerItemWithTab(UbesDelightItems.GARLIC_CHOP,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.GARLIC_CHOP)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.GARLIC_CHOP)));
     public static final Item GINGER_CHOP = registerItemWithTab(UbesDelightItems.GINGER_CHOP,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.GINGER_CHOP)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.GINGER_CHOP)));
 
     public static final Item SINANGAG = registerItemWithTab(UbesDelightItems.SINANGAG,
-            new UbesDelightConsumableItemImpl(bowlFoodItem(FoodValues.SINANGAG), true));
+            new UbesDelightConsumableItem(bowlFoodItem(FoodValues.SINANGAG), true));
     public static final Item KINILAW = registerItemWithTab(UbesDelightItems.KINILAW,
-            new UbesDelightConsumableItemImpl(bowlFoodItem(FoodValues.KINILAW), true));
+            new UbesDelightConsumableItem(bowlFoodItem(FoodValues.KINILAW), true));
     public static final Item LUMPIA = registerItemWithTab(UbesDelightItems.LUMPIA,
             new Item(foodItem(FoodValues.LUMPIA)));
     public static final Item TOCINO = registerItemWithTab(UbesDelightItems.TOCINO,
@@ -102,71 +102,71 @@ public class UbesDelightItemsImpl {
             new Item(foodItem(FoodValues.CHICKEN_INASAL)));
 
     public static final Item CHICKEN_INASAL_RICE = registerItemWithTab(UbesDelightItems.CHICKEN_INASAL_RICE,
-            new UbesDelightConsumableItemImpl(bowlFoodItem(FoodValues.CHICKEN_INASAL_RICE), true));
+            new UbesDelightConsumableItem(bowlFoodItem(FoodValues.CHICKEN_INASAL_RICE), true));
     public static final Item TOSILOG = registerItemWithTab(UbesDelightItems.TOSILOG,
-            new UbesDelightConsumableItemImpl(bowlFoodItem(FoodValues.TOSILOG), true));
+            new UbesDelightConsumableItem(bowlFoodItem(FoodValues.TOSILOG), true));
     public static final Item BANGSILOG = registerItemWithTab(UbesDelightItems.BANGSILOG,
-            new UbesDelightConsumableItemImpl(bowlFoodItem(FoodValues.BANGSILOG), true));
+            new UbesDelightConsumableItem(bowlFoodItem(FoodValues.BANGSILOG), true));
     public static final Item SISIG = registerItemWithTab(UbesDelightItems.SISIG,
-            new UbesDelightConsumableItemImpl(bowlFoodItem(FoodValues.SISIG), true));
+            new UbesDelightConsumableItem(bowlFoodItem(FoodValues.SISIG), true));
     public static final Item BULALO = registerItemWithTab(UbesDelightItems.BULALO,
-            new UbesDelightConsumableItemImpl(bowlFoodItem(FoodValues.BULALO), true));
+            new UbesDelightConsumableItem(bowlFoodItem(FoodValues.BULALO), true));
     public static final Item ARROZ_CALDO = registerItemWithTab(UbesDelightItems.ARROZ_CALDO,
-            new UbesDelightConsumableItemImpl(bowlFoodItem(FoodValues.ARROZ_CALDO), true));
+            new UbesDelightConsumableItem(bowlFoodItem(FoodValues.ARROZ_CALDO), true));
     public static final Item MECHADO = registerItemWithTab(UbesDelightItems.MECHADO,
-            new UbesDelightConsumableItemImpl(bowlFoodItem(FoodValues.MECHADO), true));
+            new UbesDelightConsumableItem(bowlFoodItem(FoodValues.MECHADO), true));
 
     public static final Item COOKIE_UBE = registerItemWithTab(UbesDelightItems.COOKIE_UBE,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.COOKIES)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.COOKIES)));
     public static final Item COOKIE_GINGER = registerItemWithTab(UbesDelightItems.COOKIE_GINGER,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.COOKIES)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.COOKIES)));
 
     public static final Item LECHE_FLAN = registerItemWithTab(UbesDelightItems.LECHE_FLAN,
             new Item(foodItem(FoodValues.LECHE_FLAN)));
     public static final Item UBE_CAKE_SLICE = registerItemWithTab(UbesDelightItems.UBE_CAKE_SLICE,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.UBE_CAKE_SLICE)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.UBE_CAKE_SLICE)));
 
     public static final Item RAW_POLVORONE = registerItemWithTab(UbesDelightItems.RAW_POLVORONE,
             new Item(basicItem()));
     public static final Item POLVORONE = registerItemWithTab(UbesDelightItems.POLVORONE,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.POLVORONE)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.POLVORONE)));
     public static final Item RAW_POLVORONE_PINIPIG = registerItemWithTab(UbesDelightItems.RAW_POLVORONE_PINIPIG,
             new Item(basicItem()));
     public static final Item POLVORONE_PINIPIG = registerItemWithTab(UbesDelightItems.POLVORONE_PINIPIG,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.POLVORONE)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.POLVORONE)));
     public static final Item RAW_POLVORONE_UBE = registerItemWithTab(UbesDelightItems.RAW_POLVORONE_UBE,
             new Item(basicItem()));
     public static final Item POLVORONE_UBE = registerItemWithTab(UbesDelightItems.POLVORONE_UBE,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.POLVORONE)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.POLVORONE)));
     public static final Item RAW_POLVORONE_CC = registerItemWithTab(UbesDelightItems.RAW_POLVORONE_CC,
             new Item(basicItem()));
     public static final Item POLVORONE_CC = registerItemWithTab(UbesDelightItems.POLVORONE_CC,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.POLVORONE)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.POLVORONE)));
 
     public static final Item PANDESAL_RAW = registerItemWithTab(UbesDelightItems.PANDESAL_RAW,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.PANDESAL_RAW)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.PANDESAL_RAW)));
     public static final Item PANDESAL = registerItemWithTab(UbesDelightItems.PANDESAL,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.PANDESAL)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.PANDESAL)));
     public static final Item PANDESAL_UBE_RAW = registerItemWithTab(UbesDelightItems.PANDESAL_UBE_RAW,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.PANDESAL_RAW)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.PANDESAL_RAW)));
     public static final Item PANDESAL_UBE = registerItemWithTab(UbesDelightItems.PANDESAL_UBE,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.PANDESAL_UBE), true));
+            new UbesDelightConsumableItem(foodItem(FoodValues.PANDESAL_UBE), true));
     public static final Item ENSAYMADA_RAW = registerItemWithTab(UbesDelightItems.ENSAYMADA_RAW,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.ENSAYMADA_RAW)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.ENSAYMADA_RAW)));
     public static final Item ENSAYMADA = registerItemWithTab(UbesDelightItems.ENSAYMADA,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.ENSAYMADA)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.ENSAYMADA)));
     public static final Item ENSAYMADA_UBE_RAW = registerItemWithTab(UbesDelightItems.ENSAYMADA_UBE_RAW,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.ENSAYMADA_RAW)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.ENSAYMADA_RAW)));
     public static final Item ENSAYMADA_UBE = registerItemWithTab(UbesDelightItems.ENSAYMADA_UBE,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.ENSAYMADA_UBE), true));
+            new UbesDelightConsumableItem(foodItem(FoodValues.ENSAYMADA_UBE), true));
     public static final Item HOPIA_MUNGGO_RAW = registerItemWithTab(UbesDelightItems.HOPIA_MUNGGO_RAW,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.HOPIA_RAW)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.HOPIA_RAW)));
     public static final Item HOPIA_MUNGGO = registerItemWithTab(UbesDelightItems.HOPIA_MUNGGO,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.HOPIA_MUNGGO)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.HOPIA_MUNGGO)));
     public static final Item HOPIA_UBE_RAW = registerItemWithTab(UbesDelightItems.HOPIA_UBE_RAW,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.HOPIA_RAW)));
+            new UbesDelightConsumableItem(foodItem(FoodValues.HOPIA_RAW)));
     public static final Item HOPIA_UBE = registerItemWithTab(UbesDelightItems.HOPIA_UBE,
-            new UbesDelightConsumableItemImpl(foodItem(FoodValues.HOPIA_UBE), true));
+            new UbesDelightConsumableItem(foodItem(FoodValues.HOPIA_UBE), true));
 
     public static final Item POLVORONE_STAGE0 = registerItem(UbesDelightItems.POLVORONE_STAGE0,
             new Item(basicItem()));
