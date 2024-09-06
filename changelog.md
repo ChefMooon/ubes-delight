@@ -8,25 +8,8 @@ NeoForge and Fabric.
 
 ***
 
-### Added
-- Added Polvorone variants to composting registry
-    - polvorone, povorone_pinipig, polvorone_ube, polvorone_cc
-- Crops can be used to breed animals
-  - Chicken and Parrot Food
-    - Lemongrass Seeds
-  - Pig Food
-    - Ube, Garlic, Ginger, Lemongrass
-  - Rabbit Food
-    - Ginger Lemongrass
-
-### Updated
-- placeholder
-
 ### Fixed
-- Halo Halo tooltip
-- Wandering Trader trade xp and maxTrades corrected
-- Lemongrass and Lemongrass Seed trades corrected
-- Wild Lemongrass can be Bonemealed
+- Fixed unable to launch on Minecraft 1.21.1 (Thank you VaporeonScripts!)
 
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)
 
