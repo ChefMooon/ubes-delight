@@ -9,14 +9,16 @@ NeoForge, and Fabric
 ***
 
 ### Added
-- placeholder
+- Added Polvorone variants to composting registry
+  - polvorone, povorone_pinipig, polvorone_ube, polvorone_cc
 
 ### Updated
-- placeholder
+- Halo Halo block can now be picked up with tools enchanted with silk touch
 
 ### Fixed
 - Halo Halo tooltip
 - Wandering Trader trade xp and maxTrades corrected
 - Lemongrass and Lemongrass Seed trades corrected
+- Wild Lemongrass can be Bonemealed
 
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)
