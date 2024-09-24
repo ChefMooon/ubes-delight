@@ -5,6 +5,7 @@ import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.tag.CompatibilityTags;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil;
+import io.github.fabricators_of_create.porting_lib.tags.Tags;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
@@ -95,7 +96,7 @@ public class CraftingRecipes {
                 .pattern("ABA")
                 .define('A', CompatibilityTags.MINECRAFT_TERRACOTTA)
                 .define('B', Items.CAMPFIRE)
-                .define('C', CommonTags.C_IRON_INGOTS)
+                .define('C', Tags.Items.INGOTS_IRON)
                 .unlockedBy(RecipeProvider.getHasName(Items.CAMPFIRE), RecipeProvider.has(Items.CAMPFIRE))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.KALAN)));
 

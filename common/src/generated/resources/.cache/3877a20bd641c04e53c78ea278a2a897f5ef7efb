@@ -1,4 +1,4 @@
-// 1.21	2024-09-06T08:56:22.1441663	Ube's Delight/Recipes
+// 1.21	2024-09-24T13:29:25.1960031	Ube's Delight/Recipes
 0ad20497dd0a5cd24ae6e39a17a6d0d7123d6061 data\ubesdelight\recipe\minecraft\smelting\pandesal_ube_from_pandesal_ube_raw.json
 1d15020909ac07f091a8702ea9b1955c2481ba34 data\ubesdelight\advancement\farmersdelight\recipes\cooking\bangsilog.json
 be781fc6dd3438d8b074c79dc7215cf64fb62cc5 data\ubesdelight\recipe\minecraft\crafting\lemongrass_from_lemongrass_crate.json
@@ -176,4 +176,4 @@ ae5b96a000b56f16af923f08b4f69965095572be data\ubesdelight\advancement\recipes\fo
 04bed163319d7737cc4ec1cc1bf6d671ee7eec19 data\ubesdelight\recipe\minecraft\smoking\pandesal_from_pandesal_raw.json
 1e70422c18e836956bf029fa4aea6d6411003b9b data\ubesdelight\advancement\farmersdelight\recipes\cooking\tocino.json
 12166133d1eb7d642ed581cdf6dbcffa40073b74 data\ubesdelight\advancement\recipes\food\minecraft\crafting\halo_halo_feast.json
-eeea21d430e70877fb43d14b8ab472eafcfde8e7 data\ubesdelight\recipe\minecraft\crafting\kalan.json
+a45d837dd92e7238bedbac4dfa432a6403b4bdee data\ubesdelight\recipe\minecraft\crafting\kalan.json
