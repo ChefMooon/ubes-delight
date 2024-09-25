@@ -3,7 +3,7 @@
   "experience": 3.0,
   "ingredients": [
     {
-      "tag": "c:foods/raw_fish"
+      "tag": "c:foods/safe_raw_fish"
     },
     {
       "item": "ubesdelight:sinangag"

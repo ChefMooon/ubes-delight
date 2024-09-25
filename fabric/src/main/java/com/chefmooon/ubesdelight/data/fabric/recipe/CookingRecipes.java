@@ -69,9 +69,9 @@ public class CookingRecipes {
 
 
         CookingPotRecipeJsonBuilder.create(UbesDelightItemsImpl.FISH_SAUCE_BOTTLE, 4, 200, .0F,
-                        nonNullList(Ingredient.of(CommonTags.C_FOODS_RAW_FISH),
+                        nonNullList(Ingredient.of(CommonTags.C_FOODS_SAFE_RAW_FISH),
                                 Ingredient.of(Items.WATER_BUCKET)))
-                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_RAW_FISH), RecipeProvider.has(CommonTags.C_FOODS_RAW_FISH))
+                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_SAFE_RAW_FISH), RecipeProvider.has(CommonTags.C_FOODS_SAFE_RAW_FISH))
                 .unlockedBy(RecipeProvider.getHasName(Items.WATER_BUCKET), RecipeProvider.has(Items.WATER_BUCKET))
                 .setRecipeBookTab(CookingPotRecipeBookTab.DRINKS)
                 .save(exporter, recipeConversionName(UbesDelightItemsImpl.FISH_SAUCE_BOTTLE, Items.WATER_BUCKET));
@@ -179,10 +179,10 @@ public class CookingRecipes {
                 .save(exporter, recipeName(UbesDelightItemsImpl.TOSILOG));
 
         CookingPotRecipeJsonBuilder.create(UbesDelightItemsImpl.BANGSILOG, 1, 200, 3.0F,
-                        nonNullList(Ingredient.of(CommonTags.C_FOODS_RAW_FISH),
+                        nonNullList(Ingredient.of(CommonTags.C_FOODS_SAFE_RAW_FISH),
                                 Ingredient.of(UbesDelightItemsImpl.SINANGAG),
                                 Ingredient.of(CommonTags.C_FOODS_COOKED_EGG)))
-                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_RAW_FISH), RecipeProvider.has(CommonTags.C_FOODS_RAW_FISH))
+                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_SAFE_RAW_FISH), RecipeProvider.has(CommonTags.C_FOODS_SAFE_RAW_FISH))
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItemsImpl.SINANGAG), RecipeProvider.has(UbesDelightItemsImpl.SINANGAG))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_COOKED_EGG), RecipeProvider.has(CommonTags.C_FOODS_COOKED_EGG))
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)

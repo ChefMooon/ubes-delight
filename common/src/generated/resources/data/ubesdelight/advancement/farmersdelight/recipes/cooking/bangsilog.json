@@ -11,11 +11,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_foods_raw_fish": {
+    "has_foods_safe_raw_fish": {
       "conditions": {
         "items": [
           {
-            "items": "#c:foods/raw_fish"
+            "items": "#c:foods/safe_raw_fish"
           }
         ]
       },
@@ -41,7 +41,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_foods_raw_fish",
+      "has_foods_safe_raw_fish",
       "has_sinangag",
       "has_foods_cooked_egg"
     ]

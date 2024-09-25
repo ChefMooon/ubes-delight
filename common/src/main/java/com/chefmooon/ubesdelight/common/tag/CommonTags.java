@@ -54,7 +54,7 @@ public class CommonTags {
     public static final TagKey<Item> C_FOODS_RAW_BEEF = getCommonItemTagKey("foods/raw_beef");
     public static final TagKey<Item> C_FOODS_RAW_PORK = getCommonItemTagKey("foods/raw_pork");
     public static final TagKey<Item> C_FOODS_RAW_CHICKEN = getCommonItemTagKey("foods/raw_chicken");
-    public static final TagKey<Item> C_FOODS_RAW_FISH = getCommonItemTagKey("foods/raw_fish");
+    public static final TagKey<Item> C_FOODS_SAFE_RAW_FISH = getCommonItemTagKey("foods/safe_raw_fish");
     public static final TagKey<Item> C_CROPS_GRAIN = getCommonItemTagKey("crops/grain");
     public static final TagKey<Item> C_FOODS_COOKED_EGG = getCommonItemTagKey("foods/cooked_egg");
 

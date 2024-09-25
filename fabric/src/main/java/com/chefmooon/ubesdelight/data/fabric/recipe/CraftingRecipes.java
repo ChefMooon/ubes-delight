@@ -113,7 +113,7 @@ public class CraftingRecipes {
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.COOKIE_UBE)));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, UbesDelightItemsImpl.KINILAW)
-                .requires(CommonTags.C_FOODS_RAW_FISH)
+                .requires(CommonTags.C_FOODS_SAFE_RAW_FISH)
                 .requires(CommonTags.C_CROPS_ONION)
                 .requires(CommonTags.C_CROPS_GARLIC)
                 .requires(CommonTags.C_CROPS_GINGER)

@@ -8,6 +8,9 @@ NeoForge and Fabric.
 
 ***
 
+### Changed
+- recipes using c:foods/raw_fish now use c:foods/safe_raw_fish
+
 ### Fixed
 - Fixed Kalan Recipe (thank you bunpril and AfterNate!)
 
