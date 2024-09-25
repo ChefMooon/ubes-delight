@@ -251,7 +251,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
         inventory.clearContent();
     }
 
-        public void setInventory(NonNullList<ItemStack> list) {
+    public void setInventory(NonNullList<ItemStack> list) {
         for (int i = 0; i < MAX_INGREDIENTS-1; i++) {
             this.inventory.setItem(i, list.get(i));
         }

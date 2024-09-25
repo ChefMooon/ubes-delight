@@ -55,12 +55,10 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     public static final int MAX_PROCESSING_STAGES = BakingMatBlockEntity.MAX_PROCESSING_STAGES;
     public static final int MAX_RESULTS = BakingMatBlockEntity.MAX_RESULTS;
     private final ItemStackHandler inventory;
-    //private final IItemHandler inputHandler;
     private final RecipeManager.CachedCheck<RecipeWrapper, BakingMatRecipeImpl> quickCheck;
     public BakingMatBlockEntityImpl(BlockPos pos, BlockState state) {
         super(UbesDelightBlockEntityTypesImpl.BAKING_MAT_BAMBOO.get(), pos, state);
         inventory = createHandler();
-        //inputHandler = LazyOptional.of(() -> inventory);
         this.quickCheck = RecipeManager.createCheck(UbesDelightRecipeTypesImpl.BAKING_MAT.get());
     }
 
@@ -82,9 +80,6 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
         Optional<RecipeHolder<BakingMatRecipeImpl>> matchingRecipe = getMatchingRecipe(new RecipeWrapper(inventory), tool, player);
 
         matchingRecipe.ifPresent(recipe -> {
-            // todo - after first commit - cleanup
-            //List<ItemStack> results = List.of();
-            //List<Ingredient> ingredients = recipe.getIngredients();
             List<Ingredient> processStages = recipe.value().getProcessStages();
             List<ItemStack> ingredientContainers = getInventoryContainers(inventory);
 
@@ -96,7 +91,6 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
                         spawnResults(ingredientContainers);
                     }
                     level.setBlockAndUpdate(getBlockPos(), this.getBlockState().setValue(BakingMatBlockImpl.PROCESSING, true));
-                    setInventory(NonNullList.withSize(MAX_INGREDIENTS, ItemStack.EMPTY));
                     clearInventory();
                     ItemStack itemStack = Arrays.stream(processStages.get(0).getItems()).findFirst().orElse(ItemStack.EMPTY);
                     inventory.setStackInSlot(0, itemStack);
@@ -251,7 +245,9 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     }
 
     public void clearInventory() {
-        setInventory(NonNullList.withSize(MAX_INGREDIENTS, ItemStack.EMPTY));
+        for (int i = 0; i < MAX_INGREDIENTS; i++) {
+            this.inventory.setStackInSlot(i, ItemStack.EMPTY);
+        }
     }
 
     public void setInventory(NonNullList<ItemStack> list) {
@@ -322,15 +318,6 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     public Vec2 getItemOffset(int index) {
         return BakingMatBlockEntity.getItemOffset(index);
     }
-
-//    @Override
-//    @Nonnull
-//    public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
-//        if (cap.equals(ForgeCapabilities.ITEM_HANDLER)) {
-//            return inputHandler.cast();
-//        }
-//        return super.getCapability(cap, side);
-//    }
 
     @SubscribeEvent
     public static void registerCapabilities(RegisterCapabilitiesEvent event) {

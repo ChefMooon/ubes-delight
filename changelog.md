@@ -14,4 +14,7 @@ NeoForge and Fabric.
 ### Fixed
 - Fixed Kalan Recipe (thank you bunpril and AfterNate!)
 
+**NeoForge Only**
+- Fixed baking mat 9th slot not clearing after craft
+
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)
