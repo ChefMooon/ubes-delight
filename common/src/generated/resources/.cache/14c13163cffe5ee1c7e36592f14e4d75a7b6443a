@@ -1,9 +1,9 @@
-// 1.21	2024-09-25T11:02:49.055689	Ube's Delight/Tags for minecraft:item
+// 1.21	2024-10-02T14:14:00.3549592	Ube's Delight/Tags for minecraft:item
 7142bd3ed04671bbeeefb6a0585e3bd28446da51 data\sereneseasons\tags\item\autumn_crops.json
 279d1b9061cde77fce27a1646050698e7ecc6b8f data\minecraft\tags\item\chicken_food.json
-7883e315c7b230eebfe6a51920246f77a45102dc data\ubesdelight\tags\item\tools\rolling_pin.json
 7b638b15eeb47ac9a249688d612d3eb92477e058 data\minecraft\tags\item\tall_flowers.json
 39551f160cc820cf497838ff9dca5210a8b50b91 data\c\tags\item\foods\vegetable.json
+7883e315c7b230eebfe6a51920246f77a45102dc data\ubesdelight\tags\item\tools\rolling_pin.json
 f79ea96a8eae46f174397ae5e4f93ae507e66b45 data\minecraft\tags\item\enchantable\durability.json
 97cb409e8f86d8b038d4ab81540e679f15e9b470 data\minecraft\tags\item\rabbit_food.json
 8f9f33e65018e503dd75014f35525e26ddd2212c data\c\tags\item\foods\ginger.json
@@ -20,6 +20,7 @@ f79ea96a8eae46f174397ae5e4f93ae507e66b45 data\minecraft\tags\item\enchantable\mi
 ec1e9906f2277c7d072d08a5da723021bf8227d0 data\farmersdelight\tags\item\wild_crops.json
 2151bb74d673905efe3f0ba3c4b774d80c48d7e2 data\c\tags\item\crops\lemongrass.json
 2151bb74d673905efe3f0ba3c4b774d80c48d7e2 data\c\tags\item\foods\lemongrass.json
+0b93c147311c2c26c6419106a9236ed963549821 data\c\tags\item\foods\soups.json
 c20b2ac37d4e1e789774abb4859865b7bf68f572 data\c\tags\item\foods\ube.json
 400a5a67f1a2e633ec928937384713999ebfae6f data\origins\tags\item\meat.json
 5d0dc6f0f1a6715d1da2872886885cf0c45c6775 data\sereneseasons\tags\item\spring_crops.json
@@ -37,7 +38,7 @@ a8ac530eaabd4becf900e1758a164201600cbe76 data\supplementaries\tags\item\cookies.
 00c0b6e2f5556e75f2c1ea653cf1192ccbf874bb data\c\tags\item\tea_ingredients.json
 8f9f33e65018e503dd75014f35525e26ddd2212c data\c\tags\item\crops\ginger.json
 279d1b9061cde77fce27a1646050698e7ecc6b8f data\c\tags\item\seeds.json
-db433723554ca0068e238f203205fb258748b3ed data\c\tags\item\crops\garlic.json
 03814dae1cddef6c1229ef273a83fe0e3d91b5cc data\c\tags\item\foods\milk_bottle.json
+db433723554ca0068e238f203205fb258748b3ed data\c\tags\item\crops\garlic.json
 b4aa61926bf34ac9f9f4a480dfb5f601dd5d0312 data\create\tags\item\upright_on_belt.json
 c20b2ac37d4e1e789774abb4859865b7bf68f572 data\c\tags\item\crops\ube.json
