@@ -13,6 +13,9 @@ NeoForge and Fabric.
 
 ### Fixed
 - Fixed Kalan Recipe (thank you bunpril and AfterNate!)
+- Fixed pack_format in udpresencefootsteps and udsupporteatinganimation resource packs
+  - Eating Animation and Presence Footsteps support is **Fabric Only**
+  - The Resource pack will appear for NeoForge users, but it will not change any sounds (I will continue to test and update if this changes)
 
 **NeoForge Only**
 - Fixed baking mat 9th slot not clearing after craft
