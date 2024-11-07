@@ -1,7 +1,10 @@
-// 1.21	2024-10-02T14:14:00.3539589	Ube's Delight/Block Loot Tables
+// 1.21	2024-11-07T16:19:30.551652	Ube's Delight/Block Loot Tables
 7bb4c0185fbb499045ac30eb6871c4dcc53948a1 data\ubesdelight\loot_table\blocks\kalan.json
 3cb19fbca98a1c19efefeca2da96c7a63ea42d95 data\ubesdelight\loot_table\blocks\garlic_crate.json
+34f6951060093eddbdc1a06805dfe1597495c5bf data\ubesdelight\loot_table\blocks\potted_ginger.json
+a2225ca5616ba8cdb444d51435aef3d034737319 data\ubesdelight\loot_table\blocks\potted_ube.json
 f88d5733d51e2044bebf4f79eee2adffd1736856 data\ubesdelight\loot_table\blocks\baking_mat_bamboo.json
 4befa9b2fbf7e2b81f136920093fffdaf65bd1e0 data\ubesdelight\loot_table\blocks\lemongrass_crate.json
 45d2107def6f2f5e14fb36c12468b832d6598031 data\ubesdelight\loot_table\blocks\ginger_crate.json
 55ea267ccd87fdd88188df2442463af8813c5c05 data\ubesdelight\loot_table\blocks\ube_crate.json
+340472ae0ecdcce826e309ac67c04685e9225d18 data\ubesdelight\loot_table\blocks\potted_garlic.json

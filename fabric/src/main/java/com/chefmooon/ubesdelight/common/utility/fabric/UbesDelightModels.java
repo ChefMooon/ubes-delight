@@ -40,6 +40,9 @@ public class UbesDelightModels {
     public static final ModelTemplate TEMPLATE_CROP_CROSS = block("template_crop_cross",
             TextureSlot.CROSS);
 
+    public static final ModelTemplate TEMPLATE_POTTED_FLOWER = block("template_potted_flower",
+            TextureSlot.PLANT);
+
     private static ModelTemplate block(String parent, TextureSlot... textureSlots) {
         return new ModelTemplate(Optional.of(UbesDelight.res("block/" + parent)), Optional.empty(), textureSlots);
     }

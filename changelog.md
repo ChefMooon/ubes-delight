@@ -8,15 +8,15 @@ NeoForge and Fabric.
 ***
 
 ### Changed
-- recipes using c:foods/raw_fish now use c:foods/safe_raw_fish
+- Updated MidnightLib version 1.6.2 -> 1.6.4
+- Translations
+  - Minor zh_cn update (Thank you QiuShui, Dovisutu, and SLimeSB!)
+  - Adding non translated missing entries to es_mx, ru_ru, zh_tw
 
 ### Fixed
-- Fixed Kalan Recipe (thank you bunpril and AfterNate!)
-- Fixed pack_format in udpresencefootsteps and udsupporteatinganimation resource packs
-  - Eating Animation and Presence Footsteps support is **Fabric Only**
-  - The Resource pack will appear for NeoForge users, but it will not change any sounds (I will continue to test and update if this changes)
+- Potted Wild Ube, Garlic, and Ginger now drop items when broken
 
 **NeoForge Only**
-- Fixed baking mat 9th slot not clearing after craft
+- Potted Wild Ube, Garlic, and Ginger now render properly
 
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)

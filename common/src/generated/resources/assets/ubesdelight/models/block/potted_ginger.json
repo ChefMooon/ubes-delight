@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/flower_pot_cross",
+  "parent": "ubesdelight:block/template_potted_flower",
   "textures": {
     "plant": "ubesdelight:block/wild_ginger"
   }

@@ -39,13 +39,13 @@ public class TranslationGenerator extends FabricLanguageProvider {
 
         translationBuilder.add(MOD_ID + ".container.punch_bowl", "Glass Bottle Required.");
 
-        translationBuilder.add(TOOLTIP + UbesDelightItemsImpl.KALAN, "Traditional Filipino Clay Oven.");
+        translationBuilder.add(TOOLTIP + UbesDelightItemsImpl.KALAN.getDescriptionId(), "Traditional Filipino Clay Oven.");
         translationBuilder.add(TOOLTIP + "knife", "Knife Required.");
 
         translationBuilder.add(TOOLTIP + "baking_mat.invalid_item", "Invalid Items");
         translationBuilder.add(TOOLTIP + "baking_mat.invalid_tool", "Invalid Tool");
 
-        translationBuilder.add(TOOLTIP + UbesDelightItemsImpl.HALO_HALO, "Right Click with a Knife to rotate. Break with Knife to pickup.");
+        translationBuilder.add(TOOLTIP + UbesDelightItemsImpl.HALO_HALO.getDescriptionId(), "Right Click with a Knife to rotate. Break with Knife to pickup.");
 
         translationBuilder.add(UbesDelightItemsImpl.KALAN, "Kalan");
         translationBuilder.add(UbesDelightItemsImpl.BAKING_MAT_BAMBOO, "Bamboo Baking Mat");
