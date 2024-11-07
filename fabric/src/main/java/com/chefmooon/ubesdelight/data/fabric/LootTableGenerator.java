@@ -25,6 +25,10 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         dropSelf(UbesDelightBlocksImpl.GINGER_CRATE);
         dropSelf(UbesDelightBlocksImpl.LEMONGRASS_CRATE);
 
+        dropPottedContents(UbesDelightBlocksImpl.POTTED_UBE);
+        dropPottedContents(UbesDelightBlocksImpl.POTTED_GARLIC);
+        dropPottedContents(UbesDelightBlocksImpl.POTTED_GINGER);
+
         // todo - V0.2.0 - these stopped working,
 //        createCropDrops(UbesDelightBlocksImpl.UBE_CROP, UbesDelightItemsImpl.UBE, UbesDelightItemsImpl.UBE,
 //                LootItemBlockStatePropertyCondition.hasBlockStateProperties(UbesDelightBlocksImpl.UBE_CROP)

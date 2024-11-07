@@ -392,7 +392,7 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.createSimpleFlatItemModel(plant);
         ResourceLocation resourceLocation = UbesDelightModels.TEMPLATE_CROP_CROSS.create(plant, TextureMapping.cross(plant), blockStateModelGenerator.modelOutput);
         blockStateModelGenerator.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(plant, resourceLocation));
-        ResourceLocation resourceLocation2 = ModelTemplates.FLOWER_POT_CROSS.create(pottedPlant, TextureMapping.plant(plant), blockStateModelGenerator.modelOutput);
+        ResourceLocation resourceLocation2 = UbesDelightModels.TEMPLATE_POTTED_FLOWER.create(pottedPlant, TextureMapping.plant(plant), blockStateModelGenerator.modelOutput);
         blockStateModelGenerator.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(pottedPlant, resourceLocation2));
     }
 
