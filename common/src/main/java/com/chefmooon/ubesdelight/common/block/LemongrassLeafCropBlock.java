@@ -50,7 +50,7 @@ public class LemongrassLeafCropBlock extends CropBlock {
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return getItem(UbesDelightItems.LEMONGRASS_SEEDS);
+        return getItem(UbesDelightItems.LEMONGRASS);
     }
 
     @Override

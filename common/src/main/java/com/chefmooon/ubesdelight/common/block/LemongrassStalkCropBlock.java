@@ -92,7 +92,7 @@ public class LemongrassStalkCropBlock extends CropBlock {
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
-        return getItemStack(UbesDelightItems.LEMONGRASS);
+        return getItemStack(UbesDelightItems.LEMONGRASS_SEEDS);
     }
 
     public BlockState withAge(int age) {

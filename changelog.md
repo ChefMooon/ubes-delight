@@ -7,14 +7,7 @@ NeoForge, and Fabric
 
 ***
 
-### Changed
-- Translations
-  - Minor zh_cn update (Thank you QiuShui, Dovisutu, and SLimeSB!)
-
 ### Fixed
-- Potted Wild Ube, Garlic, and Ginger now drop items when broken
-
-**Forge Only**
-- Potted Wild Ube, Garlic, and Ginger now render properly
+- Lemongrass Stalk and Leaves pick block corrected, should work better with crop harvesting mods like RightClickHarvest
 
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)
