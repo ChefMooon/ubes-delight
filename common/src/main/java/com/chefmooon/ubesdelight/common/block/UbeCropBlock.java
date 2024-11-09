@@ -30,10 +30,10 @@ public class UbeCropBlock extends CropBlock {
         super(Block.Properties.ofFullCopy(Blocks.WHEAT));
     }
 
-    @Override
-    public BlockState getPlant(BlockGetter level, BlockPos pos) {
-        return getBlock(UbesDelightBlocks.UBE_CROP).defaultBlockState();
-    }
+//    @Override
+//    public BlockState getPlant(BlockGetter level, BlockPos pos) {
+//        return getBlock(UbesDelightBlocks.UBE_CROP).defaultBlockState();
+//    }
 
     @Override
     protected ItemLike getBaseSeedId() {

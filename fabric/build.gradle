@@ -47,7 +47,7 @@ dependencies {
 
     // Porting Lib
     for (String module in porting_lib_modules.split(",")) {
-        include(modApi("io.github.fabricators_of_create.Porting-Lib:$module:$porting_lib_version"))
+        modApi("io.github.fabricators_of_create.Porting-Lib:$module:$porting_lib_version")
     }
 
     // MidnightLib

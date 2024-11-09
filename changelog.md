@@ -7,16 +7,11 @@ NeoForge and Fabric.
 
 ***
 
-### Changed
-- Updated MidnightLib version 1.6.2 -> 1.6.4
-- Translations
-  - Minor zh_cn update (Thank you QiuShui, Dovisutu, and SLimeSB!)
-  - Adding non translated missing entries to es_mx, ru_ru, zh_tw
-
 ### Fixed
-- Potted Wild Ube, Garlic, and Ginger now drop items when broken
+- Fixed crash when opening in-game config
+- Lemongrass Stalk and Leaves pick block corrected, should work better with crop harvesting mods like RightClickHarvest
 
-**NeoForge Only**
-- Potted Wild Ube, Garlic, and Ginger now render properly
+**Fabric Only**
+- Fixed crash on startup due to Porting Lib
 
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)

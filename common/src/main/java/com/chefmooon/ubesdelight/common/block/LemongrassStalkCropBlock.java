@@ -46,8 +46,9 @@ public class LemongrassStalkCropBlock extends CropBlock {
 
     @Override
     public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        // todo - this needs to be fixed, leaf block as well
         super.tick(state, level, pos, random);
-        if (!level.isAreaLoaded(pos, 1)) return;
+        if (!level.hasChunksAt(pos.offset(-1, -1, -1), pos.offset(1, 1, 1))) return;
         if (level.getRawBrightness(pos.above(), 0) >= 6) {
             int age = this.getAge(state);
             if (age <= this.getMaxAge()) {
@@ -89,7 +90,7 @@ public class LemongrassStalkCropBlock extends CropBlock {
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return getItemLike(UbesDelightItems.LEMONGRASS);
+        return getItemLike(UbesDelightItems.LEMONGRASS_SEEDS);
     }
 
     public BlockState withAge(int age) {

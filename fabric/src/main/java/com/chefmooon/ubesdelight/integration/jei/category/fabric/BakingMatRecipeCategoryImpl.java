@@ -112,11 +112,11 @@ public class BakingMatRecipeCategoryImpl implements IRecipeCategory<BakingMatRec
             int index = l;
             builder.addSlot(RecipeIngredientRole.OUTPUT, 78 + l * 19, 1)
                     .addItemStack(recipeChanceOutputs.get(l).stack())
-                    .addTooltipCallback((slotView, tooltip) -> {
+                    .addRichTooltipCallback((slotView, tooltip) -> {
                         ChanceResult output = recipeChanceOutputs.get(index);
                         float chance = output.chance();
                         if (chance != 1)
-                            tooltip.add(1, TextUtils.getTranslatable("rei.chance", chance < 0.01 ? "<1" : (int) (chance * 100))
+                            tooltip.add(TextUtils.getTranslatable("rei.chance", chance < 0.01 ? "<1" : (int) (chance * 100))
                                     .withStyle(ChatFormatting.GOLD));
                     });
         }

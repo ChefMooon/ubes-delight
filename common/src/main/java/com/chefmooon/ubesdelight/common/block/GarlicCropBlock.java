@@ -30,10 +30,10 @@ public class GarlicCropBlock extends CropBlock {
         super(Block.Properties.ofFullCopy(Blocks.WHEAT));
     }
 
-    @Override
-    public BlockState getPlant(BlockGetter level, BlockPos pos) {
-        return getBlock(UbesDelightBlocks.GARLIC_CROP).defaultBlockState();
-    }
+//    @Override
+//    public BlockState getPlant(BlockGetter level, BlockPos pos) {
+//        return getBlock(UbesDelightBlocks.GARLIC_CROP).defaultBlockState();
+//    }
 
     @Override
     protected ItemLike getBaseSeedId() {
