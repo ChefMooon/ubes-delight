@@ -31,7 +31,6 @@ public class LemongrassStalkCropBlock extends CropBlock {
     public static final IntegerProperty LEMONGRASS_AGE = BlockStateProperties.AGE_5;
     public static final BooleanProperty SUPPORTING = BooleanProperty.create("supporting");
     public static final int MAX_AGE = 5;
-    public static final int GROWTH_CHANCE = 10;
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
             Block.box(4.d, .0d, 4.d, 12.d, 4.d, 12.d),
             Block.box(3.d, .0d, 3.d, 13.d, 6.d, 13.d),
@@ -47,24 +46,67 @@ public class LemongrassStalkCropBlock extends CropBlock {
     }
 
     @Override
-    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        super.tick(state, level, pos, random);
+    public boolean isRandomlyTicking(BlockState state) {
+        return !state.getValue(SUPPORTING) || !isMaxAge(state);
+    }
+
+    @Override
+    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (!level.isAreaLoaded(pos, 1)) return;
-        if (level.getRawBrightness(pos.above(), 0) >= 6) {
+        if (level.getRawBrightness(pos, 0) >= 6) {
             int age = this.getAge(state);
             if (age <= this.getMaxAge()) {
-                if (random.nextInt((int) (25.0F / GROWTH_CHANCE) + 1) == 0) {
+                float growthSpeed = getGrowthSpeed(state.getBlock(), level, pos);
+                if (random.nextInt((int) (25.0F / growthSpeed) + 1) == 0) {
                     if (age == this.getMaxAge()) {
                         LemongrassLeafCropBlock lemongrassUpper = (LemongrassLeafCropBlock) getBlock(UbesDelightBlocks.LEMONGRASS_LEAF_CROP);
                         if (lemongrassUpper.defaultBlockState().canSurvive(level, pos.above()) && level.isEmptyBlock(pos.above())) {
                             level.setBlockAndUpdate(pos.above(), lemongrassUpper.defaultBlockState());
                         }
                     } else {
-                        level.setBlock(pos, this.withAge(age + 1), 2);
+                        level.setBlockAndUpdate(pos, this.withAge(age + 1));
                     }
                 }
             }
         }
+    }
+
+    protected static float getGrowthSpeed(Block block, BlockGetter level, BlockPos pos) {
+        float growthSpeed = 1.0F;
+        BlockPos blockPos = pos.below();
+        for(int x = -1; x <= 1; ++x) {
+            for(int y = -1; y <= 1; ++y) {
+                float farmlandBonus = 0.0F;
+                BlockState blockStateBelow = level.getBlockState(blockPos.offset(x, 0, y));
+                if (blockStateBelow.is(Blocks.FARMLAND)) {
+                    farmlandBonus = 1.0F;
+                    if (blockStateBelow.hasProperty(FarmBlock.MOISTURE) && blockStateBelow.getValue(FarmBlock.MOISTURE) > 0) {
+                        farmlandBonus = 3.0F;
+                    }
+                }
+
+                if (x != 0 || y != 0) {
+                    farmlandBonus /= 4.0F;
+                }
+
+                growthSpeed += farmlandBonus;
+            }
+        }
+        BlockPos blockPosNorth = pos.north();
+        BlockPos blockPosSouth = pos.south();
+        BlockPos blockPosWest = pos.west();
+        BlockPos blockPosEast = pos.east();
+        boolean eastWest = level.getBlockState(blockPosWest).is(block) || level.getBlockState(blockPosEast).is(block);
+        boolean northSouth = level.getBlockState(blockPosNorth).is(block) || level.getBlockState(blockPosSouth).is(block);
+        if (eastWest && northSouth) {
+            growthSpeed /= 2.0F;
+        } else {
+            boolean diagonal = level.getBlockState(blockPosWest.north()).is(block) || level.getBlockState(blockPosEast.north()).is(block) || level.getBlockState(blockPosEast.south()).is(block) || level.getBlockState(blockPosWest.south()).is(block);
+            if (diagonal) {
+                growthSpeed /= 2.0F;
+            }
+        }
+        return growthSpeed;
     }
 
     @Override
@@ -86,6 +128,7 @@ public class LemongrassStalkCropBlock extends CropBlock {
         return state.getValue(this.getAgeProperty());
     }
 
+    @Override
     public int getMaxAge() {
         return MAX_AGE;
     }
@@ -134,7 +177,7 @@ public class LemongrassStalkCropBlock extends CropBlock {
     }
 
     protected int getBonemealAgeIncrease(Level level) {
-        return Mth.nextInt(level.random, 1, 2);
+        return Mth.nextInt(level.random, 1, 5);
     }
 
     @Override

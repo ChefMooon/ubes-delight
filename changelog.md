@@ -7,7 +7,10 @@ NeoForge, and Fabric
 
 ***
 
-### Fixed
-- Lemongrass Stalk and Leaves pick block corrected, should work better with crop harvesting mods like RightClickHarvest
+### Updated
+- Lemongrass growth updated
+    - It now grows properly
+    - Bonemeal is more effective
+    - Crop harvesting mod interaction improved
 
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)
