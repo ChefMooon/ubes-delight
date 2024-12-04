@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "ud_leaf_feast",
+  "key": {
+    "A": {
+      "item": "ubesdelight:hopia_munggo"
+    },
+    "B": {
+      "tag": "minecraft:leaves"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "AAA",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:leaf_feast_hopia_munggo"
+  }
+}

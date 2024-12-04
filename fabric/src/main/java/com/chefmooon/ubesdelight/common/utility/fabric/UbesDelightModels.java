@@ -7,6 +7,9 @@ import net.minecraft.data.models.model.TextureSlot;
 import java.util.Optional;
 
 public class UbesDelightModels {
+    public static final ModelTemplate TEMPLATE_ROLLING_PIN_3D = item("template_rolling_pin_3d", TextureSlot.CONTENT);
+    public static final ModelTemplate FLAT_HANDHELD_ITEM_FLIPPED = item("flat_handheld_item_flipped", TextureSlot.LAYER0);
+
     public static final ModelTemplate TEMPLATE_CAKE = block("template_cake",
             TextureSlot.PARTICLE, TextureSlot.BOTTOM, TextureSlot.TOP, TextureSlot.SIDE);
     public static final ModelTemplate TEMPLATE_CAKE_SLICE1 = block("template_cake_slice1",
@@ -42,6 +45,99 @@ public class UbesDelightModels {
 
     public static final ModelTemplate TEMPLATE_POTTED_FLOWER = block("template_potted_flower",
             TextureSlot.PLANT);
+
+    public static final ModelTemplate TEMPLATE_GLASS_CUP_1 = block("template_glass_cup_1", UbesDelightTextureSlots.INSIDE, UbesDelightTextureSlots.CUP);
+    public static final ModelTemplate TEMPLATE_GLASS_CUP_2 = block("template_glass_cup_2", UbesDelightTextureSlots.INSIDE, UbesDelightTextureSlots.CUP);
+    public static final ModelTemplate TEMPLATE_GLASS_CUP_3 = block("template_glass_cup_3", UbesDelightTextureSlots.INSIDE, UbesDelightTextureSlots.CUP);
+    public static final ModelTemplate TEMPLATE_GLASS_CUP_4 = block("template_glass_cup_4", UbesDelightTextureSlots.INSIDE, UbesDelightTextureSlots.CUP);
+
+//    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA = block("template_leaf_feast_ensaymada",
+//            TextureSlot.LAYER0, TextureSlot.LAYER1, TextureSlot.LAYER2, TextureSlot.PARTICLE);
+//    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_TIP = block("template_leaf_feast_ensaymada_tip",
+//            TextureSlot.LAYER0, TextureSlot.LAYER1, TextureSlot.LAYER2, TextureSlot.PARTICLE);
+//    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_END = block("template_leaf_feast_ensaymada_end",
+//            TextureSlot.LAYER0, TextureSlot.LAYER1, TextureSlot.LAYER2, TextureSlot.PARTICLE);
+//    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE = block("template_leaf_feast_ensaymada_middle",
+//            TextureSlot.LAYER0, TextureSlot.LAYER1, TextureSlot.LAYER2, TextureSlot.PARTICLE);
+
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA = block("leaf_feast/template_leaf_feast_ensaymada_base",
+            TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_TIP = block("leaf_feast/template_leaf_feast_ensaymada_tip",
+            TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_END = block("leaf_feast/template_leaf_feast_ensaymada_end",
+            TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE = block("leaf_feast/template_leaf_feast_ensaymada_middle",
+            TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_LUMPIA_1 = block("leaf_feast/template_leaf_feast_base_lumpia_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT, UbesDelightTextureSlots.CONTENT_ALT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_LUMPIA_2 = block("leaf_feast/template_leaf_feast_base_lumpia_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT, UbesDelightTextureSlots.CONTENT_ALT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_LUMPIA_3 = block("leaf_feast/template_leaf_feast_base_lumpia_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT, UbesDelightTextureSlots.CONTENT_ALT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_LUMPIA_MIDDLE_1 = block("leaf_feast/template_leaf_feast_middle_lumpia_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT, UbesDelightTextureSlots.CONTENT_ALT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_LUMPIA_MIDDLE_2 = block("leaf_feast/template_leaf_feast_middle_lumpia_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT, UbesDelightTextureSlots.CONTENT_ALT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_LUMPIA_MIDDLE_3 = block("leaf_feast/template_leaf_feast_middle_lumpia_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT, UbesDelightTextureSlots.CONTENT_ALT);
+
+
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_1 = block("leaf_feast/template_leaf_feast_base_ensaymada_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_2 = block("leaf_feast/template_leaf_feast_base_ensaymada_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_3 = block("leaf_feast/template_leaf_feast_base_ensaymada_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_4 = block("leaf_feast/template_leaf_feast_base_ensaymada_4", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_5 = block("leaf_feast/template_leaf_feast_base_ensaymada_5", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_6 = block("leaf_feast/template_leaf_feast_base_ensaymada_6", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE_1 = block("leaf_feast/template_leaf_feast_middle_ensaymada_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE_2 = block("leaf_feast/template_leaf_feast_middle_ensaymada_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE_3 = block("leaf_feast/template_leaf_feast_middle_ensaymada_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE_4 = block("leaf_feast/template_leaf_feast_middle_ensaymada_4", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE_5 = block("leaf_feast/template_leaf_feast_middle_ensaymada_5", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE_6 = block("leaf_feast/template_leaf_feast_middle_ensaymada_6", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_TIP_1 = block("leaf_feast/template_leaf_feast_tip_ensaymada_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_TIP_2 = block("leaf_feast/template_leaf_feast_tip_ensaymada_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_TIP_3 = block("leaf_feast/template_leaf_feast_tip_ensaymada_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_END_1 = block("leaf_feast/template_leaf_feast_end_ensaymada_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_END_2 = block("leaf_feast/template_leaf_feast_end_ensaymada_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_ENSAYMADA_END_3 = block("leaf_feast/template_leaf_feast_end_ensaymada_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_1 = block("leaf_feast/template_leaf_feast_base_pandesal_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_2 = block("leaf_feast/template_leaf_feast_base_pandesal_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_3 = block("leaf_feast/template_leaf_feast_base_pandesal_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_4 = block("leaf_feast/template_leaf_feast_base_pandesal_4", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_5 = block("leaf_feast/template_leaf_feast_base_pandesal_5", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_6 = block("leaf_feast/template_leaf_feast_base_pandesal_6", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_MIDDLE_1 = block("leaf_feast/template_leaf_feast_middle_pandesal_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_MIDDLE_2 = block("leaf_feast/template_leaf_feast_middle_pandesal_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_MIDDLE_3 = block("leaf_feast/template_leaf_feast_middle_pandesal_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_MIDDLE_4 = block("leaf_feast/template_leaf_feast_middle_pandesal_4", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_MIDDLE_5 = block("leaf_feast/template_leaf_feast_middle_pandesal_5", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_MIDDLE_6 = block("leaf_feast/template_leaf_feast_middle_pandesal_6", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_TIP_1 = block("leaf_feast/template_leaf_feast_tip_pandesal_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_TIP_2 = block("leaf_feast/template_leaf_feast_tip_pandesal_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_TIP_3 = block("leaf_feast/template_leaf_feast_tip_pandesal_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_END_1 = block("leaf_feast/template_leaf_feast_end_pandesal_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_END_2 = block("leaf_feast/template_leaf_feast_end_pandesal_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_PANDESAL_END_3 = block("leaf_feast/template_leaf_feast_end_pandesal_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_1 = block("leaf_feast/template_leaf_feast_base_hopia_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_2 = block("leaf_feast/template_leaf_feast_base_hopia_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_3 = block("leaf_feast/template_leaf_feast_base_hopia_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_4 = block("leaf_feast/template_leaf_feast_base_hopia_4", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_5 = block("leaf_feast/template_leaf_feast_base_hopia_5", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_6 = block("leaf_feast/template_leaf_feast_base_hopia_6", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_1 = block("leaf_feast/template_leaf_feast_middle_hopia_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_2 = block("leaf_feast/template_leaf_feast_middle_hopia_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_3 = block("leaf_feast/template_leaf_feast_middle_hopia_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_4 = block("leaf_feast/template_leaf_feast_middle_hopia_4", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_5 = block("leaf_feast/template_leaf_feast_middle_hopia_5", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_6 = block("leaf_feast/template_leaf_feast_middle_hopia_6", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_TIP_1 = block("leaf_feast/template_leaf_feast_tip_hopia_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_TIP_2 = block("leaf_feast/template_leaf_feast_tip_hopia_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_TIP_3 = block("leaf_feast/template_leaf_feast_tip_hopia_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_END_1 = block("leaf_feast/template_leaf_feast_end_hopia_1", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_END_2 = block("leaf_feast/template_leaf_feast_end_hopia_2", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+    public static final ModelTemplate TEMPLATE_LEAF_FEAST_HOPIA_END_3 = block("leaf_feast/template_leaf_feast_end_hopia_3", TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.CONTENT);
+
+
+    private static ModelTemplate item(String parent, TextureSlot... textureSlots) {
+        return new ModelTemplate(Optional.of(UbesDelight.res("item/" + parent)), Optional.empty(), textureSlots);
+    }
 
     private static ModelTemplate block(String parent, TextureSlot... textureSlots) {
         return new ModelTemplate(Optional.of(UbesDelight.res("block/" + parent)), Optional.empty(), textureSlots);

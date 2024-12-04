@@ -56,7 +56,7 @@ public class FoodValues {
     public static final FoodProperties CONDENSED_MILK_BOTTLE = foodProperty(0, 0.0F,
             false, true, List.of(new MobEffectInfo(MobEffects.MOVEMENT_SPEED, SHORT_DURATION, 1.0F)));
     public static final FoodProperties FISH_SAUCE_BOTTLE = foodProperty(0, 0.0F,
-            false, false, List.of(new MobEffectInfo(MobEffects.DOLPHINS_GRACE, SHORT_DURATION, 1.0F)));
+            false, true, List.of(new MobEffectInfo(MobEffects.DOLPHINS_GRACE, SHORT_DURATION, 1.0F)));
 
     public static final FoodProperties MILK_TEA_UBE = foodProperty(0, 0.0F,
             false, false, List.of(new MobEffectInfo(MobEffects.NIGHT_VISION, SHORT_DURATION, 1.0F)));

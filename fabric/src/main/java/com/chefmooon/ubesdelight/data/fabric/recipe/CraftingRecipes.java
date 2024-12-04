@@ -6,11 +6,14 @@ import com.chefmooon.ubesdelight.common.tag.CompatibilityTags;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil;
 import io.github.fabricators_of_create.porting_lib.tags.Tags;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 
+import static com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil.MINECRAFT;
 import static com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil.simpleRecipeBuilder;
 
 public class CraftingRecipes {
@@ -52,6 +55,41 @@ public class CraftingRecipes {
                 .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_WOOD)));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_IRON)
+                .pattern("  A")
+                .pattern(" B ")
+                .pattern("A  ")
+                .define('A', Items.STICK)
+                .define('B', Tags.Items.INGOTS_IRON)
+                .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_IRON)));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_GOLD)
+                .pattern("  A")
+                .pattern(" B ")
+                .pattern("A  ")
+                .define('A', Items.STICK)
+                .define('B', Tags.Items.INGOTS_GOLD)
+                .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_GOLD)));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)
+                .pattern("  A")
+                .pattern(" B ")
+                .pattern("A  ")
+                .define('A', Items.STICK)
+                .define('B', Tags.Items.GEMS_DIAMOND)
+                .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)));
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND),
+                        Ingredient.of(Tags.Items.INGOTS_NETHERITE),
+                        RecipeCategory.TOOLS,
+                        UbesDelightItemsImpl.ROLLING_PIN_NETHERITE)
+                .unlocks(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE) + "_smithing")); // should this be in a smithing folder instead of crafting?
+
         /** CROPS **/
 
         // Seed from crop
@@ -79,14 +117,86 @@ public class CraftingRecipes {
                 UbesDelightItemsImpl.LECHE_FLAN, 5,
                 UbesDelightItemsImpl.LECHE_FLAN_FEAST, 1);
 
+        /** MISC **/
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PURPLE_DYE, 1)
+                .requires(UbesDelightItemsImpl.UBE, 1)
+                .group("purple_dye")
+                .unlockedBy(RecipeProvider.getHasName(UbesDelightItemsImpl.UBE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.UBE))
+                .save(exporter, TextUtils.res(MINECRAFT.getNamespace() + "/crafting/"
+                        + RecipeProvider.getConversionRecipeName(Items.PURPLE_DYE, UbesDelightItemsImpl.UBE)));
+
+        /** LEAF FEASTS **/
+
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, UbesDelightItemsImpl.LUMPIA_FEAST)
                 .pattern("   ")
                 .pattern("AAA")
                 .pattern("BBB")
                 .define('A', UbesDelightItemsImpl.LUMPIA)
                 .define('B', CompatibilityTags.MINECRAFT_LEAVES)
+                .group("ud_leaf_feast")
                 .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(UbesDelightItemsImpl.LUMPIA))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LUMPIA_FEAST)));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA)
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("BBB")
+                .define('A', UbesDelightItemsImpl.ENSAYMADA)
+                .define('B', CompatibilityTags.MINECRAFT_LEAVES)
+                .group("ud_leaf_feast")
+                .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(UbesDelightItemsImpl.LUMPIA))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA)));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE)
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("BBB")
+                .define('A', UbesDelightItemsImpl.ENSAYMADA_UBE)
+                .define('B', CompatibilityTags.MINECRAFT_LEAVES)
+                .group("ud_leaf_feast")
+                .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(UbesDelightItemsImpl.LUMPIA))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE)));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, UbesDelightItemsImpl.LEAF_FEAST_PANDESAL)
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("BBB")
+                .define('A', UbesDelightItemsImpl.PANDESAL)
+                .define('B', CompatibilityTags.MINECRAFT_LEAVES)
+                .group("ud_leaf_feast")
+                .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(UbesDelightItemsImpl.LUMPIA))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL)));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE)
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("BBB")
+                .define('A', UbesDelightItemsImpl.PANDESAL_UBE)
+                .define('B', CompatibilityTags.MINECRAFT_LEAVES)
+                .group("ud_leaf_feast")
+                .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(UbesDelightItemsImpl.LUMPIA))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE)));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO)
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("BBB")
+                .define('A', UbesDelightItemsImpl.HOPIA_MUNGGO)
+                .define('B', CompatibilityTags.MINECRAFT_LEAVES)
+                .group("ud_leaf_feast")
+                .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(UbesDelightItemsImpl.LUMPIA))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO)));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE)
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("BBB")
+                .define('A', UbesDelightItemsImpl.HOPIA_UBE)
+                .define('B', CompatibilityTags.MINECRAFT_LEAVES)
+                .group("ud_leaf_feast")
+                .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(UbesDelightItemsImpl.LUMPIA))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE)));
     }
 
     private static void registerUncommon(RecipeOutput exporter) {

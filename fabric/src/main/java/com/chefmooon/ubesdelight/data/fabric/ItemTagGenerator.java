@@ -28,7 +28,12 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
 
     private void registerModItemTags() {
         getOrCreateTagBuilder(UbesDelightTags.TOOLS_ROLLING_PIN)
-                .add(UbesDelightItemsImpl.ROLLING_PIN_WOOD);
+                .add(UbesDelightItemsImpl.ROLLING_PIN_WOOD)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_IRON)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_GOLD)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE)
+        ;
     }
 
     private void registerMinecraftItemTags() {
@@ -146,7 +151,11 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(CommonTags.C_TOOLS)
                 .forceAddTag(CommonTags.C_TOOLS_ROLLING_PIN);
         getOrCreateTagBuilder(CommonTags.C_TOOLS_ROLLING_PIN)
-                .add(UbesDelightItemsImpl.ROLLING_PIN_WOOD);
+                .add(UbesDelightItemsImpl.ROLLING_PIN_WOOD)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_IRON)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_GOLD)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE);
 
         getOrCreateTagBuilder(CommonTags.C_TEA_INGREDIENTS)
                 .forceAddTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK);

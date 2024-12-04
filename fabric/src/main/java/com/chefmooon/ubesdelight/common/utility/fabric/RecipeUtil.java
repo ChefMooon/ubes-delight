@@ -15,7 +15,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.List;
 
 public class RecipeUtil {
-    private static final ResourceLocation MINECRAFT = ResourceLocation.parse("minecraft");
+    public static final ResourceLocation MINECRAFT = ResourceLocation.parse("minecraft");
 
     public static void simpleRecipeBuilder(RecipeOutput exporter, RecipeCategory category, Item inputItem, int inputCount, Item outputItem, int outputCount) {
         ShapelessRecipeBuilder.shapeless(category, outputItem, outputCount)

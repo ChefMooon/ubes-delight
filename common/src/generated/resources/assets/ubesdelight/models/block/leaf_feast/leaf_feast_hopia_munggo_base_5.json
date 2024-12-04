@@ -1,0 +1,8 @@
+{
+  "parent": "ubesdelight:block/leaf_feast/template_leaf_feast_base_hopia_5",
+  "textures": {
+    "bottom": "ubesdelight:block/leaf_feast_bottom",
+    "content": "ubesdelight:block/hopia_munggo",
+    "top": "ubesdelight:block/leaf_feast_top"
+  }
+}

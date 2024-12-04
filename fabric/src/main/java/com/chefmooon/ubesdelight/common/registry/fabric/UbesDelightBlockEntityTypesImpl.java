@@ -2,6 +2,7 @@ package com.chefmooon.ubesdelight.common.registry.fabric;
 
 import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.block.entity.fabric.BakingMatBlockEntityImpl;
+import com.chefmooon.ubesdelight.common.block.entity.fabric.UniversalLeafFeastBlockEntityImpl;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlockEntityTypes;
 import io.github.fabricators_of_create.porting_lib.util.DeferredRegister;
 import net.minecraft.core.registries.Registries;
@@ -14,6 +15,8 @@ public class UbesDelightBlockEntityTypesImpl {
 
     public static final Supplier<BlockEntityType<BakingMatBlockEntityImpl>> BAKING_MAT_BAMBOO = TILES.register(UbesDelightBlockEntityTypes.BAKING_MAT_BAMBOO.getPath(),
             () -> BlockEntityType.Builder.of(BakingMatBlockEntityImpl::new, UbesDelightBlocksImpl.BAKING_MAT_BAMBOO).build());
+    public static final Supplier<BlockEntityType<UniversalLeafFeastBlockEntityImpl>> UNIVERSAL_LEAF_FEAST = TILES.register(UbesDelightBlockEntityTypes.UNIVERSAL_LEAF_FEAST.getPath(),
+            () -> BlockEntityType.Builder.of(UniversalLeafFeastBlockEntityImpl::new, UbesDelightBlocksImpl.UNIVERSAL_LEAF_FEAST).build());
 
     public static void register() {
         TILES.register();

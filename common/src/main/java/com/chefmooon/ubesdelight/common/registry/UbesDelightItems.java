@@ -1,15 +1,21 @@
 package com.chefmooon.ubesdelight.common.registry;
 
+import com.chefmooon.ubesdelight.common.item.RollingPinItem;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Tier;
 
 public class UbesDelightItems {
 
     public static Item.Properties basicItem() {
         return new Item.Properties();
+    }
+
+    public static Item.Properties rollingPinItem(Tier tier) {
+        return new Item.Properties().attributes(RollingPinItem.createAttributes(tier, 1.0F, 1.0F));
     }
 
     public static Item.Properties noStack() {
@@ -30,7 +36,12 @@ public class UbesDelightItems {
 
     public static final ResourceLocation KALAN = item("kalan");
     public static final ResourceLocation BAKING_MAT_BAMBOO = item("baking_mat_bamboo");
+
     public static final ResourceLocation ROLLING_PIN_WOOD = item("rolling_pin_wood");
+    public static final ResourceLocation ROLLING_PIN_IRON = item("rolling_pin_iron");
+    public static final ResourceLocation ROLLING_PIN_GOLD = item("rolling_pin_gold");
+    public static final ResourceLocation ROLLING_PIN_DIAMOND = item("rolling_pin_diamond");
+    public static final ResourceLocation ROLLING_PIN_NETHERITE = item("rolling_pin_netherite");
 
     public static final ResourceLocation WILD_UBE = item("wild_ube");
     public static final ResourceLocation WILD_GARLIC = item("wild_garlic");
@@ -47,6 +58,15 @@ public class UbesDelightItems {
     public static final ResourceLocation LUMPIA_FEAST = item("lumpia_feast");
     public static final ResourceLocation HALO_HALO_FEAST = item("halo_halo_feast");
     public static final ResourceLocation MILK_TEA_UBE_FEAST = item("milk_tea_ube_feast");
+
+    public static final ResourceLocation LEAF_FEAST = item("leaf_feast");
+
+    public static final ResourceLocation LEAF_FEAST_ENSAYMADA = item("leaf_feast_ensaymada");
+    public static final ResourceLocation LEAF_FEAST_ENSAYMADA_UBE = item("leaf_feast_ensaymada_ube");
+    public static final ResourceLocation LEAF_FEAST_PANDESAL = item("leaf_feast_pandesal");
+    public static final ResourceLocation LEAF_FEAST_PANDESAL_UBE = item("leaf_feast_pandesal_ube");
+    public static final ResourceLocation LEAF_FEAST_HOPIA_MUNGGO = item("leaf_feast_hopia_munggo");
+    public static final ResourceLocation LEAF_FEAST_HOPIA_UBE = item("leaf_feast_hopia_ube");
 
     public static final ResourceLocation POISONOUS_UBE = item("poisonous_ube");
     public static final ResourceLocation UBE = item("ube");

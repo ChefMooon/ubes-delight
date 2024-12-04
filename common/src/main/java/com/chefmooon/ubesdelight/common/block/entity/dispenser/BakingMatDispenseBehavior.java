@@ -31,4 +31,9 @@ public class BakingMatDispenseBehavior extends OptionalDispenseItemBehavior {
     public static boolean tryRollingPinBakingMat(ServerLevel level, ItemStack item, BlockPos pos) {
         throw new AssertionError();
     }
+
+    @ExpectPlatform
+    public static void register() {
+        throw new AssertionError();
+    }
 }

@@ -1,6 +1,8 @@
 package com.chefmooon.ubesdelight.common.item;
 
+import com.chefmooon.ubesdelight.common.block.GlassCupBlock;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
@@ -12,6 +14,7 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Objects;
 
@@ -65,7 +68,25 @@ public class UbesDelightDrinkableBlockItem extends UbesDelightBlockItem {
     public InteractionResult place(BlockPlaceContext context) {
         Player player = context.getPlayer();
         if (player != null && player.isShiftKeyDown()) {
-            return super.place(context);
+            BlockPlaceContext blockPlaceContext = this.updatePlacementContext(context);
+            if (blockPlaceContext == null) {
+                return InteractionResult.FAIL;
+            } else {
+                BlockState blockState = this.getPlacementState(blockPlaceContext);
+                if (blockState == null) {
+                    return InteractionResult.FAIL;
+                } else {
+                    BlockPos blockPos = blockPlaceContext.getClickedPos();
+                    Level level = blockPlaceContext.getLevel();
+                    ItemStack itemStack = blockPlaceContext.getItemInHand();
+                    BlockState blockState2 = level.getBlockState(blockPos);
+                    if (blockState2.getBlock() instanceof GlassCupBlock glassCupBlock && itemStack.is(glassCupBlock.servingItem.get())) {
+                        glassCupBlock.addServingFromHand(level, blockPos, blockState2, player, player.getUsedItemHand());
+                    } else {
+                        return super.place(context);
+                    }
+                }
+            }
         }
         return InteractionResult.FAIL;
     }

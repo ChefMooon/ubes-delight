@@ -2,10 +2,7 @@ package com.chefmooon.ubesdelight.common.registry.neoforge;
 
 import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.FoodValues;
-import com.chefmooon.ubesdelight.common.item.UbesDelightBlockItem;
-import com.chefmooon.ubesdelight.common.item.UbesDelightConsumableItem;
-import com.chefmooon.ubesdelight.common.item.UbesDelightDrinkableBlockItem;
-import com.chefmooon.ubesdelight.common.item.UbesDelightDrinkableItem;
+import com.chefmooon.ubesdelight.common.item.*;
 import com.chefmooon.ubesdelight.common.item.neoforge.RollingPinItemImpl;
 import com.chefmooon.ubesdelight.common.item.neoforge.UbesDelightFuelBlockItemImpl;
 import com.chefmooon.ubesdelight.common.item.tiers.UDTiers;
@@ -16,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Tiers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -34,6 +32,14 @@ public class UbesDelightItemsImpl {
             () -> new UbesDelightFuelBlockItemImpl(UbesDelightBlocksImpl.BAKING_MAT_BAMBOO.get(), basicItem(), false, false, 250));
     public static final Supplier<Item> ROLLING_PIN_WOOD = registerItemWithTab(UbesDelightItems.ROLLING_PIN_WOOD,
             () -> new RollingPinItemImpl(UDTiers.ROLLING_PIN_WOOD, basicItem()));
+    public static final Supplier<Item> ROLLING_PIN_IRON = registerItemWithTab(UbesDelightItems.ROLLING_PIN_IRON,
+            () -> new RollingPinItemImpl(Tiers.IRON, rollingPinItem(Tiers.IRON)));
+    public static final Supplier<Item> ROLLING_PIN_GOLD = registerItemWithTab(UbesDelightItems.ROLLING_PIN_GOLD,
+            () -> new RollingPinItemImpl(Tiers.GOLD, rollingPinItem(Tiers.GOLD)));
+    public static final Supplier<Item> ROLLING_PIN_DIAMOND = registerItemWithTab(UbesDelightItems.ROLLING_PIN_DIAMOND,
+            () -> new RollingPinItemImpl(Tiers.DIAMOND, rollingPinItem(Tiers.DIAMOND)));
+    public static final Supplier<Item> ROLLING_PIN_NETHERITE = registerItemWithTab(UbesDelightItems.ROLLING_PIN_NETHERITE,
+            () -> new RollingPinItemImpl(Tiers.NETHERITE, rollingPinItem(Tiers.NETHERITE)));
 
     public static final Supplier<Item> WILD_UBE = registerItemWithTab(UbesDelightItems.WILD_UBE,
             () -> new BlockItem(UbesDelightBlocksImpl.WILD_UBE.get(), basicItem()));
@@ -57,12 +63,28 @@ public class UbesDelightItemsImpl {
             () -> new BlockItem(UbesDelightBlocksImpl.UBE_CAKE.get(), noStack()));
     public static final Supplier<Item> LECHE_FLAN_FEAST = registerItemWithTab(UbesDelightItems.LECHE_FLAN_FEAST,
             () -> new BlockItem(UbesDelightBlocksImpl.LECHE_FLAN_FEAST.get(), noStack()));
-    public static final Supplier<Item> LUMPIA_FEAST = registerItemWithTab(UbesDelightItems.LUMPIA_FEAST,
-            () -> new BlockItem(UbesDelightBlocksImpl.LUMPIA_FEAST.get(), noStack()));
     public static final Supplier<Item> HALO_HALO_FEAST = registerItemWithTab(UbesDelightItems.HALO_HALO_FEAST,
             () -> new BlockItem(UbesDelightBlocksImpl.HALO_HALO_FEAST.get(), noStack()));
     public static final Supplier<Item> MILK_TEA_UBE_FEAST = registerItemWithTab(UbesDelightItems.MILK_TEA_UBE_FEAST,
             () -> new BlockItem(UbesDelightBlocksImpl.MILK_TEA_UBE_FEAST.get(), noStack()));
+
+    public static final Supplier<Item> LEAF_FEAST = registerItemWithTab(UbesDelightItems.LEAF_FEAST,
+            () -> new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST.get(), basicItem()));
+
+    public static final Supplier<Item> LUMPIA_FEAST = registerItemWithTab(UbesDelightItems.LUMPIA_FEAST,
+            () -> new BlockItem(UbesDelightBlocksImpl.LUMPIA_FEAST.get(), noStack()));
+    public static final Supplier<Item> LEAF_FEAST_ENSAYMADA = registerItemWithTab(UbesDelightItems.LEAF_FEAST_ENSAYMADA,
+            () -> new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA.get(), noStack()));
+    public static final Supplier<Item> LEAF_FEAST_ENSAYMADA_UBE = registerItemWithTab(UbesDelightItems.LEAF_FEAST_ENSAYMADA_UBE,
+            () -> new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE.get(), noStack()));
+    public static final Supplier<Item> LEAF_FEAST_PANDESAL = registerItemWithTab(UbesDelightItems.LEAF_FEAST_PANDESAL,
+            () -> new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL.get(), noStack()));
+    public static final Supplier<Item> LEAF_FEAST_PANDESAL_UBE = registerItemWithTab(UbesDelightItems.LEAF_FEAST_PANDESAL_UBE,
+            () -> new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE.get(), noStack()));
+    public static final Supplier<Item> LEAF_FEAST_HOPIA_MUNGGO = registerItemWithTab(UbesDelightItems.LEAF_FEAST_HOPIA_MUNGGO,
+            () -> new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO.get(), noStack()));
+    public static final Supplier<Item> LEAF_FEAST_HOPIA_UBE = registerItemWithTab(UbesDelightItems.LEAF_FEAST_HOPIA_UBE,
+            () -> new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE.get(), noStack()));
     public static final Supplier<Item> POISONOUS_UBE = registerItemWithTab(UbesDelightItems.POISONOUS_UBE,
             () -> new Item(basicItem()));
     public static final Supplier<Item> UBE = registerItemWithTab(UbesDelightItems.UBE,
@@ -88,7 +110,7 @@ public class UbesDelightItemsImpl {
             () -> new Item(basicItem()));
 
     public static final Supplier<Item> MILK_TEA_UBE = registerItemWithTab(UbesDelightItems.MILK_TEA_UBE,
-            () -> new UbesDelightDrinkableItem(drinkItem(FoodValues.MILK_TEA_UBE), true));
+            () -> new UbesDelightDrinkableBlockItem(UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE.get(), drinkItem(FoodValues.MILK_TEA_UBE), true, true));
     public static final Supplier<Item> HALO_HALO = registerItemWithTab(UbesDelightItems.HALO_HALO,
             () -> new UbesDelightDrinkableBlockItem(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO.get(), drinkItem(FoodValues.HALO_HALO), true, true));
 
@@ -153,27 +175,27 @@ public class UbesDelightItemsImpl {
     public static final Supplier<Item> PANDESAL_RAW = registerItemWithTab(UbesDelightItems.PANDESAL_RAW,
             () -> new UbesDelightConsumableItem(foodItem(FoodValues.PANDESAL_RAW)));
     public static final Supplier<Item> PANDESAL = registerItemWithTab(UbesDelightItems.PANDESAL,
-            () -> new UbesDelightConsumableItem(foodItem(FoodValues.PANDESAL)));
+            () -> new UbesDelightLeafFeastConsumableItem(foodItem(FoodValues.PANDESAL)));
     public static final Supplier<Item> PANDESAL_UBE_RAW = registerItemWithTab(UbesDelightItems.PANDESAL_UBE_RAW,
             () -> new UbesDelightConsumableItem(foodItem(FoodValues.PANDESAL_RAW)));
     public static final Supplier<Item> PANDESAL_UBE = registerItemWithTab(UbesDelightItems.PANDESAL_UBE,
-            () -> new UbesDelightConsumableItem(foodItem(FoodValues.PANDESAL_UBE), true));
+            () -> new UbesDelightLeafFeastConsumableItem(foodItem(FoodValues.PANDESAL_UBE), true));
     public static final Supplier<Item> ENSAYMADA_RAW = registerItemWithTab(UbesDelightItems.ENSAYMADA_RAW,
             () -> new UbesDelightConsumableItem(foodItem(FoodValues.ENSAYMADA_RAW)));
     public static final Supplier<Item> ENSAYMADA = registerItemWithTab(UbesDelightItems.ENSAYMADA,
-            () -> new UbesDelightConsumableItem(foodItem(FoodValues.ENSAYMADA)));
+            () -> new UbesDelightLeafFeastConsumableItem(foodItem(FoodValues.ENSAYMADA)));
     public static final Supplier<Item> ENSAYMADA_UBE_RAW = registerItemWithTab(UbesDelightItems.ENSAYMADA_UBE_RAW,
             () -> new UbesDelightConsumableItem(foodItem(FoodValues.ENSAYMADA_RAW)));
     public static final Supplier<Item> ENSAYMADA_UBE = registerItemWithTab(UbesDelightItems.ENSAYMADA_UBE,
-            () -> new UbesDelightConsumableItem(foodItem(FoodValues.ENSAYMADA_UBE), true));
+            () -> new UbesDelightLeafFeastConsumableItem(foodItem(FoodValues.ENSAYMADA_UBE), true));
     public static final Supplier<Item> HOPIA_MUNGGO_RAW = registerItemWithTab(UbesDelightItems.HOPIA_MUNGGO_RAW,
             () -> new UbesDelightConsumableItem(foodItem(FoodValues.HOPIA_RAW)));
     public static final Supplier<Item> HOPIA_MUNGGO = registerItemWithTab(UbesDelightItems.HOPIA_MUNGGO,
-            () -> new UbesDelightConsumableItem(foodItem(FoodValues.HOPIA_MUNGGO)));
+            () -> new UbesDelightLeafFeastConsumableItem(foodItem(FoodValues.HOPIA_MUNGGO)));
     public static final Supplier<Item> HOPIA_UBE_RAW = registerItemWithTab(UbesDelightItems.HOPIA_UBE_RAW,
             () -> new UbesDelightConsumableItem(foodItem(FoodValues.HOPIA_RAW)));
     public static final Supplier<Item> HOPIA_UBE = registerItemWithTab(UbesDelightItems.HOPIA_UBE,
-            () -> new UbesDelightConsumableItem(foodItem(FoodValues.HOPIA_UBE), true));
+            () -> new UbesDelightLeafFeastConsumableItem(foodItem(FoodValues.HOPIA_UBE), true));
 
     public static final Supplier<Item> POLVORONE_STAGE0 = registerItem(UbesDelightItems.POLVORONE_STAGE0,
             () -> new Item(basicItem()));

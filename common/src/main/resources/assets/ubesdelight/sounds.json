@@ -52,5 +52,22 @@
         "type": "event"
       }
     ]
+  },"block.leaf_feast.add": {
+  "subtitle": "ubesdelight.subtitles.block_baking_mat.add",
+  "sounds": [
+    {
+      "name": "block.azalea.hit",
+      "type": "event"
+    }
+  ]
+},
+  "block.leaf_feast.remove": {
+    "subtitle": "ubesdelight.subtitles.block_baking_mat.remove",
+    "sounds": [
+      {
+        "name": "block.azalea.hit",
+        "type": "event"
+      }
+    ]
   }
 }

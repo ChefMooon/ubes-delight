@@ -28,7 +28,12 @@ public class ClientREIPluginImpl implements REIClientPlugin {
     public void registerDisplays(DisplayRegistry registry) {
         registry.registerRecipeFiller(BakingMatRecipeImpl.class, UbesDelightRecipeTypesImpl.BAKING_MAT.get(), BakingMatRecipeDisplay::new);
 
-        registry.add(DefaultInformationDisplay.createFromEntries(EntryIngredients.of(UbesDelightItemsImpl.ROLLING_PIN_WOOD), Component.translatable("item.ubesdelight.rolling_pin_wood")).lines(TextUtils.getTranslatable("rei.info.rolling_pin")));
+        registry.add(DefaultInformationDisplay.createFromEntries(EntryIngredients.ofItems(List.of(UbesDelightItemsImpl.ROLLING_PIN_WOOD,
+                        UbesDelightItemsImpl.ROLLING_PIN_IRON,
+                        UbesDelightItemsImpl.ROLLING_PIN_GOLD,
+                        UbesDelightItemsImpl.ROLLING_PIN_DIAMOND,
+                        UbesDelightItemsImpl.ROLLING_PIN_NETHERITE)),
+                Component.translatable("item.ubesdelight.rolling_pin_wood")).lines(TextUtils.getTranslatable("rei.info.rolling_pin")));
 
         registry.add(DefaultInformationDisplay.createFromEntries(EntryIngredients.ofItems(List.of(UbesDelightItemsImpl.WILD_UBE, UbesDelightItemsImpl.UBE)), Component.translatable("item.ubesdelight.ube")).lines(TextUtils.getTranslatable("rei.info.ube")));
         registry.add(DefaultInformationDisplay.createFromEntries(EntryIngredients.ofItems(List.of(UbesDelightItemsImpl.WILD_GARLIC, UbesDelightItemsImpl.GARLIC)), Component.translatable("item.ubesdelight.garlic")).lines(TextUtils.getTranslatable("rei.info.garlic")));

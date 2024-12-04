@@ -2,6 +2,7 @@ package com.chefmooon.ubesdelight.client.event.neoforge;
 
 import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.client.renderer.neoforge.BakingMatBlockEntityRenderImpl;
+import com.chefmooon.ubesdelight.client.renderer.neoforge.UniversalLeafFeastBlockEntityRenderImpl;
 import com.chefmooon.ubesdelight.common.registry.neoforge.UbesDelightBlockEntityTypesImpl;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -14,5 +15,6 @@ public class ClientSetupEventsImpl {
     @SubscribeEvent
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(UbesDelightBlockEntityTypesImpl.BAKING_MAT_BAMBOO.get(), BakingMatBlockEntityRenderImpl::new);
+        event.registerBlockEntityRenderer(UbesDelightBlockEntityTypesImpl.UNIVERSAL_LEAF_FEAST.get(), UniversalLeafFeastBlockEntityRenderImpl::new);
     }
 }

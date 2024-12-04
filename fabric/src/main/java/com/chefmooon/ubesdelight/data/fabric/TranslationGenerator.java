@@ -51,6 +51,10 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(UbesDelightItemsImpl.BAKING_MAT_BAMBOO, "Bamboo Baking Mat");
 
         translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_WOOD, "Wood Rolling Pin");
+        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_IRON, "Iron Rolling Pin");
+        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_GOLD, "Gold Rolling Pin");
+        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND, "Diamond Rolling Pin");
+        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE, "Netherite Rolling Pin");
 
         translationBuilder.add(UbesDelightItemsImpl.UBE_CRATE, "Ube Crate");
         translationBuilder.add(UbesDelightItemsImpl.GARLIC_CRATE, "Garlic Crate");
@@ -88,8 +92,6 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(UbesDelightItemsImpl.MILK_POWDER, "Milk Powder");
         translationBuilder.add(UbesDelightItemsImpl.SUGAR_BROWN, "Brown Sugar");
         translationBuilder.add(UbesDelightItemsImpl.LUMPIA_WRAPPER, "Lumpia Wrapper");
-
-        translationBuilder.add(UbesDelightItemsImpl.MILK_TEA_UBE, "Ube Milk Tea");
 
         translationBuilder.add(UbesDelightItemsImpl.GARLIC_CHOP, "Chopped Garlic");
         translationBuilder.add(UbesDelightItemsImpl.GINGER_CHOP, "Chopped Ginger");
@@ -178,6 +180,16 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP, "Lemongrass Leaves");
 
         translationBuilder.add(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO, "Halo Halo");
+        translationBuilder.add(UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE, "Ube Milk Tea");
+
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST, "Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.UNIVERSAL_LEAF_FEAST, "Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA, "Ensaymada Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE, "Ube Ensaymada Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL, "Pandesal Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE, "Ube Pandesal Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, "Hopia Munggo Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, "Hopia Ube Leaf Feast");
 
         translationBuilder.add(ADVANCEMENT + "root", FORMATTED_MOD_ID);
         translationBuilder.add(ADVANCEMENT + "root.desc", "Cuisine from the Phillipines!");

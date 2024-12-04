@@ -1,0 +1,8 @@
+{
+  "parent": "ubesdelight:block/leaf_feast/template_leaf_feast_end_pandesal_1",
+  "textures": {
+    "bottom": "ubesdelight:block/leaf_feast_end_bottom",
+    "content": "ubesdelight:block/pandesal_ube",
+    "top": "ubesdelight:block/leaf_feast_end_top"
+  }
+}

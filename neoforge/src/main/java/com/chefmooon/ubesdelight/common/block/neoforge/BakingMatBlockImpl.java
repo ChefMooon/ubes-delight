@@ -48,16 +48,18 @@ public class BakingMatBlockImpl extends BakingMatBlock {
 
         boolean isValidTool = heldStack.getItem() instanceof DiggerItem;
 
-        if (!state.getValue(BakingMatBlock.PROCESSING) && !isValidTool) {
-            if (!bakingMatBlockEntity.isFull() && !heldStack.isEmpty()) {
-                return tryAddItemFromPlayerHand(level, bakingMatBlockEntity, heldStack, offHandStack, player, hand);
-            } else if (!bakingMatBlockEntity.isEmpty() && heldStack.isEmpty()) {
-                return tryRemoveItemFromPlayerHand(level, bakingMatBlockEntity, heldStack, offHandStack, player, hand);
+        if (!bakingMatBlockEntity.isEmpty() && !heldStack.isEmpty() && isValidTool) {
+            if (tryProcessBakingMatUsingToolInHand(level, bakingMatBlockEntity, heldStack, offHandStack, player, hand).consumesAction()) {
+                return ItemInteractionResult.SUCCESS;
             }
         }
 
-        if (!bakingMatBlockEntity.isEmpty() && !heldStack.isEmpty() && isValidTool) {
-            return tryProcessBakingMatUsingToolInHand(level, bakingMatBlockEntity, heldStack, offHandStack, player, hand);
+        if (!state.getValue(BakingMatBlock.PROCESSING) && !isValidTool) {
+            if (!bakingMatBlockEntity.isFull() && !heldStack.isEmpty()) {
+                return tryAddItemFromPlayerHand(level, bakingMatBlockEntity, heldStack, offHandStack, player, hand);
+            } else if (hand.equals(InteractionHand.MAIN_HAND) && !bakingMatBlockEntity.isEmpty() && heldStack.isEmpty()) {
+                return tryRemoveItemFromPlayerHand(level, bakingMatBlockEntity, heldStack, offHandStack, player, hand);
+            }
         }
 
         return result;
@@ -83,15 +85,6 @@ public class BakingMatBlockImpl extends BakingMatBlock {
 
     private ItemInteractionResult tryAddItemFromPlayerHand(Level level, BakingMatBlockEntityImpl bakingMatBlockEntity, ItemStack heldStack, ItemStack offHandStack, Player player, InteractionHand hand) {
         ItemInteractionResult result = ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-
-        if (!offHandStack.isEmpty()) {
-            if (hand.equals(InteractionHand.MAIN_HAND) && !(heldStack.getItem() instanceof BlockItem)) {
-                return  result;
-            }
-            if (hand.equals(InteractionHand.OFF_HAND)) {
-                return result;
-            }
-        }
 
         if (heldStack.isEmpty()) {
             return result;
@@ -120,10 +113,9 @@ public class BakingMatBlockImpl extends BakingMatBlock {
     }
 
     private ItemInteractionResult tryProcessBakingMatUsingToolInHand(Level level, BakingMatBlockEntityImpl bakingMatBlockEntity, ItemStack heldStack, ItemStack offHandStack, Player player, InteractionHand hand) {
-        ItemInteractionResult result = ItemInteractionResult.CONSUME;
-        if (!hand.equals(InteractionHand.MAIN_HAND)) return result;
+        ItemInteractionResult result = ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
-        if (bakingMatBlockEntity.processItemUsingTool(heldStack, player)) {
+        if (heldStack.getItem() instanceof DiggerItem && bakingMatBlockEntity.processItemUsingTool(heldStack, player)) {
             return ItemInteractionResult.SUCCESS;
         }
         return result;

@@ -1,11 +1,37 @@
 package com.chefmooon.ubesdelight.common.utility;
 
+import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import net.minecraft.core.Direction;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class VoxelShapeUtil {
+
+    public static HashMap<LeafFeastTypes, HashMap<Integer, VoxelShape[]>> getRotatedShapes(HashMap<LeafFeastTypes, HashMap<Integer, VoxelShape>> voxelShapes) {
+        HashMap<LeafFeastTypes, HashMap<Integer, VoxelShape[]>> result = new HashMap<>();
+        voxelShapes.forEach(((leafFeastTypes, integerVoxelShapeMap) -> {
+            HashMap<Integer, VoxelShape[]> innerMap = result.computeIfAbsent(leafFeastTypes, k -> new HashMap<>());
+            integerVoxelShapeMap.forEach((integer, voxelShape) -> {
+                innerMap.put(integer, getRotatedShapes(voxelShape));
+            });
+        }));
+        return result;
+    }
+
+    public static VoxelShape[] getRotatedShapes(VoxelShape shape) {
+        // Assumes initial direciton is NORTH, returns in order of Direction.get2DDataValue() make one that handles an input direction?
+        return new VoxelShape[]{
+                rotateVoxelShape(shape, Direction.SOUTH),
+                rotateVoxelShape(shape, Direction.WEST),
+                shape,
+                rotateVoxelShape(shape, Direction.EAST)};
+    }
 
     public static VoxelShape rotateVoxelShape(VoxelShape shape, Direction direction) {
         // Assumes initial direciton is NORTH

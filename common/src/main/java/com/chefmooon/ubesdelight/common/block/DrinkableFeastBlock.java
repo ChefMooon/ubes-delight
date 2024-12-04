@@ -132,7 +132,6 @@ public class DrinkableFeastBlock extends Block {
             ItemStack heldItem = player.getItemInHand(hand);
             ItemStack container = new ItemStack(Items.GLASS_BOTTLE);
             world.setBlock(pos, state.setValue(getServingsProperty(), servings + 1), 3);
-            // TODO: make an add sound
             world.playSound(null, pos, UbesDelightSounds.BLOCK_DRINKABLE_FEAST_ADD.get(), SoundSource.PLAYERS, 0.8F, 0.8F);
             if (!player.isCreative()) {
                 heldItem.shrink(1);
@@ -144,6 +143,19 @@ public class DrinkableFeastBlock extends Block {
         }
 
         return ItemInteractionResult.FAIL;
+    }
+
+    public boolean addDrinkFromDispenser(Level world, BlockPos pos, BlockState state) {
+        int servings = state.getValue(getServingsProperty());
+
+        if (servings < MAX_SERVINGS) {
+            world.setBlock(pos, state.setValue(getServingsProperty(), servings + 1), 3);
+            world.playSound(null, pos, UbesDelightSounds.BLOCK_DRINKABLE_FEAST_REMOVE.get(), SoundSource.PLAYERS, 0.8F, 0.8F);
+
+            return true;
+        }
+
+        return false;
     }
 
     @Override

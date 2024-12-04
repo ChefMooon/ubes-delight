@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:minecraft/crafting/purple_dye_from_ube"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ube": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:ube"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ube"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:minecraft/crafting/purple_dye_from_ube"
+    ]
+  }
+}

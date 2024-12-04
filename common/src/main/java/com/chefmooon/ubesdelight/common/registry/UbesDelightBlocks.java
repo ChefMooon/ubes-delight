@@ -33,12 +33,22 @@ public class UbesDelightBlocks {
     public static final ResourceLocation LEMONGRASS_LEAF_CROP = block("lemongrass_leaf_crop");
 
     public static final ResourceLocation GLASS_CUP_HALO_HALO = block("glass_cup_halo_halo");
+    public static final ResourceLocation GLASS_CUP_MILK_TEA_UBE = block("glass_cup_milk_tea_ube");
 
     public static final ResourceLocation UBE_CAKE = block("ube_cake");
     public static final ResourceLocation LECHE_FLAN_FEAST = block("leche_flan_feast");
     public static final ResourceLocation HALO_HALO_FEAST = block("halo_halo_feast");
     public static final ResourceLocation MILK_TEA_UBE_FEAST = block("milk_tea_ube_feast");
     public static final ResourceLocation LUMPIA_FEAST = block("lumpia_feast");
+
+    public static final ResourceLocation LEAF_FEAST = block("leaf_feast");
+    public static final ResourceLocation UNIVERSAL_LEAF_FEAST = block("universal_leaf_feast");
+    public static final ResourceLocation LEAF_FEAST_ENSAYMADA = block("leaf_feast_ensaymada");
+    public static final ResourceLocation LEAF_FEAST_ENSAYMADA_UBE = block("leaf_feast_ensaymada_ube");
+    public static final ResourceLocation LEAF_FEAST_PANDESAL = block("leaf_feast_pandesal");
+    public static final ResourceLocation LEAF_FEAST_PANDESAL_UBE = block("leaf_feast_pandesal_ube");
+    public static final ResourceLocation LEAF_FEAST_HOPIA_MUNGGO = block("leaf_feast_hopia_munggo");
+    public static final ResourceLocation LEAF_FEAST_HOPIA_UBE = block("leaf_feast_hopia_ube");
 
     public static ToIntFunction<BlockState> litBlockEmission(int lightValue) {
         return (state) -> state.getValue(BlockStateProperties.LIT) ? lightValue : 0;
