@@ -1,40 +1,40 @@
 {
   "variants": {
     "age=0,supporting=false": {
-      "model": "ubesdelight:block/lemongrass_stalk_stage0"
+      "model": "ubesdelight:block/lemongrass_stalk_crop_stage0"
     },
     "age=1,supporting=false": {
-      "model": "ubesdelight:block/lemongrass_stalk_stage1"
+      "model": "ubesdelight:block/lemongrass_stalk_crop_stage1"
     },
     "age=2,supporting=false": {
-      "model": "ubesdelight:block/lemongrass_stalk_stage2"
+      "model": "ubesdelight:block/lemongrass_stalk_crop_stage2"
     },
     "age=3,supporting=false": {
-      "model": "ubesdelight:block/lemongrass_stalk_stage3"
+      "model": "ubesdelight:block/lemongrass_stalk_crop_stage3"
     },
     "age=4,supporting=false": {
-      "model": "ubesdelight:block/lemongrass_stalk_stage4"
+      "model": "ubesdelight:block/lemongrass_stalk_crop_stage4"
     },
     "age=5,supporting=false": {
-      "model": "ubesdelight:block/lemongrass_stalk_stage5"
+      "model": "ubesdelight:block/lemongrass_stalk_crop_stage5"
     },
     "age=0,supporting=true": {
-      "model": "ubesdelight:block/lemongrass_stalk_stage0"
+      "model": "ubesdelight:block/lemongrass_stalk_crop_stage0"
     },
     "age=1,supporting=true": {
-      "model": "ubesdelight:block/lemongrass_stalk_stage1"
+      "model": "ubesdelight:block/lemongrass_stalk_crop_stage1"
     },
     "age=2,supporting=true": {
-      "model": "ubesdelight:block/lemongrass_stalk_stage2"
+      "model": "ubesdelight:block/lemongrass_stalk_crop_stage2"
     },
     "age=3,supporting=true": {
-      "model": "ubesdelight:block/lemongrass_stalk_stage3"
+      "model": "ubesdelight:block/lemongrass_stalk_crop_stage3"
     },
     "age=4,supporting=true": {
-      "model": "ubesdelight:block/lemongrass_stalk_stage4"
+      "model": "ubesdelight:block/lemongrass_stalk_crop_stage4"
     },
     "age=5,supporting=true": {
-      "model": "ubesdelight:block/lemongrass_stalk_supporting"
+      "model": "ubesdelight:block/lemongrass_stalk_crop_supporting"
     }
   }
 }

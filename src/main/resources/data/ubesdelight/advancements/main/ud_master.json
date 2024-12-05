@@ -1,0 +1,389 @@
+{
+  "parent": "ubesdelight:main/place_drinkable_feast",
+  "criteria": {
+    "milk_tea_ube": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:milk_tea_ube"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "halo_halo": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:halo_halo"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "sinangag": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:sinangag"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "kinilaw": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:kinilaw"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "lumpia": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:lumpia"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "tocino": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:tocino"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "chicken_inasal": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:chicken_inasal"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "chicken_inasal_rice": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:chicken_inasal_rice"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "tosilog": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:tosilog"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "bangsilog": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:bangsilog"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "sisig": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:sisig"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "bulalo": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:bulalo"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "arroz_caldo": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:arroz_caldo"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "mechado": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:mechado"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cookie_ube": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:cookie_ube"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cookie_ginger": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:cookie_ginger"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "leche_flan": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:leche_flan"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "ube_cake_slice": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:ube_cake_slice"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "polvorone": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:polvorone"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "polvorone_pinipig": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:polvorone_pinipig"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "polvorone_ube": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:polvorone_ube"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "polvorone_cc": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:polvorone_cc"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "pandesal": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:pandesal"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "pandesal_ube": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:pandesal_ube"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "ensaymada": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:ensaymada"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "ensaymada_ube": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:ensaymada_ube"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "hopia_munggo": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:hopia_munggo"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "hopia_ube": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:hopia_ube"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "ubesdelight.advancement.ud_master.desc"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "ubesdelight:ube_cake"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ubesdelight.advancement.ud_master"
+    }
+  },
+  "requirements": [
+    [
+      "milk_tea_ube"
+    ],
+    [
+      "halo_halo"
+    ],
+    [
+      "sinangag"
+    ],
+    [
+      "kinilaw"
+    ],
+    [
+      "lumpia"
+    ],
+    [
+      "tocino"
+    ],
+    [
+      "chicken_inasal"
+    ],
+    [
+      "chicken_inasal_rice"
+    ],
+    [
+      "tosilog"
+    ],
+    [
+      "bangsilog"
+    ],
+    [
+      "sisig"
+    ],
+    [
+      "bulalo"
+    ],
+    [
+      "arroz_caldo"
+    ],
+    [
+      "mechado"
+    ],
+    [
+      "cookie_ube"
+    ],
+    [
+      "cookie_ginger"
+    ],
+    [
+      "leche_flan"
+    ],
+    [
+      "ube_cake_slice"
+    ],
+    [
+      "polvorone"
+    ],
+    [
+      "polvorone_pinipig"
+    ],
+    [
+      "polvorone_ube"
+    ],
+    [
+      "polvorone_cc"
+    ],
+    [
+      "pandesal"
+    ],
+    [
+      "pandesal_ube"
+    ],
+    [
+      "ensaymada"
+    ],
+    [
+      "ensaymada_ube"
+    ],
+    [
+      "hopia_munggo"
+    ],
+    [
+      "hopia_ube"
+    ]
+  ],
+  "rewards": {
+    "experience": 200
+  }
+}

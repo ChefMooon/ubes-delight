@@ -1,0 +1,74 @@
+{
+  "ubesdelight:kalan": "brickstone",
+
+  "ubesdelight:baking_mat_bamboo": "squeakywood",
+  "ubesdelight:baking_mat_bamboo.carpet": "squeakywood",
+
+  "ubesdelight:ube_cake": "organic",
+  "ubesdelight:leche_flan_feast": "organic",
+
+  "ubesdelight:halo_halo_feast": "glass",
+  "ubesdelight:halo_halo_feast[servings=4]": "organic",
+  "ubesdelight:milk_tea_ube_feast": "glass",
+  "ubesdelight:milk_tea_ube_feast[servings=4]": "organic",
+
+  "ubesdelight:potted_ube": "brush",
+  "ubesdelight:potted_garlic": "brush",
+  "ubesdelight:potted_ginger": "brush",
+
+  "ubesdelight:lumpia_feast": "leaves",
+
+  "ubesdelight:ube_crop": "NOT_EMITTER",
+  "ubesdelight:ube_crop.messy": "MESSY_GROUND",
+  "ubesdelight:ube_crop.foliage": "brush",
+  "ubesdelight:ube_crop[age=4].foliage": "brush",
+  "ubesdelight:ube_crop[age=5].foliage": "brush",
+  "ubesdelight:ube_crop[age=6].foliage": "brush",
+  "ubesdelight:ube_crop[age=7].foliage": "brush",
+
+  "ubesdelight:garlic_crop": "NOT_EMITTER",
+  "ubesdelight:garlic_crop.messy": "MESSY_GROUND",
+  "ubesdelight:garlic_crop.foliage": "brush",
+  "ubesdelight:garlic_crop[age=4].foliage": "brush",
+  "ubesdelight:garlic_crop[age=5].foliage": "brush",
+  "ubesdelight:garlic_crop[age=6].foliage": "brush",
+  "ubesdelight:garlic_crop[age=7].foliage": "brush",
+
+  "ubesdelight:ginger_crop": "NOT_EMITTER",
+  "ubesdelight:ginger_crop.messy": "MESSY_GROUND",
+  "ubesdelight:ginger_crop.foliage": "brush",
+  "ubesdelight:ginger_crop[age=5].foliage": "brush",
+  "ubesdelight:ginger_crop[age=6].foliage": "brush",
+  "ubesdelight:ginger_crop[age=7].foliage": "brush",
+
+  "ubesdelight:lemongrass_stalk_crop": "NOT_EMITTER",
+  "ubesdelight:lemongrass_stalk_crop.messy": "MESSY_GROUND",
+  "ubesdelight:lemongrass_stalk_crop.foliage": "brush",
+  "ubesdelight:lemongrass_stalk_crop[age=4].foliage": "brush",
+  "ubesdelight:lemongrass_stalk_crop[age=5].foliage": "brush",
+
+  "ubesdelight:lemongrass_leaf_crop": "NOT_EMITTER",
+  "ubesdelight:lemongrass_leaf_crop.messy": "MESSY_GROUND",
+  "ubesdelight:lemongrass_leaf_crop.foliage": "brush",
+  "ubesdelight:lemongrass_leaf_crop[age=0].foliage": "brush",
+  "ubesdelight:lemongrass_leaf_crop[age=1].foliage": "brush",
+  "ubesdelight:lemongrass_leaf_crop[age=2].foliage": "brush",
+  "ubesdelight:lemongrass_leaf_crop[age=3].foliage": "brush",
+
+  "ubesdelight:wild_ube": "NOT_EMITTER",
+  "ubesdelight:wild_ube.messy": "MESSY_GROUND",
+  "ubesdelight:wild_ube.foliage": "brush",
+
+  "ubesdelight:wild_garlic": "NOT_EMITTER",
+  "ubesdelight:wild_garlic.messy": "MESSY_GROUND",
+  "ubesdelight:wild_garlic.foliage": "brush",
+
+  "ubesdelight:wild_ginger": "NOT_EMITTER",
+  "ubesdelight:wild_ginger.messy": "MESSY_GROUND",
+  "ubesdelight:wild_ginger.foliage": "brush",
+
+  "ubesdelight:wild_lemongrass": "NOT_EMITTER",
+  "ubesdelight:wild_lemongrass.messy": "MESSY_GROUND",
+  "ubesdelight:wild_lemongrass.foliage": "brush",
+  "ubesdelight:wild_lemongrass.bigger": "brush"
+}

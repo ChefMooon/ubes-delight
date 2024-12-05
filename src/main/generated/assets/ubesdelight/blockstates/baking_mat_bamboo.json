@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "ubesdelight:block/baking_mat_bamboo",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "ubesdelight:block/baking_mat_bamboo"
+    },
+    "facing=south": {
+      "model": "ubesdelight:block/baking_mat_bamboo",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ubesdelight:block/baking_mat_bamboo",
+      "y": 270
+    }
+  }
+}

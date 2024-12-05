@@ -1,0 +1,37 @@
+{
+  "parent": "ubesdelight:main/root",
+  "display": {
+    "icon": {
+      "item": "ubesdelight:rolling_pin_wood"
+    },
+    "title": {
+      "translate": "ubesdelight.advancement.craft_rolling_pin"
+    },
+    "description": {
+      "translate": "ubesdelight.advancement.craft_rolling_pin.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_rolling_pin_wood": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:rolling_pin_wood"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_rolling_pin_wood"
+    ]
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "ingredients": [
+    {
+      "tag": "minecraft:fishes"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 4,
+    "item": "ubesdelight:fish_sauce_bottle"
+  }
+}

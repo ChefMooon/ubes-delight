@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/cube_bottom_top",
-	"textures": {
-		"side": "ubesdelight:block/kalan_side",
-		"bottom": "ubesdelight:block/kalan_bottom",
-		"top": "ubesdelight:block/kalan_top"
-	}
-}

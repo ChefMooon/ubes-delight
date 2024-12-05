@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ubesdelight:block/baking_mat_kelp"
+    },
+    "facing=south": {
+      "model": "ubesdelight:block/baking_mat_kelp",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ubesdelight:block/baking_mat_kelp",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "ubesdelight:block/baking_mat_kelp",
+      "y": 90
+    }
+  }
+}

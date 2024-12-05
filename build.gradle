@@ -24,6 +24,8 @@ repositories {
 			includeGroup "maven.modrinth"
 		}
 	}
+	/* REI Integration */
+	maven { url "https://maven.shedaniel.me/" }
 }
 
 dependencies {
@@ -44,6 +46,8 @@ dependencies {
 	}
 
 	// REI API
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:$rei_version"
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version"
 }
 
 base {

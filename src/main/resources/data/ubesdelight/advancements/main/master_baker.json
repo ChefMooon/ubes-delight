@@ -1,0 +1,115 @@
+{
+  "parent": "ubesdelight:main/use_baking_mat",
+  "display": {
+    "icon": {
+      "item": "ubesdelight:ensaymada_ube"
+    },
+    "title": {
+      "translate": "ubesdelight.advancement.master_baker"
+    },
+    "description": {
+      "translate": "ubesdelight.advancement.master_baker.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "has_pandesal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:pandesal"
+            ]
+          }
+        ]
+      }
+    },
+    "has_pandesal_ube": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:pandesal_ube"
+            ]
+          }
+        ]
+      }
+    },
+    "has_ensaymada": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:ensaymada"
+            ]
+          }
+        ]
+      }
+    },
+    "has_ensaymada_ube": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:ensaymada_ube"
+            ]
+          }
+        ]
+      }
+    },
+    "has_hopia_munggo": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:hopia_munggo"
+            ]
+          }
+        ]
+      }
+    },
+    "has_hopia_ube": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:hopia_ube"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pandesal"
+    ],
+    [
+      "has_pandesal_ube"
+    ],
+    [
+      "has_ensaymada"
+    ],
+    [
+      "has_ensaymada_ube"
+    ],
+    [
+      "has_hopia_munggo"
+    ],
+    [
+      "has_hopia_ube"
+    ]
+  ]
+}

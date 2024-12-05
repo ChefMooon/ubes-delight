@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "cookingtime": 100,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "ubesdelight:pandesal_raw"
+  },
+  "result": "ubesdelight:pandesal"
+}

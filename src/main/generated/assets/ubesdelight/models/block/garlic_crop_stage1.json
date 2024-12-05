@@ -1,0 +1,7 @@
+{
+  "parent": "ubesdelight:block/template_complex_crop_cross",
+  "textures": {
+    "cross_v1": "ubesdelight:block/garlic_crop_stage1_v1",
+    "cross_v2": "ubesdelight:block/garlic_crop_stage1_v2"
+  }
+}

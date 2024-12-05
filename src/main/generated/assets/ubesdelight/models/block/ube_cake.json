@@ -1,0 +1,9 @@
+{
+  "parent": "ubesdelight:block/template_cake",
+  "textures": {
+    "bottom": "ubesdelight:block/ube_cake_bottom",
+    "particle": "ubesdelight:block/ube_cake_side",
+    "side": "ubesdelight:block/ube_cake_side",
+    "top": "ubesdelight:block/ube_cake_top"
+  }
+}

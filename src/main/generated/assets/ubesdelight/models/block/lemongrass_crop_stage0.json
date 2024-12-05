@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "ubesdelight:block/lemongrass_crop_stage0"
+  }
+}

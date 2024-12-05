@@ -27,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:minecraft/smelting/campfire_cooking/sugar_brown_from_sugar_from_campfire_cooking"
+        "recipe": "ubesdelight:minecraft/smelting/campfire_cooking/sugar_brown_from_sugar_from_campfire_cooking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -41,7 +41,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/smelting/campfire_cooking/sugar_brown_from_sugar_from_campfire_cooking"
+      "ubesdelight:minecraft/smelting/campfire_cooking/sugar_brown_from_sugar_from_campfire_cooking"
     ]
   }
 }

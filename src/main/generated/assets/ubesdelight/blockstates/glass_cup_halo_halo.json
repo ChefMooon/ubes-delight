@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "ubesdelight:block/glass_cup_halo_halo",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "ubesdelight:block/glass_cup_halo_halo"
+    },
+    "facing=south": {
+      "model": "ubesdelight:block/glass_cup_halo_halo",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ubesdelight:block/glass_cup_halo_halo",
+      "y": 270
+    }
+  }
+}

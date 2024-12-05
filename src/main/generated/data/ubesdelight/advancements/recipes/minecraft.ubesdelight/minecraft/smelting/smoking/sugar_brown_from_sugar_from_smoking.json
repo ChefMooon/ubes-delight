@@ -27,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:minecraft/smelting/smoking/sugar_brown_from_sugar_from_smoking"
+        "recipe": "ubesdelight:minecraft/smelting/smoking/sugar_brown_from_sugar_from_smoking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -41,7 +41,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/smelting/smoking/sugar_brown_from_sugar_from_smoking"
+      "ubesdelight:minecraft/smelting/smoking/sugar_brown_from_sugar_from_smoking"
     ]
   }
 }

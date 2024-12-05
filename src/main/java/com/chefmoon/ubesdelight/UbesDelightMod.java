@@ -1,5 +1,6 @@
 package com.chefmoon.ubesdelight;
 
+import com.chefmoon.ubesdelight.networking.ModMessages;
 import com.chefmoon.ubesdelight.registry.*;
 import com.chefmoon.ubesdelight.util.GeneralRegistryUtil;
 import net.fabricmc.api.ModInitializer;
@@ -10,9 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeKeys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,10 +34,15 @@ public class UbesDelightMod implements ModInitializer {
 
         ItemsRegistry.registerAll();
         BlocksRegistry.registerAll();
+        BlockEntityTypesRegistry.registerAll();
         ConfiguredFeaturesRegistry.registerAll();
         PlacementModifiersRegistry.registerAll();
         BiomeFeaturesRegistry.registerAll();
+        RecipeTypesRegistry.registerAll();
+        AdvancementsRegistry.registerAll();
+        SoundsRegistry.registerAll();
         GeneralRegistryUtil.register();
+        ModMessages.registerC2SPackets();
     }
 
     private void initConfiguration() {

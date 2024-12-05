@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
@@ -19,6 +20,8 @@ import java.util.function.Supplier;
 public enum BlocksRegistry {
 
     KALAN("kalan", KalanBlock::new),
+    BAKING_MAT_BAMBOO("baking_mat_bamboo", BakingMatBlock::new, true),
+
     UBE_CRATE("ube_crate", () -> new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).hardness(2.f).resistance(3.f).sounds(BlockSoundGroup.WOOD))),
     GARLIC_CRATE("garlic_crate", () -> new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).hardness(2.f).resistance(3.f).sounds(BlockSoundGroup.WOOD))),
     GINGER_CRATE("ginger_crate", () -> new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).hardness(2.f).resistance(3.f).sounds(BlockSoundGroup.WOOD))),
@@ -27,7 +30,10 @@ public enum BlocksRegistry {
     WILD_UBE("wild_ube", WildCropBlock::new, true, flammable(100,60)),
     WILD_GARLIC("wild_garlic", WildCropBlock::new, true, flammable(100,60)),
     WILD_GINGER("wild_ginger", WildCropBlock::new, true, flammable(100,60)),
-    WILD_LEMONGRASS("wild_lemongrass", WildCropBlock::new, true, flammable(100,60)),
+    WILD_LEMONGRASS("wild_lemongrass", TallWildCropBlock::new, true, flammable(100,60)),
+    POTTED_UBE("potted_ube", () -> new FlowerPotBlock(BlocksRegistry.WILD_UBE.get(), FabricBlockSettings.copy(Blocks.POTTED_DANDELION)), true, flammable(100,60)),
+    POTTED_GARLIC("potted_garlic", () -> new FlowerPotBlock(BlocksRegistry.WILD_GARLIC.get(), FabricBlockSettings.copy(Blocks.POTTED_DANDELION)), true, flammable(100,60)),
+    POTTED_GINGER("potted_ginger", () -> new FlowerPotBlock(BlocksRegistry.WILD_GINGER.get(), FabricBlockSettings.copy(Blocks.POTTED_DANDELION)), true, flammable(100,60)),
 
     UBE_CROP("ube_crop", UbeCropBlock::new, true),
     GARLIC_CROP("garlic_crop", GarlicCropBlock::new, true),
@@ -35,6 +41,9 @@ public enum BlocksRegistry {
     LEMONGRASS_CROP("lemongrass_crop", LemongrassCropBlock::new, true), //TODO: remove in V0.1.5
     LEMONGRASS_STALK_CROP("lemongrass_stalk_crop", LemongrassStalkCropBlock::new, true),
     LEMONGRASS_LEAF_CROP("lemongrass_leaf_crop", LemongrassLeafCropBlock::new, true),
+
+    GLASS_CUP_HALO_HALO("glass_cup_halo_halo", GlassCupBlock::new, true),
+
 
     UBE_CAKE("ube_cake", () -> new UbesDelightCakeBlock(ItemsRegistry.UBE_CAKE_SLICE.get()), true),
     LECHE_FLAN_FEAST("leche_flan_feast", () -> new LecheFlanFeast(ItemsRegistry.LECHE_FLAN.get()), true),
@@ -99,5 +108,8 @@ public enum BlocksRegistry {
 
     public String getId() {
         return Registry.BLOCK.getId(get()).toString();
+    }
+    public String getPathName() {
+        return pathName;
     }
 }

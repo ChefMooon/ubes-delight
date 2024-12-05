@@ -1,34 +1,34 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "minecraft:minecraft/crafting/ube_cake"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_wheat": {
+    "has_egg": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:wheat"
+              "minecraft:egg"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:minecraft/crafting/ube_cake"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_wheat",
+      "has_egg",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/ube_cake"
+      "ubesdelight:minecraft/crafting/ube_cake"
     ]
   }
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "ubesdelight:block/template_odd_crop",
+  "textures": {
+    "odd_crop": "ubesdelight:block/ube_crop_stage2"
+  }
+}

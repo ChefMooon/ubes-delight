@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 3.0,
+  "ingredients": [
+    {
+      "tag": "c:raw_fishes"
+    },
+    {
+      "item": "ubesdelight:sinangag"
+    },
+    {
+      "tag": "c:cooked_eggs"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "ubesdelight:bangsilog"
+  }
+}

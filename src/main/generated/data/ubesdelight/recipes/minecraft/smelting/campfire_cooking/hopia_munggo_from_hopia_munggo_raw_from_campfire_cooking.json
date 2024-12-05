@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "cookingtime": 600,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "ubesdelight:hopia_munggo_raw"
+  },
+  "result": "ubesdelight:hopia_munggo"
+}
