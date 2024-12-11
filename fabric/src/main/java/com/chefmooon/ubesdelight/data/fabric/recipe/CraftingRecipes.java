@@ -123,10 +123,14 @@ public class CraftingRecipes {
                 .requires(UbesDelightItemsImpl.UBE, 1)
                 .group("purple_dye")
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItemsImpl.UBE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.UBE))
-                .save(exporter, TextUtils.res(MINECRAFT.getNamespace() + "/crafting/"
-                        + RecipeProvider.getConversionRecipeName(Items.PURPLE_DYE, UbesDelightItemsImpl.UBE)));
+                .save(exporter, suffix(RecipeProvider.getConversionRecipeName(Items.PURPLE_DYE, UbesDelightItemsImpl.UBE)));
 
         /** LEAF FEASTS **/
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, UbesDelightItemsImpl.LEAF_FEAST)
+                .requires(Ingredient.of(CompatibilityTags.MINECRAFT_LEAVES), 3)
+                .unlockedBy(RecipeUtil.hasItemTag(CompatibilityTags.MINECRAFT_LEAVES), RecipeUtil.getTriggerfromTag(CompatibilityTags.MINECRAFT_LEAVES))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST)));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, UbesDelightItemsImpl.LUMPIA_FEAST)
                 .pattern("   ")
