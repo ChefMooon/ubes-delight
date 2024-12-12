@@ -1,9 +1,7 @@
 package com.chefmooon.ubesdelight.common.block;
 
-import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightShapes;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
-import com.chefmooon.ubesdelight.common.utility.TagUtils;
 import com.chefmooon.ubesdelight.common.utility.VoxelShapeUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -21,18 +19,17 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
 
 public class GlassCupBlock extends Block {
@@ -41,18 +38,24 @@ public class GlassCupBlock extends Block {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public Supplier<Item> servingItem;
-    private final VoxelShape[] SHAPES_SERVINGS_1 = UbesDelightShapes.CUP_SHAPES_SERVINGS_1;
-
-    private final VoxelShape[] SHAPES_SERVINGS_2 = UbesDelightShapes.CUP_SHAPES_SERVINGS_2;
-
-    private final VoxelShape[] SHAPES_SERVINGS_3 = UbesDelightShapes.CUP_SHAPES_SERVINGS_3;
-
-    private final VoxelShape[] SHAPES_SERVINGS_4 = UbesDelightShapes.CUP_SHAPES_SERVINGS_4;
+    protected final ConcurrentHashMap<Integer, VoxelShape[]> CUP_SHAPES;
 
     public GlassCupBlock(Supplier<Item> servingItem, Properties properties) {
         super(properties);
         this.servingItem = servingItem;
+        CUP_SHAPES = buildShapes();
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(SERVINGS, 0));
+    }
+
+    private static ConcurrentHashMap<Integer, VoxelShape[]> buildShapes() {
+        ConcurrentHashMap<Integer, VoxelShape[]> result = new ConcurrentHashMap<>();
+
+        result.put(0, VoxelShapeUtil.getRotatedShapes(UbesDelightShapes.CUP_NORTH_SERVINGS_1));
+        result.put(1, VoxelShapeUtil.getRotatedShapes(UbesDelightShapes.CUP_NORTH_SERVINGS_2));
+        result.put(2, VoxelShapeUtil.getRotatedShapes(UbesDelightShapes.CUP_NORTH_SERVINGS_3));
+        result.put(3, VoxelShapeUtil.getRotatedShapes(UbesDelightShapes.CUP_NORTH_SERVINGS_4));
+
+        return result;
     }
 
     @Override
@@ -103,14 +106,7 @@ public class GlassCupBlock extends Block {
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         int servings = state.getValue(SERVINGS);
-        int facing = state.getValue(FACING).get2DDataValue();
-
-        return switch (servings) {
-            case 3 -> SHAPES_SERVINGS_4[facing];
-            case 2 -> SHAPES_SERVINGS_3[facing];
-            case 1 -> SHAPES_SERVINGS_2[facing];
-            default -> SHAPES_SERVINGS_1[facing];
-        };
+        return CUP_SHAPES.containsKey(servings) ? CUP_SHAPES.get(servings)[state.getValue(FACING).get2DDataValue()] : Shapes.empty();
     }
 
     protected ItemInteractionResult rotate(Level level, BlockPos pos, BlockState state, Player player) {

@@ -1,15 +1,9 @@
 package com.chefmooon.ubesdelight.common.registry;
 
-import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
-import com.chefmooon.ubesdelight.common.utility.VoxelShapeUtil;
-import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class UbesDelightShapes {
 
@@ -35,34 +29,6 @@ public class UbesDelightShapes {
             Block.box(.0d, 7.d, 9.d, 7.d, 8.d, 16.d),
             Block.box(1.d, .0d, 10.d, 6.d, 7.d, 15.d)
     );
-
-    public static final VoxelShape[] CUP_SHAPES_SERVINGS_1 = new VoxelShape[] {
-            VoxelShapeUtil.rotateVoxelShape(CUP_NORTH_SERVINGS_1, Direction.SOUTH),
-            VoxelShapeUtil.rotateVoxelShape(CUP_NORTH_SERVINGS_1, Direction.WEST),
-            CUP_NORTH_SERVINGS_1,
-            VoxelShapeUtil.rotateVoxelShape(CUP_NORTH_SERVINGS_1, Direction.EAST)
-    };
-
-    public static final VoxelShape[] CUP_SHAPES_SERVINGS_2 = new VoxelShape[] {
-            VoxelShapeUtil.rotateVoxelShape(CUP_NORTH_SERVINGS_2, Direction.SOUTH),
-            VoxelShapeUtil.rotateVoxelShape(CUP_NORTH_SERVINGS_2, Direction.WEST),
-            CUP_NORTH_SERVINGS_2,
-            VoxelShapeUtil.rotateVoxelShape(CUP_NORTH_SERVINGS_2, Direction.EAST)
-    };
-
-    public static final VoxelShape[] CUP_SHAPES_SERVINGS_3 = new VoxelShape[] {
-            VoxelShapeUtil.rotateVoxelShape(CUP_NORTH_SERVINGS_3, Direction.SOUTH),
-            VoxelShapeUtil.rotateVoxelShape(CUP_NORTH_SERVINGS_3, Direction.WEST),
-            CUP_NORTH_SERVINGS_3,
-            VoxelShapeUtil.rotateVoxelShape(CUP_NORTH_SERVINGS_3, Direction.EAST)
-    };
-
-    public static final VoxelShape[] CUP_SHAPES_SERVINGS_4 = new VoxelShape[] {
-            VoxelShapeUtil.rotateVoxelShape(CUP_NORTH_SERVINGS_4, Direction.SOUTH),
-            VoxelShapeUtil.rotateVoxelShape(CUP_NORTH_SERVINGS_4, Direction.WEST),
-            CUP_NORTH_SERVINGS_4,
-            VoxelShapeUtil.rotateVoxelShape(CUP_NORTH_SERVINGS_4, Direction.EAST)
-    };
 
 
     public static final VoxelShape LEAF_BASE_SHAPE = Block.box(1,0,1,15,1,15);
