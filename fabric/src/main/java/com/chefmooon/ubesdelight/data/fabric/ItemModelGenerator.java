@@ -67,15 +67,22 @@ public class ItemModelGenerator {
 
         generateFlatItem(UbesDelightItemsImpl.HALO_HALO_FEAST);
         generateFlatItem(UbesDelightItemsImpl.MILK_TEA_UBE_FEAST);
-        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LUMPIA_FEAST);
 
         generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LUMPIA_FEAST);
+
         generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF);
         generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE_HALF);
         generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_HALF);
         generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE_HALF);
         generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF);
         generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF);
 
         generateFlatItem(UbesDelightItemsImpl.LECHE_FLAN_FEAST);
         generateFlatItem(UbesDelightItemsImpl.LECHE_FLAN);

@@ -29,6 +29,7 @@ public class UbesDelightImpl {
         UbesDelightRecipeSerializersImpl.register(modEventBus);
         UbesDelightBiomeFeaturesImpl.register(modEventBus);
         UbesDelightCreativeTabs.register(modEventBus);
+        UbesDelightDataComponentTypesImpl.register(modEventBus);
         UbesDelightPlacementModifiersImpl.register(modEventBus);
         UbesDelightBiomeModifiersImpl.register(modEventBus);
         UbesDelightLootModifiersImpl.register(modEventBus);

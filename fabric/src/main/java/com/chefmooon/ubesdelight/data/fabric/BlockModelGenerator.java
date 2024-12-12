@@ -438,7 +438,7 @@ public class BlockModelGenerator {
         ResourceLocation tipLocation = location.withSuffix("_tip");
         ResourceLocation endLocation = location.withSuffix("_end");
 
-        ResourceLocation contentTextureLocation = TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", ""));
+        ResourceLocation contentTextureLocation = TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", "").replace("_half", ""));
 
         TextureMapping baseTextureMap = new TextureMapping()
                 .put(TextureSlot.TOP, TextUtils.res("block/leaf_feast_top"))

@@ -27,16 +27,16 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
 
 import static com.chefmooon.ubesdelight.common.utility.VoxelShapeUtil.getRotatedShapes;
 
 public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
     public Supplier<Item> servingItem;
-    protected final HashMap<LeafFeastTypes, HashMap<Integer, VoxelShape[]>> FEAST_VARIANTS_SERVINGS;
+    protected final ConcurrentHashMap<LeafFeastTypes, ConcurrentHashMap<Integer, VoxelShape[]>> FEAST_VARIANTS_SERVINGS;
     private static final int MAX_SERVINGS = 3;
-    public LargeLeafFeastBlock(Supplier<Item> servingItem, Properties properties, HashMap<LeafFeastTypes, HashMap<Integer, VoxelShape>> voxelShapes) {
+    public LargeLeafFeastBlock(Supplier<Item> servingItem, Properties properties, ConcurrentHashMap<LeafFeastTypes, ConcurrentHashMap<Integer, VoxelShape>> voxelShapes) {
         super(properties);
         this.servingItem = servingItem;
         this.FEAST_VARIANTS_SERVINGS = getRotatedShapes(voxelShapes);
@@ -126,18 +126,19 @@ public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        LeafFeastTypes leafFeastType = state.getValue(LEAF_FEAST_TYPE);
+//        LeafFeastTypes leafFeastType = state.getValue(LEAF_FEAST_TYPE);
+        LeafFeastTypes leafFeastType = LeafFeastTypes.MIDDLE; // this variant does not have a tip/end variant for servings
         int servings = state.getValue(SERVINGS);
         Direction facing = state.getValue(FACING);
 
-        if (leafFeastType == LeafFeastTypes.END || leafFeastType == LeafFeastTypes.TIP) {
-            leafFeastType = LeafFeastTypes.MIDDLE;
-        }
+//        if (leafFeastType == LeafFeastTypes.END || leafFeastType == LeafFeastTypes.TIP) {
+//            leafFeastType = LeafFeastTypes.MIDDLE;
+//        }
 
         VoxelShape servingShape = Shapes.empty();
         if (FEAST_VARIANTS_SERVINGS.containsKey(leafFeastType)) {
             if (FEAST_VARIANTS_SERVINGS.get(leafFeastType).containsKey(servings)) {
-                servingShape = FEAST_VARIANTS_SERVINGS.get(leafFeastType).get(servings)[facing.get2DDataValue()];
+                servingShape = FEAST_VARIANTS_SERVINGS.get(LeafFeastTypes.MIDDLE).get(servings)[facing.get2DDataValue()];
             }
         }
 

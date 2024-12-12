@@ -15,11 +15,19 @@ public class UbesDelightItems {
     }
 
     public static Item.Properties rollingPinItem(Tier tier) {
-        return new Item.Properties().attributes(RollingPinItem.createAttributes(tier, 1.0F, 1.0F));
+        return new Item.Properties().attributes(RollingPinItem.createAttributes(tier, 1.0F, -2.0F));
     }
 
     public static Item.Properties noStack() {
         return new Item.Properties().stacksTo(1);
+    }
+
+    public static Item.Properties leafFeast() {
+        return basicItem().stacksTo(8);
+    }
+
+    public static Item.Properties halfLeafFeast() {
+        return basicItem().stacksTo(16);
     }
 
     public static Item.Properties foodItem(FoodProperties food) {
@@ -62,11 +70,22 @@ public class UbesDelightItems {
     public static final ResourceLocation LEAF_FEAST = item("leaf_feast");
 
     public static final ResourceLocation LEAF_FEAST_ENSAYMADA = item("leaf_feast_ensaymada");
+    public static final ResourceLocation LEAF_FEAST_ENSAYMADA_HALF = item("leaf_feast_ensaymada_half");
+
     public static final ResourceLocation LEAF_FEAST_ENSAYMADA_UBE = item("leaf_feast_ensaymada_ube");
+    public static final ResourceLocation LEAF_FEAST_ENSAYMADA_UBE_HALF = item("leaf_feast_ensaymada_ube_half");
+
     public static final ResourceLocation LEAF_FEAST_PANDESAL = item("leaf_feast_pandesal");
+    public static final ResourceLocation LEAF_FEAST_PANDESAL_HALF = item("leaf_feast_pandesal_half");
+
     public static final ResourceLocation LEAF_FEAST_PANDESAL_UBE = item("leaf_feast_pandesal_ube");
+    public static final ResourceLocation LEAF_FEAST_PANDESAL_UBE_HALF = item("leaf_feast_pandesal_ube_half");
+
     public static final ResourceLocation LEAF_FEAST_HOPIA_MUNGGO = item("leaf_feast_hopia_munggo");
+    public static final ResourceLocation LEAF_FEAST_HOPIA_MUNGGO_HALF = item("leaf_feast_hopia_munggo_half");
+
     public static final ResourceLocation LEAF_FEAST_HOPIA_UBE = item("leaf_feast_hopia_ube");
+    public static final ResourceLocation LEAF_FEAST_HOPIA_UBE_HALF = item("leaf_feast_hopia_ube_half");
 
     public static final ResourceLocation POISONOUS_UBE = item("poisonous_ube");
     public static final ResourceLocation UBE = item("ube");

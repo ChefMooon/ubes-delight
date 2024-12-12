@@ -69,13 +69,14 @@ public class UbesDelightBlocksImpl {
     public static final Supplier<Block> LECHE_FLAN_FEAST = registerBlock(UbesDelightBlocks.LECHE_FLAN_FEAST, () -> new LecheFlanFeastBlock(UbesDelightItemsImpl.LECHE_FLAN::get));
     public static final Supplier<Block> HALO_HALO_FEAST = registerBlock(UbesDelightBlocks.HALO_HALO_FEAST, () -> new HaloHaloFeastBlock(UbesDelightItemsImpl.HALO_HALO::get));
     public static final Supplier<Block> MILK_TEA_UBE_FEAST = registerBlock(UbesDelightBlocks.MILK_TEA_UBE_FEAST, () -> new DrinkableFeastBlock(UbesDelightItemsImpl.MILK_TEA_UBE::get));
-    public static final Supplier<Block> LUMPIA_FEAST = registerBlock(UbesDelightBlocks.LUMPIA_FEAST,
-            () -> new LumpiaLeafFeastBlock(UbesDelightItemsImpl.LUMPIA::get, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
 
     public static final Supplier<Block> LEAF_FEAST = registerBlock(UbesDelightBlocks.LEAF_FEAST,
             () -> new BaseLeafFeastBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
     public static final Supplier<Block> UNIVERSAL_LEAF_FEAST = registerBlock(UbesDelightBlocks.UNIVERSAL_LEAF_FEAST,
             () -> new UniversalLeafFeastBlockImpl(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+    public static final Supplier<Block> LUMPIA_FEAST = registerBlock(UbesDelightBlocks.LUMPIA_FEAST,
+            () -> new LumpiaLeafFeastBlock(UbesDelightItemsImpl.LUMPIA::get, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+
     public static final Supplier<Block> LEAF_FEAST_ENSAYMADA = registerBlock(UbesDelightBlocks.LEAF_FEAST_ENSAYMADA,
             () -> new EnsaymadaLeafFeastBlock(UbesDelightItemsImpl.ENSAYMADA, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
     public static final Supplier<Block> LEAF_FEAST_ENSAYMADA_UBE = registerBlock(UbesDelightBlocks.LEAF_FEAST_ENSAYMADA_UBE,

@@ -1,6 +1,7 @@
 package com.chefmooon.ubesdelight.data.fabric;
 
 import com.chefmooon.ubesdelight.UbesDelight;
+import com.chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
@@ -190,6 +191,13 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE, "Ube Pandesal Leaf Feast");
         translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, "Hopia Munggo Leaf Feast");
         translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, "Hopia Ube Leaf Feast");
+
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF, "Half Ensaymada Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE_HALF, "Half Ube Ensaymada Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_HALF, "Half Pandesal Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE_HALF, "Half Ube Pandesal Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF, "Half Hopia Munggo Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF, "Half Hopia Ube Leaf Feast");
 
         translationBuilder.add(ADVANCEMENT + "root", FORMATTED_MOD_ID);
         translationBuilder.add(ADVANCEMENT + "root.desc", "Cuisine from the Phillipines!");

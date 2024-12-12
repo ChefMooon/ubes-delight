@@ -5,7 +5,9 @@ import com.chefmooon.ubesdelight.common.block.entity.UniversalLeafFeastBlockEnti
 import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.neoforge.UbesDelightBlockEntityTypesImpl;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec2;
@@ -24,6 +26,18 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
     public UniversalLeafFeastBlockEntityImpl(BlockPos pos, BlockState state) {
         super(UbesDelightBlockEntityTypesImpl.UNIVERSAL_LEAF_FEAST.get(), pos, state);
         inventory = createHandler();
+    }
+
+    @Override
+    public void loadAdditional(CompoundTag compound, HolderLookup.Provider registries) {
+        super.loadAdditional(compound, registries);
+        inventory.deserializeNBT(registries, compound.getCompound("Inventory"));
+    }
+
+    @Override
+    public void saveAdditional(CompoundTag compound, HolderLookup.Provider registries) {
+        super.saveAdditional(compound, registries);
+        compound.put("Inventory", inventory.serializeNBT(registries));
     }
 
     public void clearInventory() {

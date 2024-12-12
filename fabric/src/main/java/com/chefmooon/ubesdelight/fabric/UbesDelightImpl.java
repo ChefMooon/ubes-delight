@@ -22,6 +22,7 @@ public class UbesDelightImpl implements ModInitializer {
         UbesDelightItemsImpl.register();
         UbesDelightBiomeFeaturesImpl.register();
         UbesDelightCreativeTabs.register();
+        UbesDelightDataComponentTypesImpl.register();
         UbesDelightPlacementModifiersImpl.register();
         UbesDelightRecipeTypesImpl.register();
         UbesDelightRecipeSerializersImpl.register();

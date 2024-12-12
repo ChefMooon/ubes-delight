@@ -2,10 +2,13 @@ package com.chefmooon.ubesdelight.common.block.leaf_feast.base;
 
 import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
+import com.chefmooon.ubesdelight.common.registry.UbesDelightDataComponentTypes;
 import com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -26,16 +29,16 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
 
 import static com.chefmooon.ubesdelight.common.utility.VoxelShapeUtil.getRotatedShapes;
 
 public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
     public Supplier<Item> servingItem;
-    protected final HashMap<LeafFeastTypes, HashMap<Integer, VoxelShape[]>> FEAST_VARIANTS_SERVINGS;
+    protected final ConcurrentHashMap<LeafFeastTypes, ConcurrentHashMap<Integer, VoxelShape[]>> FEAST_VARIANTS_SERVINGS;
 
-    public SimpleLeafFeastBlock(Supplier<Item> servingItem, Properties properties, HashMap<LeafFeastTypes, HashMap<Integer, VoxelShape>> voxelShapes) {
+    public SimpleLeafFeastBlock(Supplier<Item> servingItem, Properties properties, ConcurrentHashMap<LeafFeastTypes, ConcurrentHashMap<Integer, VoxelShape>> voxelShapes) {
         super(properties);
         this.servingItem = servingItem;
         this.FEAST_VARIANTS_SERVINGS = getRotatedShapes(voxelShapes);
@@ -164,7 +167,12 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
         BlockState rightBlockState = blockGetter.getBlockState(blockPos.relative(connectDirections.getSecond()));
         BlockState leftBlockState = blockGetter.getBlockState(blockPos.relative(connectDirections.getFirst()));
 
-        LeafFeastTypes leafFeastType = placementConnectsTo(facing, leftBlockState) || placementConnectsTo(facing, rightBlockState) ? LeafFeastTypes.MIDDLE : LeafFeastTypes.BASE;
+        int servings = context.getItemInHand().has(BuiltInRegistries.DATA_COMPONENT_TYPE.get(UbesDelightDataComponentTypes.SIMPLE_LEAF_FEAST_SERVINGS))
+                ? context.getItemInHand().get((DataComponentType<Integer>) BuiltInRegistries.DATA_COMPONENT_TYPE.get(UbesDelightDataComponentTypes.SIMPLE_LEAF_FEAST_SERVINGS))
+                : MAX_SERVINGS;
+        LeafFeastTypes leafFeastType = servings > 3
+                ? placementConnectsTo(facing, leftBlockState) || placementConnectsTo(facing, rightBlockState) ? LeafFeastTypes.MIDDLE : LeafFeastTypes.BASE
+                : getLeafFeastType(placementConnectsTo(facing, leftBlockState), placementConnectsTo(facing, rightBlockState));
 
         return this.defaultBlockState().setValue(FACING, facing).setValue(LEAF_FEAST_TYPE, leafFeastType).setValue(WATERLOGGED, fluid.getType() == Fluids.WATER);
     }

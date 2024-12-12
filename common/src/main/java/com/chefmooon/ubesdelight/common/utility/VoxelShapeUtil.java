@@ -10,13 +10,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class VoxelShapeUtil {
 
-    public static HashMap<LeafFeastTypes, HashMap<Integer, VoxelShape[]>> getRotatedShapes(HashMap<LeafFeastTypes, HashMap<Integer, VoxelShape>> voxelShapes) {
-        HashMap<LeafFeastTypes, HashMap<Integer, VoxelShape[]>> result = new HashMap<>();
+    public static ConcurrentHashMap<LeafFeastTypes, ConcurrentHashMap<Integer, VoxelShape[]>> getRotatedShapes(ConcurrentHashMap<LeafFeastTypes, ConcurrentHashMap<Integer, VoxelShape>> voxelShapes) {
+        ConcurrentHashMap<LeafFeastTypes, ConcurrentHashMap<Integer, VoxelShape[]>> result = new ConcurrentHashMap<>();
         voxelShapes.forEach(((leafFeastTypes, integerVoxelShapeMap) -> {
-            HashMap<Integer, VoxelShape[]> innerMap = result.computeIfAbsent(leafFeastTypes, k -> new HashMap<>());
+            ConcurrentHashMap<Integer, VoxelShape[]> innerMap = result.computeIfAbsent(leafFeastTypes, k -> new ConcurrentHashMap<>());
             integerVoxelShapeMap.forEach((integer, voxelShape) -> {
                 innerMap.put(integer, getRotatedShapes(voxelShape));
             });

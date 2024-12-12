@@ -1,0 +1,6 @@
+{
+  "parent": "ubesdelight:item/flat_handheld_item_flipped",
+  "textures": {
+    "layer0": "ubesdelight:item/leaf_feast_pandesal_ube_half"
+  }
+}
