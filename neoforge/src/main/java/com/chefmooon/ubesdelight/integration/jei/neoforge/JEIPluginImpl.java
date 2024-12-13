@@ -37,7 +37,12 @@ public class JEIPluginImpl implements IModPlugin {
         UDRecipesImpl recipes = new UDRecipesImpl();
         registration.addRecipes(UDRecipeTypesImpl.BAKING_MAT, recipes.getBakingMatRecipes());
 
-        registration.addIngredientInfo(new ItemStack(UbesDelightItemsImpl.ROLLING_PIN_WOOD.get()), VanillaTypes.ITEM_STACK, TextUtils.getTranslatable("rei.info.rolling_pin"));
+        registration.addIngredientInfo(List.of(new ItemStack(UbesDelightItemsImpl.ROLLING_PIN_WOOD.get()),
+                        new ItemStack(UbesDelightItemsImpl.ROLLING_PIN_IRON.get()),
+                        new ItemStack(UbesDelightItemsImpl.ROLLING_PIN_GOLD.get()),
+                        new ItemStack(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND.get()),
+                        new ItemStack(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE.get())),
+                VanillaTypes.ITEM_STACK, TextUtils.getTranslatable("rei.info.rolling_pin"));
 
         registration.addIngredientInfo(List.of(new ItemStack(UbesDelightItemsImpl.WILD_UBE.get()), new ItemStack(UbesDelightItemsImpl.UBE.get())), VanillaTypes.ITEM_STACK, TextUtils.getTranslatable("rei.info.ube"));
         registration.addIngredientInfo(List.of(new ItemStack(UbesDelightItemsImpl.WILD_GARLIC.get()), new ItemStack(UbesDelightItemsImpl.GARLIC.get())), VanillaTypes.ITEM_STACK, TextUtils.getTranslatable("rei.info.garlic"));

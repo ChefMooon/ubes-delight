@@ -29,7 +29,7 @@ public class BakingMatTrigger extends SimpleCriterionTrigger<BakingMatTrigger.Tr
                         .apply(builder, BakingMatTrigger.TriggerInstance::new)
         );
         public static Criterion<TriggerInstance> simple() {
-            return UbesDelightAdvancements.getBakingMatTrigger().get().createCriterion(
+            return UbesDelightAdvancements.USE_BAKING_MAT.get().createCriterion(
                     new BakingMatTrigger.TriggerInstance(Optional.empty())
             );
         }

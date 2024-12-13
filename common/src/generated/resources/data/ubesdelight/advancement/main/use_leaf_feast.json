@@ -1,0 +1,26 @@
+{
+  "parent": "ubesdelight:main/place_leaf_feast",
+  "criteria": {
+    "use_leaf_feast": {
+      "trigger": "ubesdelight:use_leaf_feast"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "ubesdelight.advancement.use_leaf_feast.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "ubesdelight:leaf_feast_ensaymada_half"
+    },
+    "title": {
+      "translate": "ubesdelight.advancement.use_leaf_feast"
+    }
+  },
+  "requirements": [
+    [
+      "use_leaf_feast"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

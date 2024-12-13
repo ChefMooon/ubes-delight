@@ -1,6 +1,7 @@
 package com.chefmooon.ubesdelight;
 
 import com.chefmooon.ubesdelight.common.Configuration;
+import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightSounds;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -25,7 +26,7 @@ public class UbesDelight {
 
     public static void init() {
         UbesDelightSounds.init();
-        //UbesDelightAdvancements.register();
+        UbesDelightAdvancements.init();
         Configuration.init();
     }
 

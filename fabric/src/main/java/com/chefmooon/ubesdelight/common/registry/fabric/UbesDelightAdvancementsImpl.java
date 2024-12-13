@@ -10,13 +10,12 @@ import java.util.function.Supplier;
 
 public class UbesDelightAdvancementsImpl {
     public static final DeferredRegister<CriterionTrigger<?>> TRIGGERS = DeferredRegister.create(Registries.TRIGGER_TYPE, UbesDelight.MOD_ID);
-    public static final Supplier<BakingMatTrigger> USE_BAKING_MAT = TRIGGERS.register("use_baking_mat", BakingMatTrigger::new);
+
+    public static <T extends CriterionTrigger<?>> Supplier<T> registerTrigger(String name, Supplier<T> triggerSupplier) {
+        return TRIGGERS.register(name, triggerSupplier);
+    }
 
     public static void register() {
         TRIGGERS.register();
-    }
-
-    public static Supplier<BakingMatTrigger> getBakingMatTrigger() {
-        return USE_BAKING_MAT;
     }
 }

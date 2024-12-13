@@ -1,7 +1,7 @@
 {
   "parent": "ubesdelight:main/root",
   "criteria": {
-    "kalan": {
+    "place_kalan": {
       "conditions": {
         "location": [
           {
@@ -14,24 +14,20 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "ubesdelight.advancement.place_kalan.desc"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "count": 1,
       "id": "ubesdelight:kalan"
     },
-    "show_toast": true,
     "title": {
       "translate": "ubesdelight.advancement.place_kalan"
     }
   },
   "requirements": [
     [
-      "kalan"
+      "place_kalan"
     ]
   ],
   "sends_telemetry_event": true

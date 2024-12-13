@@ -4,8 +4,8 @@ import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.block.entity.BakingMatBlockEntity;
 import com.chefmooon.ubesdelight.common.block.neoforge.BakingMatBlockImpl;
 import com.chefmooon.ubesdelight.common.crafting.neoforge.BakingMatRecipeImpl;
+import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightSounds;
-import com.chefmooon.ubesdelight.common.registry.neoforge.UbesDelightAdvancementsImpl;
 import com.chefmooon.ubesdelight.common.registry.neoforge.UbesDelightBlockEntityTypesImpl;
 import com.chefmooon.ubesdelight.common.registry.neoforge.UbesDelightRecipeTypesImpl;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
@@ -184,7 +184,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
 
     private void triggerAdvancement(Player player) {
         if (player instanceof ServerPlayer) {
-            UbesDelightAdvancementsImpl.USE_BAKING_MAT.get().trigger((ServerPlayer) player);
+            UbesDelightAdvancements.USE_BAKING_MAT.get().trigger((ServerPlayer) player);
         }
     }
 

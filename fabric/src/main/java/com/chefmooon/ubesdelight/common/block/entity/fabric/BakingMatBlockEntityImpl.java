@@ -3,8 +3,8 @@ package com.chefmooon.ubesdelight.common.block.entity.fabric;
 import com.chefmooon.ubesdelight.common.block.entity.BakingMatBlockEntity;
 import com.chefmooon.ubesdelight.common.block.fabric.BakingMatBlockImpl;
 import com.chefmooon.ubesdelight.common.crafting.fabric.BakingMatRecipeImpl;
+import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightSounds;
-import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightAdvancementsImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlockEntityTypesImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightRecipeTypesImpl;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
@@ -187,7 +187,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
 
     private void triggerAdvancement(Player player) {
         if (player instanceof ServerPlayer) {
-            UbesDelightAdvancementsImpl.USE_BAKING_MAT.get().trigger((ServerPlayer) player);
+            UbesDelightAdvancements.USE_BAKING_MAT.get().trigger((ServerPlayer) player);
         }
     }
 

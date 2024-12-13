@@ -1,7 +1,7 @@
 package com.chefmooon.ubesdelight.common.advancement.fabric;
 
 import com.chefmooon.ubesdelight.common.advancement.BakingMatTrigger;
-import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightAdvancementsImpl;
+import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.advancements.Criterion;
@@ -20,7 +20,7 @@ public class BakingMatTriggerImpl extends BakingMatTrigger {
                         .apply(builder, BakingMatTrigger.TriggerInstance::new)
         );
         public static Criterion<BakingMatTrigger.TriggerInstance> simple() {
-            return UbesDelightAdvancementsImpl.USE_BAKING_MAT.get().createCriterion(
+            return UbesDelightAdvancements.USE_BAKING_MAT.get().createCriterion(
                     new BakingMatTrigger.TriggerInstance(Optional.empty())
             );
         }

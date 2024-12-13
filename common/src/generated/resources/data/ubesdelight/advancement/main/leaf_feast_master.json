@@ -1,0 +1,141 @@
+{
+  "parent": "ubesdelight:main/leaf_feast",
+  "criteria": {
+    "leaf_feast_ensaymada": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_ensaymada"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leaf_feast_ensaymada_half": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_ensaymada_half"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leaf_feast_hopia_munggo": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_hopia_munggo"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leaf_feast_hopia_munggo_half": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_hopia_munggo_half"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leaf_feast_hopia_ube": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_hopia_ube"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leaf_feast_hopia_ube_half": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_hopia_ube_half"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leaf_feast_pandesal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_pandesal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leaf_feast_pandesal_half": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_pandesal_half"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "lumpia_feast": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:lumpia_feast"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "ubesdelight.advancement.leaf_feast_master.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "ubesdelight:lumpia_feast"
+    },
+    "title": {
+      "translate": "ubesdelight.advancement.leaf_feast_master"
+    }
+  },
+  "requirements": [
+    [
+      "lumpia_feast"
+    ],
+    [
+      "leaf_feast_ensaymada"
+    ],
+    [
+      "leaf_feast_ensaymada_half"
+    ],
+    [
+      "leaf_feast_pandesal"
+    ],
+    [
+      "leaf_feast_pandesal_half"
+    ],
+    [
+      "leaf_feast_hopia_munggo"
+    ],
+    [
+      "leaf_feast_hopia_munggo_half"
+    ],
+    [
+      "leaf_feast_hopia_ube"
+    ],
+    [
+      "leaf_feast_hopia_ube_half"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  },
+  "sends_telemetry_event": true
+}

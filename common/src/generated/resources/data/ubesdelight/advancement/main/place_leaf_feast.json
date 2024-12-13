@@ -1,0 +1,52 @@
+{
+  "parent": "ubesdelight:main/leaf_feast",
+  "criteria": {
+    "place_has_leaf_feast_end": {
+      "conditions": {
+        "location": [
+          {
+            "block": "ubesdelight:leaf_feast",
+            "condition": "minecraft:block_state_property",
+            "properties": {
+              "leaf_feast_type": "end"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "place_has_leaf_feast_tip": {
+      "conditions": {
+        "location": [
+          {
+            "block": "ubesdelight:leaf_feast",
+            "condition": "minecraft:block_state_property",
+            "properties": {
+              "leaf_feast_type": "tip"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "ubesdelight.advancement.place_leaf_feast.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "ubesdelight:leaf_feast"
+    },
+    "title": {
+      "translate": "ubesdelight.advancement.place_leaf_feast"
+    }
+  },
+  "requirements": [
+    [
+      "place_has_leaf_feast_tip",
+      "place_has_leaf_feast_end"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

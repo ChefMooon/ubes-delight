@@ -19,7 +19,7 @@ public class BaseLeafFeastBlockImpl implements LeafFeastBlock {
         BaseLeafFeastBlockImpl baseLeafFeastBlock = new BaseLeafFeastBlockImpl();
         if (level.setBlock(pos, baseLeafFeastBlock.getTransformState(BuiltInRegistryUtil.getBlock(UbesDelightBlocks.UNIVERSAL_LEAF_FEAST), state), 3)) {
             if (level.getBlockEntity(pos) instanceof UniversalLeafFeastBlockEntityImpl universalLeafFeastBlockEntity) {
-                universalLeafFeastBlockEntity.addItem(player.getAbilities().instabuild ? itemStack.copy() : itemStack);
+                universalLeafFeastBlockEntity.addItem(player, player.getAbilities().instabuild ? itemStack.copy() : itemStack);
             }
             baseLeafFeastBlock.playAddSound(level, pos);
             return ItemInteractionResult.SUCCESS;

@@ -1,0 +1,33 @@
+{
+  "parent": "ubesdelight:main/root",
+  "criteria": {
+    "has_leaf_feast": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "ubesdelight.advancement.leaf_feast.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:oak_leaves"
+    },
+    "title": {
+      "translate": "ubesdelight.advancement.leaf_feast"
+    }
+  },
+  "requirements": [
+    [
+      "has_leaf_feast"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -135,7 +135,6 @@ public class CraftingRecipes {
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST)));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, UbesDelightItemsImpl.LUMPIA_FEAST)
-                .pattern("   ")
                 .pattern("AAA")
                 .pattern("BBB")
                 .define('A', UbesDelightItemsImpl.LUMPIA)

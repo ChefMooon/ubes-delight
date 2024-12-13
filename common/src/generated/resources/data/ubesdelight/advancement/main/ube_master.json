@@ -1,42 +1,18 @@
 {
   "parent": "ubesdelight:main/place_kalan",
   "criteria": {
-    "ube_cookie": {
+    "cookie_ube": {
       "conditions": {
         "item": {
-          "items": [
-            "ubesdelight:cookie_ube"
-          ]
+          "items": "ubesdelight:cookie_ube"
         }
       },
       "trigger": "minecraft:consume_item"
     },
-    "ube_cake": {
+    "ensaymada_ube": {
       "conditions": {
         "item": {
-          "items": [
-            "ubesdelight:ube_cake_slice"
-          ]
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "polvorone_ube": {
-      "conditions": {
-        "item": {
-          "items": [
-            "ubesdelight:polvorone_ube"
-          ]
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "pandesal_ube": {
-      "conditions": {
-        "item": {
-          "items": [
-            "ubesdelight:pandesal_ube"
-          ]
+          "items": "ubesdelight:ensaymada_ube"
         }
       },
       "trigger": "minecraft:consume_item"
@@ -44,43 +20,60 @@
     "hopia_ube": {
       "conditions": {
         "item": {
-          "items": [
-            "ubesdelight:hopia_ube"
-          ]
+          "items": "ubesdelight:hopia_ube"
         }
       },
       "trigger": "minecraft:consume_item"
     },
-    "ube_milk_tea": {
+    "milk_tea_ube": {
       "conditions": {
         "item": {
-          "items": [
-            "ubesdelight:milk_tea_ube"
-          ]
+          "items": "ubesdelight:milk_tea_ube"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "pandesal_ube": {
+      "conditions": {
+        "item": {
+          "items": "ubesdelight:pandesal_ube"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "polvorone_ube": {
+      "conditions": {
+        "item": {
+          "items": "ubesdelight:polvorone_ube"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "ube_cake": {
+      "conditions": {
+        "item": {
+          "items": "ubesdelight:ube_cake"
         }
       },
       "trigger": "minecraft:consume_item"
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "ubesdelight.advancement.ube_master.desc"
     },
     "frame": "challenge",
-    "hidden": false,
     "icon": {
       "count": 1,
       "id": "ubesdelight:ube_cake_slice"
     },
-    "show_toast": true,
     "title": {
       "translate": "ubesdelight.advancement.ube_master"
     }
   },
   "requirements": [
     [
-      "ube_cookie"
+      "cookie_ube"
     ],
     [
       "ube_cake"
@@ -89,16 +82,20 @@
       "polvorone_ube"
     ],
     [
+      "ensaymada_ube"
+    ],
+    [
       "pandesal_ube"
     ],
     [
       "hopia_ube"
     ],
     [
-      "ube_milk_tea"
+      "milk_tea_ube"
     ]
   ],
   "rewards": {
     "experience": 50
-  }
+  },
+  "sends_telemetry_event": true
 }

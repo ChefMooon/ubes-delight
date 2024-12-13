@@ -1,0 +1,38 @@
+{
+  "parent": "ubesdelight:main/craft_baking_mat",
+  "criteria": {
+    "has_rolling_pin_netherite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:rolling_pin_netherite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "ubesdelight.advancement.netherite_rolling_pin.desc"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "ubesdelight:rolling_pin_netherite"
+    },
+    "title": {
+      "translate": "ubesdelight.advancement.netherite_rolling_pin"
+    }
+  },
+  "requirements": [
+    [
+      "has_rolling_pin_netherite"
+    ]
+  ],
+  "rewards": {
+    "experience": 200
+  },
+  "sends_telemetry_event": true
+}

@@ -1,25 +1,11 @@
 {
   "parent": "ubesdelight:main/root",
   "criteria": {
-    "ube": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "ubesdelight:ube"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "garlic": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "ubesdelight:garlic"
-            ]
+            "items": "ubesdelight:garlic"
           }
         ]
       },
@@ -29,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "ubesdelight:ginger"
-            ]
+            "items": "ubesdelight:ginger"
           }
         ]
       },
@@ -41,9 +25,17 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "ubesdelight:lemongrass_seeds"
-            ]
+            "items": "ubesdelight:lemongrass_seeds"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "ube": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:ube"
           }
         ]
       },
@@ -51,17 +43,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "ubesdelight.advancement.get_ud_seed.desc"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "count": 1,
       "id": "ubesdelight:wild_ube"
     },
-    "show_toast": true,
     "title": {
       "translate": "ubesdelight.advancement.get_ud_seed"
     }
@@ -69,9 +57,10 @@
   "requirements": [
     [
       "ube",
-      "garlic",
       "ginger",
+      "garlic",
       "lemongrass_seeds"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

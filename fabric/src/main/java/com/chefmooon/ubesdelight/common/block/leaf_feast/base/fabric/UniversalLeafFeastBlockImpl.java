@@ -51,7 +51,7 @@ public class UniversalLeafFeastBlockImpl extends UniversalLeafFeastBlock {
             if (state.getValue(LEAF_FEAST_TYPE) == LeafFeastTypes.END || state.getValue(LEAF_FEAST_TYPE) == LeafFeastTypes.TIP) {
                 if (servings >= 3) return ItemInteractionResult.FAIL;
             }
-            if (universalLeafFeastBlockEntity.addItem(player.getAbilities().instabuild ? heldStack.copy() : heldStack)) {
+            if (universalLeafFeastBlockEntity.addItem(player, player.getAbilities().instabuild ? heldStack.copy() : heldStack)) {
                 level.setBlock(pos, state.setValue(SERVINGS, servings + 1), 3);
                 playAddSound(level, universalLeafFeastBlockEntity.getBlockPos());
                 return ItemInteractionResult.SUCCESS;

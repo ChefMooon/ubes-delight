@@ -12,6 +12,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec2;
@@ -76,12 +77,13 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
         return !inventory.getItem(MAX_ITEMS).isEmpty();
     }
 
-    public boolean addItem(ItemStack itemStack) {
+    public boolean addItem(Player player, ItemStack itemStack) {
         for (int i = 0; i < inventory.getSlotCount(); i++) {
             ItemStack inventoryStack = inventory.getItem(i);
             if (inventoryStack.isEmpty()) {
                 inventory.setItem(i, itemStack.split(1));
                 inventoryChanged();
+                UniversalLeafFeastBlockEntity.triggerAdvancement(player);
                 return true;
             }
         }

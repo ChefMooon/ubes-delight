@@ -1,7 +1,6 @@
 package com.chefmooon.ubesdelight.data.fabric;
 
 import com.chefmooon.ubesdelight.UbesDelight;
-import com.chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
@@ -205,6 +204,9 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(ADVANCEMENT + "craft_rolling_pin", "Rolling Pin");
         translationBuilder.add(ADVANCEMENT + "craft_rolling_pin.desc", "Use sticks and a fence to make a new tool for the kitchen");
 
+        translationBuilder.add(ADVANCEMENT + "netherite_rolling_pin", "Rolling in the Deep");
+        translationBuilder.add(ADVANCEMENT + "netherite_rolling_pin.desc", "Upgrade your Rolling Pin with a Netherite Ingot! You must be serious about baking");
+
         translationBuilder.add(ADVANCEMENT + "craft_baking_mat", "Baking Mat");
         translationBuilder.add(ADVANCEMENT + "craft_baking_mat.desc", "Surround honeycomb with bamboo to craft a Baking Mat");
 
@@ -231,6 +233,18 @@ public class TranslationGenerator extends FabricLanguageProvider {
 
         translationBuilder.add(ADVANCEMENT + "get_ud_seed", "Crops of the Tropics");
         translationBuilder.add(ADVANCEMENT + "get_ud_seed.desc", "Adventure to find four new crops, only found in jungles and some village chests.");
+
+        translationBuilder.add(ADVANCEMENT + "leaf_feast", "Leaf Feast");
+        translationBuilder.add(ADVANCEMENT + "leaf_feast.desc", "Crafted with 3 leaves of any kind. When placed you can share food 'Kamayan' (by hand) style, a tradition in the Philippines");
+
+        translationBuilder.add(ADVANCEMENT + "place_leaf_feast", "Never-ending Feast");
+        translationBuilder.add(ADVANCEMENT + "place_leaf_feast.desc", "When placed and facing the same direction the shape changes. Place 2, 3, or more in a row!");
+
+        translationBuilder.add(ADVANCEMENT + "use_leaf_feast", "Universal Leaf Feast");
+        translationBuilder.add(ADVANCEMENT + "use_leaf_feast.desc", "Edible items can be placed inside, try it out!");
+
+        translationBuilder.add(ADVANCEMENT + "leaf_feast_master", "Leaf Feast Master");
+        translationBuilder.add(ADVANCEMENT + "leaf_feast_master.desc", "Feasts, including some half-feasts, can be crafted. Craft them all!");
 
         translationBuilder.add(SUBTITLES + "block_baking_mat.add", "Item added");
         translationBuilder.add(SUBTITLES + "block_baking_mat.remove", "Item Removed");
