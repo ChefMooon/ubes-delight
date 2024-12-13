@@ -1,6 +1,5 @@
 package com.chefmooon.ubesdelight.common.block.entity.neoforge;
 
-import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.block.entity.UniversalLeafFeastBlockEntity;
 import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.neoforge.UbesDelightBlockEntityTypesImpl;
@@ -12,15 +11,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec2;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
 
-//@EventBusSubscriber(modid = UbesDelight.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
     public static final int MAX_ITEMS = UniversalLeafFeastBlockEntity.MAX_ITEMS;
     private final ItemStackHandler inventory;
@@ -79,7 +73,6 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
             if (inventoryStack.isEmpty()) {
                 inventory.setStackInSlot(i, itemStack.split(1));
                 inventoryChanged();
-                UniversalLeafFeastBlockEntity.triggerAdvancement(player);
                 return true;
             }
         }
@@ -116,16 +109,6 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
     public Vec2 getItemOffset(int index, LeafFeastTypes leafFeastType) {
         return UniversalLeafFeastBlockEntity.getItemOffset(index, leafFeastType);
     }
-
-    // todo - neoforge review hopper interaction
-//    @SubscribeEvent
-//    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
-//        event.registerBlockEntity(
-//                Capabilities.ItemHandler.BLOCK,
-//                UbesDelightBlockEntityTypesImpl.UNIVERSAL_LEAF_FEAST.get(),
-//                (be, context) -> be.getInventory()
-//        );
-//    }
 
     @Override
     public void setRemoved() {

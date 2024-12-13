@@ -1,9 +1,6 @@
 package com.chefmooon.ubesdelight.common.block.entity;
 
 import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
-import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec2;
 
 public class UniversalLeafFeastBlockEntity {
@@ -38,11 +35,5 @@ public class UniversalLeafFeastBlockEntity {
             return offsets[index];
         }
         return  new Vec2(0.0f, 0.0f);
-    }
-
-    public static void triggerAdvancement(Player player) {
-        if (player instanceof ServerPlayer) {
-            UbesDelightAdvancements.USE_LEAF_FEAST.get().trigger((ServerPlayer) player);
-        }
     }
 }

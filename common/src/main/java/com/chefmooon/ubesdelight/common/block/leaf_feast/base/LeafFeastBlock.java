@@ -3,12 +3,15 @@ package com.chefmooon.ubesdelight.common.block.leaf_feast.base;
 import com.chefmooon.ubesdelight.common.block.state.properties.LeafFeastTypeProperty;
 import com.chefmooon.ubesdelight.common.block.state.properties.UbesDelightBlockStateProperties;
 import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
+import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightShapes;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightSounds;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -95,6 +98,18 @@ public interface LeafFeastBlock {
 
     default void playRemoveSound(Level level, BlockPos pos) {
         level.playSound(null, pos, UbesDelightSounds.BLOCK_LEAF_FEAST_REMOVE.get(), SoundSource.PLAYERS, 0.6F, 0.8F);
+    }
+
+    static void triggerConsumeAdvancement(Player player) {
+        if (player instanceof ServerPlayer) {
+            UbesDelightAdvancements.USE_LEAF_FEAST_CONSUME.get().trigger((ServerPlayer) player);
+        }
+    }
+
+    static void triggerInsertAdvancement(Player player) {
+        if (player instanceof ServerPlayer) {
+            UbesDelightAdvancements.USE_LEAF_FEAST_INSERT.get().trigger((ServerPlayer) player);
+        }
     }
 
 }

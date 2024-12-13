@@ -6,6 +6,7 @@ import com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -27,6 +28,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
 
@@ -103,8 +105,12 @@ public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
             level.setBlock(pos, state.setValue(SERVINGS, servings - 1), 3);
             playRemoveSound(level, pos);
             if (!player.isCreative()) {
-                if (!player.getInventory().add(itemStack)) {
-                    player.drop(itemStack, false);
+                if (player.isShiftKeyDown() && (player.getFoodData().needsFood() || Objects.requireNonNull(itemStack.get(DataComponents.FOOD)).canAlwaysEat())) {
+                    tryEat(itemStack, level, pos, player);
+                } else {
+                    if (!player.getInventory().add(itemStack)) {
+                        player.drop(itemStack, false);
+                    }
                 }
             }
             return ItemInteractionResult.SUCCESS;
@@ -114,8 +120,12 @@ public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
             level.updateNeighbourForOutputSignal(pos, block);
             playRemoveSound(level, pos);
             if (!player.isCreative()) {
-                if (!player.getInventory().add(itemStack)) {
-                    player.drop(itemStack, false);
+                if (player.isShiftKeyDown() && (player.getFoodData().needsFood() || Objects.requireNonNull(itemStack.get(DataComponents.FOOD)).canAlwaysEat())) {
+                    tryEat(itemStack, level, pos, player);
+                } else {
+                    if (!player.getInventory().add(itemStack)) {
+                        player.drop(itemStack, false);
+                    }
                 }
             }
             return ItemInteractionResult.SUCCESS;

@@ -4,7 +4,6 @@ import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.block.entity.BakingMatBlockEntity;
 import com.chefmooon.ubesdelight.common.block.neoforge.BakingMatBlockImpl;
 import com.chefmooon.ubesdelight.common.crafting.neoforge.BakingMatRecipeImpl;
-import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightSounds;
 import com.chefmooon.ubesdelight.common.registry.neoforge.UbesDelightBlockEntityTypesImpl;
 import com.chefmooon.ubesdelight.common.registry.neoforge.UbesDelightRecipeTypesImpl;
@@ -117,7 +116,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
                 spawnRolledResults(recipe.value(), blockPos, level, tool, ingredientContainers);
             }
 
-            triggerAdvancement(player);
+            BakingMatBlockEntity.triggerAdvancement(player);
             if (!level.isClientSide) tool.hurtAndBreak(1, (ServerLevel) level, (ServerPlayer) player, (item) -> {});
             playProcessingSound(recipe.value().getSoundEvent().orElse(null), tool);
         });
@@ -180,12 +179,6 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     private void playSound(SoundEvent sound, float volume, float pitch) {
         if (level != null)
             level.playSound(null, worldPosition.getX() + 0.5F, worldPosition.getY() + 0.5F, worldPosition.getZ() + 0.5F, sound, SoundSource.BLOCKS, volume, pitch);
-    }
-
-    private void triggerAdvancement(Player player) {
-        if (player instanceof ServerPlayer) {
-            UbesDelightAdvancements.USE_BAKING_MAT.get().trigger((ServerPlayer) player);
-        }
     }
 
     public static void spawnParticles(Level level, BlockPos pos, ItemStack stack, int count) {

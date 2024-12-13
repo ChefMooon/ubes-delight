@@ -1,11 +1,12 @@
 {
   "parent": "ubesdelight:main/place_leaf_feast",
   "criteria": {
-    "use_leaf_feast": {
-      "trigger": "ubesdelight:use_leaf_feast"
+    "use_leaf_feast_insert": {
+      "trigger": "ubesdelight:use_leaf_feast_insert"
     }
   },
   "display": {
+    "announce_to_chat": false,
     "description": {
       "translate": "ubesdelight.advancement.use_leaf_feast.desc"
     },
@@ -19,7 +20,7 @@
   },
   "requirements": [
     [
-      "use_leaf_feast"
+      "use_leaf_feast_insert"
     ]
   ],
   "sends_telemetry_event": true

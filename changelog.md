@@ -30,7 +30,7 @@ NeoForge and Fabric.
       - Leaf Feasts stack to 8, Half Leaf Feasts stack to 16(also Leaf Feasts with 3 servings)
     - Can be created and refilled by dispenser's
     - Special variants can be crafted and placed with 6 servings
-- 5 New Advancements to help explain the Leaf Feast
+- 6 New Advancements to help explain the Leaf Feast
 - New Rolling Pin Tiers
   - Iron, Gold, Diamond, Netherite
   - Slightly reduce attack speed

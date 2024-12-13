@@ -15,6 +15,20 @@
       },
       "trigger": "minecraft:placed_block"
     },
+    "place_has_leaf_feast_middle": {
+      "conditions": {
+        "location": [
+          {
+            "block": "ubesdelight:leaf_feast",
+            "condition": "minecraft:block_state_property",
+            "properties": {
+              "leaf_feast_type": "middle"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
     "place_has_leaf_feast_tip": {
       "conditions": {
         "location": [
@@ -45,7 +59,8 @@
   "requirements": [
     [
       "place_has_leaf_feast_tip",
-      "place_has_leaf_feast_end"
+      "place_has_leaf_feast_end",
+      "place_has_leaf_feast_middle"
     ]
   ],
   "sends_telemetry_event": true

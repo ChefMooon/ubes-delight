@@ -2,7 +2,6 @@ package com.chefmooon.ubesdelight.common.block.leaf_feast.base.fabric;
 
 import com.chefmooon.ubesdelight.common.block.entity.fabric.UniversalLeafFeastBlockEntityImpl;
 import com.chefmooon.ubesdelight.common.block.leaf_feast.base.LeafFeastBlock;
-import com.chefmooon.ubesdelight.common.block.leaf_feast.base.UniversalLeafFeastBlock;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
 import com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil;
 import net.minecraft.core.BlockPos;
@@ -11,7 +10,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class BaseLeafFeastBlockImpl implements LeafFeastBlock {

@@ -21,7 +21,7 @@ public class BakingMatTrigger extends SimpleCriterionTrigger<BakingMatTrigger.Tr
         this.trigger(player, TriggerInstance::test);
     }
 
-    public static record TriggerInstance(Optional<ContextAwarePredicate> player) implements SimpleCriterionTrigger.SimpleInstance
+    public record TriggerInstance(Optional<ContextAwarePredicate> player) implements SimpleCriterionTrigger.SimpleInstance
     {
         public static final Codec<BakingMatTrigger.TriggerInstance> CODEC = RecordCodecBuilder.create(
                 builder -> builder.group(

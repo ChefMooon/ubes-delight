@@ -140,6 +140,8 @@
   "tag.item.c.tea_ingredients.sweet.weak": "Sweet Weak",
   "tag.item.c.tools.rolling_pin": "Rolling Pins",
   "tag.item.ubesdelight.tools.rolling_pin": "Rolling Pins",
+  "ubesdelight.advancement.boodle_fight": "Boodle Fight",
+  "ubesdelight.advancement.boodle_fight.desc": "While shifting and with an empty hand, you can right-click to eat directly from the Leaf Feast. Eat as much as you can!",
   "ubesdelight.advancement.craft_baking_mat": "Baking Mat",
   "ubesdelight.advancement.craft_baking_mat.desc": "Surround honeycomb with bamboo to craft a Baking Mat",
   "ubesdelight.advancement.craft_rolling_pin": "Rolling Pin",

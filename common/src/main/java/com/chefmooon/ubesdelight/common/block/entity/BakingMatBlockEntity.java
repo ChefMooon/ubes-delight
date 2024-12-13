@@ -1,5 +1,8 @@
 package com.chefmooon.ubesdelight.common.block.entity;
 
+import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec2;
 
 public class BakingMatBlockEntity {
@@ -18,5 +21,11 @@ public class BakingMatBlockEntity {
         };
 
         return offsets[index];
+    }
+
+    public static void triggerAdvancement(Player player) {
+        if (player instanceof ServerPlayer) {
+            UbesDelightAdvancements.USE_BAKING_MAT.get().trigger((ServerPlayer) player);
+        }
     }
 }

@@ -246,6 +246,9 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(ADVANCEMENT + "leaf_feast_master", "Leaf Feast Master");
         translationBuilder.add(ADVANCEMENT + "leaf_feast_master.desc", "Feasts, including some half-feasts, can be crafted. Craft them all!");
 
+        translationBuilder.add(ADVANCEMENT + "boodle_fight", "Boodle Fight");
+        translationBuilder.add(ADVANCEMENT + "boodle_fight.desc", "While shifting and with an empty hand, you can right-click to eat directly from the Leaf Feast. Eat as much as you can!");
+
         translationBuilder.add(SUBTITLES + "block_baking_mat.add", "Item added");
         translationBuilder.add(SUBTITLES + "block_baking_mat.remove", "Item Removed");
         translationBuilder.add(SUBTITLES + "block_baking_mat.rolling_pin", "Rolling Pin rolls");

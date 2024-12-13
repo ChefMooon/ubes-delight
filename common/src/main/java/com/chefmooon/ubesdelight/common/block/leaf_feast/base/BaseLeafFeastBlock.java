@@ -4,6 +4,7 @@ import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil;
+import com.chefmooon.ubesdelight.common.utility.ItemStackUtil;
 import com.mojang.datafixers.util.Pair;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.BlockPos;
@@ -96,6 +97,7 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
             if (level.setBlock(pos, newState, 3)) {
                 if (!player.getAbilities().instabuild) itemStack.split(1);
                 playAddSound(level, pos);
+                LeafFeastBlock.triggerInsertAdvancement(player);
                 return ItemInteractionResult.SUCCESS;
             }
 
@@ -104,6 +106,14 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION; // is fail better here?
     }
 
+    public static void tryEat(ItemStack itemStack, Level level, BlockPos pos, Player player) {
+        ItemStack container = ItemStackUtil.getContainer(itemStack);
+        if (!container.isEmpty()) {
+            spawnContainer(level, pos, player.getDirection().getOpposite(), container);
+        }
+        player.eat(level, itemStack);
+        LeafFeastBlock.triggerConsumeAdvancement(player);
+    }
 
     public static void spawnContainer(Level level, BlockPos blockPos, Direction direction, ItemStack itemStack) {
         ItemEntity entity = new ItemEntity(level,
@@ -112,11 +122,6 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
                 blockPos.getZ() + 0.5 + (direction.getStepZ() * 0.2), itemStack.copy());
         entity.setDeltaMovement(direction.getStepX() * 0.2F, 0.0F, direction.getStepZ() * 0.2F);
         level.addFreshEntity(entity);
-    }
-
-    @ExpectPlatform
-    public static ItemStack getContainer(ItemStack itemStack) {
-        throw new AssertionError();
     }
 
     public boolean addItemFromDispenser(ItemStack itemStack, ServerLevel level, BlockPos pos, BlockState state) {

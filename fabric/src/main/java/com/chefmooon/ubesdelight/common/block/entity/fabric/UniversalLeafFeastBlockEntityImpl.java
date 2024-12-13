@@ -30,11 +30,6 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
         inputHandler = inventory;
     }
 
-    // todo - fabric review hopper interaction
-    public static void init() {
-        ItemStorage.SIDED.registerForBlockEntity(UniversalLeafFeastBlockEntityImpl::getStorage, UbesDelightBlockEntityTypesImpl.UNIVERSAL_LEAF_FEAST.get());
-    }
-
     @Override
     public void loadAdditional(CompoundTag compound, HolderLookup.Provider registries) {
         super.loadAdditional(compound, registries);
@@ -83,7 +78,6 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
             if (inventoryStack.isEmpty()) {
                 inventory.setItem(i, itemStack.split(1));
                 inventoryChanged();
-                UniversalLeafFeastBlockEntity.triggerAdvancement(player);
                 return true;
             }
         }

@@ -1,7 +1,8 @@
 package com.chefmooon.ubesdelight.data.fabric;
 
 import com.chefmooon.ubesdelight.common.advancement.BakingMatTrigger;
-import com.chefmooon.ubesdelight.common.advancement.LeafFeastTrigger;
+import com.chefmooon.ubesdelight.common.advancement.LeafFeastConsumeTrigger;
+import com.chefmooon.ubesdelight.common.advancement.LeafFeastInsertTrigger;
 import com.chefmooon.ubesdelight.common.block.leaf_feast.base.LeafFeastBlock;
 import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
@@ -135,18 +136,26 @@ public class AdvancmentGenerator extends FabricAdvancementProvider {
         AdvancementHolder placeLeafFeast = getAdvancement(leafFeast, UbesDelightItemsImpl.LEAF_FEAST, "place_leaf_feast", AdvancementType.TASK, true, true, false)
                 .addCriterion("place_" + RecipeProvider.getHasName(UbesDelightItemsImpl.LEAF_FEAST) + "_tip",
                         ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(LootItemBlockStatePropertyCondition.hasBlockStateProperties(UbesDelightBlocksImpl.LEAF_FEAST)
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.TIP))))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.TIP))))
                 .addCriterion("place_" + RecipeProvider.getHasName(UbesDelightItemsImpl.LEAF_FEAST) + "_end",
                         ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(LootItemBlockStatePropertyCondition.hasBlockStateProperties(UbesDelightBlocksImpl.LEAF_FEAST)
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.END))))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.END))))
+                .addCriterion("place_" + RecipeProvider.getHasName(UbesDelightItemsImpl.LEAF_FEAST) + "_middle",
+                        ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(LootItemBlockStatePropertyCondition.hasBlockStateProperties(UbesDelightBlocksImpl.LEAF_FEAST)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.MIDDLE))))
                 .requirements(AdvancementRequirements.Strategy.OR)
                 .build(getAdvancementName("place_leaf_feast"));
         consumer.accept(placeLeafFeast);
 
-        AdvancementHolder useLeafFeast = getAdvancement(placeLeafFeast, UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF, "use_leaf_feast", AdvancementType.TASK, true, true, false)
-                .addCriterion("use_leaf_feast", LeafFeastTrigger.TriggerInstance.simple())
+        AdvancementHolder useLeafFeast = getAdvancement(placeLeafFeast, UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF, "use_leaf_feast", AdvancementType.TASK, true, false, false)
+                .addCriterion("use_leaf_feast_insert", LeafFeastInsertTrigger.TriggerInstance.simple())
                 .build(getAdvancementName("use_leaf_feast"));
         consumer.accept(useLeafFeast);
+
+        AdvancementHolder boodleFight = getAdvancement(useLeafFeast, UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA, "boodle_fight", AdvancementType.TASK, true, false, false)
+                .addCriterion("use_leaf_feast_consume", LeafFeastConsumeTrigger.TriggerInstance.simple())
+                .build(getAdvancementName("boodle_fight"));
+        consumer.accept(boodleFight);
 
         AdvancementHolder leafFeastMaster = getAdvancement(leafFeast, UbesDelightItemsImpl.LUMPIA_FEAST, "leaf_feast_master", AdvancementType.CHALLENGE, true, true, false)
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LUMPIA_FEAST), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LUMPIA_FEAST))

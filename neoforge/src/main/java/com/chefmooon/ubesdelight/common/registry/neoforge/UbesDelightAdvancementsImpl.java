@@ -1,8 +1,6 @@
 package com.chefmooon.ubesdelight.common.registry.neoforge;
 
 import com.chefmooon.ubesdelight.UbesDelight;
-import com.chefmooon.ubesdelight.common.advancement.BakingMatTrigger;
-import com.chefmooon.ubesdelight.common.advancement.LeafFeastTrigger;
 import net.minecraft.advancements.CriterionTrigger;
 import net.minecraft.core.registries.Registries;
 import net.neoforged.bus.api.IEventBus;
