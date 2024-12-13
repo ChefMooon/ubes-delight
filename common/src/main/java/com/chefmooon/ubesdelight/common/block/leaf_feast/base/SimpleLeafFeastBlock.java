@@ -1,5 +1,6 @@
 package com.chefmooon.ubesdelight.common.block.leaf_feast.base;
 
+import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightDataComponentTypes;
@@ -8,6 +9,7 @@ import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -29,6 +31,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
 
@@ -112,8 +115,12 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
             level.setBlock(pos, state.setValue(SERVINGS, servings - 1), 3);
             playRemoveSound(level, pos);
             if (!player.isCreative()) {
-                if (!player.getInventory().add(itemStack)) {
-                    player.drop(itemStack, false);
+                if (player.isShiftKeyDown() && player.getFoodData().needsFood()) {
+                    player.eat(level, itemStack);
+                } else {
+                    if (!player.getInventory().add(itemStack)) {
+                        player.drop(itemStack, false);
+                    }
                 }
             }
             return ItemInteractionResult.SUCCESS;
@@ -123,8 +130,52 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
             level.updateNeighbourForOutputSignal(pos, block);
             playRemoveSound(level, pos);
             if (!player.isCreative()) {
-                if (!player.getInventory().add(itemStack)) {
-                    player.drop(itemStack, false);
+                if (player.isShiftKeyDown() && player.getFoodData().needsFood()) {
+                    player.eat(level, itemStack);
+                } else {
+                    if (!player.getInventory().add(itemStack)) {
+                        player.drop(itemStack, false);
+                    }
+                }
+            }
+            return ItemInteractionResult.SUCCESS;
+        }
+
+        return ItemInteractionResult.FAIL;
+    }
+
+    protected ItemInteractionResult tryConsumeItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
+        int servings = state.getValue(SERVINGS);
+        ItemStack itemStack = new ItemStack(servingItem.get());
+
+        UbesDelight.LOGGER.info("tryConsume: "  + player.isShiftKeyDown() + " | " + player.getFoodData().needsFood() + " | " + itemStack.has(DataComponents.FOOD));
+
+        if (servings > 1) {
+            level.setBlock(pos, state.setValue(SERVINGS, servings - 1), 3);
+            playRemoveSound(level, pos);
+            if (!player.isCreative()) {
+                if (player.isShiftKeyDown() && player.getFoodData().needsFood()) {
+                    player.eat(level, itemStack, Objects.requireNonNull(itemStack.get(DataComponents.FOOD)));
+                    UbesDelight.LOGGER.info("I should eat");
+                } else {
+                    if (!player.getInventory().add(itemStack)) {
+                        player.drop(itemStack, false);
+                    }
+                }
+            }
+            return ItemInteractionResult.SUCCESS;
+        } else if (servings == 1) {
+            Block block = BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST);
+            level.setBlock(pos, getTransformState(block, state), 3);
+            level.updateNeighbourForOutputSignal(pos, block);
+            playRemoveSound(level, pos);
+            if (!player.isCreative()) {
+                if (player.isShiftKeyDown() && player.getFoodData().needsFood()) {
+                    player.eat(level, itemStack);
+                } else {
+                    if (!player.getInventory().add(itemStack)) {
+                        player.drop(itemStack, false);
+                    }
                 }
             }
             return ItemInteractionResult.SUCCESS;

@@ -71,10 +71,15 @@ public class UniversalLeafFeastBlockImpl extends UniversalLeafFeastBlock {
         }
 
         playRemoveSound(level, universalLeafFeastBlockEntity.getBlockPos());
-        if (player.isCreative()) {
-            universalLeafFeastBlockEntity.removeItem();
-        } else if (!player.getInventory().add(universalLeafFeastBlockEntity.removeItem())) {
-            Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), universalLeafFeastBlockEntity.removeItem());
+        ItemStack itemStack = universalLeafFeastBlockEntity.removeItem();
+        if (!player.isCreative()) {
+            if (player.isShiftKeyDown() && player.getFoodData().needsFood()) {
+                player.eat(level, itemStack);
+            } else {
+                if (!player.getInventory().add(itemStack)) {
+                    Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), itemStack);
+                }
+            }
         }
 
         if (servings == 1) {
