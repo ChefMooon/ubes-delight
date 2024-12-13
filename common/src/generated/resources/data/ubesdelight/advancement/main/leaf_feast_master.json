@@ -21,6 +21,26 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "leaf_feast_ensaymada_ube": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_ensaymada_ube"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leaf_feast_ensaymada_ube_half": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_ensaymada_ube_half"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "leaf_feast_hopia_munggo": {
       "conditions": {
         "items": [
@@ -81,6 +101,26 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "leaf_feast_pandesal_ube": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_pandesal_ube"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leaf_feast_pandesal_ube_half": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_pandesal_ube_half"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "lumpia_feast": {
       "conditions": {
         "items": [
@@ -116,10 +156,22 @@
       "leaf_feast_ensaymada_half"
     ],
     [
+      "leaf_feast_ensaymada_ube"
+    ],
+    [
+      "leaf_feast_ensaymada_ube_half"
+    ],
+    [
       "leaf_feast_pandesal"
     ],
     [
       "leaf_feast_pandesal_half"
+    ],
+    [
+      "leaf_feast_pandesal_ube"
+    ],
+    [
+      "leaf_feast_pandesal_ube_half"
     ],
     [
       "leaf_feast_hopia_munggo"
