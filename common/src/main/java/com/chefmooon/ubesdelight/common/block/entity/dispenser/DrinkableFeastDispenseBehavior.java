@@ -27,9 +27,9 @@ public class DrinkableFeastDispenseBehavior extends OptionalDispenseItemBehavior
             BlockPos blockPos = source.pos().relative(direction);
             this.setSuccess(tryAddDrinkableFeast(serverLevel, stack, blockPos));
             ItemStack itemStack = stack.split(1);
+            playSound(source);
             if (this.isSuccess()) {
                 spawnItem(source.level(), new ItemStack(Items.GLASS_BOTTLE), 6, direction, position);
-                playSound(source);
             } else {
                 spawnItem(source.level(), itemStack, 6, direction, position);
             }
