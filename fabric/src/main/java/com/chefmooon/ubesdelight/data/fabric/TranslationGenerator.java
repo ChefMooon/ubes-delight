@@ -42,6 +42,10 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(UbesDelightItemsImpl.BAKING_MAT_BAMBOO, "Bamboo Baking Mat");
 
         translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_WOOD, "Wood Rolling Pin");
+        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_IRON, "Iron Rolling Pin");
+        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_GOLD, "Gold Rolling Pin");
+        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND, "Diamond Rolling Pin");
+        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE, "Netherite Rolling Pin");
 
         translationBuilder.add(UbesDelightItemsImpl.UBE_CRATE, "Ube Crate");
         translationBuilder.add(UbesDelightItemsImpl.GARLIC_CRATE, "Garlic Crate");

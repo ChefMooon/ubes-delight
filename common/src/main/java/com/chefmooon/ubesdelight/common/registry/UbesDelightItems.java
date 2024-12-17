@@ -30,7 +30,12 @@ public class UbesDelightItems {
 
     public static final ResourceLocation KALAN = item("kalan");
     public static final ResourceLocation BAKING_MAT_BAMBOO = item("baking_mat_bamboo");
+
     public static final ResourceLocation ROLLING_PIN_WOOD = item("rolling_pin_wood");
+    public static final ResourceLocation ROLLING_PIN_IRON = item("rolling_pin_iron");
+    public static final ResourceLocation ROLLING_PIN_GOLD = item("rolling_pin_gold");
+    public static final ResourceLocation ROLLING_PIN_DIAMOND = item("rolling_pin_diamond");
+    public static final ResourceLocation ROLLING_PIN_NETHERITE = item("rolling_pin_netherite");
 
     public static final ResourceLocation WILD_UBE = item("wild_ube");
     public static final ResourceLocation WILD_GARLIC = item("wild_garlic");

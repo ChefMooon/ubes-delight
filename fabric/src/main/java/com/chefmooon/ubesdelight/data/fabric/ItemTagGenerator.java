@@ -118,7 +118,12 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.LUMPIA_WRAPPER);
 
         getOrCreateTagBuilder(CommonTags.C_TOOLS_ROLLING_PINS)
-                .add(UbesDelightItemsImpl.ROLLING_PIN_WOOD);
+                .add(UbesDelightItemsImpl.ROLLING_PIN_WOOD)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_IRON)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_GOLD)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE)
+        ;
 
         getOrCreateTagBuilder(CommonTags.C_TEA_INGREDIENTS)
                 .forceAddTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK);

@@ -16,6 +16,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -35,6 +36,14 @@ public class UbesDelightItemsImpl {
             () -> new UbesDelightFuelBlockItemImpl(UbesDelightBlocksImpl.BAKING_MAT_BAMBOO.get(), basicItem(), false, false, 250));
     public static final RegistryObject<Item> ROLLING_PIN_WOOD = registerItemWithTab(UbesDelightItems.ROLLING_PIN_WOOD,
             () -> new RollingPinItemImpl(1.0F, 1.0F, UDTiers.ROLLING_PIN_WOOD, basicItem()));
+    public static final RegistryObject<Item> ROLLING_PIN_IRON = registerItemWithTab(UbesDelightItems.ROLLING_PIN_IRON,
+            () -> new RollingPinItemImpl(1.0F, -2.0F, Tiers.IRON, basicItem()));
+    public static final RegistryObject<Item> ROLLING_PIN_GOLD = registerItemWithTab(UbesDelightItems.ROLLING_PIN_GOLD,
+            () -> new RollingPinItemImpl(1.0F, -2.0F, Tiers.GOLD, basicItem()));
+    public static final RegistryObject<Item> ROLLING_PIN_DIAMOND = registerItemWithTab(UbesDelightItems.ROLLING_PIN_DIAMOND,
+            () -> new RollingPinItemImpl(1.0F, -2.0F, Tiers.DIAMOND, basicItem()));
+    public static final RegistryObject<Item> ROLLING_PIN_NETHERITE = registerItemWithTab(UbesDelightItems.ROLLING_PIN_NETHERITE,
+            () -> new RollingPinItemImpl(1.0F, -2.0F, Tiers.NETHERITE, basicItem()));
 
     public static final RegistryObject<Item> WILD_UBE = registerItemWithTab(UbesDelightItems.WILD_UBE,
             () -> new BlockItem(UbesDelightBlocksImpl.WILD_UBE.get(), basicItem()));

@@ -7,6 +7,8 @@ import net.minecraft.data.models.model.TextureSlot;
 import java.util.Optional;
 
 public class UbesDelightModels {
+    public static final ModelTemplate TEMPLATE_ROLLING_PIN_3D = item("template_rolling_pin_3d", TextureSlot.CONTENT);
+
     public static final ModelTemplate TEMPLATE_CAKE = block("template_cake",
             TextureSlot.PARTICLE, TextureSlot.BOTTOM, TextureSlot.TOP, TextureSlot.SIDE);
     public static final ModelTemplate TEMPLATE_CAKE_SLICE1 = block("template_cake_slice1",
@@ -42,6 +44,10 @@ public class UbesDelightModels {
 
     public static final ModelTemplate TEMPLATE_POTTED_FLOWER = block("template_potted_flower",
             TextureSlot.PLANT);
+
+    private static ModelTemplate item(String parent, TextureSlot... textureSlots) {
+        return new ModelTemplate(Optional.of(UbesDelight.res("item/" + parent)), Optional.empty(), textureSlots);
+    }
 
     private static ModelTemplate block(String parent, TextureSlot... textureSlots) {
         return new ModelTemplate(Optional.of(UbesDelight.res("block/" + parent)), Optional.empty(), textureSlots);

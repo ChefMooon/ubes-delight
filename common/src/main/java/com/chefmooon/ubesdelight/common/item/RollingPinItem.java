@@ -29,7 +29,7 @@ public class RollingPinItem extends DiggerItem {
     public RollingPinItem(float attackDamageModifier, float attackSpeedModifier, Tier tier, Properties properties) {
         super(attackDamageModifier, attackSpeedModifier, tier, CommonTags.C_MINEABLE_ROLLING_PIN, properties);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(UUID.fromString("e56350e0-8756-464d-92f9-54289ab41e0a"), "Tool modifier", 1.2, AttributeModifier.Operation.ADDITION));
+        builder.put(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(UUID.fromString("e56350e0-8756-464d-92f9-54289ab41e0a"), "Tool modifier", 1.0, AttributeModifier.Operation.ADDITION));
         this.defaultModifiers = builder.build();
     }
 

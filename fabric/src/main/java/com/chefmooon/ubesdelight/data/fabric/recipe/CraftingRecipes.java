@@ -5,10 +5,12 @@ import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.tag.CompatibilityTags;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil;
+import io.github.fabricators_of_create.porting_lib.tags.Tags;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Consumer;
 
@@ -51,6 +53,41 @@ public class CraftingRecipes {
                 .define('B', ItemTags.FENCES)
                 .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_WOOD)));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_IRON)
+                .pattern("  A")
+                .pattern(" B ")
+                .pattern("A  ")
+                .define('A', Items.STICK)
+                .define('B', Tags.Items.INGOTS_IRON)
+                .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_IRON)));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_GOLD)
+                .pattern("  A")
+                .pattern(" B ")
+                .pattern("A  ")
+                .define('A', Items.STICK)
+                .define('B', Tags.Items.INGOTS_GOLD)
+                .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_GOLD)));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)
+                .pattern("  A")
+                .pattern(" B ")
+                .pattern("A  ")
+                .define('A', Items.STICK)
+                .define('B', Tags.Items.GEMS_DIAMOND)
+                .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)));
+
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND),
+                        Ingredient.of(Tags.Items.INGOTS_NETHERITE),
+                        RecipeCategory.TOOLS,
+                        UbesDelightItemsImpl.ROLLING_PIN_NETHERITE)
+                .unlocks(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE) + "_smithing"));
 
         /** CROPS **/
 
