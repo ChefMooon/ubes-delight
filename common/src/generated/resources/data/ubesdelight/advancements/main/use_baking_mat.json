@@ -1,7 +1,7 @@
 {
   "parent": "ubesdelight:main/craft_baking_mat",
   "criteria": {
-    "baking_mat": {
+    "use_baking_mat": {
       "conditions": {},
       "trigger": "ubesdelight:use_baking_mat"
     }
@@ -23,7 +23,8 @@
   },
   "requirements": [
     [
-      "baking_mat"
+      "use_baking_mat"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

@@ -1,48 +1,60 @@
 {
   "parent": "ubesdelight:main/root",
   "criteria": {
-    "ube": {
+    "rolling_pin_diamond": {
       "conditions": {
         "items": [
           {
             "items": [
-              "ubesdelight:ube"
+              "ubesdelight:rolling_pin_diamond"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "garlic": {
+    "rolling_pin_gold": {
       "conditions": {
         "items": [
           {
             "items": [
-              "ubesdelight:garlic"
+              "ubesdelight:rolling_pin_gold"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "ginger": {
+    "rolling_pin_iron": {
       "conditions": {
         "items": [
           {
             "items": [
-              "ubesdelight:ginger"
+              "ubesdelight:rolling_pin_iron"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "lemongrass_seeds": {
+    "rolling_pin_netherite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "ubesdelight:lemongrass_seeds"
+              "ubesdelight:rolling_pin_netherite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "rolling_pin_wood": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:rolling_pin_wood"
             ]
           }
         ]
@@ -53,24 +65,27 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "ubesdelight.advancement.get_ud_seed.desc"
+      "translate": "ubesdelight.advancement.craft_rolling_pin.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "ubesdelight:wild_ube"
+      "item": "ubesdelight:rolling_pin_wood",
+      "nbt": "{Damage:0}"
     },
     "show_toast": true,
     "title": {
-      "translate": "ubesdelight.advancement.get_ud_seed"
+      "translate": "ubesdelight.advancement.craft_rolling_pin"
     }
   },
   "requirements": [
     [
-      "ube",
-      "garlic",
-      "ginger",
-      "lemongrass_seeds"
+      "rolling_pin_wood",
+      "rolling_pin_iron",
+      "rolling_pin_gold",
+      "rolling_pin_diamond",
+      "rolling_pin_netherite"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

@@ -1,17 +1,6 @@
 {
   "parent": "ubesdelight:main/get_ud_seed",
   "criteria": {
-    "ube": {
-      "conditions": {
-        "location": [
-          {
-            "block": "ubesdelight:ube_crop",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
-      },
-      "trigger": "minecraft:placed_block"
-    },
     "garlic": {
       "conditions": {
         "location": [
@@ -34,11 +23,22 @@
       },
       "trigger": "minecraft:placed_block"
     },
-    "lemongrass": {
+    "lemongrass_seeds": {
       "conditions": {
         "location": [
           {
             "block": "ubesdelight:lemongrass_stalk_crop",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "ube": {
+      "conditions": {
+        "location": [
+          {
+            "block": "ubesdelight:ube_crop",
             "condition": "minecraft:block_state_property"
           }
         ]
@@ -66,16 +66,17 @@
       "ube"
     ],
     [
-      "garlic"
-    ],
-    [
       "ginger"
     ],
     [
-      "lemongrass"
+      "garlic"
+    ],
+    [
+      "lemongrass_seeds"
     ]
   ],
   "rewards": {
     "experience": 100
-  }
+  },
+  "sends_telemetry_event": true
 }

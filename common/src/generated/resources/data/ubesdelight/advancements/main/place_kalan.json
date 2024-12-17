@@ -1,7 +1,7 @@
 {
   "parent": "ubesdelight:main/root",
   "criteria": {
-    "kalan": {
+    "place_kalan": {
       "conditions": {
         "location": [
           {
@@ -30,7 +30,7 @@
   },
   "requirements": [
     [
-      "kalan"
+      "place_kalan"
     ]
   ],
   "sends_telemetry_event": true

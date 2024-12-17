@@ -1,0 +1,41 @@
+{
+  "parent": "ubesdelight:main/craft_rolling_pin",
+  "criteria": {
+    "baking_mat_bamboo": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:baking_mat_bamboo"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "ubesdelight.advancement.craft_baking_mat.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "ubesdelight:baking_mat_bamboo"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ubesdelight.advancement.craft_baking_mat"
+    }
+  },
+  "requirements": [
+    [
+      "baking_mat_bamboo"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

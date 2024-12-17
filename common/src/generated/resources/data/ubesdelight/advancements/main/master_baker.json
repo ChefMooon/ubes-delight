@@ -1,0 +1,116 @@
+{
+  "parent": "ubesdelight:main/use_baking_mat",
+  "criteria": {
+    "has_ensaymada": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:ensaymada"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_ensaymada_ube": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:ensaymada_ube"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_hopia_munggo": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:hopia_munggo"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_hopia_ube": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:hopia_ube"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pandesal": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:pandesal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pandesal_ube": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ubesdelight:pandesal_ube"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "ubesdelight.advancement.master_baker.desc"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "ubesdelight:ensaymada_ube"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ubesdelight.advancement.master_baker"
+    }
+  },
+  "requirements": [
+    [
+      "has_pandesal"
+    ],
+    [
+      "has_pandesal_ube"
+    ],
+    [
+      "has_ensaymada"
+    ],
+    [
+      "has_ensaymada_ube"
+    ],
+    [
+      "has_hopia_munggo"
+    ],
+    [
+      "has_hopia_ube"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}
