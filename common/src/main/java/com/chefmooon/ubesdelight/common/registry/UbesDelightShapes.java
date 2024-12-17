@@ -232,11 +232,12 @@ public class UbesDelightShapes {
     public static final VoxelShape RICE_BASE_SERVING_4 = Block.box(3,1,3,13,6,13);
     public static final VoxelShape RICE_BASE_SERVING_5 = Block.box(2,1,2,14,7,14);
     public static final VoxelShape RICE_BASE_SERVING_6 = Block.box(1,1,1,15,8,15);
-    public static final VoxelShape RICE_END_SERVING_1 = Block.box(4,1,6,8,3,10);
-    public static final VoxelShape RICE_END_SERVING_2 = Block.box(3,1,5,9,4,11);
-    public static final VoxelShape RICE_END_SERVING_3 = Block.box(2,1,4,10,5,12);
-    public static final VoxelShape RICE_TIP_SERVING_1 = Block.box(8,1,6,12,3,10);
-    public static final VoxelShape RICE_TIP_SERVING_2 = Block.box(7,1,5,13,4,11);
-    public static final VoxelShape RICE_TIP_SERVING_3 = Block.box(6,1,4,14,5,12);
+    public static final VoxelShape RICE_MIDDLE_SERVING_6 = Block.box(0,1,1,16,8,15);
+    public static final VoxelShape RICE_END_SERVING_1 = Block.box(2,1,6,6,3,10);
+    public static final VoxelShape RICE_END_SERVING_2 = Block.box(1,1,5,7,4,11);
+    public static final VoxelShape RICE_END_SERVING_3 = Block.box(0,1,4,8,5,12);
+    public static final VoxelShape RICE_TIP_SERVING_1 = Block.box(10,1,6,14,3,10);
+    public static final VoxelShape RICE_TIP_SERVING_2 = Block.box(9,1,5,15,4,11);
+    public static final VoxelShape RICE_TIP_SERVING_3 = Block.box(8,1,4,16,5,12);
 
 }

@@ -5,6 +5,7 @@ import com.chefmooon.ubesdelight.common.registry.neoforge.UbesDelightItemsImpl;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.DispenserBlock;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 public class BaseLeafFeastDispenseBehaviorImpl {
     public static void register() {
@@ -15,7 +16,7 @@ public class BaseLeafFeastDispenseBehaviorImpl {
         DispenserBlock.registerBehavior(UbesDelightItemsImpl.HOPIA_MUNGGO.get(), new BaseLeafFeastDispenseBehavior());
         DispenserBlock.registerBehavior(UbesDelightItemsImpl.HOPIA_UBE.get(), new BaseLeafFeastDispenseBehavior());
         DispenserBlock.registerBehavior(UbesDelightItemsImpl.LUMPIA.get(), new BaseLeafFeastDispenseBehavior());
-        DispenserBlock.registerBehavior(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice")), new BaseLeafFeastDispenseBehavior());
+        DispenserBlock.registerBehavior(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice")), new BaseLeafFeastDispenseBehavior()); // TODO - sometimes this is air? only in dev?
         DispenserBlock.registerBehavior(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "fried_rice")), new BaseLeafFeastDispenseBehavior());
         DispenserBlock.registerBehavior(UbesDelightItemsImpl.SINANGAG.get(), new BaseLeafFeastDispenseBehavior());
     }

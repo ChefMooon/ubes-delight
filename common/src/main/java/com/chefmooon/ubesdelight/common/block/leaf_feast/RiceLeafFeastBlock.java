@@ -30,13 +30,21 @@ public class RiceLeafFeastBlock extends SimpleLeafFeastBlock {
     public static ConcurrentHashMap<LeafFeastTypes, ConcurrentHashMap<Integer, VoxelShape>> buildShapes() {
         ConcurrentHashMap<LeafFeastTypes, ConcurrentHashMap<Integer, VoxelShape>> result = new ConcurrentHashMap<>();
 
+        ConcurrentHashMap<Integer, VoxelShape> baseServingShapes = new ConcurrentHashMap<>();
+       baseServingShapes.put(1, UbesDelightShapes.RICE_BASE_SERVING_1);
+       baseServingShapes.put(2, UbesDelightShapes.RICE_BASE_SERVING_2);
+       baseServingShapes.put(3, UbesDelightShapes.RICE_BASE_SERVING_3);
+       baseServingShapes.put(4, UbesDelightShapes.RICE_BASE_SERVING_4);
+       baseServingShapes.put(5, UbesDelightShapes.RICE_BASE_SERVING_5);
+       baseServingShapes.put(6, UbesDelightShapes.RICE_BASE_SERVING_6);
+
         ConcurrentHashMap<Integer, VoxelShape> middleServingShapes = new ConcurrentHashMap<>();
         middleServingShapes.put(1, UbesDelightShapes.RICE_BASE_SERVING_1);
         middleServingShapes.put(2, UbesDelightShapes.RICE_BASE_SERVING_2);
         middleServingShapes.put(3, UbesDelightShapes.RICE_BASE_SERVING_3);
         middleServingShapes.put(4, UbesDelightShapes.RICE_BASE_SERVING_4);
         middleServingShapes.put(5, UbesDelightShapes.RICE_BASE_SERVING_5);
-        middleServingShapes.put(6, UbesDelightShapes.RICE_BASE_SERVING_6);
+        middleServingShapes.put(6, UbesDelightShapes.RICE_MIDDLE_SERVING_6);
 
         ConcurrentHashMap<Integer, VoxelShape> tipServingShapes = new ConcurrentHashMap<>();
         tipServingShapes.put(1, UbesDelightShapes.RICE_TIP_SERVING_1);
@@ -48,34 +56,12 @@ public class RiceLeafFeastBlock extends SimpleLeafFeastBlock {
         endServingShapes.put(2, UbesDelightShapes.RICE_END_SERVING_2);
         endServingShapes.put(3, UbesDelightShapes.RICE_END_SERVING_3);
 
+        result.put(LeafFeastTypes.BASE, baseServingShapes);
         result.put(LeafFeastTypes.MIDDLE, middleServingShapes);
         result.put(LeafFeastTypes.TIP, tipServingShapes);
         result.put(LeafFeastTypes.END, endServingShapes);
 
         return result;
-    }
-
-    @Override
-    public ItemInteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        ItemStack heldItem = player.getItemInHand(hand);
-
-        if (level.isClientSide()) {
-            if (heldItem.isEmpty() || heldItem.is(Items.BOWL)) {
-                if (tryRemoveItem(state, level, pos, player, hand).consumesAction()) {
-                    return ItemInteractionResult.SUCCESS;
-                }
-            } else {
-                if (tryAddItem(state, level, pos, player, hand).consumesAction()) {
-                    return ItemInteractionResult.SUCCESS;
-                }
-            }
-        }
-
-        if (heldItem.isEmpty() || heldItem.is(Items.BOWL)) {
-            return tryRemoveItem(state, level, pos, player, hand);
-        } else {
-            return tryAddItem(state, level, pos, player, hand);
-        }
     }
 
     @Override

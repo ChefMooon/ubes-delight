@@ -21,13 +21,13 @@ NeoForge and Fabric.
   - Special Variants
     - Created by right-clicking a leaf feast with a valid item
       - Valid Items: Lumpia, Ensaymada, Ube Ensaymada, Pandesal, Ube Pandesla, Hopia Munggo, Hopia Ube, Sinangag, Cooked Rice, Fried Rice
-      - Can also be crafted
-        - Lumpia Leaf Feast Example
-          - 1x Leaf Feast, 6x Lumpia (Shaped Crafting) -> 1x Lumpia Leaf Feast
-          - 3x Leaves, 6x Lumpia (Shaped Crafting) -> 1x Lumpia Leaf Feast
-          - 1x Leaf Feast, 3x Lumpia (Shapeless Crafting) -> 1x Half Lumpia Leaf Feast
-          - 3x Leaves, 3x Lumpia (Shaped Crafting) -> 1x Half Lumpia Leaf Feast
-      - Leaf Feasts stack to 8, Half Leaf Feasts stack to 16(also Leaf Feasts with 3 servings)
+      - Can also be crafted: Base size has 6 servings, some have a half size that has 3 servings
+        - Ensaymada Leaf Feast Example
+          - 1x Leaf Feast, 6x Ensaymada (Shaped Crafting) -> 1x Ensaymada Leaf Feast
+          - 3x Leaves, 6x Ensaymada (Shaped Crafting) -> 1x Ensaymada Leaf Feast
+          - 1x Leaf Feast, 3x Ensaymada (Shapeless Crafting) -> 1x Half Ensaymada Leaf Feast
+          - 3x Leaves, 3x Ensaymada (Shaped Crafting) -> 1x Half Ensaymada Leaf Feast
+      - Leaf Feasts stack to 8, Half Leaf Feasts stack to 16
     - Can be created and refilled by dispenser's
     - Special variants can be crafted and placed with 6 servings
 - 6 New Advancements to help explain the Leaf Feast

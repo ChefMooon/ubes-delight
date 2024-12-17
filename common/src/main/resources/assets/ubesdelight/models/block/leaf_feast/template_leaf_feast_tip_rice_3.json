@@ -95,14 +95,14 @@
 		},
 		{
 			"name": "rice",
-			"from": [6, 1, 4],
-			"to": [14, 5, 12],
-			"rotation": {"angle": 0, "axis": "y", "origin": [9, 1, 4]},
+			"from": [8, 1, 4],
+			"to": [16, 5, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [11, 1, 4]},
 			"faces": {
 				"north": {"uv": [4, 4, 12, 8], "texture": "#content"},
-				"east": {"uv": [4, 4, 12, 8], "texture": "#content"},
+				"east": {"uv": [4, 12, 12, 8], "texture": "#content"},
 				"south": {"uv": [4, 4, 12, 8], "texture": "#content"},
-				"west": {"uv": [4, 4, 12, 8], "texture": "#content"},
+				"west": {"uv": [4, 12, 12, 8], "texture": "#content"},
 				"up": {"uv": [4, 4, 12, 12], "texture": "#content"}
 			}
 		}

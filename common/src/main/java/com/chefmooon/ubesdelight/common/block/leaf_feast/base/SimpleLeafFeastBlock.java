@@ -177,7 +177,7 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
         int servings = state.getValue(SERVINGS);
         Direction facing = state.getValue(FACING);
 
-        if (leafFeastType == LeafFeastTypes.BASE) {
+        if (leafFeastType == LeafFeastTypes.BASE && !FEAST_VARIANTS_SERVINGS.containsKey(leafFeastType)) {
             leafFeastType = LeafFeastTypes.MIDDLE;
         }
 
