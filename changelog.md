@@ -13,6 +13,7 @@ NeoForge, and Fabric
   - Iron, Gold, Diamond, Netherite
   - Slightly reduce attack speed
   - 1 New Advancement
+  - Better Combat compatibility
 - Ube Milk Tea Block
   - Ube Milk Tea item can now be placed similar to the Halo Halo item and upgraded block
 - New Crafting recipe
