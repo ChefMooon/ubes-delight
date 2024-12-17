@@ -19,11 +19,12 @@ NeoForge, and Fabric
 - New Crafting recipe
   - 1x Ube (Crafting Table)-> 1x Purple Dye (Thank you AlterNate for the suggestion!)
 
-### Updated
+### Changed
 
 - Rolling Pin knockback amount slightly reduced
 - Ube Milk Tea texture updated
 - Halo Halo Block Upgrade
   - Can now place up to 4 drinks in 1 block
+- Fish Sauce is now always edible (Thank you Starlet for the suggestion!)
 
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)
