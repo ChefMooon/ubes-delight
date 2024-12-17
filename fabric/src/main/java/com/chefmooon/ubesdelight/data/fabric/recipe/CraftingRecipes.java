@@ -6,6 +6,7 @@ import com.chefmooon.ubesdelight.common.tag.CompatibilityTags;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil;
 import io.github.fabricators_of_create.porting_lib.tags.Tags;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
@@ -124,6 +125,14 @@ public class CraftingRecipes {
                 .define('B', CompatibilityTags.MINECRAFT_LEAVES)
                 .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(UbesDelightItemsImpl.LUMPIA))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LUMPIA_FEAST)));
+
+        /** MISC **/
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PURPLE_DYE, 1)
+                .requires(UbesDelightItemsImpl.UBE, 1)
+                .group("purple_dye")
+                .unlockedBy(RecipeProvider.getHasName(UbesDelightItemsImpl.UBE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.UBE))
+                .save(exporter, suffix(RecipeProvider.getConversionRecipeName(Items.PURPLE_DYE, UbesDelightItemsImpl.UBE)));
     }
 
     private static void registerUncommon(Consumer<FinishedRecipe> exporter) {
