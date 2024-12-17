@@ -29,4 +29,9 @@ NeoForge, and Fabric
   - Can now place up to 4 drinks in 1 block
 - Fish Sauce is now always edible (Thank you Starlet for the suggestion!)
 
+### Fixed
+
+- Garlic and Ginger crates can no longer be crafted from chopped versions (Fixed bug #31, Thank you Nemo157!)
+- Added Ube Eansaymada to Ube Master Advancement
+
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)
