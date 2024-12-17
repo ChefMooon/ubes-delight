@@ -2,17 +2,16 @@ package com.chefmooon.ubesdelight.common.registry.neoforge;
 
 import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.block.*;
-import com.chefmooon.ubesdelight.common.block.leaf_feast.EnsaymadaLeafFeastBlock;
-import com.chefmooon.ubesdelight.common.block.leaf_feast.HopiaLeafFeastBlock;
-import com.chefmooon.ubesdelight.common.block.leaf_feast.LumpiaLeafFeastBlock;
-import com.chefmooon.ubesdelight.common.block.leaf_feast.PandesalLeafFeastBlock;
+import com.chefmooon.ubesdelight.common.block.leaf_feast.*;
 import com.chefmooon.ubesdelight.common.block.leaf_feast.base.BaseLeafFeastBlock;
 import com.chefmooon.ubesdelight.common.block.leaf_feast.base.neoforge.UniversalLeafFeastBlockImpl;
 import com.chefmooon.ubesdelight.common.block.neoforge.BakingMatBlockImpl;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -21,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import vectorwing.farmersdelight.common.block.WildCropBlock;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.function.Supplier;
 
@@ -91,6 +91,14 @@ public class UbesDelightBlocksImpl {
             () -> new HopiaLeafFeastBlock(UbesDelightItemsImpl.HOPIA_MUNGGO, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
     public static final Supplier<Block> LEAF_FEAST_HOPIA_UBE = registerBlock(UbesDelightBlocks.LEAF_FEAST_HOPIA_UBE,
             () -> new HopiaLeafFeastBlock(UbesDelightItemsImpl.HOPIA_UBE, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+
+    public static final Supplier<Block> LEAF_FEAST_COOKED_RICE = registerBlock(UbesDelightBlocks.LEAF_FEAST_COOKED_RICE,
+            () -> new RiceLeafFeastBlock(ModItems.COOKED_RICE, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+//            () -> new RiceLeafFeastBlock((Supplier<Item>) BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice")), BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+    public static final Supplier<Block> LEAF_FEAST_FRIED_RICE = registerBlock(UbesDelightBlocks.LEAF_FEAST_FRIED_RICE,
+        () -> new RiceLeafFeastBlock(ModItems.FRIED_RICE, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+    public static final Supplier<Block> LEAF_FEAST_SINANGAG = registerBlock(UbesDelightBlocks.LEAF_FEAST_SINANGAG,
+            () -> new RiceLeafFeastBlock(UbesDelightItemsImpl.SINANGAG, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
 
     public static Supplier<Block> registerBlock(final ResourceLocation location, final Supplier<Block> block) {
         return BLOCKS.register(location.getPath(), block);

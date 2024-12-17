@@ -226,4 +226,17 @@ public class UbesDelightShapes {
     public static final VoxelShape LUMPIA_SERVING_2_OF_3 = Shapes.or(LUMPIA_SERVING_1_OF_3, LUMPIA_SERVINGS[2], LUMPIA_SERVINGS[3]);
     public static final VoxelShape LUMPIA_SERVING_3_OF_3 = Shapes.or(LUMPIA_SERVING_2_OF_3, LUMPIA_SERVINGS[4], LUMPIA_SERVINGS[5]);
 
+    public static final VoxelShape RICE_BASE_SERVING_1 = Block.box(6,1,6,10,3,10);
+    public static final VoxelShape RICE_BASE_SERVING_2 = Block.box(5,1,5,11,4,11);
+    public static final VoxelShape RICE_BASE_SERVING_3 = Block.box(4,1,4,12,5,12);
+    public static final VoxelShape RICE_BASE_SERVING_4 = Block.box(3,1,3,13,6,13);
+    public static final VoxelShape RICE_BASE_SERVING_5 = Block.box(2,1,2,14,7,14);
+    public static final VoxelShape RICE_BASE_SERVING_6 = Block.box(1,1,1,15,8,15);
+    public static final VoxelShape RICE_END_SERVING_1 = Block.box(4,1,6,8,3,10);
+    public static final VoxelShape RICE_END_SERVING_2 = Block.box(3,1,5,9,4,11);
+    public static final VoxelShape RICE_END_SERVING_3 = Block.box(2,1,4,10,5,12);
+    public static final VoxelShape RICE_TIP_SERVING_1 = Block.box(8,1,6,12,3,10);
+    public static final VoxelShape RICE_TIP_SERVING_2 = Block.box(7,1,5,13,4,11);
+    public static final VoxelShape RICE_TIP_SERVING_3 = Block.box(6,1,4,14,5,12);
+
 }

@@ -69,32 +69,47 @@ public class UbesDelightItemsImpl {
     public static final Item LEAF_FEAST_ENSAYMADA = registerItemWithTab(UbesDelightItems.LEAF_FEAST_ENSAYMADA,
             new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA, leafFeast()));
     public static final Item LEAF_FEAST_ENSAYMADA_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_ENSAYMADA_HALF,
-            new BreadLeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
 
     public static final Item LEAF_FEAST_ENSAYMADA_UBE = registerItemWithTab(UbesDelightItems.LEAF_FEAST_ENSAYMADA_UBE,
             new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE, leafFeast()));
     public static final Item LEAF_FEAST_ENSAYMADA_UBE_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_ENSAYMADA_UBE_HALF,
-            new BreadLeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
 
     public static final Item LEAF_FEAST_PANDESAL = registerItemWithTab(UbesDelightItems.LEAF_FEAST_PANDESAL,
             new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL, leafFeast()));
     public static final Item LEAF_FEAST_PANDESAL_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_PANDESAL_HALF,
-            new BreadLeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
 
     public static final Item LEAF_FEAST_PANDESAL_UBE = registerItemWithTab(UbesDelightItems.LEAF_FEAST_PANDESAL_UBE,
             new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE, leafFeast()));
     public static final Item LEAF_FEAST_PANDESAL_UBE_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_PANDESAL_UBE_HALF,
-            new BreadLeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
 
     public static final Item LEAF_FEAST_HOPIA_MUNGGO = registerItemWithTab(UbesDelightItems.LEAF_FEAST_HOPIA_MUNGGO,
             new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, leafFeast()));
     public static final Item LEAF_FEAST_HOPIA_MUNGGO_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_HOPIA_MUNGGO_HALF,
-            new BreadLeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
 
     public static final Item LEAF_FEAST_HOPIA_UBE = registerItemWithTab(UbesDelightItems.LEAF_FEAST_HOPIA_UBE,
             new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, leafFeast()));
     public static final Item LEAF_FEAST_HOPIA_UBE_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_HOPIA_UBE_HALF,
-            new BreadLeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
+
+    public static final Item LEAF_FEAST_COOKED_RICE = registerItemWithTab(UbesDelightItems.LEAF_FEAST_COOKED_RICE,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_COOKED_RICE, leafFeast()));
+    public static final Item LEAF_FEAST_COOKED_RICE_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_COOKED_RICE_HALF,
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_COOKED_RICE, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
+
+    public static final Item LEAF_FEAST_FRIED_RICE = registerItemWithTab(UbesDelightItems.LEAF_FEAST_FRIED_RICE,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_FRIED_RICE, leafFeast()));
+    public static final Item LEAF_FEAST_FRIED_RICE_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_FRIED_RICE_HALF,
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_FRIED_RICE, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
+
+    public static final Item LEAF_FEAST_SINANGAG = registerItemWithTab(UbesDelightItems.LEAF_FEAST_SINANGAG,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_SINANGAG, leafFeast()));
+    public static final Item LEAF_FEAST_SINANGAG_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_SINANGAG_HALF,
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_SINANGAG, halfLeafFeast().component(UbesDelightDataComponentTypesImpl.SIMPLE_LEAF_FEAST_SERVINGS, 3)));
 
     public static final Item POISONOUS_UBE = registerItemWithTab(UbesDelightItems.POISONOUS_UBE,
             new Item(basicItem()));
@@ -131,7 +146,7 @@ public class UbesDelightItemsImpl {
             new UbesDelightConsumableItem(foodItem(FoodValues.GINGER_CHOP)));
 
     public static final Item SINANGAG = registerItemWithTab(UbesDelightItems.SINANGAG,
-            new UbesDelightConsumableItem(bowlFoodItem(FoodValues.SINANGAG), true));
+            new UbesDelightLeafFeastConsumableItem(bowlFoodItem(FoodValues.SINANGAG), true));
     public static final Item KINILAW = registerItemWithTab(UbesDelightItems.KINILAW,
             new UbesDelightConsumableItem(bowlFoodItem(FoodValues.KINILAW), true));
     public static final Item LUMPIA = registerItemWithTab(UbesDelightItems.LUMPIA,

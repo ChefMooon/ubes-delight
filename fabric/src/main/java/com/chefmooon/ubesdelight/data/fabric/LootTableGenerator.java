@@ -16,6 +16,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -52,6 +53,9 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         dropSimpleLeafFeastContents(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE, UbesDelightItemsImpl.PANDESAL_UBE);
         dropSimpleLeafFeastContents(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, UbesDelightItemsImpl.HOPIA_MUNGGO);
         dropSimpleLeafFeastContents(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, UbesDelightItemsImpl.HOPIA_UBE);
+        dropContainerLeaftContents(UbesDelightBlocksImpl.LEAF_FEAST_COOKED_RICE);
+        dropContainerLeaftContents(UbesDelightBlocksImpl.LEAF_FEAST_FRIED_RICE);
+        dropContainerLeaftContents(UbesDelightBlocksImpl.LEAF_FEAST_SINANGAG);
 
         // todo - V0.2.0 - these stopped working,
 //        createCropDrops(UbesDelightBlocksImpl.UBE_CROP, UbesDelightItemsImpl.UBE, UbesDelightItemsImpl.UBE,
@@ -113,6 +117,12 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
                 .withPool(LootPool.lootPool().add(LootItem.lootTableItem(item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SimpleLeafFeastBlock.SERVINGS, 1))))
+        ));
+    }
+
+    private void dropContainerLeaftContents(Block block) {
+        this.add(block, this.applyExplosionDecay(block, LootTable.lootTable()
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(UbesDelightItemsImpl.LEAF_FEAST)))
         ));
     }
 }

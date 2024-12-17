@@ -61,6 +61,12 @@ public class UbesDelightBlocks {
 
     public static final ResourceLocation LEAF_FEAST_HOPIA_UBE = block("leaf_feast_hopia_ube");
     public static final ResourceLocation LEAF_FEAST_HOPIA_UBE_HALF = block("leaf_feast_hopia_ube_half");
+    public static final ResourceLocation LEAF_FEAST_COOKED_RICE = block("leaf_feast_cooked_rice");
+    public static final ResourceLocation LEAF_FEAST_COOKED_RICE_HALF = block("leaf_feast_cooked_rice_half");
+    public static final ResourceLocation LEAF_FEAST_FRIED_RICE = block("leaf_feast_fried_rice");
+    public static final ResourceLocation LEAF_FEAST_FRIED_RICE_HALF = block("leaf_feast_fried_rice_half");
+    public static final ResourceLocation LEAF_FEAST_SINANGAG = block("leaf_feast_sinangag");
+    public static final ResourceLocation LEAF_FEAST_SINANGAG_HALF = block("leaf_feast_sinangag_half");
 
     public static ToIntFunction<BlockState> litBlockEmission(int lightValue) {
         return (state) -> state.getValue(BlockStateProperties.LIT) ? lightValue : 0;

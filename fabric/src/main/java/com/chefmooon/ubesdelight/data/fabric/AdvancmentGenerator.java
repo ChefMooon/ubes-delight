@@ -171,6 +171,12 @@ public class AdvancmentGenerator extends FabricAdvancementProvider {
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF))
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE))
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF))
                 .rewards(AdvancementRewards.Builder.experience(50))
                 .build(getAdvancementName("leaf_feast_master"));
         consumer.accept(leafFeastMaster);

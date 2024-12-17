@@ -2,10 +2,7 @@ package com.chefmooon.ubesdelight.common.registry.fabric;
 
 import com.chefmooon.ubesdelight.common.block.*;
 import com.chefmooon.ubesdelight.common.block.fabric.BakingMatBlockImpl;
-import com.chefmooon.ubesdelight.common.block.leaf_feast.EnsaymadaLeafFeastBlock;
-import com.chefmooon.ubesdelight.common.block.leaf_feast.HopiaLeafFeastBlock;
-import com.chefmooon.ubesdelight.common.block.leaf_feast.LumpiaLeafFeastBlock;
-import com.chefmooon.ubesdelight.common.block.leaf_feast.PandesalLeafFeastBlock;
+import com.chefmooon.ubesdelight.common.block.leaf_feast.*;
 import com.chefmooon.ubesdelight.common.block.leaf_feast.base.BaseLeafFeastBlock;
 import com.chefmooon.ubesdelight.common.block.leaf_feast.base.fabric.UniversalLeafFeastBlockImpl;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
@@ -85,6 +82,13 @@ public class UbesDelightBlocksImpl {
             new HopiaLeafFeastBlock(() -> UbesDelightItemsImpl.HOPIA_MUNGGO, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
     public static final Block LEAF_FEAST_HOPIA_UBE = registerBlock(UbesDelightBlocks.LEAF_FEAST_HOPIA_UBE,
             new HopiaLeafFeastBlock(() -> UbesDelightItemsImpl.HOPIA_UBE, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+
+    public static final Block LEAF_FEAST_COOKED_RICE = registerBlock(UbesDelightBlocks.LEAF_FEAST_COOKED_RICE,
+            new RiceLeafFeastBlock(() -> BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice")), BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+    public static final Block LEAF_FEAST_FRIED_RICE = registerBlock(UbesDelightBlocks.LEAF_FEAST_FRIED_RICE,
+            new RiceLeafFeastBlock(() -> BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "fried_rice")), BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
+    public static final Block LEAF_FEAST_SINANGAG = registerBlock(UbesDelightBlocks.LEAF_FEAST_SINANGAG,
+            new RiceLeafFeastBlock(() -> UbesDelightItemsImpl.SINANGAG, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).sound(SoundType.AZALEA)));
 
     public static Block registerBlock(final ResourceLocation location, final Block block) {
         return Registry.register(BuiltInRegistries.BLOCK, location, block);

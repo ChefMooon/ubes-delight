@@ -210,7 +210,9 @@ public class BlockModelGenerator {
         registerHopiaLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, blockStateModelGenerator);
         registerHopiaLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, blockStateModelGenerator);
 
-
+        registerRiceLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_COOKED_RICE, blockStateModelGenerator);
+        registerRiceLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_FRIED_RICE, blockStateModelGenerator);
+        registerRiceLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_SINANGAG, blockStateModelGenerator);
     }
 
     private static void registerCrateBlock(Block block, BlockModelGenerators blockStateModelGenerator) {
@@ -373,6 +375,17 @@ public class BlockModelGenerator {
                 new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_END_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_END_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_END_3},
                 new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_3,
                         UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_4, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_5, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_6},
+                blockStateModelGenerator);
+    }
+
+    private static void registerRiceLeafFeastVariant(Block block, BlockModelGenerators blockStateModelGenerator) {
+        registerBreadLeafFeastVariant(block,
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_3,
+                        UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_4, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_5, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_6},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_TIP_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_TIP_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_TIP_3},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_END_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_END_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_END_3},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE_3,
+                        UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE_4, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE_5, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE_6},
                 blockStateModelGenerator);
     }
 

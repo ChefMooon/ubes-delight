@@ -1,4 +1,6 @@
-// 1.21.1	2024-12-13T13:32:55.5590732	Ube's Delight/Block Loot Tables
+// 1.21.1	2024-12-16T16:50:00.3391725	Ube's Delight/Block Loot Tables
+c5b72a17e37502e81ea00fe3f7a44ea834edc210 data\ubesdelight\loot_table\blocks\leaf_feast_fried_rice.json
+c5b72a17e37502e81ea00fe3f7a44ea834edc210 data\ubesdelight\loot_table\blocks\leaf_feast_sinangag.json
 45d2107def6f2f5e14fb36c12468b832d6598031 data\ubesdelight\loot_table\blocks\ginger_crate.json
 a157bb5c4b2db5ecc661a4ada2280076a283da03 data\ubesdelight\loot_table\blocks\leaf_feast_hopia_ube.json
 3cb19fbca98a1c19efefeca2da96c7a63ea42d95 data\ubesdelight\loot_table\blocks\garlic_crate.json
@@ -16,5 +18,6 @@ a95f8f75d890cceb29d7021285a02190ec40bf56 data\ubesdelight\loot_table\blocks\leaf
 17f43bf04e1d58f996f6d297cb7e1997066d515b data\ubesdelight\loot_table\blocks\leaf_feast_ensaymada.json
 5ab10b3cedb8412c9637de6281fac340aff809b6 data\ubesdelight\loot_table\blocks\leaf_feast_pandesal_ube.json
 34f6951060093eddbdc1a06805dfe1597495c5bf data\ubesdelight\loot_table\blocks\potted_ginger.json
+c5b72a17e37502e81ea00fe3f7a44ea834edc210 data\ubesdelight\loot_table\blocks\leaf_feast_cooked_rice.json
 1ea595c847cb2dfc7ccd660411a0797981aca074 data\ubesdelight\loot_table\blocks\leaf_feast_pandesal.json
 a2225ca5616ba8cdb444d51435aef3d034737319 data\ubesdelight\loot_table\blocks\potted_ube.json

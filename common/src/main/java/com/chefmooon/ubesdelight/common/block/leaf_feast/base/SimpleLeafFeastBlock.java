@@ -4,6 +4,8 @@ import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightDataComponentTypes;
 import com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil;
+import com.chefmooon.ubesdelight.common.utility.ItemStackUtil;
+import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -16,6 +18,7 @@ import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -52,7 +55,7 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
         ItemStack heldItem = player.getItemInHand(hand);
 
         if (level.isClientSide()) {
-            if (heldItem.isEmpty()) {
+            if (heldItem.isEmpty() || heldItem.is(Items.BOWL)) {
                 if (tryRemoveItem(state, level, pos, player, hand).consumesAction()) {
                     return ItemInteractionResult.SUCCESS;
                 }
@@ -63,7 +66,7 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
             }
         }
 
-        if (heldItem.isEmpty()) {
+        if (heldItem.isEmpty() || heldItem.is(Items.BOWL)) {
             return tryRemoveItem(state, level, pos, player, hand);
         } else {
             return tryAddItem(state, level, pos, player, hand);
@@ -81,8 +84,14 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
                 }
                 level.setBlock(pos, state.setValue(SERVINGS, servings + 1), 3);
                 if (!player.getAbilities().instabuild) {
-                    heldItem.split(1);
-                    //spawnContainer(level, pos, state.getValue(FACING), heldItem); // todo - add and test when rice is added
+                    ItemStack itemStack = heldItem.split(1);
+                    ItemStack container = ItemStackUtil.getContainer(itemStack);
+                    if (!container.isEmpty()) {
+//                        spawnContainer(level, pos, player.getDirection().getOpposite(), container);
+                        if (!player.getInventory().add(container)) {
+                            player.drop(container, false);
+                        }
+                    }
                 }
                 playAddSound(level, pos);
                 LeafFeastBlock.triggerInsertAdvancement(player);
@@ -91,6 +100,11 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
         }
 
         return ItemInteractionResult.FAIL;
+    }
+
+    public static void tryEat(ItemStack itemStack, Level level, BlockPos pos, Player player) {
+        player.eat(level, itemStack);
+        LeafFeastBlock.triggerConsumeAdvancement(player);
     }
 
     @Override
@@ -108,6 +122,21 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
     protected ItemInteractionResult tryRemoveItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
         int servings = state.getValue(SERVINGS);
         ItemStack itemStack = new ItemStack(servingItem.get());
+        ItemStack heldItem = player.getItemInHand(hand);
+
+        ItemStack container = ItemStackUtil.getContainer(itemStack);
+        if (!player.isShiftKeyDown()) {
+            if (!container.isEmpty()) {
+                if (!container.is(player.getItemInHand(hand).getItem())) {
+                    player.displayClientMessage(TextUtils.getTranslatable("container.bowl"), true);
+                    return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+                } else {
+                    if (!player.isCreative()) heldItem.split(1);
+                }
+            } else if (container.isEmpty() && !heldItem.isEmpty()) {
+                return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            }
+        }
 
         if (servings > 1) {
             level.setBlock(pos, state.setValue(SERVINGS, servings - 1), 3);

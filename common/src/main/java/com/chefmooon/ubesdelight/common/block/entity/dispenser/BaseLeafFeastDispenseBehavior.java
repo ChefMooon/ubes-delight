@@ -4,6 +4,7 @@ import com.chefmooon.ubesdelight.common.block.leaf_feast.base.BaseLeafFeastBlock
 import com.chefmooon.ubesdelight.common.block.leaf_feast.base.LargeLeafFeastBlock;
 import com.chefmooon.ubesdelight.common.block.leaf_feast.base.SimpleLeafFeastBlock;
 import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
+import com.chefmooon.ubesdelight.common.utility.ItemStackUtil;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -30,8 +31,12 @@ public class BaseLeafFeastDispenseBehavior extends OptionalDispenseItemBehavior 
             BlockPos blockPos = source.pos().relative(direction);
             this.setSuccess(tryAddServing(serverLevel, stack, blockPos));
             ItemStack itemStack = stack.split(1);
+            playSound(source);
             if (this.isSuccess()) {
-                playSound(source);
+                ItemStack container = ItemStackUtil.getContainer(itemStack);
+                if (!container.isEmpty()) {
+                    spawnItem(source.level(), container, 6, direction, position);
+                }
             } else {
                 spawnItem(source.level(), itemStack, 6, direction, position);
             }

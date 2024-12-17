@@ -4,14 +4,13 @@ import com.chefmooon.ubesdelight.common.block.leaf_feast.base.SimpleLeafFeastBlo
 import com.chefmooon.ubesdelight.common.registry.UbesDelightDataComponentTypes;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class BreadLeafFeastItem extends BlockItem {
-    public BreadLeafFeastItem(Block block, Properties properties) {
+public class LeafFeastItem extends BlockItem {
+    public LeafFeastItem(Block block, Properties properties) {
         super(block, properties);
     }
     @Override

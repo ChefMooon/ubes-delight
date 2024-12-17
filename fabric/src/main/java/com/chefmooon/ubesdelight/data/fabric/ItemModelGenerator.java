@@ -83,6 +83,12 @@ public class ItemModelGenerator {
         generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF);
         generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE);
         generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF);
 
         generateFlatItem(UbesDelightItemsImpl.LECHE_FLAN_FEAST);
         generateFlatItem(UbesDelightItemsImpl.LECHE_FLAN);

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "ud_leaf_feast",
+  "ingredients": [
+    {
+      "item": "farmersdelight:fried_rice"
+    },
+    {
+      "item": "farmersdelight:fried_rice"
+    },
+    {
+      "item": "farmersdelight:fried_rice"
+    },
+    {
+      "item": "ubesdelight:leaf_feast"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:leaf_feast_fried_rice_half"
+  }
+}

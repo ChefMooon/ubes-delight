@@ -10,6 +10,8 @@ import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -95,7 +97,16 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
                 }
             }
             if (level.setBlock(pos, newState, 3)) {
-                if (!player.getAbilities().instabuild) itemStack.split(1);
+                if (!player.getAbilities().instabuild) {
+                    itemStack.split(1);
+                    ItemStack container = ItemStackUtil.getContainer(itemStack);
+                    if (!container.isEmpty()) {
+//                        spawnContainer(level, pos, player.getDirection().getOpposite(), container);
+                        if (!player.getInventory().add(container)) {
+                            player.drop(container, false);
+                        }
+                    }
+                }
                 playAddSound(level, pos);
                 LeafFeastBlock.triggerInsertAdvancement(player);
                 return ItemInteractionResult.SUCCESS;
@@ -152,6 +163,12 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
             return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST_HOPIA_UBE);
         } else if (itemStack.is(BuiltInRegistryUtil.getItem(UbesDelightItems.LUMPIA))) {
             return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LUMPIA_FEAST);
+        } else if (itemStack.is(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice")))) {
+            return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST_COOKED_RICE);
+        } else if (itemStack.is(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "fried_rice")))) {
+            return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST_FRIED_RICE);
+        } else if (itemStack.is(BuiltInRegistryUtil.getItem(UbesDelightItems.SINANGAG))) {
+            return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST_SINANGAG);
         }
         return Blocks.AIR;
     }

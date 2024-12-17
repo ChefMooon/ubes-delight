@@ -1,6 +1,26 @@
 {
   "parent": "ubesdelight:main/leaf_feast",
   "criteria": {
+    "leaf_feast_cooked_rice": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_cooked_rice"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leaf_feast_cooked_rice_half": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_cooked_rice_half"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "leaf_feast_ensaymada": {
       "conditions": {
         "items": [
@@ -36,6 +56,26 @@
         "items": [
           {
             "items": "ubesdelight:leaf_feast_ensaymada_ube_half"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leaf_feast_fried_rice": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_fried_rice"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leaf_feast_fried_rice_half": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_fried_rice_half"
           }
         ]
       },
@@ -121,6 +161,26 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "leaf_feast_sinangag": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_sinangag"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "leaf_feast_sinangag_half": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ubesdelight:leaf_feast_sinangag_half"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "lumpia_feast": {
       "conditions": {
         "items": [
@@ -184,6 +244,24 @@
     ],
     [
       "leaf_feast_hopia_ube_half"
+    ],
+    [
+      "leaf_feast_cooked_rice"
+    ],
+    [
+      "leaf_feast_cooked_rice_half"
+    ],
+    [
+      "leaf_feast_fried_rice"
+    ],
+    [
+      "leaf_feast_fried_rice_half"
+    ],
+    [
+      "leaf_feast_sinangag"
+    ],
+    [
+      "leaf_feast_sinangag_half"
     ]
   ],
   "rewards": {

@@ -38,6 +38,7 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add("itemGroup." + MOD_ID, FORMATTED_MOD_ID);
 
         translationBuilder.add(MOD_ID + ".container.punch_bowl", "Glass Bottle Required.");
+        translationBuilder.add(MOD_ID + ".container.bowl", "Bowl Required.");
 
         translationBuilder.add(TOOLTIP + UbesDelightItemsImpl.KALAN.getDescriptionId(), "Traditional Filipino Clay Oven.");
         translationBuilder.add(TOOLTIP + "knife", "Knife Required.");
@@ -190,6 +191,9 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE, "Ube Pandesal Leaf Feast");
         translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, "Hopia Munggo Leaf Feast");
         translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, "Hopia Ube Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_COOKED_RICE, "Cooked Rice Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_FRIED_RICE, "Fried Rice Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_SINANGAG, "Sinangag Leaf Feast");
 
         translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF, "Half Ensaymada Leaf Feast");
         translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE_HALF, "Half Ube Ensaymada Leaf Feast");
@@ -197,6 +201,9 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE_HALF, "Half Ube Pandesal Leaf Feast");
         translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF, "Half Hopia Munggo Leaf Feast");
         translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF, "Half Hopia Ube Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF, "Half Cooked Rice Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF, "Half Fried Rice Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF, "Half Sinangag Leaf Feast");
 
         translationBuilder.add(ADVANCEMENT + "root", FORMATTED_MOD_ID);
         translationBuilder.add(ADVANCEMENT + "root.desc", "Cuisine from the Phillipines!");

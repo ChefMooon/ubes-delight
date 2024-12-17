@@ -20,7 +20,7 @@ NeoForge and Fabric.
     - Can display items that have a food component
   - Special Variants
     - Created by right-clicking a leaf feast with a valid item
-      - Valid Items: Lumpia, Ensaymada, Ube Ensaymada, Pandesal, Ube Pandesla, Hopia Munggo, Hopia Ube
+      - Valid Items: Lumpia, Ensaymada, Ube Ensaymada, Pandesal, Ube Pandesla, Hopia Munggo, Hopia Ube, Sinangag, Cooked Rice, Fried Rice
       - Can also be crafted
         - Lumpia Leaf Feast Example
           - 1x Leaf Feast, 6x Lumpia (Shaped Crafting) -> 1x Lumpia Leaf Feast
