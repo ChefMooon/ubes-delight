@@ -23,6 +23,8 @@ NeoForge, and Fabric
 
 - Rolling Pin knockback amount slightly reduced
 - Ube Milk Tea texture updated
+- Baking Mat Upgrade
+  - Items in the off-hand can now be added
 - Halo Halo Block Upgrade
   - Can now place up to 4 drinks in 1 block
 - Fish Sauce is now always edible (Thank you Starlet for the suggestion!)
