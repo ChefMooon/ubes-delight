@@ -160,7 +160,6 @@ public class BlockModelGenerator {
                 .with(BlockModelGenerators.createBooleanModelDispatch(KalanBlock.LIT, kalan_on, kalan))
         );
 
-        registerBasicRotationBlockState(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO, blockStateModelGenerator);
         registerBasicRotationBlockState(UbesDelightBlocksImpl.BAKING_MAT_BAMBOO, blockStateModelGenerator);
 
         registerBasicCake(UbesDelightBlocksImpl.UBE_CAKE, blockStateModelGenerator);
@@ -177,6 +176,9 @@ public class BlockModelGenerator {
 
         registerDrinkFeast(UbesDelightBlocksImpl.MILK_TEA_UBE_FEAST, blockStateModelGenerator);
         registerDrinkFeast(UbesDelightBlocksImpl.HALO_HALO_FEAST, blockStateModelGenerator);
+
+        registerGlassCup(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO, blockStateModelGenerator);
+        registerGlassCup(UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE, blockStateModelGenerator);
     }
 
     private static void registerCrateBlock(Block block, BlockModelGenerators blockStateModelGenerator) {
@@ -282,5 +284,30 @@ public class BlockModelGenerator {
         ResourceLocation resourceLocation = UbesDelightModels.TEMPLATE_CROP_CROSS.createWithSuffix(plant, "_top", TextureMapping.cross(ModelLocationUtils.getModelLocation(plant, "_top")), blockStateModelGenerator.modelOutput);
         ResourceLocation resourceLocation2 = UbesDelightModels.TEMPLATE_CROP_CROSS.createWithSuffix(plant, "_bottom", TextureMapping.cross(ModelLocationUtils.getModelLocation(plant, "_bottom")), blockStateModelGenerator.modelOutput);
         blockStateModelGenerator.createDoubleBlock(plant, resourceLocation, resourceLocation2);
+    }
+
+    private static void registerGlassCup(Block block, BlockModelGenerators blockModelGenerators) {
+        ResourceLocation blockLocation = ModelLocationUtils.getModelLocation(block);
+        ResourceLocation cupLocation = TextUtils.res("block/glass_cup");
+        TextureMapping textureMapping = TextureMapping.singleSlot(UbesDelightTextureSlots.CUP, cupLocation)
+                .put(UbesDelightTextureSlots.INSIDE, blockLocation);
+        ResourceLocation TEMPLATE_GLASS_CUP_1_LOCATION = blockLocation.withSuffix("_servings1");
+        UbesDelightModels.TEMPLATE_GLASS_CUP_1.create(TEMPLATE_GLASS_CUP_1_LOCATION, textureMapping, blockModelGenerators.modelOutput);
+        ResourceLocation TEMPLATE_GLASS_CUP_2_LOCATION = blockLocation.withSuffix("_servings2");
+        UbesDelightModels.TEMPLATE_GLASS_CUP_2.create(TEMPLATE_GLASS_CUP_2_LOCATION, textureMapping, blockModelGenerators.modelOutput);
+        ResourceLocation TEMPLATE_GLASS_CUP_3_LOCATION = blockLocation.withSuffix("_servings3");
+        UbesDelightModels.TEMPLATE_GLASS_CUP_3.create(TEMPLATE_GLASS_CUP_3_LOCATION, textureMapping, blockModelGenerators.modelOutput);
+        ResourceLocation TEMPLATE_GLASS_CUP_4_LOCATION = blockLocation.withSuffix("_servings4");
+        UbesDelightModels.TEMPLATE_GLASS_CUP_4.create(TEMPLATE_GLASS_CUP_4_LOCATION, textureMapping, blockModelGenerators.modelOutput);
+
+        blockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block)
+                .with(BlockModelGenerators.createHorizontalFacingDispatch())
+                .with(PropertyDispatch.property(GlassCupBlock.SERVINGS)
+                        .select(0, Variant.variant().with(VariantProperties.MODEL, TEMPLATE_GLASS_CUP_1_LOCATION))
+                        .select(1, Variant.variant().with(VariantProperties.MODEL, TEMPLATE_GLASS_CUP_2_LOCATION))
+                        .select(2, Variant.variant().with(VariantProperties.MODEL, TEMPLATE_GLASS_CUP_3_LOCATION))
+                        .select(3, Variant.variant().with(VariantProperties.MODEL, TEMPLATE_GLASS_CUP_4_LOCATION))
+
+                ));
     }
 }

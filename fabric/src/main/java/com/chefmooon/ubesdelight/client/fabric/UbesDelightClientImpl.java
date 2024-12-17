@@ -40,6 +40,7 @@ public class UbesDelightClientImpl implements ClientModInitializer {
                 UbesDelightBlocksImpl.LECHE_FLAN_FEAST,
                 UbesDelightBlocksImpl.LUMPIA_FEAST,
                 UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO,
+                UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE,
                 UbesDelightBlocksImpl.MILK_TEA_UBE_FEAST,
                 UbesDelightBlocksImpl.HALO_HALO_FEAST);
 

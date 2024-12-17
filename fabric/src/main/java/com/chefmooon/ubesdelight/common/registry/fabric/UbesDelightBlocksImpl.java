@@ -50,7 +50,10 @@ public class UbesDelightBlocksImpl {
     public static final Block LEMONGRASS_STALK_CROP = registerBlock(UbesDelightBlocks.LEMONGRASS_STALK_CROP, new LemongrassStalkCropBlock());
     public static final Block LEMONGRASS_LEAF_CROP = registerBlock(UbesDelightBlocks.LEMONGRASS_LEAF_CROP, new LemongrassLeafCropBlock());
 
-    public static final Block GLASS_CUP_HALO_HALO = registerBlock(UbesDelightBlocks.GLASS_CUP_HALO_HALO, new GlassCupBlock());
+    public static final Block GLASS_CUP_HALO_HALO = registerBlock(UbesDelightBlocks.GLASS_CUP_HALO_HALO,
+            new GlassCupBlock(() -> UbesDelightItemsImpl.HALO_HALO, BlockBehaviour.Properties.copy(Blocks.GLASS).lightLevel(value -> 4)));
+    public static final Block GLASS_CUP_MILK_TEA_UBE = registerBlock(UbesDelightBlocks.GLASS_CUP_MILK_TEA_UBE,
+            new GlassCupBlock(() -> UbesDelightItemsImpl.MILK_TEA_UBE, BlockBehaviour.Properties.copy(Blocks.GLASS)));
 
     public static final Block UBE_CAKE = registerBlock(UbesDelightBlocks.UBE_CAKE, new UbesDelightCakeBlock(() -> UbesDelightItemsImpl.UBE_CAKE_SLICE));
     public static final Block LECHE_FLAN_FEAST = registerBlock(UbesDelightBlocks.LECHE_FLAN_FEAST, new LecheFlanFeastBlock(() -> UbesDelightItemsImpl.LECHE_FLAN));

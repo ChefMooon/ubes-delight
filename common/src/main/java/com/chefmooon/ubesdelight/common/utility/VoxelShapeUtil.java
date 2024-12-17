@@ -5,7 +5,17 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 public class VoxelShapeUtil {
+    public static VoxelShape[] getRotatedShapes(VoxelShape shape) {
+        // Assumes initial direciton is NORTH, returns in order of Direction.get2DDataValue() make one that handles an input direction?
+        return new VoxelShape[]{
+                rotateVoxelShape(shape, Direction.SOUTH),
+                rotateVoxelShape(shape, Direction.WEST),
+                shape,
+                rotateVoxelShape(shape, Direction.EAST)};
+    }
 
     public static VoxelShape rotateVoxelShape(VoxelShape shape, Direction direction) {
         // Assumes initial direciton is NORTH

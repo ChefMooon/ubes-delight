@@ -33,6 +33,7 @@ public class UbesDelightBlocks {
     public static final ResourceLocation LEMONGRASS_LEAF_CROP = block("lemongrass_leaf_crop");
 
     public static final ResourceLocation GLASS_CUP_HALO_HALO = block("glass_cup_halo_halo");
+    public static final ResourceLocation GLASS_CUP_MILK_TEA_UBE = block("glass_cup_milk_tea_ube");
 
     public static final ResourceLocation UBE_CAKE = block("ube_cake");
     public static final ResourceLocation LECHE_FLAN_FEAST = block("leche_flan_feast");

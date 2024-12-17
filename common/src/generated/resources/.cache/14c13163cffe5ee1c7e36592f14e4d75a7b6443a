@@ -1,7 +1,8 @@
-// 1.20.1	2024-12-17T14:03:40.3043752	Ube's Delight/Tags for minecraft:item
+// 1.20.1	2024-12-17T14:52:48.4688661	Ube's Delight/Tags for minecraft:item
 37f3aaad7d39a59568c16932cca4a2c23559a80a data\create\tags\items\upright_on_belt.json
 a04cb697144147f60a3ffb78564f6fce98b3ef4f data\minecraft\tags\items\small_flowers.json
 e24b7903102c8bf6b26cddc2de5030a99be6fa84 data\sereneseasons\tags\items\spring_crops.json
+4551512a8fa733d521e5f2162b440359e09619e6 data\c\tags\items\tools.json
 7a13bef8ac508d63933308c508237f8ae0e44b69 data\dehydration\tags\items\hydrating_stew.json
 6877cb2c0b43d9e96eb9d27f07ca10c69a7faeb5 data\origins\tags\items\meat.json
 e38068d3e243aad20db0a0f80bfcf9075c0c7639 data\c\tags\items\food_wrappers.json

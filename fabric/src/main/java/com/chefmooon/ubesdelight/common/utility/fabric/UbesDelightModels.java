@@ -45,6 +45,11 @@ public class UbesDelightModels {
     public static final ModelTemplate TEMPLATE_POTTED_FLOWER = block("template_potted_flower",
             TextureSlot.PLANT);
 
+    public static final ModelTemplate TEMPLATE_GLASS_CUP_1 = block("template_glass_cup_1", UbesDelightTextureSlots.INSIDE, UbesDelightTextureSlots.CUP);
+    public static final ModelTemplate TEMPLATE_GLASS_CUP_2 = block("template_glass_cup_2", UbesDelightTextureSlots.INSIDE, UbesDelightTextureSlots.CUP);
+    public static final ModelTemplate TEMPLATE_GLASS_CUP_3 = block("template_glass_cup_3", UbesDelightTextureSlots.INSIDE, UbesDelightTextureSlots.CUP);
+    public static final ModelTemplate TEMPLATE_GLASS_CUP_4 = block("template_glass_cup_4", UbesDelightTextureSlots.INSIDE, UbesDelightTextureSlots.CUP);
+
     private static ModelTemplate item(String parent, TextureSlot... textureSlots) {
         return new ModelTemplate(Optional.of(UbesDelight.res("item/" + parent)), Optional.empty(), textureSlots);
     }

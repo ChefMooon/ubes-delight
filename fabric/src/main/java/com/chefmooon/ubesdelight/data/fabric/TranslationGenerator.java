@@ -84,8 +84,6 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(UbesDelightItemsImpl.SUGAR_BROWN, "Brown Sugar");
         translationBuilder.add(UbesDelightItemsImpl.LUMPIA_WRAPPER, "Lumpia Wrapper");
 
-        translationBuilder.add(UbesDelightItemsImpl.MILK_TEA_UBE, "Ube Milk Tea");
-
         translationBuilder.add(UbesDelightItemsImpl.GARLIC_CHOP, "Chopped Garlic");
         translationBuilder.add(UbesDelightItemsImpl.GINGER_CHOP, "Chopped Ginger");
 
@@ -173,12 +171,16 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP, "Lemongrass Leaves");
 
         translationBuilder.add(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO, "Halo Halo");
+        translationBuilder.add(UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE, "Ube Milk Tea");
 
         translationBuilder.add(ADVANCEMENT + "root", FORMATTED_MOD_ID);
         translationBuilder.add(ADVANCEMENT + "root.desc", "Cuisine from the Phillipines!");
 
         translationBuilder.add(ADVANCEMENT + "craft_rolling_pin", "Rolling Pin");
         translationBuilder.add(ADVANCEMENT + "craft_rolling_pin.desc", "Use sticks and a fence to make a new tool for the kitchen");
+
+        translationBuilder.add(ADVANCEMENT + "netherite_rolling_pin", "Rolling in the Deep");
+        translationBuilder.add(ADVANCEMENT + "netherite_rolling_pin.desc", "Upgrade your Rolling Pin with a Netherite Ingot! You must be serious about baking");
 
         translationBuilder.add(ADVANCEMENT + "craft_baking_mat", "Baking Mat");
         translationBuilder.add(ADVANCEMENT + "craft_baking_mat.desc", "Surround honeycomb with bamboo to craft a Baking Mat");

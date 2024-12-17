@@ -98,7 +98,7 @@ public class UbesDelightItemsImpl {
             () -> new Item(basicItem()));
 
     public static final RegistryObject<Item> MILK_TEA_UBE = registerItemWithTab(UbesDelightItems.MILK_TEA_UBE,
-            () -> new UbesDelightDrinkableItem(drinkItem(FoodValues.MILK_TEA_UBE), true));
+            () -> new UbesDelightDrinkableBlockItem(UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE.get(), drinkItem(FoodValues.MILK_TEA_UBE), true, true));
     public static final RegistryObject<Item> HALO_HALO = registerItemWithTab(UbesDelightItems.HALO_HALO,
             () -> new UbesDelightDrinkableBlockItem(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO.get(), drinkItem(FoodValues.HALO_HALO), true, true));
 

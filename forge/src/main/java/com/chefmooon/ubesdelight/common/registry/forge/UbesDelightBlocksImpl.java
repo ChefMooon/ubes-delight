@@ -56,7 +56,10 @@ public class UbesDelightBlocksImpl {
     public static final RegistryObject<Block> LEMONGRASS_STALK_CROP = registerBlock(UbesDelightBlocks.LEMONGRASS_STALK_CROP, LemongrassStalkCropBlock::new);
     public static final RegistryObject<Block> LEMONGRASS_LEAF_CROP = registerBlock(UbesDelightBlocks.LEMONGRASS_LEAF_CROP, LemongrassLeafCropBlock::new);
 
-    public static final RegistryObject<Block> GLASS_CUP_HALO_HALO = registerBlock(UbesDelightBlocks.GLASS_CUP_HALO_HALO, GlassCupBlock::new);
+    public static final RegistryObject<Block> GLASS_CUP_HALO_HALO = registerBlock(UbesDelightBlocks.GLASS_CUP_HALO_HALO,
+            () -> new GlassCupBlock(UbesDelightItemsImpl.HALO_HALO, BlockBehaviour.Properties.copy(Blocks.GLASS).lightLevel(value -> 4)));
+    public static final Supplier<Block> GLASS_CUP_MILK_TEA_UBE = registerBlock(UbesDelightBlocks.GLASS_CUP_MILK_TEA_UBE,
+            () -> new GlassCupBlock(UbesDelightItemsImpl.MILK_TEA_UBE, BlockBehaviour.Properties.copy(Blocks.GLASS)));
 
     public static final RegistryObject<Block> UBE_CAKE = registerBlock(UbesDelightBlocks.UBE_CAKE, () -> new UbesDelightCakeBlock(UbesDelightItemsImpl.UBE_CAKE_SLICE::get));
     public static final RegistryObject<Block> LECHE_FLAN_FEAST = registerBlock(UbesDelightBlocks.LECHE_FLAN_FEAST, () -> new LecheFlanFeastBlock(UbesDelightItemsImpl.LECHE_FLAN::get));

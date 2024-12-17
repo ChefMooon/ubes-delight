@@ -1,0 +1,7 @@
+{
+  "parent": "ubesdelight:block/template_glass_cup_1",
+  "textures": {
+    "cup": "ubesdelight:block/glass_cup",
+    "inside": "ubesdelight:block/glass_cup_milk_tea_ube"
+  }
+}

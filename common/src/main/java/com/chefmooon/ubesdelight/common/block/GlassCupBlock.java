@@ -1,11 +1,17 @@
 package com.chefmooon.ubesdelight.common.block;
 
+import com.chefmooon.ubesdelight.common.registry.UbesDelightShapes;
+import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.utility.TagUtils;
+import com.chefmooon.ubesdelight.common.utility.VoxelShapeUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -19,31 +25,38 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class GlassCupBlock extends Block {
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Supplier;
 
+public class GlassCupBlock extends Block {
+    public static final int MAX_SERVINGS = 3;
+    public static final IntegerProperty SERVINGS = IntegerProperty.create("servings", 0, MAX_SERVINGS);
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    protected static final VoxelShape CUP_NORTH = Shapes.or(
-            Block.box(1.d, 7.d, 1.d, 8.d, 8.d, 8.d),
-            Block.box(2.d, .0d, 2.d, 7.d, 7.d, 7.d));
-    protected static final VoxelShape CUP_EAST = Shapes.or(
-            Block.box(8.d, 7.d, 1.d, 15.d, 8.d, 8.d),
-            Block.box(9.d, .0d, 2.d, 14.d, 7.d, 7.d));
-    protected static final VoxelShape CUP_SOUTH = Shapes.or(
-            Block.box(8.d, 7.d, 8.d, 15.d, 8.d, 15.d),
-            Block.box(9.d, .0d, 9.d, 14.d, 7.d, 14.d));
-    protected static final VoxelShape CUP_WEST = Shapes.or(
-            Block.box(1.d, 7.d, 8.d, 8.d, 8.d, 15.d),
-            Block.box(2.d, .0d, 9.d, 7.d, 7.d, 14.d));
-    // todo - 0.2.1 - use VoxelShapeUtil getRotatedShapes
-    protected final VoxelShape[] SHAPES = new VoxelShape[]{CUP_SOUTH, CUP_WEST, CUP_NORTH, CUP_EAST};
-    public GlassCupBlock() {
-        super(BlockBehaviour.Properties.copy(Blocks.GLASS).lightLevel(value -> 4));
-        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
+    public Supplier<Item> servingItem;
+    protected final ConcurrentHashMap<Integer, VoxelShape[]> CUP_SHAPES;
+
+    public GlassCupBlock(Supplier<Item> servingItem, Properties properties) {
+        super(properties);
+        this.servingItem = servingItem;
+        CUP_SHAPES = buildShapes();
+        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(SERVINGS, 0));
+    }
+
+    private static ConcurrentHashMap<Integer, VoxelShape[]> buildShapes() {
+        ConcurrentHashMap<Integer, VoxelShape[]> result = new ConcurrentHashMap<>();
+
+        result.put(0, VoxelShapeUtil.getRotatedShapes(UbesDelightShapes.CUP_NORTH_SERVINGS_1));
+        result.put(1, VoxelShapeUtil.getRotatedShapes(UbesDelightShapes.CUP_NORTH_SERVINGS_2));
+        result.put(2, VoxelShapeUtil.getRotatedShapes(UbesDelightShapes.CUP_NORTH_SERVINGS_3));
+        result.put(3, VoxelShapeUtil.getRotatedShapes(UbesDelightShapes.CUP_NORTH_SERVINGS_4));
+
+        return result;
     }
 
     @Override
@@ -54,14 +67,26 @@ public class GlassCupBlock extends Block {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         ItemStack heldStack = player.getItemInHand(hand);
+
         if (level.isClientSide()) {
-            if (heldStack.is(TagUtils.getKifeItemTag())) {
+            if (heldStack.is(CommonTags.C_TOOLS)) {
                 return rotate(level, pos, state, player);
+            } else if (heldStack.is(servingItem.get())) {
+                return addServingFromHand(level, pos, state, player, hand);
+            } else if (heldStack.isEmpty()) {
+                return removeServingToHand(level, pos, state, player, hand);
             }
         }
-        if (heldStack.is(TagUtils.getKifeItemTag())) {
+
+        if (heldStack.is(CommonTags.C_TOOLS)) {
             return rotate(level, pos, state, player);
+        } else if (heldStack.is(servingItem.get())) {
+            return addServingFromHand(level, pos, state, player, hand);
+        } else if (heldStack.isEmpty()) {
+            return removeServingToHand(level, pos, state, player, hand);
         }
+
+
         return InteractionResult.PASS;
     }
 
@@ -78,18 +103,62 @@ public class GlassCupBlock extends Block {
     @Override
     protected void createBlockStateDefinition(final StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(FACING);
+        builder.add(FACING, SERVINGS);
     }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPES[state.getValue(FACING).get2DDataValue()];
+        int servings = state.getValue(SERVINGS);
+        return CUP_SHAPES.containsKey(servings) ? CUP_SHAPES.get(servings)[state.getValue(FACING).get2DDataValue()] : Shapes.empty();
     }
 
     protected InteractionResult rotate(Level level, BlockPos pos, BlockState state, Player player) {
         if (player.getBoundingBox().distanceToSqr(pos.getCenter()) < 0.5) return InteractionResult.PASS;
 
         if (level.setBlock(pos, state.setValue(FACING, state.getValue(FACING).getClockWise()), 3)) return InteractionResult.SUCCESS;
+
+        return InteractionResult.PASS;
+    }
+
+    public InteractionResult addServingFromHand(Level level, BlockPos pos, BlockState state, Player player, InteractionHand hand) {
+        int servings = state.getValue(SERVINGS);
+
+        if (servings < MAX_SERVINGS) {
+            ItemStack heldItem = player.getItemInHand(hand);
+            level.setBlock(pos, state.setValue(SERVINGS, servings + 1), 3);
+            level.playSound(player, pos, SoundEvents.GLASS_PLACE, SoundSource.BLOCKS, 0.8F, 0.6F);
+            if (!player.isCreative()) {
+                heldItem.shrink(1);
+            }
+            return InteractionResult.SUCCESS;
+        }
+
+        return InteractionResult.PASS;
+    }
+
+    protected InteractionResult removeServingToHand(Level level, BlockPos pos, BlockState state, Player player, InteractionHand hand) {
+        int servings = state.getValue(SERVINGS);
+        ItemStack servingItem = new ItemStack(this.servingItem.get());
+
+        if (servings == 0) { // todo - decide shift key down to completely remove block?
+            level.removeBlock(pos, false);
+            level.playSound(player, pos, SoundEvents.GLASS_PLACE, SoundSource.BLOCKS, 0.8F, 0.8F);
+            if (!player.isCreative()) {
+                if (!player.getInventory().add(servingItem)) {
+                    player.drop(servingItem, false);
+                }
+            }
+            return InteractionResult.SUCCESS;
+        } else if (servings > 0) {
+            level.setBlock(pos, state.setValue(SERVINGS, servings - 1), 3);
+            level.playSound(player, pos, SoundEvents.GLASS_PLACE, SoundSource.BLOCKS, 0.8F, 0.8F);
+            if (!player.isCreative()) {
+                if (!player.getInventory().add(servingItem)) {
+                    player.drop(servingItem, false);
+                }
+            }
+            return InteractionResult.SUCCESS;
+        }
 
         return InteractionResult.PASS;
     }

@@ -1,4 +1,5 @@
-// 1.20.1	2024-12-17T14:03:40.3033663	Ube's Delight/Block Loot Tables
+// 1.20.1	2024-12-17T14:52:48.4688661	Ube's Delight/Block Loot Tables
+6ff7652f720b94e59a99de1712cf1615649ab646 data\ubesdelight\loot_tables\blocks\glass_cup_halo_halo.json
 55ea267ccd87fdd88188df2442463af8813c5c05 data\ubesdelight\loot_tables\blocks\ube_crate.json
 3cb19fbca98a1c19efefeca2da96c7a63ea42d95 data\ubesdelight\loot_tables\blocks\garlic_crate.json
 340472ae0ecdcce826e309ac67c04685e9225d18 data\ubesdelight\loot_tables\blocks\potted_garlic.json
@@ -7,4 +8,5 @@ f88d5733d51e2044bebf4f79eee2adffd1736856 data\ubesdelight\loot_tables\blocks\bak
 7bb4c0185fbb499045ac30eb6871c4dcc53948a1 data\ubesdelight\loot_tables\blocks\kalan.json
 45d2107def6f2f5e14fb36c12468b832d6598031 data\ubesdelight\loot_tables\blocks\ginger_crate.json
 a2225ca5616ba8cdb444d51435aef3d034737319 data\ubesdelight\loot_tables\blocks\potted_ube.json
+7f379ff29a0d416dad86e799a0a9692a779f8e58 data\ubesdelight\loot_tables\blocks\glass_cup_milk_tea_ube.json
 4befa9b2fbf7e2b81f136920093fffdaf65bd1e0 data\ubesdelight\loot_tables\blocks\lemongrass_crate.json

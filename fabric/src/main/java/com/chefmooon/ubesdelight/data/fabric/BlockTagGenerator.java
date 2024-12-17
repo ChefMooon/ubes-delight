@@ -28,7 +28,6 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
 
     private void registerCommonBlockTags() {
         getOrCreateTagBuilder(CommonTags.C_MINEABLE_KNIFE)
-                .add(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO)
                 .add(UbesDelightBlocksImpl.UBE_CAKE)
                 .add(UbesDelightBlocksImpl.LECHE_FLAN_FEAST)
                 .add(UbesDelightBlocksImpl.HALO_HALO_FEAST)
