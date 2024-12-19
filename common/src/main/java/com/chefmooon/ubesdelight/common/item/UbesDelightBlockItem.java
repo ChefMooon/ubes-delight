@@ -16,8 +16,8 @@ import java.util.List;
 import static com.chefmooon.ubesdelight.common.utility.TextUtils.addFoodEffectTooltip;
 
 public class UbesDelightBlockItem extends BlockItem {
-    private final boolean hasFoodEffectTooltip;
-    private final boolean hasCustomTooltip;
+    protected final boolean hasFoodEffectTooltip;
+    protected final boolean hasCustomTooltip;
     private final int burnTime;
     public UbesDelightBlockItem(Block block, Properties properties) {
         this(block, properties, false, false, 0);
@@ -50,7 +50,5 @@ public class UbesDelightBlockItem extends BlockItem {
             }
         }
     }
-
-
 }
 
