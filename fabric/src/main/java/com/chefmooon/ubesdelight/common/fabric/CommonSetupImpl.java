@@ -14,7 +14,6 @@ public class CommonSetupImpl {
         CommonSetup.registerCompostables();
 
         BakingMatBlockEntityImpl.init();
-        //UniversalLeafFeastBlockEntityImpl.init();
 
         ResourceConditions.register(UDCrateEnabledCondition.TYPE);
     }

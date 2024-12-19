@@ -75,7 +75,7 @@ public class UbesDelightBlocksImpl {
     public static final Supplier<Block> UNIVERSAL_LEAF_FEAST = registerBlock(UbesDelightBlocks.UNIVERSAL_LEAF_FEAST,
             () -> new UniversalLeafFeastBlockImpl(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA).sound(SoundType.AZALEA)));
     public static final Supplier<Block> LUMPIA_FEAST = registerBlock(UbesDelightBlocks.LUMPIA_FEAST,
-            () -> new LumpiaLeafFeastBlock(UbesDelightItemsImpl.LUMPIA::get, BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA).sound(SoundType.AZALEA)));
+            () -> new LumpiaLeafFeastBlock(UbesDelightItemsImpl.LUMPIA, BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA).sound(SoundType.AZALEA)));
 
     public static final Supplier<Block> LEAF_FEAST_ENSAYMADA = registerBlock(UbesDelightBlocks.LEAF_FEAST_ENSAYMADA,
             () -> new EnsaymadaLeafFeastBlock(UbesDelightItemsImpl.ENSAYMADA, BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA).sound(SoundType.AZALEA)));

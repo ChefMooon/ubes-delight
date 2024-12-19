@@ -441,7 +441,6 @@ public class BlockModelGenerator {
                         .select(6, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_3")))
                 )
         );
-//        GENERATOR.delegateItemModel(UbesDelightItemsImpl.LUMPIA_FEAST, baseLocation.withSuffix("_3"));
     }
 
     private static void registerBreadLeafFeastVariant(Block block, ModelTemplate[] modelTemplateBase, ModelTemplate[] modelTemplateTip, ModelTemplate[] modelTemplateEnd, ModelTemplate[] modelTemplateMiddle, BlockModelGenerators blockStateModelGenerator) {
@@ -506,7 +505,6 @@ public class BlockModelGenerator {
                         .select(6, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_6")))
                 )
         );
-//        GENERATOR.delegateItemModel(block, baseLocation.withSuffix("_6"));
     }
 
     private static void registerLeafFeastVariant(Block block, ModelTemplate modelTemplateBase, ModelTemplate modelTemplateTip, ModelTemplate modelTemplateEnd, ModelTemplate modelTemplateMiddle, BlockModelGenerators blockStateModelGenerator) {

@@ -9,13 +9,6 @@ public class CommonSetupImpl {
     public static void init(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             CommonSetup.init();
-//            registerDispenserBehaviors();
         });
-
-        //CraftingHelper.register(new UDCrateEnabledCondition.Serializer());
     }
-
-//    public static void registerDispenserBehaviors() {
-//        BakingMatDispenseBehaviorImpl.register();
-//    }
 }

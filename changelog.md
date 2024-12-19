@@ -10,9 +10,9 @@ NeoForge and Fabric.
 ### Added
 
 - Leaf Feast
-  - This block has 3 main shapes End, Middle, and Tip. When placed beside each other and facing the same 
+  - Has 3 main shapes End, Middle, and Tip. When placed beside each other and facing the same 
     direction these blocks will connect
-  - The block can contain 3-6 servings depending on the shape
+  - Can contain 3-6 servings depending on the shape
     - Middle = 6
     - End/Tip = 3
   - Universal Variant
@@ -29,11 +29,12 @@ NeoForge and Fabric.
           - 3x Leaves, 3x Ensaymada (Shaped Crafting) -> 1x Half Ensaymada Leaf Feast
       - Leaf Feasts stack to 8, Half Leaf Feasts stack to 16
     - Can be created and refilled by dispenser's
-    - Special variants can be crafted and placed with 6 servings
-- 6 New Advancements to help explain the Leaf Feast
+    - Special variants can be crafted and placed with 3 or 6 servings
+- 5 New Advancements to help explain the Leaf Feast
 - New Rolling Pin Tiers
   - Iron, Gold, Diamond, Netherite
   - Slightly reduce attack speed
+  - 1 New Advancement
   - Better Combat compatibility
 - Ube Milk Tea Block
   - Ube Milk Tea item can now be placed similar to the Halo Halo item and upgraded block

@@ -18,7 +18,7 @@ public class BaseLeafFeastDispenseBehaviorImpl {
         DispenserBlock.registerBehavior(UbesDelightItemsImpl.HOPIA_MUNGGO, new BaseLeafFeastDispenseBehavior());
         DispenserBlock.registerBehavior(UbesDelightItemsImpl.HOPIA_UBE, new BaseLeafFeastDispenseBehavior());
         DispenserBlock.registerBehavior(UbesDelightItemsImpl.LUMPIA, new BaseLeafFeastDispenseBehavior());
-        DispenserBlock.registerBehavior(BuiltInRegistryUtil.getItemLike(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice")), new BaseLeafFeastDispenseBehavior()); // TODO - sometimes this is air? only in dev?
+        DispenserBlock.registerBehavior(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice")), new BaseLeafFeastDispenseBehavior()); // TODO - sometimes this is air? only in dev?
         DispenserBlock.registerBehavior(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "fried_rice")), new BaseLeafFeastDispenseBehavior());
         DispenserBlock.registerBehavior(UbesDelightItemsImpl.SINANGAG, new BaseLeafFeastDispenseBehavior());
     }

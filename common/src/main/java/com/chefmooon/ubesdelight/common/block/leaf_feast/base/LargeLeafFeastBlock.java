@@ -136,18 +136,18 @@ public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-//        LeafFeastTypes leafFeastType = state.getValue(LEAF_FEAST_TYPE);
-        LeafFeastTypes leafFeastType = LeafFeastTypes.MIDDLE; // this variant does not have a tip/end variant for servings
+        LeafFeastTypes leafFeastType = state.getValue(LEAF_FEAST_TYPE);
+//        LeafFeastTypes leafFeastType = LeafFeastTypes.MIDDLE; // this variant does not have a tip/end variant for servings
         int servings = state.getValue(SERVINGS);
         Direction facing = state.getValue(FACING);
 
-//        if (leafFeastType == LeafFeastTypes.END || leafFeastType == LeafFeastTypes.TIP) {
-//            leafFeastType = LeafFeastTypes.MIDDLE;
-//        }
+        if (leafFeastType == LeafFeastTypes.END || leafFeastType == LeafFeastTypes.TIP) {
+            leafFeastType = LeafFeastTypes.MIDDLE;
+        }
 
         VoxelShape servingShape = Shapes.empty();
-        if (FEAST_VARIANTS_SERVINGS.containsKey(leafFeastType)) {
-            if (FEAST_VARIANTS_SERVINGS.get(leafFeastType).containsKey(servings)) {
+        if (FEAST_VARIANTS_SERVINGS.containsKey(LeafFeastTypes.MIDDLE)) {
+            if (FEAST_VARIANTS_SERVINGS.get(LeafFeastTypes.MIDDLE).containsKey(servings)) {
                 servingShape = FEAST_VARIANTS_SERVINGS.get(LeafFeastTypes.MIDDLE).get(servings)[facing.get2DDataValue()];
             }
         }
