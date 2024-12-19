@@ -46,7 +46,7 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(TOOLTIP + "baking_mat.invalid_item", "Invalid Items");
         translationBuilder.add(TOOLTIP + "baking_mat.invalid_tool", "Invalid Tool");
 
-        translationBuilder.add(TOOLTIP + UbesDelightItemsImpl.HALO_HALO.getDescriptionId(), "Right Click with a Knife to rotate. Break with Knife to pickup.");
+        translationBuilder.add(TOOLTIP + "glass_cup", "Shift-right-click to place. Right-click with a tool to rotate.");
 
         translationBuilder.add(UbesDelightItemsImpl.KALAN, "Kalan");
         translationBuilder.add(UbesDelightItemsImpl.BAKING_MAT_BAMBOO, "Bamboo Baking Mat");

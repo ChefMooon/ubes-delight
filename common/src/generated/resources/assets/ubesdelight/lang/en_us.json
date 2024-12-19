@@ -210,8 +210,8 @@
   "ubesdelight.subtitles.block_lumpia_feast.remove": "Lumpia Removed",
   "ubesdelight.tooltip.baking_mat.invalid_item": "Invalid Items",
   "ubesdelight.tooltip.baking_mat.invalid_tool": "Invalid Tool",
-  "ubesdelight.tooltip.block.ubesdelight.glass_cup_halo_halo": "Right Click with a Knife to rotate. Break with Knife to pickup.",
   "ubesdelight.tooltip.block.ubesdelight.kalan": "Traditional Filipino Clay Oven.",
+  "ubesdelight.tooltip.glass_cup": "Shift-right-click to place. Right-click with a tool to rotate.",
   "ubesdelight.tooltip.knife": "Knife Required.",
   "ubesdelight.tooltip.waila.punchbowl_servings": "Servings"
 }

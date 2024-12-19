@@ -12,8 +12,8 @@ import net.minecraft.world.level.block.Block;
 import java.util.List;
 
 public class UbesDelightBlockItem extends BlockItem {
-    private final boolean hasFoodEffectTooltip;
-    private final boolean hasCustomTooltip;
+    protected final boolean hasFoodEffectTooltip;
+    protected final boolean hasCustomTooltip;
     private final int burnTime;
     public UbesDelightBlockItem(Block block, Properties properties) {
         this(block, properties, false, false, 0);
@@ -46,7 +46,5 @@ public class UbesDelightBlockItem extends BlockItem {
             }
         }
     }
-
-
 }
 

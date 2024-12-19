@@ -1,21 +1,27 @@
 package com.chefmooon.ubesdelight.common.item;
 
+import com.chefmooon.ubesdelight.common.Configuration;
 import com.chefmooon.ubesdelight.common.block.GlassCupBlock;
+import com.chefmooon.ubesdelight.common.utility.TextUtils;
+import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.List;
 import java.util.Objects;
 
 public class UbesDelightDrinkableBlockItem extends UbesDelightBlockItem {
@@ -94,5 +100,19 @@ public class UbesDelightDrinkableBlockItem extends UbesDelightBlockItem {
     @Override
     public UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.DRINK;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag isAdvanced) {
+        if (Configuration.isFoodEffectTooltip()) { // todo - add new config BlockItem tooltips? V0.2.0
+            if (hasCustomTooltip) {
+//                tooltip.add(TextUtils.getTranslatable("tooltip." + this).withStyle(ChatFormatting.DARK_GRAY));
+                tooltip.add(TextUtils.getTranslatable("tooltip.glass_cup").withStyle(ChatFormatting.DARK_GRAY));
+            }
+
+            if (hasFoodEffectTooltip) {
+                vectorwing.farmersdelight.common.utility.TextUtils.addFoodEffectTooltip(stack, tooltip::add, 1.0F, context.tickRate());
+            }
+        }
     }
 }
