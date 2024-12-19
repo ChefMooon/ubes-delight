@@ -16,6 +16,9 @@ public class UbesDelightSounds {
     public static final Supplier<SoundEvent> BLOCK_DRINKABLE_FEAST_REMOVE = registerSound("block_drinkable_feast_remove");
     public static final Supplier<SoundEvent> BLOCK_LUMPIA_FEAST_REMOVE = registerSound("block_lumpia_feast_remove");
 
+    public static final Supplier<SoundEvent> BLOCK_LEAF_FEAST_ADD = registerSound("block.leaf_feast.add");
+    public static final Supplier<SoundEvent> BLOCK_LEAF_FEAST_REMOVE = registerSound("block.leaf_feast.remove");
+
     private static Supplier<SoundEvent> registerSound(String string) {
         return registerSound(TextUtils.res(string), () -> SoundEvent.createVariableRangeEvent(TextUtils.res(string)));
     }

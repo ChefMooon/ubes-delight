@@ -1,0 +1,12 @@
+package com.chefmooon.ubesdelight.common.block.entity.dispenser.forge;
+
+import com.chefmooon.ubesdelight.common.block.entity.dispenser.DrinkableFeastDispenseBehavior;
+import com.chefmooon.ubesdelight.common.registry.forge.UbesDelightItemsImpl;
+import net.minecraft.world.level.block.DispenserBlock;
+
+public class DrinkableFeastDispenseBehaviorImpl {
+    public static void register() {
+        DispenserBlock.registerBehavior(UbesDelightItemsImpl.HALO_HALO.get(), new DrinkableFeastDispenseBehavior());
+        DispenserBlock.registerBehavior(UbesDelightItemsImpl.MILK_TEA_UBE.get(), new DrinkableFeastDispenseBehavior());
+    }
+}

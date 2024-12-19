@@ -1,0 +1,36 @@
+package com.chefmooon.ubesdelight.common.block.leaf_feast.base.fabric;
+
+import com.chefmooon.ubesdelight.common.block.entity.fabric.UniversalLeafFeastBlockEntityImpl;
+import com.chefmooon.ubesdelight.common.block.leaf_feast.base.LeafFeastBlock;
+import com.chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
+import com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+
+public class BaseLeafFeastBlockImpl implements LeafFeastBlock {
+    public static InteractionResult transformToUniversal(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player) {
+        BaseLeafFeastBlockImpl baseLeafFeastBlock = new BaseLeafFeastBlockImpl();
+        if (level.setBlock(pos, baseLeafFeastBlock.getTransformState(BuiltInRegistryUtil.getBlock(UbesDelightBlocks.UNIVERSAL_LEAF_FEAST), state), 3)) {
+            if (level.getBlockEntity(pos) instanceof UniversalLeafFeastBlockEntityImpl universalLeafFeastBlockEntity) {
+                universalLeafFeastBlockEntity.addItem(player, player.getAbilities().instabuild ? itemStack.copy() : itemStack);
+            }
+            baseLeafFeastBlock.playAddSound(level, pos);
+            return InteractionResult.SUCCESS;
+        }
+
+        return InteractionResult.PASS;
+    }
+
+    public static ItemStack getContainer(Level level, ItemStack itemStack) {
+        ItemStack container = itemStack.getRecipeRemainder();
+        if (!container.isEmpty()) {
+            return container;
+        }
+        return new ItemStack(Items.AIR);
+    }
+}

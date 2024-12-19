@@ -1,5 +1,6 @@
 package com.chefmooon.ubesdelight.common.utility;
 
+import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import net.minecraft.core.Direction;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -8,6 +9,17 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class VoxelShapeUtil {
+    public static ConcurrentHashMap<LeafFeastTypes, ConcurrentHashMap<Integer, VoxelShape[]>> getRotatedShapes(ConcurrentHashMap<LeafFeastTypes, ConcurrentHashMap<Integer, VoxelShape>> voxelShapes) {
+        ConcurrentHashMap<LeafFeastTypes, ConcurrentHashMap<Integer, VoxelShape[]>> result = new ConcurrentHashMap<>();
+        voxelShapes.forEach(((leafFeastTypes, integerVoxelShapeMap) -> {
+            ConcurrentHashMap<Integer, VoxelShape[]> innerMap = result.computeIfAbsent(leafFeastTypes, k -> new ConcurrentHashMap<>());
+            integerVoxelShapeMap.forEach((integer, voxelShape) -> {
+                innerMap.put(integer, getRotatedShapes(voxelShape));
+            });
+        }));
+        return result;
+    }
+
     public static VoxelShape[] getRotatedShapes(VoxelShape shape) {
         // Assumes initial direciton is NORTH, returns in order of Direction.get2DDataValue() make one that handles an input direction?
         return new VoxelShape[]{

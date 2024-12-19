@@ -6,6 +6,10 @@ import com.chefmooon.ubesdelight.common.advancement.BakingMatTrigger;
 //import com.chefmooon.ubesdelight.common.advancement.LeafFeastInsertTrigger;
 //import com.chefmooon.ubesdelight.common.block.leaf_feast.base.LeafFeastBlock;
 //import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
+import com.chefmooon.ubesdelight.common.advancement.LeafFeastConsumeTrigger;
+import com.chefmooon.ubesdelight.common.advancement.LeafFeastInsertTrigger;
+import com.chefmooon.ubesdelight.common.block.leaf_feast.base.LeafFeastBlock;
+import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
@@ -15,11 +19,13 @@ import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.ConsumeItemTrigger;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemUsedOnLocationTrigger;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 
 import java.util.function.Consumer;
 
@@ -121,58 +127,58 @@ public class AdvancmentGenerator extends FabricAdvancementProvider {
                 .build(getAdvancementName("place_drinkable_feast"));
         consumer.accept(placeDrinkableFeast);
 
-//        Advancement leafFeast = getAdvancement(root, Items.OAK_LEAVES, "leaf_feast", FrameType.TASK, true, true, false)
-//                .addCriterion(RecipeProvider.getHasName(UbesDelightItemsImpl.LEAF_FEAST), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST))
-//                .build(getAdvancementName("leaf_feast"));
-//        consumer.accept(leafFeast);
-//
-//        Advancement placeLeafFeast = getAdvancement(leafFeast, UbesDelightItemsImpl.LEAF_FEAST, "place_leaf_feast", FrameType.TASK, true, true, false)
-//                .addCriterion("place_" + RecipeProvider.getHasName(UbesDelightItemsImpl.LEAF_FEAST) + "_tip",
-//                        ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(LootItemBlockStatePropertyCondition.hasBlockStateProperties(UbesDelightBlocksImpl.LEAF_FEAST)
-//                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.TIP))))
-//                .addCriterion("place_" + RecipeProvider.getHasName(UbesDelightItemsImpl.LEAF_FEAST) + "_end",
-//                        ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(LootItemBlockStatePropertyCondition.hasBlockStateProperties(UbesDelightBlocksImpl.LEAF_FEAST)
-//                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.END))))
-//                .addCriterion("place_" + RecipeProvider.getHasName(UbesDelightItemsImpl.LEAF_FEAST) + "_middle",
-//                        ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(LootItemBlockStatePropertyCondition.hasBlockStateProperties(UbesDelightBlocksImpl.LEAF_FEAST)
-//                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.MIDDLE))))
-//                .requirements(RequirementsStrategy.OR)
-//                .build(getAdvancementName("place_leaf_feast"));
-//        consumer.accept(placeLeafFeast);
-//
-//        Advancement useLeafFeast = getAdvancement(placeLeafFeast, UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF, "use_leaf_feast", FrameType.TASK, true, false, false)
-//                .addCriterion("use_leaf_feast_insert", LeafFeastInsertTrigger.TriggerInstance.simple())
-//                .build(getAdvancementName("use_leaf_feast"));
-//        consumer.accept(useLeafFeast);
-//
-//        Advancement boodleFight = getAdvancement(useLeafFeast, UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA, "boodle_fight", FrameType.TASK, true, false, false)
-//                .addCriterion("use_leaf_feast_consume", LeafFeastConsumeTrigger.TriggerInstance.simple())
-//                .build(getAdvancementName("boodle_fight"));
-//        consumer.accept(boodleFight);
-//
-//        Advancement leafFeastMaster = getAdvancement(leafFeast, UbesDelightItemsImpl.LUMPIA_FEAST, "leaf_feast_master", FrameType.CHALLENGE, true, true, false)
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LUMPIA_FEAST), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LUMPIA_FEAST))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE_HALF))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_HALF))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE_HALF))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG))
-//                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF))
-//                .rewards(AdvancementRewards.Builder.experience(50))
-//                .build(getAdvancementName("leaf_feast_master"));
-//        consumer.accept(leafFeastMaster);
+        Advancement leafFeast = getAdvancement(root, Items.OAK_LEAVES, "leaf_feast", FrameType.TASK, true, true, false)
+                .addCriterion(RecipeProvider.getHasName(UbesDelightItemsImpl.LEAF_FEAST), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST))
+                .build(getAdvancementName("leaf_feast"));
+        consumer.accept(leafFeast);
+
+        Advancement placeLeafFeast = getAdvancement(leafFeast, UbesDelightItemsImpl.LEAF_FEAST, "place_leaf_feast", FrameType.TASK, true, true, false)
+                .addCriterion("place_" + RecipeProvider.getHasName(UbesDelightItemsImpl.LEAF_FEAST) + "_tip",
+                        ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(LootItemBlockStatePropertyCondition.hasBlockStateProperties(UbesDelightBlocksImpl.LEAF_FEAST)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.TIP))))
+                .addCriterion("place_" + RecipeProvider.getHasName(UbesDelightItemsImpl.LEAF_FEAST) + "_end",
+                        ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(LootItemBlockStatePropertyCondition.hasBlockStateProperties(UbesDelightBlocksImpl.LEAF_FEAST)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.END))))
+                .addCriterion("place_" + RecipeProvider.getHasName(UbesDelightItemsImpl.LEAF_FEAST) + "_middle",
+                        ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(LootItemBlockStatePropertyCondition.hasBlockStateProperties(UbesDelightBlocksImpl.LEAF_FEAST)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.MIDDLE))))
+                .requirements(RequirementsStrategy.OR)
+                .build(getAdvancementName("place_leaf_feast"));
+        consumer.accept(placeLeafFeast);
+
+        Advancement useLeafFeast = getAdvancement(placeLeafFeast, UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF, "use_leaf_feast", FrameType.TASK, true, false, false)
+                .addCriterion("use_leaf_feast_insert", LeafFeastInsertTrigger.TriggerInstance.simple())
+                .build(getAdvancementName("use_leaf_feast"));
+        consumer.accept(useLeafFeast);
+
+        Advancement boodleFight = getAdvancement(useLeafFeast, UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA, "boodle_fight", FrameType.TASK, true, false, false)
+                .addCriterion("use_leaf_feast_consume", LeafFeastConsumeTrigger.TriggerInstance.simple())
+                .build(getAdvancementName("boodle_fight"));
+        consumer.accept(boodleFight);
+
+        Advancement leafFeastMaster = getAdvancement(leafFeast, UbesDelightItemsImpl.LUMPIA_FEAST, "leaf_feast_master", FrameType.CHALLENGE, true, true, false)
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LUMPIA_FEAST), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LUMPIA_FEAST))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE_HALF))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_HALF))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE_HALF))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF))
+                .rewards(AdvancementRewards.Builder.experience(50))
+                .build(getAdvancementName("leaf_feast_master"));
+        consumer.accept(leafFeastMaster);
 
         Advancement udMaster = getAdvancement(placeDrinkableFeast, UbesDelightItemsImpl.UBE_CAKE, "ud_master", FrameType.CHALLENGE, true, true, false)
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.MILK_TEA_UBE), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.MILK_TEA_UBE))

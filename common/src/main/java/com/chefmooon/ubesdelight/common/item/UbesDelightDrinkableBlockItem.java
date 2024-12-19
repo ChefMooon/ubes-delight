@@ -63,15 +63,6 @@ public class UbesDelightDrinkableBlockItem extends UbesDelightBlockItem {
     public void affectConsumer(ItemStack stack, Level level, LivingEntity consumer) {
     }
 
-//    @Override
-//    public InteractionResult place(BlockPlaceContext context) {
-//        Player player = context.getPlayer();
-//        if (player != null && player.isShiftKeyDown()) {
-//            return super.place(context);
-//        }
-//        return InteractionResult.FAIL;
-//    }
-
     @Override
     public InteractionResult place(BlockPlaceContext context) {
         Player player = context.getPlayer();

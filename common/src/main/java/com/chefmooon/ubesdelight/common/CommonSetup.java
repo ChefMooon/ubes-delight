@@ -1,12 +1,22 @@
 package com.chefmooon.ubesdelight.common;
 
+import com.chefmooon.ubesdelight.common.block.entity.dispenser.BakingMatDispenseBehavior;
+import com.chefmooon.ubesdelight.common.block.entity.dispenser.BaseLeafFeastDispenseBehavior;
+import com.chefmooon.ubesdelight.common.block.entity.dispenser.DrinkableFeastDispenseBehavior;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil;
 import net.minecraft.world.level.block.ComposterBlock;
 
 public class CommonSetup {
     public static void init() {
+        registerDispenserBehaviors();
         registerCompostables();
+    }
+
+    public static void registerDispenserBehaviors() {
+        DrinkableFeastDispenseBehavior.register();
+        BakingMatDispenseBehavior.register();
+        BaseLeafFeastDispenseBehavior.register();
     }
 
     public static void registerCompostables() {

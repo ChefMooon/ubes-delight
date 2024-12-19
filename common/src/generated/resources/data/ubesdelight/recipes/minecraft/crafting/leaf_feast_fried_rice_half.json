@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "ud_leaf_feast",
+  "key": {
+    "A": {
+      "item": "farmersdelight:fried_rice"
+    },
+    "B": {
+      "tag": "minecraft:leaves"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "BBB"
+  ],
+  "result": {
+    "item": "ubesdelight:leaf_feast_fried_rice_half"
+  },
+  "show_notification": true
+}

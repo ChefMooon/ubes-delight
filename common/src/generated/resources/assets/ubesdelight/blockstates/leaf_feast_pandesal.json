@@ -1,0 +1,364 @@
+{
+  "variants": {
+    "facing=east,leaf_feast_type=base,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_1",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=base,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_2",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=base,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_3",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=base,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_4",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=base,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_5",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=base,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_6",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=end,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_1",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=end,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_2",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=end,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=end,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=end,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=end,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=middle,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_1",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=middle,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_2",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=middle,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_3",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=middle,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_4",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=middle,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_5",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=middle,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_6",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=tip,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_1",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=tip,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_2",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=tip,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=tip,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=tip,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3",
+      "y": 90
+    },
+    "facing=east,leaf_feast_type=tip,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3",
+      "y": 90
+    },
+    "facing=north,leaf_feast_type=base,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_1"
+    },
+    "facing=north,leaf_feast_type=base,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_2"
+    },
+    "facing=north,leaf_feast_type=base,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_3"
+    },
+    "facing=north,leaf_feast_type=base,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_4"
+    },
+    "facing=north,leaf_feast_type=base,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_5"
+    },
+    "facing=north,leaf_feast_type=base,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_6"
+    },
+    "facing=north,leaf_feast_type=end,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_1"
+    },
+    "facing=north,leaf_feast_type=end,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_2"
+    },
+    "facing=north,leaf_feast_type=end,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3"
+    },
+    "facing=north,leaf_feast_type=end,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3"
+    },
+    "facing=north,leaf_feast_type=end,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3"
+    },
+    "facing=north,leaf_feast_type=end,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3"
+    },
+    "facing=north,leaf_feast_type=middle,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_1"
+    },
+    "facing=north,leaf_feast_type=middle,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_2"
+    },
+    "facing=north,leaf_feast_type=middle,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_3"
+    },
+    "facing=north,leaf_feast_type=middle,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_4"
+    },
+    "facing=north,leaf_feast_type=middle,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_5"
+    },
+    "facing=north,leaf_feast_type=middle,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_6"
+    },
+    "facing=north,leaf_feast_type=tip,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_1"
+    },
+    "facing=north,leaf_feast_type=tip,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_2"
+    },
+    "facing=north,leaf_feast_type=tip,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3"
+    },
+    "facing=north,leaf_feast_type=tip,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3"
+    },
+    "facing=north,leaf_feast_type=tip,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3"
+    },
+    "facing=north,leaf_feast_type=tip,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3"
+    },
+    "facing=south,leaf_feast_type=base,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_1",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=base,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_2",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=base,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_3",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=base,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_4",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=base,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_5",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=base,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_6",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=end,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_1",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=end,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_2",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=end,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=end,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=end,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=end,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=middle,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_1",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=middle,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_2",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=middle,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_3",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=middle,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_4",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=middle,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_5",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=middle,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_6",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=tip,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_1",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=tip,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_2",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=tip,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=tip,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=tip,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3",
+      "y": 180
+    },
+    "facing=south,leaf_feast_type=tip,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3",
+      "y": 180
+    },
+    "facing=west,leaf_feast_type=base,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_1",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=base,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_2",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=base,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_3",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=base,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_4",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=base,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_5",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=base,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_base_6",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=end,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_1",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=end,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_2",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=end,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=end,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=end,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=end,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_end_3",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=middle,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_1",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=middle,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_2",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=middle,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_3",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=middle,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_4",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=middle,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_5",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=middle,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_middle_6",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=tip,servings=1": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_1",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=tip,servings=2": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_2",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=tip,servings=3": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=tip,servings=4": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=tip,servings=5": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3",
+      "y": 270
+    },
+    "facing=west,leaf_feast_type=tip,servings=6": {
+      "model": "ubesdelight:block/leaf_feast/leaf_feast_pandesal_tip_3",
+      "y": 270
+    }
+  }
+}

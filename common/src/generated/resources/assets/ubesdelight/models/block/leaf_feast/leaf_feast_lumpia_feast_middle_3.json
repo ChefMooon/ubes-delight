@@ -1,0 +1,9 @@
+{
+  "parent": "ubesdelight:block/leaf_feast/template_leaf_feast_middle_lumpia_3",
+  "textures": {
+    "bottom": "ubesdelight:block/leaf_feast_bottom",
+    "content": "ubesdelight:block/lumpia_feast",
+    "content_alt": "ubesdelight:block/lumpia_feast_alt",
+    "top": "ubesdelight:block/leaf_feast_top"
+  }
+}

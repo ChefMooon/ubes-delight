@@ -10,16 +10,19 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.function.Consumer;
 
 import static com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil.simpleRecipeBuilder;
 
 public class CraftingRecipes {
+    private static Consumer<FinishedRecipe> EXPORTER;
     public static void register(Consumer<FinishedRecipe> exporter) {
-
+        EXPORTER = exporter;
         //registerUncommon(exporter);
 
         simpleRecipeBuilder(exporter, RecipeCategory.FOOD,
@@ -117,15 +120,6 @@ public class CraftingRecipes {
                 UbesDelightItemsImpl.LECHE_FLAN, 5,
                 UbesDelightItemsImpl.LECHE_FLAN_FEAST, 1);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, UbesDelightItemsImpl.LUMPIA_FEAST)
-                .pattern("   ")
-                .pattern("AAA")
-                .pattern("BBB")
-                .define('A', UbesDelightItemsImpl.LUMPIA)
-                .define('B', CompatibilityTags.MINECRAFT_LEAVES)
-                .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(UbesDelightItemsImpl.LUMPIA))
-                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LUMPIA_FEAST)));
-
         /** MISC **/
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PURPLE_DYE, 1)
@@ -133,6 +127,49 @@ public class CraftingRecipes {
                 .group("purple_dye")
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItemsImpl.UBE), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItemsImpl.UBE))
                 .save(exporter, suffix(RecipeProvider.getConversionRecipeName(Items.PURPLE_DYE, UbesDelightItemsImpl.UBE)));
+
+        /** LEAF FEASTS **/
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, UbesDelightItemsImpl.LEAF_FEAST)
+                .requires(Ingredient.of(CompatibilityTags.MINECRAFT_LEAVES), 3)
+                .unlockedBy(RecipeUtil.hasItemTag(CompatibilityTags.MINECRAFT_LEAVES), RecipeUtil.getTriggerfromTag(CompatibilityTags.MINECRAFT_LEAVES))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LEAF_FEAST)));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, UbesDelightItemsImpl.LUMPIA_FEAST)
+                .pattern("AAA")
+                .pattern("BBB")
+                .define('A', UbesDelightItemsImpl.LUMPIA)
+                .define('B', CompatibilityTags.MINECRAFT_LEAVES)
+                .group("ud_leaf_feast")
+                .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(UbesDelightItemsImpl.LUMPIA))
+                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.LUMPIA_FEAST)));
+
+        offerLeafFeastRecipe(UbesDelightItemsImpl.ENSAYMADA, UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA);
+        offerHalfLeafFeastRecipe(UbesDelightItemsImpl.ENSAYMADA, UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF);
+
+        offerLeafFeastRecipe(UbesDelightItemsImpl.ENSAYMADA_UBE, UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE);
+        offerHalfLeafFeastRecipe(UbesDelightItemsImpl.ENSAYMADA_UBE, UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE_HALF);
+
+        offerLeafFeastRecipe(UbesDelightItemsImpl.PANDESAL, UbesDelightItemsImpl.LEAF_FEAST_PANDESAL);
+        offerHalfLeafFeastRecipe(UbesDelightItemsImpl.PANDESAL, UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_HALF);
+
+        offerLeafFeastRecipe(UbesDelightItemsImpl.PANDESAL_UBE, UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE);
+        offerHalfLeafFeastRecipe(UbesDelightItemsImpl.PANDESAL_UBE, UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE_HALF);
+
+        offerLeafFeastRecipe(UbesDelightItemsImpl.HOPIA_MUNGGO, UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO);
+        offerHalfLeafFeastRecipe(UbesDelightItemsImpl.HOPIA_MUNGGO, UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF);
+
+        offerLeafFeastRecipe(UbesDelightItemsImpl.HOPIA_UBE, UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE);
+        offerHalfLeafFeastRecipe(UbesDelightItemsImpl.HOPIA_UBE, UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF);
+
+        offerLeafFeastRecipe(ModItems.COOKED_RICE.get(), UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE);
+        offerHalfLeafFeastRecipe(ModItems.COOKED_RICE.get(), UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF);
+
+        offerLeafFeastRecipe(ModItems.FRIED_RICE.get(), UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE);
+        offerHalfLeafFeastRecipe(ModItems.FRIED_RICE.get(), UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF);
+
+        offerLeafFeastRecipe(UbesDelightItemsImpl.SINANGAG, UbesDelightItemsImpl.LEAF_FEAST_SINANGAG);
+        offerHalfLeafFeastRecipe(UbesDelightItemsImpl.SINANGAG, UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF);
     }
 
     private static void registerUncommon(Consumer<FinishedRecipe> exporter) {
@@ -214,6 +251,43 @@ public class CraftingRecipes {
                 .define('F', CommonTags.C_CROPS_UBE)
                 .unlockedBy(RecipeProvider.getHasName(Items.EGG), RecipeProvider.has(Items.EGG))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.UBE_CAKE)));
+    }
+
+    private static void offerLeafFeastRecipe(Item input, Item output) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, output)
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("BBB")
+                .define('A', input)
+                .define('B', CompatibilityTags.MINECRAFT_LEAVES)
+                .group("ud_leaf_feast")
+                .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(input))
+                .save(EXPORTER, suffix(RecipeProvider.getItemName(output)));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output)
+                .requires(input, 6)
+                .requires(UbesDelightItemsImpl.LEAF_FEAST)
+                .group("ud_leaf_feast")
+                .unlockedBy(RecipeUtil.hasAny(), RecipeUtil.getTriggerfromItems(input, UbesDelightItemsImpl.LEAF_FEAST))
+                .save(EXPORTER, suffix(RecipeProvider.getItemName(output) + "from_leaf_feast"));
+    }
+
+    private static void offerHalfLeafFeastRecipe(Item input, Item output) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, output)
+                .pattern("AAA")
+                .pattern("BBB")
+                .define('A', input)
+                .define('B', CompatibilityTags.MINECRAFT_LEAVES)
+                .group("ud_leaf_feast")
+                .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(input))
+                .save(EXPORTER, suffix(RecipeProvider.getItemName(output)));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output)
+                .requires(input, 3)
+                .requires(UbesDelightItemsImpl.LEAF_FEAST)
+                .group("ud_leaf_feast")
+                .unlockedBy(RecipeUtil.hasAny(), RecipeUtil.getTriggerfromItems(input, UbesDelightItemsImpl.LEAF_FEAST))
+                .save(EXPORTER, suffix(RecipeProvider.getItemName(output) + "from_leaf_feast"));
     }
 
     private static ResourceLocation suffix(String string) {

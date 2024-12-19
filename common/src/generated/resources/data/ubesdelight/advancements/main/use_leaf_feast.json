@@ -1,0 +1,30 @@
+{
+  "parent": "ubesdelight:main/place_leaf_feast",
+  "criteria": {
+    "use_leaf_feast_insert": {
+      "conditions": {},
+      "trigger": "ubesdelight:use_leaf_feast_insert"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "ubesdelight.advancement.use_leaf_feast.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "ubesdelight:leaf_feast_ensaymada_half"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ubesdelight.advancement.use_leaf_feast"
+    }
+  },
+  "requirements": [
+    [
+      "use_leaf_feast_insert"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

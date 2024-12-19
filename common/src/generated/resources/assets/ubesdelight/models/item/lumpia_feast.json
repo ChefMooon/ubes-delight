@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "ubesdelight:item/flat_handheld_item_flipped",
   "textures": {
     "layer0": "ubesdelight:item/lumpia_feast"
   }

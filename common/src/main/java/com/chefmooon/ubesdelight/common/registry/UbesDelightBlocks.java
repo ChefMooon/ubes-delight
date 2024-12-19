@@ -41,6 +41,33 @@ public class UbesDelightBlocks {
     public static final ResourceLocation MILK_TEA_UBE_FEAST = block("milk_tea_ube_feast");
     public static final ResourceLocation LUMPIA_FEAST = block("lumpia_feast");
 
+    public static final ResourceLocation LEAF_FEAST = block("leaf_feast");
+    public static final ResourceLocation UNIVERSAL_LEAF_FEAST = block("universal_leaf_feast");
+
+    public static final ResourceLocation LEAF_FEAST_ENSAYMADA = block("leaf_feast_ensaymada");
+    public static final ResourceLocation LEAF_FEAST_ENSAYMADA_HALF = block("leaf_feast_ensaymada_half");
+
+    public static final ResourceLocation LEAF_FEAST_ENSAYMADA_UBE = block("leaf_feast_ensaymada_ube");
+    public static final ResourceLocation LEAF_FEAST_ENSAYMADA_UBE_HALF = block("leaf_feast_ensaymada_ube_half");
+
+    public static final ResourceLocation LEAF_FEAST_PANDESAL = block("leaf_feast_pandesal");
+    public static final ResourceLocation LEAF_FEAST_PANDESAL_HALF = block("leaf_feast_pandesal_half");
+
+    public static final ResourceLocation LEAF_FEAST_PANDESAL_UBE = block("leaf_feast_pandesal_ube");
+    public static final ResourceLocation LEAF_FEAST_PANDESAL_UBE_HALF = block("leaf_feast_pandesal_ube_half");
+
+    public static final ResourceLocation LEAF_FEAST_HOPIA_MUNGGO = block("leaf_feast_hopia_munggo");
+    public static final ResourceLocation LEAF_FEAST_HOPIA_MUNGGO_HALF = block("leaf_feast_hopia_munggo_half");
+
+    public static final ResourceLocation LEAF_FEAST_HOPIA_UBE = block("leaf_feast_hopia_ube");
+    public static final ResourceLocation LEAF_FEAST_HOPIA_UBE_HALF = block("leaf_feast_hopia_ube_half");
+    public static final ResourceLocation LEAF_FEAST_COOKED_RICE = block("leaf_feast_cooked_rice");
+    public static final ResourceLocation LEAF_FEAST_COOKED_RICE_HALF = block("leaf_feast_cooked_rice_half");
+    public static final ResourceLocation LEAF_FEAST_FRIED_RICE = block("leaf_feast_fried_rice");
+    public static final ResourceLocation LEAF_FEAST_FRIED_RICE_HALF = block("leaf_feast_fried_rice_half");
+    public static final ResourceLocation LEAF_FEAST_SINANGAG = block("leaf_feast_sinangag");
+    public static final ResourceLocation LEAF_FEAST_SINANGAG_HALF = block("leaf_feast_sinangag_half");
+
     public static ToIntFunction<BlockState> litBlockEmission(int lightValue) {
         return (state) -> state.getValue(BlockStateProperties.LIT) ? lightValue : 0;
     }

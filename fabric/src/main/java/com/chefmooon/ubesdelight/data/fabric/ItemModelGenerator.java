@@ -20,111 +20,140 @@ public class ItemModelGenerator {
         generateRollingPinItem(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND);
         generateRollingPinItem(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POISONOUS_UBE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.UBE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.GARLIC, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.GINGER, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.LEMONGRASS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.LEMONGRASS_SEEDS, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.POISONOUS_UBE);
+        generateFlatItem(UbesDelightItemsImpl.UBE);
+        generateFlatItem(UbesDelightItemsImpl.GARLIC);
+        generateFlatItem(UbesDelightItemsImpl.GINGER);
+        generateFlatItem(UbesDelightItemsImpl.LEMONGRASS);
+        generateFlatItem(UbesDelightItemsImpl.LEMONGRASS_SEEDS);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.SINANGAG, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.KINILAW, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.LUMPIA, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.TOCINO, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.CHICKEN_INASAL, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.SINANGAG);
+        generateFlatItem(UbesDelightItemsImpl.KINILAW);
+        generateFlatItem(UbesDelightItemsImpl.LUMPIA);
+        generateFlatItem(UbesDelightItemsImpl.TOCINO);
+        generateFlatItem(UbesDelightItemsImpl.CHICKEN_INASAL);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.CHICKEN_INASAL_RICE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.TOSILOG, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.BANGSILOG, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.SISIG, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.BULALO, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.ARROZ_CALDO, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.MECHADO, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.CHICKEN_INASAL_RICE);
+        generateFlatItem(UbesDelightItemsImpl.TOSILOG);
+        generateFlatItem(UbesDelightItemsImpl.BANGSILOG);
+        generateFlatItem(UbesDelightItemsImpl.SISIG);
+        generateFlatItem(UbesDelightItemsImpl.BULALO);
+        generateFlatItem(UbesDelightItemsImpl.ARROZ_CALDO);
+        generateFlatItem(UbesDelightItemsImpl.MECHADO);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.FISH_SAUCE_BOTTLE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.MILK_POWDER, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.SUGAR_BROWN, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.LUMPIA_WRAPPER, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE);
+        generateFlatItem(UbesDelightItemsImpl.FISH_SAUCE_BOTTLE);
+        generateFlatItem(UbesDelightItemsImpl.MILK_POWDER);
+        generateFlatItem(UbesDelightItemsImpl.SUGAR_BROWN);
+        generateFlatItem(UbesDelightItemsImpl.LUMPIA_WRAPPER);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.MILK_TEA_UBE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.HALO_HALO, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.MILK_TEA_UBE);
+        generateFlatItem(UbesDelightItemsImpl.HALO_HALO);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.GARLIC_CHOP, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.GINGER_CHOP, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.GARLIC_CHOP);
+        generateFlatItem(UbesDelightItemsImpl.GINGER_CHOP);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.COOKIE_UBE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.COOKIE_GINGER, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.COOKIE_UBE);
+        generateFlatItem(UbesDelightItemsImpl.COOKIE_GINGER);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_PINIPIG, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_UBE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_CC, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.RAW_POLVORONE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.RAW_POLVORONE_PINIPIG, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.RAW_POLVORONE_UBE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.RAW_POLVORONE_CC, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_PINIPIG);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_UBE);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_CC);
+        generateFlatItem(UbesDelightItemsImpl.RAW_POLVORONE);
+        generateFlatItem(UbesDelightItemsImpl.RAW_POLVORONE_PINIPIG);
+        generateFlatItem(UbesDelightItemsImpl.RAW_POLVORONE_UBE);
+        generateFlatItem(UbesDelightItemsImpl.RAW_POLVORONE_CC);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.HALO_HALO_FEAST, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.MILK_TEA_UBE_FEAST, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.LUMPIA_FEAST, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.HALO_HALO_FEAST);
+        generateFlatItem(UbesDelightItemsImpl.MILK_TEA_UBE_FEAST);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.LECHE_FLAN_FEAST, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.LECHE_FLAN, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.UBE_CAKE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.UBE_CAKE_SLICE, ModelTemplates.FLAT_ITEM);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LUMPIA_FEAST);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.PANDESAL, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.PANDESAL_UBE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.ENSAYMADA, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_UBE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.HOPIA_MUNGGO, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.HOPIA_UBE, ModelTemplates.FLAT_ITEM);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE_HALF);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_HALF);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE_HALF);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG);
+        generateFlatHandheldItemFlipped(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.PANDESAL_STAGE0, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.PANDESAL_STAGE1, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.PANDESAL_STAGE2, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.PANDESAL_RAW, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.LECHE_FLAN_FEAST);
+        generateFlatItem(UbesDelightItemsImpl.LECHE_FLAN);
+        generateFlatItem(UbesDelightItemsImpl.UBE_CAKE);
+        generateFlatItem(UbesDelightItemsImpl.UBE_CAKE_SLICE);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.PANDESAL_UBE_STAGE0, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.PANDESAL_UBE_STAGE1, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.PANDESAL_UBE_STAGE2, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.PANDESAL_UBE_RAW, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.PANDESAL);
+        generateFlatItem(UbesDelightItemsImpl.PANDESAL_UBE);
+        generateFlatItem(UbesDelightItemsImpl.ENSAYMADA);
+        generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_UBE);
+        generateFlatItem(UbesDelightItemsImpl.HOPIA_MUNGGO);
+        generateFlatItem(UbesDelightItemsImpl.HOPIA_UBE);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_STAGE0, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_STAGE1, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_STAGE2, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_STAGE3, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_RAW, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.PANDESAL_STAGE0);
+        generateFlatItem(UbesDelightItemsImpl.PANDESAL_STAGE1);
+        generateFlatItem(UbesDelightItemsImpl.PANDESAL_STAGE2);
+        generateFlatItem(UbesDelightItemsImpl.PANDESAL_RAW);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE0, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE1, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE2, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE3, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_UBE_RAW, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.PANDESAL_UBE_STAGE0);
+        generateFlatItem(UbesDelightItemsImpl.PANDESAL_UBE_STAGE1);
+        generateFlatItem(UbesDelightItemsImpl.PANDESAL_UBE_STAGE2);
+        generateFlatItem(UbesDelightItemsImpl.PANDESAL_UBE_RAW);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.HOPIA_MUNGGO_STAGE0, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.HOPIA_MUNGGO_STAGE1, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.HOPIA_MUNGGO_STAGE2, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.HOPIA_MUNGGO_RAW, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_STAGE0);
+        generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_STAGE1);
+        generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_STAGE2);
+        generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_STAGE3);
+        generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_RAW);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.HOPIA_UBE_STAGE0, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.HOPIA_UBE_STAGE1, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.HOPIA_UBE_STAGE2, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.HOPIA_UBE_RAW, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE0);
+        generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE1);
+        generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE2);
+        generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE3);
+        generateFlatItem(UbesDelightItemsImpl.ENSAYMADA_UBE_RAW);
 
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_STAGE0, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_STAGE1, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_STAGE2, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_PINIPIG_STAGE0, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_PINIPIG_STAGE1, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_PINIPIG_STAGE2, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_UBE_STAGE0, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_UBE_STAGE1, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_UBE_STAGE2, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_CC_STAGE0, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_CC_STAGE1, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(UbesDelightItemsImpl.POLVORONE_CC_STAGE2, ModelTemplates.FLAT_ITEM);
+        generateFlatItem(UbesDelightItemsImpl.HOPIA_MUNGGO_STAGE0);
+        generateFlatItem(UbesDelightItemsImpl.HOPIA_MUNGGO_STAGE1);
+        generateFlatItem(UbesDelightItemsImpl.HOPIA_MUNGGO_STAGE2);
+        generateFlatItem(UbesDelightItemsImpl.HOPIA_MUNGGO_RAW);
+
+        generateFlatItem(UbesDelightItemsImpl.HOPIA_UBE_STAGE0);
+        generateFlatItem(UbesDelightItemsImpl.HOPIA_UBE_STAGE1);
+        generateFlatItem(UbesDelightItemsImpl.HOPIA_UBE_STAGE2);
+        generateFlatItem(UbesDelightItemsImpl.HOPIA_UBE_RAW);
+
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_STAGE0);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_STAGE1);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_STAGE2);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_PINIPIG_STAGE0);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_PINIPIG_STAGE1);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_PINIPIG_STAGE2);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_UBE_STAGE0);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_UBE_STAGE1);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_UBE_STAGE2);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_CC_STAGE0);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_CC_STAGE1);
+        generateFlatItem(UbesDelightItemsImpl.POLVORONE_CC_STAGE2);
+    }
+
+    private static void generateFlatItem(Item item) {
+        GENERATOR.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
+    }
+
+    private static void generateFlatHandheldItemFlipped(Item item) {
+        GENERATOR.generateFlatItem(item, UbesDelightModels.FLAT_HANDHELD_ITEM_FLIPPED);
     }
 
     private static void generateRollingPinItem(Item item) {

@@ -29,6 +29,7 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add("itemGroup." + MOD_ID, FORMATTED_MOD_ID);
 
         translationBuilder.add(MOD_ID + ".container.punch_bowl", "Glass Bottle Required.");
+        translationBuilder.add(MOD_ID + ".container.bowl", "Bowl Required.");
 
         translationBuilder.add(TOOLTIP + UbesDelightItemsImpl.KALAN, "Traditional Filipino Clay Oven.");
         translationBuilder.add(TOOLTIP + "knife", "Knife Required.");
@@ -173,6 +174,28 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO, "Halo Halo");
         translationBuilder.add(UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE, "Ube Milk Tea");
 
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST, "Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.UNIVERSAL_LEAF_FEAST, "Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA, "Ensaymada Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE, "Ube Ensaymada Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL, "Pandesal Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE, "Ube Pandesal Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, "Hopia Munggo Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, "Hopia Ube Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_COOKED_RICE, "Cooked Rice Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_FRIED_RICE, "Fried Rice Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_SINANGAG, "Sinangag Leaf Feast");
+
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF, "Ensaymada Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE_HALF, "Ube Ensaymada Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_HALF, "Pandesal Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE_HALF, "Ube Pandesal Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF, "Hopia Munggo Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF, "Hopia Ube Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF, "Cooked Rice Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF, "Fried Rice Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF, "Sinangag Half Leaf Feast");
+
         translationBuilder.add(ADVANCEMENT + "root", FORMATTED_MOD_ID);
         translationBuilder.add(ADVANCEMENT + "root.desc", "Cuisine from the Phillipines!");
 
@@ -208,6 +231,21 @@ public class TranslationGenerator extends FabricLanguageProvider {
 
         translationBuilder.add(ADVANCEMENT + "get_ud_seed", "Crops of the Tropics");
         translationBuilder.add(ADVANCEMENT + "get_ud_seed.desc", "Adventure to find four new crops, only found in jungles and some village chests.");
+
+        translationBuilder.add(ADVANCEMENT + "leaf_feast", "Leaf Feast");
+        translationBuilder.add(ADVANCEMENT + "leaf_feast.desc", "Crafted with 3 leaves of any kind. When placed you can share food 'Kamayan' (by hand) style, a tradition in the Philippines");
+
+        translationBuilder.add(ADVANCEMENT + "place_leaf_feast", "Never-ending Feast");
+        translationBuilder.add(ADVANCEMENT + "place_leaf_feast.desc", "When placed and facing the same direction the shape changes. Place 2, 3, or more in a row!");
+
+        translationBuilder.add(ADVANCEMENT + "use_leaf_feast", "Universal Leaf Feast");
+        translationBuilder.add(ADVANCEMENT + "use_leaf_feast.desc", "Edible items can be placed inside, try it out!");
+
+        translationBuilder.add(ADVANCEMENT + "leaf_feast_master", "Leaf Feast Master");
+        translationBuilder.add(ADVANCEMENT + "leaf_feast_master.desc", "Feasts, including some half-feasts, can be crafted. Craft them all!");
+
+        translationBuilder.add(ADVANCEMENT + "boodle_fight", "Boodle Fight");
+        translationBuilder.add(ADVANCEMENT + "boodle_fight.desc", "While shifting and with an empty hand, you can right-click to eat directly from the Leaf Feast. Eat as much as you can!");
 
         translationBuilder.add(SUBTITLES + "block_baking_mat.add", "Item added");
         translationBuilder.add(SUBTITLES + "block_baking_mat.remove", "Item Removed");

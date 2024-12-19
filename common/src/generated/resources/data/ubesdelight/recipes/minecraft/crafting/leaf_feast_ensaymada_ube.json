@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "ud_leaf_feast",
+  "key": {
+    "A": {
+      "item": "ubesdelight:ensaymada_ube"
+    },
+    "B": {
+      "tag": "minecraft:leaves"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "AAA",
+    "BBB"
+  ],
+  "result": {
+    "item": "ubesdelight:leaf_feast_ensaymada_ube"
+  },
+  "show_notification": true
+}

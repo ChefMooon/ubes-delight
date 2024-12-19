@@ -1,6 +1,7 @@
 package com.chefmooon.ubesdelight.common.registry.fabric;
 
 import com.chefmooon.ubesdelight.common.FoodValues;
+import com.chefmooon.ubesdelight.common.item.LeafFeastItem;
 import com.chefmooon.ubesdelight.common.item.UbesDelightBlockItem;
 import com.chefmooon.ubesdelight.common.item.UbesDelightDrinkableBlockItem;
 import com.chefmooon.ubesdelight.common.item.fabric.RollingPinItemImpl;
@@ -59,12 +60,61 @@ public class UbesDelightItemsImpl {
             new BlockItem(UbesDelightBlocksImpl.UBE_CAKE, noStack()));
     public static final Item LECHE_FLAN_FEAST = registerItemWithTab(UbesDelightItems.LECHE_FLAN_FEAST,
             new BlockItem(UbesDelightBlocksImpl.LECHE_FLAN_FEAST, noStack()));
-    public static final Item LUMPIA_FEAST = registerItemWithTab(UbesDelightItems.LUMPIA_FEAST,
-            new BlockItem(UbesDelightBlocksImpl.LUMPIA_FEAST, noStack()));
     public static final Item HALO_HALO_FEAST = registerItemWithTab(UbesDelightItems.HALO_HALO_FEAST,
             new BlockItem(UbesDelightBlocksImpl.HALO_HALO_FEAST, noStack()));
     public static final Item MILK_TEA_UBE_FEAST = registerItemWithTab(UbesDelightItems.MILK_TEA_UBE_FEAST,
             new BlockItem(UbesDelightBlocksImpl.MILK_TEA_UBE_FEAST, noStack()));
+
+    public static final Item LEAF_FEAST = registerItemWithTab(UbesDelightItems.LEAF_FEAST,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST, basicItem()));
+    public static final Item LUMPIA_FEAST = registerItemWithTab(UbesDelightItems.LUMPIA_FEAST,
+            new BlockItem(UbesDelightBlocksImpl.LUMPIA_FEAST, halfLeafFeast()));
+
+    public static final Item LEAF_FEAST_ENSAYMADA = registerItemWithTab(UbesDelightItems.LEAF_FEAST_ENSAYMADA,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA, leafFeast()));
+    public static final Item LEAF_FEAST_ENSAYMADA_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_ENSAYMADA_HALF,
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA, halfLeafFeast()));
+
+    public static final Item LEAF_FEAST_ENSAYMADA_UBE = registerItemWithTab(UbesDelightItems.LEAF_FEAST_ENSAYMADA_UBE,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE, leafFeast()));
+    public static final Item LEAF_FEAST_ENSAYMADA_UBE_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_ENSAYMADA_UBE_HALF,
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE, halfLeafFeast()));
+
+    public static final Item LEAF_FEAST_PANDESAL = registerItemWithTab(UbesDelightItems.LEAF_FEAST_PANDESAL,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL, leafFeast()));
+    public static final Item LEAF_FEAST_PANDESAL_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_PANDESAL_HALF,
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL, halfLeafFeast()));
+
+    public static final Item LEAF_FEAST_PANDESAL_UBE = registerItemWithTab(UbesDelightItems.LEAF_FEAST_PANDESAL_UBE,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE, leafFeast()));
+    public static final Item LEAF_FEAST_PANDESAL_UBE_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_PANDESAL_UBE_HALF,
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE, halfLeafFeast()));
+
+    public static final Item LEAF_FEAST_HOPIA_MUNGGO = registerItemWithTab(UbesDelightItems.LEAF_FEAST_HOPIA_MUNGGO,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, leafFeast()));
+    public static final Item LEAF_FEAST_HOPIA_MUNGGO_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_HOPIA_MUNGGO_HALF,
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, halfLeafFeast()));
+
+    public static final Item LEAF_FEAST_HOPIA_UBE = registerItemWithTab(UbesDelightItems.LEAF_FEAST_HOPIA_UBE,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, leafFeast()));
+    public static final Item LEAF_FEAST_HOPIA_UBE_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_HOPIA_UBE_HALF,
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, halfLeafFeast()));
+
+    public static final Item LEAF_FEAST_COOKED_RICE = registerItemWithTab(UbesDelightItems.LEAF_FEAST_COOKED_RICE,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_COOKED_RICE, leafFeast()));
+    public static final Item LEAF_FEAST_COOKED_RICE_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_COOKED_RICE_HALF,
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_COOKED_RICE, halfLeafFeast()));
+
+    public static final Item LEAF_FEAST_FRIED_RICE = registerItemWithTab(UbesDelightItems.LEAF_FEAST_FRIED_RICE,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_FRIED_RICE, leafFeast()));
+    public static final Item LEAF_FEAST_FRIED_RICE_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_FRIED_RICE_HALF,
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_FRIED_RICE, halfLeafFeast()));
+
+    public static final Item LEAF_FEAST_SINANGAG = registerItemWithTab(UbesDelightItems.LEAF_FEAST_SINANGAG,
+            new BlockItem(UbesDelightBlocksImpl.LEAF_FEAST_SINANGAG, leafFeast()));
+    public static final Item LEAF_FEAST_SINANGAG_HALF = registerItemWithTab(UbesDelightItems.LEAF_FEAST_SINANGAG_HALF,
+            new LeafFeastItem(UbesDelightBlocksImpl.LEAF_FEAST_SINANGAG, halfLeafFeast()));
+
     public static final Item POISONOUS_UBE = registerItemWithTab(UbesDelightItems.POISONOUS_UBE,
             new Item(basicItem()));
     public static final Item UBE = registerItemWithTab(UbesDelightItems.UBE,

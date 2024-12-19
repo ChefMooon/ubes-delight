@@ -21,6 +21,7 @@ public class UbesDelightClientImpl implements ClientModInitializer {
 
         ClientSetupEventsImpl.onRegisterRenderers();
 
+        // TODO - cleanup
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(),
                 UbesDelightBlocksImpl.BAKING_MAT_BAMBOO,
                 UbesDelightBlocksImpl.WILD_UBE,
@@ -42,7 +43,13 @@ public class UbesDelightClientImpl implements ClientModInitializer {
                 UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO,
                 UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE,
                 UbesDelightBlocksImpl.MILK_TEA_UBE_FEAST,
-                UbesDelightBlocksImpl.HALO_HALO_FEAST);
+                UbesDelightBlocksImpl.HALO_HALO_FEAST,
+                UbesDelightBlocksImpl.LEAF_FEAST,
+                UbesDelightBlocksImpl.UNIVERSAL_LEAF_FEAST,
+                UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA,
+                UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE
+
+        );
 
         onBuiltinPackRegistration();
     }

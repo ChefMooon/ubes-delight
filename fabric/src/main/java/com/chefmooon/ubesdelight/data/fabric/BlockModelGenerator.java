@@ -2,6 +2,9 @@ package com.chefmooon.ubesdelight.data.fabric;
 
 import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.block.*;
+import com.chefmooon.ubesdelight.common.block.leaf_feast.base.LeafFeastBlock;
+import com.chefmooon.ubesdelight.common.block.leaf_feast.base.SimpleLeafFeastBlock;
+import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import com.chefmooon.ubesdelight.common.utility.fabric.UbesDelightModels;
@@ -165,20 +168,49 @@ public class BlockModelGenerator {
         registerBasicCake(UbesDelightBlocksImpl.UBE_CAKE, blockStateModelGenerator);
         registerSmallCake(UbesDelightBlocksImpl.LECHE_FLAN_FEAST, blockStateModelGenerator);
 
-        blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.multiVariant(UbesDelightBlocksImpl.LUMPIA_FEAST)
-                .with(BlockModelGenerators.createHorizontalFacingDispatch())
-                .with(PropertyDispatch.property(LumpiaFeastBlock.SERVINGS)
-                        .select(0, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
-                        .select(1, Variant.variant().with(VariantProperties.MODEL, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LUMPIA_FEAST, "_stage2")))
-                        .select(2, Variant.variant().with(VariantProperties.MODEL, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LUMPIA_FEAST, "_stage1")))
-                        .select(3, Variant.variant().with(VariantProperties.MODEL, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LUMPIA_FEAST, "_stage0")))
-                ));
+//        blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.multiVariant(UbesDelightBlocksImpl.LUMPIA_FEAST)
+//                .with(BlockModelGenerators.createHorizontalFacingDispatch())
+//                .with(PropertyDispatch.property(LumpiaFeastBlock.SERVINGS)
+//                        .select(0, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/banana_leaf_plate")))
+//                        .select(1, Variant.variant().with(VariantProperties.MODEL, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LUMPIA_FEAST, "_stage2")))
+//                        .select(2, Variant.variant().with(VariantProperties.MODEL, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LUMPIA_FEAST, "_stage1")))
+//                        .select(3, Variant.variant().with(VariantProperties.MODEL, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LUMPIA_FEAST, "_stage0")))
+//                ));
+        registerLumpiaLeafFeast();
 
         registerDrinkFeast(UbesDelightBlocksImpl.MILK_TEA_UBE_FEAST, blockStateModelGenerator);
         registerDrinkFeast(UbesDelightBlocksImpl.HALO_HALO_FEAST, blockStateModelGenerator);
 
         registerGlassCup(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO, blockStateModelGenerator);
         registerGlassCup(UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE, blockStateModelGenerator);
+
+        blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.multiVariant(UbesDelightBlocksImpl.LEAF_FEAST)
+                .with(BlockModelGenerators.createHorizontalFacingDispatch())
+                .with(PropertyDispatch.property(LeafFeastBlock.LEAF_FEAST_TYPE)
+                        .select(LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/leaf_feast")))
+                        .select(LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/leaf_feast_tip")))
+                        .select(LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/leaf_feast_end")))
+                        .select(LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/leaf_feast_middle"))))
+        );
+
+        blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.multiVariant(UbesDelightBlocksImpl.UNIVERSAL_LEAF_FEAST)
+                .with(BlockModelGenerators.createHorizontalFacingDispatch())
+                .with(PropertyDispatch.property(LeafFeastBlock.LEAF_FEAST_TYPE)
+                        .select(LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/leaf_feast")))
+                        .select(LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/leaf_feast_tip")))
+                        .select(LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/leaf_feast_end")))
+                        .select(LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, TextUtils.res("block/leaf_feast_middle")))));
+
+        registerEnsaymadaLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA, blockStateModelGenerator);
+        registerEnsaymadaLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE, blockStateModelGenerator);
+        registerPandesalLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL, blockStateModelGenerator);
+        registerPandesalLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE, blockStateModelGenerator);
+        registerHopiaLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, blockStateModelGenerator);
+        registerHopiaLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, blockStateModelGenerator);
+
+        registerRiceLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_COOKED_RICE, blockStateModelGenerator);
+        registerRiceLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_FRIED_RICE, blockStateModelGenerator);
+        registerRiceLeafFeastVariant(UbesDelightBlocksImpl.LEAF_FEAST_SINANGAG, blockStateModelGenerator);
     }
 
     private static void registerCrateBlock(Block block, BlockModelGenerators blockStateModelGenerator) {
@@ -309,5 +341,167 @@ public class BlockModelGenerator {
                         .select(3, Variant.variant().with(VariantProperties.MODEL, TEMPLATE_GLASS_CUP_4_LOCATION))
 
                 ));
+    }
+
+    private static void registerEnsaymadaLeafFeastVariant(Block block, BlockModelGenerators blockStateModelGenerator) {
+        registerBreadLeafFeastVariant(block,
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_3,
+                        UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_4, UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_5, UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_6},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_TIP_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_TIP_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_TIP_3},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_END_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_END_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_END_3},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE_3,
+                        UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE_4, UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE_5, UbesDelightModels.TEMPLATE_LEAF_FEAST_ENSAYMADA_MIDDLE_6},
+                blockStateModelGenerator);
+    }
+
+    private static void registerPandesalLeafFeastVariant(Block block, BlockModelGenerators blockStateModelGenerator) {
+        registerBreadLeafFeastVariant(block,
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_3,
+                        UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_4, UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_5, UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_6},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_TIP_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_TIP_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_TIP_3},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_END_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_END_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_END_3},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_MIDDLE_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_MIDDLE_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_MIDDLE_3,
+                        UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_MIDDLE_4, UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_MIDDLE_5, UbesDelightModels.TEMPLATE_LEAF_FEAST_PANDESAL_MIDDLE_6},
+                blockStateModelGenerator);
+    }
+
+    private static void registerHopiaLeafFeastVariant(Block block, BlockModelGenerators blockStateModelGenerator) {
+        registerBreadLeafFeastVariant(block,
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_3,
+                        UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_4, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_5, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_6},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_TIP_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_TIP_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_TIP_3},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_END_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_END_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_END_3},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_3,
+                        UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_4, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_5, UbesDelightModels.TEMPLATE_LEAF_FEAST_HOPIA_MIDDLE_6},
+                blockStateModelGenerator);
+    }
+
+    private static void registerRiceLeafFeastVariant(Block block, BlockModelGenerators blockStateModelGenerator) {
+        registerBreadLeafFeastVariant(block,
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_3,
+                        UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_4, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_5, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_6},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_TIP_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_TIP_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_TIP_3},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_END_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_END_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_END_3},
+                new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE_3,
+                        UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE_4, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE_5, UbesDelightModels.TEMPLATE_LEAF_FEAST_RICE_MIDDLE_6},
+                blockStateModelGenerator);
+    }
+
+    private static void registerLumpiaLeafFeast() {
+        ModelTemplate[] modelTemplateBase = new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_LUMPIA_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_LUMPIA_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_LUMPIA_3};
+        ModelTemplate[] modelTemplateMiddle = new ModelTemplate[]{UbesDelightModels.TEMPLATE_LEAF_FEAST_LUMPIA_MIDDLE_1, UbesDelightModels.TEMPLATE_LEAF_FEAST_LUMPIA_MIDDLE_2, UbesDelightModels.TEMPLATE_LEAF_FEAST_LUMPIA_MIDDLE_3};
+
+        Block block = UbesDelightBlocksImpl.LUMPIA_FEAST;
+        ResourceLocation location = TextUtils.res("block/leaf_feast/" + ModelLocationUtils.getModelLocation(block).getPath().replace("block/", "leaf_feast_"));
+        ResourceLocation baseLocation = location.withSuffix("_base");
+        ResourceLocation middleLocation = location.withSuffix("_middle");
+
+        ResourceLocation contentTextureLocation = TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", ""));
+        ResourceLocation contentTextureLocationAlt = TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", "")).withSuffix("_alt");
+
+        TextureMapping baseTextureMap = new TextureMapping()
+                .put(TextureSlot.TOP, TextUtils.res("block/leaf_feast_top"))
+                .put(TextureSlot.BOTTOM, TextUtils.res("block/leaf_feast_bottom"))
+                .put(TextureSlot.CONTENT, contentTextureLocation)
+                .put(UbesDelightTextureSlots.CONTENT_ALT, contentTextureLocationAlt);
+
+        for (int i = 0; i < 3;i++) {
+            modelTemplateBase[i].create(baseLocation.withSuffix("_" + (i + 1)), baseTextureMap, GENERATOR.modelOutput);
+            modelTemplateMiddle[i].create(middleLocation.withSuffix("_" + (i + 1)), baseTextureMap, GENERATOR.modelOutput);
+        }
+
+        GENERATOR.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block)
+                .with(BlockModelGenerators.createHorizontalFacingDispatch())
+                .with(PropertyDispatch.properties(SimpleLeafFeastBlock.SERVINGS, SimpleLeafFeastBlock.LEAF_FEAST_TYPE)
+                        .select(1, LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_1")))
+                        .select(1, LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_1")))
+                        .select(1, LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_1")))
+                        .select(1, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_1")))
+                        .select(2, LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_2")))
+                        .select(2, LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_2")))
+                        .select(2, LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_2")))
+                        .select(2, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_2")))
+                        .select(3, LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_3")))
+                        .select(3, LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_3")))
+                        .select(3, LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_3")))
+                        .select(3, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_3")))
+                        .select(4, LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_3")))
+                        .select(4, LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_3")))
+                        .select(4, LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_3")))
+                        .select(4, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_3")))
+                        .select(5, LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_3")))
+                        .select(5, LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_3")))
+                        .select(5, LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_3")))
+                        .select(5, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_3")))
+                        .select(6, LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_3")))
+                        .select(6, LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_3")))
+                        .select(6, LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_3")))
+                        .select(6, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_3")))
+                )
+        );
+    }
+
+    private static void registerBreadLeafFeastVariant(Block block, ModelTemplate[] modelTemplateBase, ModelTemplate[] modelTemplateTip, ModelTemplate[] modelTemplateEnd, ModelTemplate[] modelTemplateMiddle, BlockModelGenerators blockStateModelGenerator) {
+        ResourceLocation location = TextUtils.res("block/leaf_feast/" + ModelLocationUtils.getModelLocation(block).getPath().replace("block/", ""));
+        ResourceLocation baseLocation = location.withSuffix("_base");
+        ResourceLocation middleLocation = location.withSuffix("_middle");
+        ResourceLocation tipLocation = location.withSuffix("_tip");
+        ResourceLocation endLocation = location.withSuffix("_end");
+
+        ResourceLocation contentTextureLocation = TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", "").replace("_half", ""));
+
+        TextureMapping baseTextureMap = new TextureMapping()
+                .put(TextureSlot.TOP, TextUtils.res("block/leaf_feast_top"))
+                .put(TextureSlot.BOTTOM, TextUtils.res("block/leaf_feast_bottom"))
+                .put(TextureSlot.CONTENT, contentTextureLocation);
+
+        TextureMapping tipTextureMap = new TextureMapping()
+                .put(TextureSlot.TOP, TextUtils.res("block/leaf_feast_tip_top"))
+                .put(TextureSlot.BOTTOM, TextUtils.res("block/leaf_feast_tip_bottom"))
+                .put(TextureSlot.CONTENT, contentTextureLocation);
+
+        TextureMapping endTextureMap =  new TextureMapping()
+                .put(TextureSlot.TOP, TextUtils.res("block/leaf_feast_end_top"))
+                .put(TextureSlot.BOTTOM, TextUtils.res("block/leaf_feast_end_bottom"))
+                .put(TextureSlot.CONTENT, contentTextureLocation);
+
+        for (int i = 0; i < 6;i++) {
+            modelTemplateBase[i].create(baseLocation.withSuffix("_" + (i + 1)), baseTextureMap, GENERATOR.modelOutput);
+            modelTemplateMiddle[i].create(middleLocation.withSuffix("_" + (i + 1)), baseTextureMap, GENERATOR.modelOutput);
+        }
+        for (int j = 0; j < 3;j++) {
+            modelTemplateTip[j].create(tipLocation.withSuffix("_" + (j + 1)), tipTextureMap, GENERATOR.modelOutput);
+            modelTemplateEnd[j].create(endLocation.withSuffix("_" + (j + 1)), endTextureMap, GENERATOR.modelOutput);
+        }
+
+        GENERATOR.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block)
+                .with(BlockModelGenerators.createHorizontalFacingDispatch())
+                .with(PropertyDispatch.properties(SimpleLeafFeastBlock.SERVINGS, SimpleLeafFeastBlock.LEAF_FEAST_TYPE)
+                        .select(1, LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_1")))
+                        .select(1, LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, tipLocation.withSuffix("_1")))
+                        .select(1, LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, endLocation.withSuffix("_1")))
+                        .select(1, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_1")))
+                        .select(2, LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_2")))
+                        .select(2, LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, tipLocation.withSuffix("_2")))
+                        .select(2, LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, endLocation.withSuffix("_2")))
+                        .select(2, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_2")))
+                        .select(3, LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_3")))
+                        .select(3, LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, tipLocation.withSuffix("_3")))
+                        .select(3, LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, endLocation.withSuffix("_3")))
+                        .select(3, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_3")))
+                        .select(4, LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_4")))
+                        .select(4, LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, tipLocation.withSuffix("_3")))
+                        .select(4, LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, endLocation.withSuffix("_3")))
+                        .select(4, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_4")))
+                        .select(5, LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_5")))
+                        .select(5, LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, tipLocation.withSuffix("_3")))
+                        .select(5, LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, endLocation.withSuffix("_3")))
+                        .select(5, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_5")))
+                        .select(6, LeafFeastTypes.BASE, Variant.variant().with(VariantProperties.MODEL, baseLocation.withSuffix("_6")))
+                        .select(6, LeafFeastTypes.TIP, Variant.variant().with(VariantProperties.MODEL, tipLocation.withSuffix("_3")))
+                        .select(6, LeafFeastTypes.END, Variant.variant().with(VariantProperties.MODEL, endLocation.withSuffix("_3")))
+                        .select(6, LeafFeastTypes.MIDDLE, Variant.variant().with(VariantProperties.MODEL, middleLocation.withSuffix("_6")))
+                )
+        );
     }
 }

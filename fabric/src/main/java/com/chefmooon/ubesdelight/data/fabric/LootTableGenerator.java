@@ -1,6 +1,7 @@
 package com.chefmooon.ubesdelight.data.fabric;
 
 import com.chefmooon.ubesdelight.common.block.*;
+import com.chefmooon.ubesdelight.common.block.leaf_feast.base.SimpleLeafFeastBlock;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -32,12 +33,25 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         dropSelf(UbesDelightBlocksImpl.GINGER_CRATE);
         dropSelf(UbesDelightBlocksImpl.LEMONGRASS_CRATE);
 
+        dropSelf(UbesDelightBlocksImpl.LEAF_FEAST);
+        dropOther(UbesDelightBlocksImpl.UNIVERSAL_LEAF_FEAST, UbesDelightItemsImpl.LEAF_FEAST);
+
         dropPottedContents(UbesDelightBlocksImpl.POTTED_UBE);
         dropPottedContents(UbesDelightBlocksImpl.POTTED_GARLIC);
         dropPottedContents(UbesDelightBlocksImpl.POTTED_GINGER);
 
         createGlassCupDrops(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO, UbesDelightItemsImpl.HALO_HALO);
         createGlassCupDrops(UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE, UbesDelightItemsImpl.MILK_TEA_UBE);
+
+        dropSimpleLeafFeastContents(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA, UbesDelightItemsImpl.ENSAYMADA);
+        dropSimpleLeafFeastContents(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE, UbesDelightItemsImpl.ENSAYMADA_UBE);
+        dropSimpleLeafFeastContents(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL, UbesDelightItemsImpl.PANDESAL);
+        dropSimpleLeafFeastContents(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE, UbesDelightItemsImpl.PANDESAL_UBE);
+        dropSimpleLeafFeastContents(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, UbesDelightItemsImpl.HOPIA_MUNGGO);
+        dropSimpleLeafFeastContents(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, UbesDelightItemsImpl.HOPIA_UBE);
+        dropContainerLeaftContents(UbesDelightBlocksImpl.LEAF_FEAST_COOKED_RICE);
+        dropContainerLeaftContents(UbesDelightBlocksImpl.LEAF_FEAST_FRIED_RICE);
+        dropContainerLeaftContents(UbesDelightBlocksImpl.LEAF_FEAST_SINANGAG);
 
         // todo - V0.2.0 - these stopped working,
 //        createCropDrops(UbesDelightBlocksImpl.UBE_CROP, UbesDelightItemsImpl.UBE, UbesDelightItemsImpl.UBE,
@@ -75,6 +89,36 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
                 .withPool(LootPool.lootPool().add(LootItem.lootTableItem(item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0f))))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GlassCupBlock.SERVINGS, 0))))
+        ));
+    }
+
+    private void dropSimpleLeafFeastContents(Block block, Item item) {
+        this.add(block, this.applyExplosionDecay(block, LootTable.lootTable()
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(UbesDelightItemsImpl.LEAF_FEAST)))
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(6.0F))))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SimpleLeafFeastBlock.SERVINGS, 6))))
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5.0F))))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SimpleLeafFeastBlock.SERVINGS, 5))))
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SimpleLeafFeastBlock.SERVINGS, 4))))
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0F))))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SimpleLeafFeastBlock.SERVINGS, 3))))
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SimpleLeafFeastBlock.SERVINGS, 2))))
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SimpleLeafFeastBlock.SERVINGS, 1))))
+        ));
+    }
+
+    private void dropContainerLeaftContents(Block block) {
+        this.add(block, this.applyExplosionDecay(block, LootTable.lootTable()
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(UbesDelightItemsImpl.LEAF_FEAST)))
         ));
     }
 }

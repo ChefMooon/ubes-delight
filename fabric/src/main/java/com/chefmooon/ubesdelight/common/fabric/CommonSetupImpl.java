@@ -10,12 +10,7 @@ public class CommonSetupImpl {
 
     public static void init() {
         CommonSetup.init();
-        registerDispenserBehaviors();
 
         ResourceConditions.register(UDCrateEnabledCondition.ID, jsonObject -> Configuration.isEnableUDCropCrates());
-    }
-
-    public static void registerDispenserBehaviors() {
-        BakingMatDispenseBehaviorImpl.register();
     }
 }

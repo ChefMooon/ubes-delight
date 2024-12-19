@@ -1,0 +1,30 @@
+{
+  "parent": "ubesdelight:main/use_leaf_feast",
+  "criteria": {
+    "use_leaf_feast_consume": {
+      "conditions": {},
+      "trigger": "ubesdelight:use_leaf_feast_consume"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "ubesdelight.advancement.boodle_fight.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "ubesdelight:leaf_feast_ensaymada"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ubesdelight.advancement.boodle_fight"
+    }
+  },
+  "requirements": [
+    [
+      "use_leaf_feast_consume"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
