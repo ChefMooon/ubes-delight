@@ -59,4 +59,7 @@ NeoForge and Fabric.
 - Garlic and Ginger crates can no longer be crafted from chopped versions (Fixed bug #31, Thank you Nemo157!)
 - Added Ube Eansaymada to Ube Master Advancement
 
+**1.21.1**
+- KubeJS no longer produces errors for Ube, Garlic, Ginger, and Lemongrass Crate recipes (bug #32, Thank you DarkBladeNemo!)
+
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)

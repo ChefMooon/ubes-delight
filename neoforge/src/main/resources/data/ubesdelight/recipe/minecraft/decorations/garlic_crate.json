@@ -5,7 +5,7 @@
     }
   ],
   "type": "minecraft:crafting_shaped",
-  "category": "decoration",
+  "category": "misc",
   "pattern": [
     "###",
     "###",
