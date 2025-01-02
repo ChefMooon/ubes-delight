@@ -116,7 +116,7 @@ public class LemongrassStalkCropBlock extends CropBlock {
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        // todo - change for 1.21, BuiltInRegistry used for Fabric compat - test more
+        // different in 1.21, BuiltInRegistry used for Fabric compat - test more
         return state.is(Blocks.FARMLAND) || state.is(CommonTags.C_FARMLAND) || state.is(BuiltInRegistryUtil.getBlock(new ResourceLocation("farmersdelight", "rich_soil_farmland")));
     }
 

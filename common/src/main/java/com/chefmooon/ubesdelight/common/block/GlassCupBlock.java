@@ -140,7 +140,7 @@ public class GlassCupBlock extends Block {
         int servings = state.getValue(SERVINGS);
         ItemStack servingItem = new ItemStack(this.servingItem.get());
 
-        if (servings == 0) { // todo - decide shift key down to completely remove block?
+        if (servings == 0) {
             level.removeBlock(pos, false);
             level.playSound(player, pos, SoundEvents.GLASS_PLACE, SoundSource.BLOCKS, 0.8F, 0.8F);
             if (!player.isCreative()) {
