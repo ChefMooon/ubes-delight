@@ -20,28 +20,7 @@ public class UbesDelightClientImpl implements ClientModInitializer {
         UbesDelightClient.init();
 
         ClientSetupEventsImpl.onRegisterRenderers();
-
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(),
-                UbesDelightBlocksImpl.BAKING_MAT_BAMBOO,
-                UbesDelightBlocksImpl.WILD_UBE,
-                UbesDelightBlocksImpl.WILD_GARLIC,
-                UbesDelightBlocksImpl.WILD_GINGER,
-                UbesDelightBlocksImpl.WILD_LEMONGRASS,
-                UbesDelightBlocksImpl.POTTED_UBE,
-                UbesDelightBlocksImpl.POTTED_GARLIC,
-                UbesDelightBlocksImpl.POTTED_GINGER,
-                UbesDelightBlocksImpl.UBE_CROP,
-                UbesDelightBlocksImpl.GARLIC_CROP,
-                UbesDelightBlocksImpl.GINGER_CROP,
-                UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP,
-                UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP,
-                UbesDelightBlocksImpl.UBE_CAKE,
-                UbesDelightBlocksImpl.LECHE_FLAN_FEAST,
-                UbesDelightBlocksImpl.LUMPIA_FEAST,
-                UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO,
-                UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE,
-                UbesDelightBlocksImpl.MILK_TEA_UBE_FEAST,
-                UbesDelightBlocksImpl.HALO_HALO_FEAST);
+        ClientSetupEventsImpl.onRegisterBlockRenderLayerMap();
 
         onBuiltinPackRegistration();
     }
