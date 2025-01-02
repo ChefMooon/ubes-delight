@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "ud_leaf_feast",
   "ingredients": [
     {
       "item": "ubesdelight:ensaymada_ube"

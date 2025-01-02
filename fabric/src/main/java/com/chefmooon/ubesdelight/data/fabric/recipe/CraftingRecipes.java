@@ -260,14 +260,12 @@ public class CraftingRecipes {
                 .pattern("BBB")
                 .define('A', input)
                 .define('B', CompatibilityTags.MINECRAFT_LEAVES)
-                .group("ud_leaf_feast")
                 .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(input))
                 .save(EXPORTER, suffix(RecipeProvider.getItemName(output)));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output)
                 .requires(input, 6)
                 .requires(UbesDelightItemsImpl.LEAF_FEAST)
-                .group("ud_leaf_feast")
                 .unlockedBy(RecipeUtil.hasAny(), RecipeUtil.getTriggerfromItems(input, UbesDelightItemsImpl.LEAF_FEAST))
                 .save(EXPORTER, suffix(RecipeProvider.getItemName(output) + "from_leaf_feast"));
     }
@@ -278,14 +276,12 @@ public class CraftingRecipes {
                 .pattern("BBB")
                 .define('A', input)
                 .define('B', CompatibilityTags.MINECRAFT_LEAVES)
-                .group("ud_leaf_feast")
                 .unlockedBy(RecipeUtil.hasAny(), RecipeProvider.has(input))
                 .save(EXPORTER, suffix(RecipeProvider.getItemName(output)));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output)
                 .requires(input, 3)
                 .requires(UbesDelightItemsImpl.LEAF_FEAST)
-                .group("ud_leaf_feast")
                 .unlockedBy(RecipeUtil.hasAny(), RecipeUtil.getTriggerfromItems(input, UbesDelightItemsImpl.LEAF_FEAST))
                 .save(EXPORTER, suffix(RecipeProvider.getItemName(output) + "from_leaf_feast"));
     }

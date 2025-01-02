@@ -1,12 +1,12 @@
-// 1.21.1	2024-12-28T03:41:05.9195816	Ube's Delight/Tags for minecraft:item
+// 1.21.1	2025-01-02T12:30:59.3128387	Ube's Delight/Tags for minecraft:item
 c20b2ac37d4e1e789774abb4859865b7bf68f572 data\c\tags\item\foods\ube.json
 5d06324b131dfa26a105d6f7d7554f3685a34354 data\origins\tags\item\ignore_diet.json
 d12c694a2959257f0b273da7cb409f55b4b78755 data\c\tags\item\tools\rolling_pin.json
 e962b08e59aa3e3e071af3aebcc932bd68c4d271 data\c\tags\item\crops.json
 2151bb74d673905efe3f0ba3c4b774d80c48d7e2 data\c\tags\item\foods\lemongrass.json
 db433723554ca0068e238f203205fb258748b3ed data\c\tags\item\foods\garlic.json
-a59156c9804342e9fe62b93fbcbecfb1920a7930 data\c\tags\item\foods.json
 03814dae1cddef6c1229ef273a83fe0e3d91b5cc data\c\tags\item\foods\milk_bottle.json
+a59156c9804342e9fe62b93fbcbecfb1920a7930 data\c\tags\item\foods.json
 d12c694a2959257f0b273da7cb409f55b4b78755 data\ubesdelight\tags\item\tools\rolling_pin.json
 7142bd3ed04671bbeeefb6a0585e3bd28446da51 data\sereneseasons\tags\item\autumn_crops.json
 8f9f33e65018e503dd75014f35525e26ddd2212c data\c\tags\item\crops\ginger.json
@@ -14,8 +14,8 @@ d12c694a2959257f0b273da7cb409f55b4b78755 data\ubesdelight\tags\item\tools\rollin
 aa4881c28f221aa60eb8e856730ef8a3578d106f data\c\tags\item\tools.json
 dbcd33203aef3a0b4231edb39f16fa66a010e1e0 data\c\tags\item\tea_ingredients\sweet\weak.json
 00c0b6e2f5556e75f2c1ea653cf1192ccbf874bb data\c\tags\item\tea_ingredients.json
-a8ac530eaabd4becf900e1758a164201600cbe76 data\supplementaries\tags\item\cookies.json
 ee0c679f02fffadcaf18e571d2878c3d23d0e225 data\sereneseasons\tags\item\summer_crops.json
+a8ac530eaabd4becf900e1758a164201600cbe76 data\supplementaries\tags\item\cookies.json
 b4aa61926bf34ac9f9f4a480dfb5f601dd5d0312 data\create\tags\item\upright_on_belt.json
 8794859a6cb91750fa73a1ed0d6415e4ce8aa9f1 data\minecraft\tags\item\small_flowers.json
 c20b2ac37d4e1e789774abb4859865b7bf68f572 data\c\tags\item\crops\ube.json
