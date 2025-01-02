@@ -79,7 +79,6 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
     }
 
     private void createGlassCupDrops(Block block, Item item) {
-        // todo - decide if this should require silk touch? or knife?
         this.add(block, this.applyExplosionDecay(block, LootTable.lootTable()
                 .withPool(LootPool.lootPool().add(LootItem.lootTableItem(item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0f))))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
