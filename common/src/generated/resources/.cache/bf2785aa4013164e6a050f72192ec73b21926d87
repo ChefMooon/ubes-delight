@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-02T12:36:09.7459719	Ube's Delight/Block Loot Tables
+// 1.20.1	2025-01-02T19:16:51.1863788	Ube's Delight/Block Loot Tables
 c5b72a17e37502e81ea00fe3f7a44ea834edc210 data\ubesdelight\loot_tables\blocks\leaf_feast_sinangag.json
 3cb19fbca98a1c19efefeca2da96c7a63ea42d95 data\ubesdelight\loot_tables\blocks\garlic_crate.json
 340472ae0ecdcce826e309ac67c04685e9225d18 data\ubesdelight\loot_tables\blocks\potted_garlic.json
@@ -18,6 +18,7 @@ a157bb5c4b2db5ecc661a4ada2280076a283da03 data\ubesdelight\loot_tables\blocks\lea
 e1c5de0d8308b2a04e5d06315905212ef2b3a7e1 data\ubesdelight\loot_tables\blocks\leaf_feast_ensaymada_ube.json
 f88d5733d51e2044bebf4f79eee2adffd1736856 data\ubesdelight\loot_tables\blocks\baking_mat_bamboo.json
 34f6951060093eddbdc1a06805dfe1597495c5bf data\ubesdelight\loot_tables\blocks\potted_ginger.json
+50a97bf5dbcc50261575bbe85caafa155ba1d8c7 data\ubesdelight\loot_tables\blocks\lumpia_feast.json
 48ac44a94ba7d671f943caa084baa792c801b50e data\ubesdelight\loot_tables\blocks\leaf_feast_hopia_munggo.json
 7f379ff29a0d416dad86e799a0a9692a779f8e58 data\ubesdelight\loot_tables\blocks\glass_cup_milk_tea_ube.json
 c5b72a17e37502e81ea00fe3f7a44ea834edc210 data\ubesdelight\loot_tables\blocks\leaf_feast_fried_rice.json

@@ -1,6 +1,7 @@
 package com.chefmooon.ubesdelight.data.fabric;
 
 import com.chefmooon.ubesdelight.common.block.*;
+import com.chefmooon.ubesdelight.common.block.leaf_feast.base.LargeLeafFeastBlock;
 import com.chefmooon.ubesdelight.common.block.leaf_feast.base.SimpleLeafFeastBlock;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
@@ -42,6 +43,8 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
 
         createGlassCupDrops(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO, UbesDelightItemsImpl.HALO_HALO);
         createGlassCupDrops(UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE, UbesDelightItemsImpl.MILK_TEA_UBE);
+
+        dropLargeLeafFeastContents(UbesDelightBlocksImpl.LUMPIA_FEAST, UbesDelightItemsImpl.LUMPIA);
 
         dropSimpleLeafFeastContents(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA, UbesDelightItemsImpl.ENSAYMADA);
         dropSimpleLeafFeastContents(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE, UbesDelightItemsImpl.ENSAYMADA_UBE);
@@ -112,6 +115,21 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
                 .withPool(LootPool.lootPool().add(LootItem.lootTableItem(item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SimpleLeafFeastBlock.SERVINGS, 1))))
+        ));
+    }
+
+    private void dropLargeLeafFeastContents(Block block, Item item) {
+        this.add(block, this.applyExplosionDecay(block, LootTable.lootTable()
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(UbesDelightItemsImpl.LEAF_FEAST)))
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0F))))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LargeLeafFeastBlock.SERVINGS, 3))))
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LargeLeafFeastBlock.SERVINGS, 2))))
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(item).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LargeLeafFeastBlock.SERVINGS, 1))))
         ));
     }
 

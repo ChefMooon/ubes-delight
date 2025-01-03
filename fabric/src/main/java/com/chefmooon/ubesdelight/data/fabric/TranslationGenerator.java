@@ -104,7 +104,7 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(UbesDelightItemsImpl.LECHE_FLAN_FEAST, "Leche Flan");
         translationBuilder.add(UbesDelightItemsImpl.HALO_HALO_FEAST, "Bowl of Halo Halo");
         translationBuilder.add(UbesDelightItemsImpl.MILK_TEA_UBE_FEAST, "Bowl of Ube Milk Tea");
-        translationBuilder.add(UbesDelightItemsImpl.LUMPIA_FEAST, "Lumpia Platter");
+        translationBuilder.add(UbesDelightItemsImpl.LUMPIA_FEAST, "Lumpia Leaf Feast");
 
         translationBuilder.add(UbesDelightItemsImpl.UBE_CAKE, "Ube Cake");
         translationBuilder.add(UbesDelightItemsImpl.UBE_CAKE_SLICE, "Ube Cake Slice");
