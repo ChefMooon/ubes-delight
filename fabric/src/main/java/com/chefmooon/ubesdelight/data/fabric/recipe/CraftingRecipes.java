@@ -49,7 +49,7 @@ public class CraftingRecipes {
 
         /** ITEMS **/
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_WOOD)
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, UbesDelightItemsImpl.ROLLING_PIN_WOOD)
                 .pattern("  A")
                 .pattern(" B ")
                 .pattern("A  ")
@@ -58,31 +58,31 @@ public class CraftingRecipes {
                 .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_WOOD)));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_IRON)
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, UbesDelightItemsImpl.ROLLING_PIN_IRON)
                 .pattern("  A")
                 .pattern(" B ")
                 .pattern("A  ")
                 .define('A', Items.STICK)
                 .define('B', Tags.Items.INGOTS_IRON)
-                .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
+                .unlockedBy(RecipeUtil.hasItemTag(Tags.Items.INGOTS_IRON), RecipeUtil.getTriggerfromTag(Tags.Items.INGOTS_IRON))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_IRON)));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_GOLD)
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, UbesDelightItemsImpl.ROLLING_PIN_GOLD)
                 .pattern("  A")
                 .pattern(" B ")
                 .pattern("A  ")
                 .define('A', Items.STICK)
                 .define('B', Tags.Items.INGOTS_GOLD)
-                .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
+                .unlockedBy(RecipeUtil.hasItemTag(Tags.Items.INGOTS_GOLD), RecipeUtil.getTriggerfromTag(Tags.Items.INGOTS_GOLD))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_GOLD)));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)
                 .pattern("  A")
                 .pattern(" B ")
                 .pattern("A  ")
                 .define('A', Items.STICK)
                 .define('B', Tags.Items.GEMS_DIAMOND)
-                .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
+                .unlockedBy(RecipeUtil.hasItemTag(Tags.Items.GEMS_DIAMOND), RecipeUtil.getTriggerfromTag(Tags.Items.GEMS_DIAMOND))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)));
 
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
@@ -90,7 +90,7 @@ public class CraftingRecipes {
                         Ingredient.of(Tags.Items.INGOTS_NETHERITE),
                         RecipeCategory.TOOLS,
                         UbesDelightItemsImpl.ROLLING_PIN_NETHERITE)
-                .unlocks(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
+                .unlocks(RecipeUtil.hasItemTag(Tags.Items.INGOTS_NETHERITE), RecipeUtil.getTriggerfromTag(Tags.Items.INGOTS_NETHERITE))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE) + "_smithing")); // should this be in a smithing folder instead of crafting?
 
         /** CROPS **/

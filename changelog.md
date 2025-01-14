@@ -7,10 +7,11 @@ NeoForge and Fabric.
 
 ***
 
-### Fixed
+### Changed
 
-- Lumpia Platter
-  - Corrected name to Lumpia Leaf Feast
-  - Fixed Loot Table
+- Rolling Pins 
+  - Crafting Category changed to "equipment"
+  - Advancement no longer uses stick, ingot/gem instead
+- Bottle Textures Updated: Condensed Milk, Fish Sauce
 
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)

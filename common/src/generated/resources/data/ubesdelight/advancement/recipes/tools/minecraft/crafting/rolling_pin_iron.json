@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stick": {
+    "has_ingots_iron": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:stick"
+            "items": "#c:ingots/iron"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/rolling_pin_gold"
+        "recipe": "ubesdelight:minecraft/crafting/rolling_pin_iron"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_stick"
+      "has_ingots_iron"
     ]
   ],
   "rewards": {
     "recipes": [
-      "ubesdelight:minecraft/crafting/rolling_pin_gold"
+      "ubesdelight:minecraft/crafting/rolling_pin_iron"
     ]
   }
 }

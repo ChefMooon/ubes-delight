@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-02T19:16:14.7715079	Ube's Delight/Tags for minecraft:item
+// 1.21.1	2025-01-14T11:14:50.6968138	Ube's Delight/Tags for minecraft:item
 c20b2ac37d4e1e789774abb4859865b7bf68f572 data\c\tags\item\foods\ube.json
 5d06324b131dfa26a105d6f7d7554f3685a34354 data\origins\tags\item\ignore_diet.json
 d12c694a2959257f0b273da7cb409f55b4b78755 data\c\tags\item\tools\rolling_pin.json
@@ -14,8 +14,8 @@ d12c694a2959257f0b273da7cb409f55b4b78755 data\ubesdelight\tags\item\tools\rollin
 aa4881c28f221aa60eb8e856730ef8a3578d106f data\c\tags\item\tools.json
 dbcd33203aef3a0b4231edb39f16fa66a010e1e0 data\c\tags\item\tea_ingredients\sweet\weak.json
 00c0b6e2f5556e75f2c1ea653cf1192ccbf874bb data\c\tags\item\tea_ingredients.json
-ee0c679f02fffadcaf18e571d2878c3d23d0e225 data\sereneseasons\tags\item\summer_crops.json
 a8ac530eaabd4becf900e1758a164201600cbe76 data\supplementaries\tags\item\cookies.json
+ee0c679f02fffadcaf18e571d2878c3d23d0e225 data\sereneseasons\tags\item\summer_crops.json
 b4aa61926bf34ac9f9f4a480dfb5f601dd5d0312 data\create\tags\item\upright_on_belt.json
 8794859a6cb91750fa73a1ed0d6415e4ce8aa9f1 data\minecraft\tags\item\small_flowers.json
 c20b2ac37d4e1e789774abb4859865b7bf68f572 data\c\tags\item\crops\ube.json
@@ -23,8 +23,8 @@ c2a39e6d34eabb4fce58ccf56576e5512a01f88f data\c\tags\item\foods\milk.json
 2151bb74d673905efe3f0ba3c4b774d80c48d7e2 data\c\tags\item\crops\lemongrass.json
 a8ac530eaabd4becf900e1758a164201600cbe76 data\c\tags\item\foods\cookie.json
 39551f160cc820cf497838ff9dca5210a8b50b91 data\c\tags\item\foods\vegetable.json
-7b638b15eeb47ac9a249688d612d3eb92477e058 data\minecraft\tags\item\tall_flowers.json
 279d1b9061cde77fce27a1646050698e7ecc6b8f data\minecraft\tags\item\chicken_food.json
+7b638b15eeb47ac9a249688d612d3eb92477e058 data\minecraft\tags\item\tall_flowers.json
 400a5a67f1a2e633ec928937384713999ebfae6f data\origins\tags\item\meat.json
 009dc1c5b6fd06e9c2393d841ad82e7d14980d41 data\minecraft\tags\item\pig_food.json
 279d1b9061cde77fce27a1646050698e7ecc6b8f data\c\tags\item\seeds.json
