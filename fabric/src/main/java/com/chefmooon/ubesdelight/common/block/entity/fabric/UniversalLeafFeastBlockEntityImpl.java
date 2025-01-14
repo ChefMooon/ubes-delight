@@ -1,6 +1,7 @@
 package com.chefmooon.ubesdelight.common.block.entity.fabric;
 
 import com.chefmooon.ubesdelight.common.block.entity.UniversalLeafFeastBlockEntity;
+import com.chefmooon.ubesdelight.common.block.fabric.SyncedBlockEntity;
 import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlockEntityTypesImpl;
 import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandlerContainer;
@@ -16,7 +17,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec2;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
 
 public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
     public static final int MAX_ITEMS = UniversalLeafFeastBlockEntity.MAX_ITEMS;

@@ -15,6 +15,9 @@ NeoForge, and Fabric
 
 ### Fixed
 
+**1.20.1 Fabric Only**
+- [Deprecated] Farmer's Delight [Fabric] Compatibility fixed
+
 **1.20.1 Forge Only**
 - Iron, Gold, Diamond, and Netherite Rolling Pins can now be crafted
 
