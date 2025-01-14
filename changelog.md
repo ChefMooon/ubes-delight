@@ -14,4 +14,7 @@ NeoForge and Fabric.
   - Advancement no longer uses stick, ingot/gem instead
 - Bottle Textures Updated: Condensed Milk, Fish Sauce
 
+**1.21.1 Only**
+- Milk Powder can now be crafted from Milk Bucket and Farmer's Delight Milk Bottle
+
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)

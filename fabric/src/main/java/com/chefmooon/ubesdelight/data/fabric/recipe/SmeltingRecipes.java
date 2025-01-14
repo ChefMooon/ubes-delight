@@ -19,6 +19,6 @@ public class SmeltingRecipes {
         RecipeUtil.offerSmeltCampSmokeRecipe(UbesDelightItemsImpl.HOPIA_MUNGGO_RAW, RecipeCategory.FOOD, UbesDelightItemsImpl.HOPIA_MUNGGO, 0.5F, 200, exporter);
         RecipeUtil.offerSmeltCampSmokeRecipe(UbesDelightItemsImpl.HOPIA_UBE_RAW, RecipeCategory.FOOD, UbesDelightItemsImpl.HOPIA_UBE, 0.5F, 200, exporter);
 
-        RecipeUtil.offerSmeltCampSmokeFromTag(CommonTags.C_FOODS_MILK_BOTTLE, UbesDelightItemsImpl.MILK_POWDER, 0.2F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeFromTag(CommonTags.C_FOODS_MILK, UbesDelightItemsImpl.MILK_POWDER, 0.2F, 200, exporter);
     }
 }

@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-14T11:14:50.6968138	Ube's Delight/Tags for minecraft:item
+// 1.21.1	2025-01-14T13:29:59.4801358	Ube's Delight/Tags for minecraft:item
 c20b2ac37d4e1e789774abb4859865b7bf68f572 data\c\tags\item\foods\ube.json
 5d06324b131dfa26a105d6f7d7554f3685a34354 data\origins\tags\item\ignore_diet.json
 d12c694a2959257f0b273da7cb409f55b4b78755 data\c\tags\item\tools\rolling_pin.json
@@ -23,8 +23,8 @@ c2a39e6d34eabb4fce58ccf56576e5512a01f88f data\c\tags\item\foods\milk.json
 2151bb74d673905efe3f0ba3c4b774d80c48d7e2 data\c\tags\item\crops\lemongrass.json
 a8ac530eaabd4becf900e1758a164201600cbe76 data\c\tags\item\foods\cookie.json
 39551f160cc820cf497838ff9dca5210a8b50b91 data\c\tags\item\foods\vegetable.json
-279d1b9061cde77fce27a1646050698e7ecc6b8f data\minecraft\tags\item\chicken_food.json
 7b638b15eeb47ac9a249688d612d3eb92477e058 data\minecraft\tags\item\tall_flowers.json
+279d1b9061cde77fce27a1646050698e7ecc6b8f data\minecraft\tags\item\chicken_food.json
 400a5a67f1a2e633ec928937384713999ebfae6f data\origins\tags\item\meat.json
 009dc1c5b6fd06e9c2393d841ad82e7d14980d41 data\minecraft\tags\item\pig_food.json
 279d1b9061cde77fce27a1646050698e7ecc6b8f data\c\tags\item\seeds.json

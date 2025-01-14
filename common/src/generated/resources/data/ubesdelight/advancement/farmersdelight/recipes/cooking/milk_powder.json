@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_foods_milk_bottle": {
+    "has_foods_milk": {
       "conditions": {
         "items": [
           {
-            "items": "#c:foods/milk_bottle"
+            "items": "#c:foods/milk"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:farmersdelight/cooking/milk_powder_from_milk_bottle"
+        "recipe": "ubesdelight:farmersdelight/cooking/milk_powder"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_foods_milk_bottle"
+      "has_foods_milk"
     ]
   ],
   "rewards": {
     "recipes": [
-      "ubesdelight:farmersdelight/cooking/milk_powder_from_milk_bottle"
+      "ubesdelight:farmersdelight/cooking/milk_powder"
     ]
   }
 }

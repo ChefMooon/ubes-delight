@@ -77,10 +77,10 @@ public class CookingRecipes {
                 .save(exporter, recipeConversionName(UbesDelightItemsImpl.FISH_SAUCE_BOTTLE, Items.WATER_BUCKET));
 
         CookingPotRecipeJsonBuilder.create(UbesDelightItemsImpl.MILK_POWDER, 1, 200,  0.2F,
-                        nonNullList(Ingredient.of(CommonTags.C_FOODS_MILK_BOTTLE)))
-                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_MILK_BOTTLE), RecipeProvider.has(CommonTags.C_FOODS_MILK_BOTTLE))
+                        nonNullList(Ingredient.of(CommonTags.C_FOODS_MILK)))
+                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_MILK), RecipeProvider.has(CommonTags.C_FOODS_MILK))
                 .setRecipeBookTab(CookingPotRecipeBookTab.DRINKS)
-                .save(exporter, recipeConversionName(UbesDelightItemsImpl.MILK_POWDER, MILK_BOTTLE));
+                .save(exporter, recipeName(UbesDelightItemsImpl.MILK_POWDER));
 
         // ** DRINKS **
         CookingPotRecipeJsonBuilder.create(UbesDelightItemsImpl.MILK_TEA_UBE, 1, 50, 0.25F,
