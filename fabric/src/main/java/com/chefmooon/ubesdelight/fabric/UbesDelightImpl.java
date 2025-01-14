@@ -2,10 +2,8 @@ package com.chefmooon.ubesdelight.fabric;
 
 
 import com.chefmooon.ubesdelight.UbesDelight;
-import com.chefmooon.ubesdelight.common.block.entity.fabric.BakingMatBlockEntityImpl;
 import com.chefmooon.ubesdelight.common.event.fabric.VillagerEventsImpl;
 import com.chefmooon.ubesdelight.common.fabric.CommonSetupImpl;
-import com.chefmooon.ubesdelight.common.registry.UbesDelightShapes;
 import com.chefmooon.ubesdelight.common.registry.fabric.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
