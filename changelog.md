@@ -7,13 +7,15 @@ NeoForge, and Fabric
 
 ***
 
+### Changed
+
+- Rolling Pins
+  - Crafting Category changed to "equipment"
+- Bottle Textures Updated: Condensed Milk, Fish Sauce
+
 ### Fixed
 
-- Lumpia Platter
-  - Corrected name to Lumpia Leaf Feast
-  - Fixed Loot Table
-
-**1.20.1 Only**
-- Corrected Lumpia Leaf Feast texture
+**1.20.1 Forge Only**
+- Iron, Gold, Diamond, and Netherite Rolling Pins can now be crafted
 
 [Detailed Changelog](https://github.com/ChefMooon/ubes-delight/wiki/Detailed-Changelog)

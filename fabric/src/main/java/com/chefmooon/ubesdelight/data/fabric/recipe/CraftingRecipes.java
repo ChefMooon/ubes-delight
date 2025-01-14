@@ -49,7 +49,7 @@ public class CraftingRecipes {
 
         /** ITEMS **/
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_WOOD)
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, UbesDelightItemsImpl.ROLLING_PIN_WOOD)
                 .pattern("  A")
                 .pattern(" B ")
                 .pattern("A  ")
@@ -58,40 +58,44 @@ public class CraftingRecipes {
                 .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_WOOD)));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_IRON)
-                .pattern("  A")
-                .pattern(" B ")
-                .pattern("A  ")
-                .define('A', Items.STICK)
-                .define('B', Tags.Items.INGOTS_IRON)
-                .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
-                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_IRON)));
+        // Manual, fabric -> c:iron_ingots, forge -> forge:ingots/iron
+//        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, UbesDelightItemsImpl.ROLLING_PIN_IRON)
+//                .pattern("  A")
+//                .pattern(" B ")
+//                .pattern("A  ")
+//                .define('A', Items.STICK)
+//                .define('B', Tags.Items.INGOTS_IRON)
+//                .unlockedBy(RecipeUtil.hasItemTag(Tags.Items.INGOTS_IRON), RecipeUtil.getTriggerfromTag(Tags.Items.INGOTS_IRON))
+//                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_IRON)));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_GOLD)
-                .pattern("  A")
-                .pattern(" B ")
-                .pattern("A  ")
-                .define('A', Items.STICK)
-                .define('B', Tags.Items.INGOTS_GOLD)
-                .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
-                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_GOLD)));
+        // Manual, fabric -> c:gold_ingots, forge -> forge:ingots/gold
+//        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, UbesDelightItemsImpl.ROLLING_PIN_GOLD)
+//                .pattern("  A")
+//                .pattern(" B ")
+//                .pattern("A  ")
+//                .define('A', Items.STICK)
+//                .define('B', Tags.Items.INGOTS_GOLD)
+//                .unlockedBy(RecipeUtil.hasItemTag(Tags.Items.INGOTS_GOLD), RecipeUtil.getTriggerfromTag(Tags.Items.INGOTS_GOLD))
+//                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_GOLD)));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)
-                .pattern("  A")
-                .pattern(" B ")
-                .pattern("A  ")
-                .define('A', Items.STICK)
-                .define('B', Tags.Items.GEMS_DIAMOND)
-                .unlockedBy(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
-                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)));
+        // Manual, fabric -> c:diamonds, forge -> forge:gems/diamond
+//        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)
+//                .pattern("  A")
+//                .pattern(" B ")
+//                .pattern("A  ")
+//                .define('A', Items.STICK)
+//                .define('B', Tags.Items.GEMS_DIAMOND)
+//                .unlockedBy(RecipeUtil.hasItemTag(Tags.Items.GEMS_DIAMOND), RecipeUtil.getTriggerfromTag(Tags.Items.GEMS_DIAMOND))
+//                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)));
 
-        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
-                        Ingredient.of(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND),
-                        Ingredient.of(Tags.Items.INGOTS_NETHERITE),
-                        RecipeCategory.TOOLS,
-                        UbesDelightItemsImpl.ROLLING_PIN_NETHERITE)
-                .unlocks(RecipeProvider.getHasName(Items.STICK), RecipeProvider.has(Items.STICK))
-                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE) + "_smithing"));
+        // Manual, fabric -> c:netherite_ingots, forge -> forge:ingots/netherite
+//        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+//                        Ingredient.of(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND),
+//                        Ingredient.of(Tags.Items.INGOTS_NETHERITE),
+//                        RecipeCategory.TOOLS,
+//                        UbesDelightItemsImpl.ROLLING_PIN_NETHERITE)
+//                .unlocks(RecipeUtil.hasItemTag(Tags.Items.INGOTS_NETHERITE), RecipeUtil.getTriggerfromTag(Tags.Items.INGOTS_NETHERITE))
+//                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE) + "_smithing"));
 
         /** CROPS **/
 

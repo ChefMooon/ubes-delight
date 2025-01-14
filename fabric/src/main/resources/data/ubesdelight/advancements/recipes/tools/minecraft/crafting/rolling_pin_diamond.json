@@ -1,13 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stick": {
+    "has_diamonds": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:stick"
-            ]
+            "tag": "c:diamonds"
           }
         ]
       },
@@ -15,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/rolling_pin_gold"
+        "recipe": "ubesdelight:minecraft/crafting/rolling_pin_diamond"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_stick",
+      "has_diamonds",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "ubesdelight:minecraft/crafting/rolling_pin_gold"
+      "ubesdelight:minecraft/crafting/rolling_pin_diamond"
     ]
   },
   "sends_telemetry_event": false

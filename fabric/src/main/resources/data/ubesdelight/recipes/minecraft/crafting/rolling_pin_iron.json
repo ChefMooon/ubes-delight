@@ -1,12 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "equipment",
   "key": {
     "A": {
       "item": "minecraft:stick"
     },
     "B": {
-      "tag": "c:gold_ingots"
+      "tag": "c:iron_ingots"
     }
   },
   "pattern": [
@@ -15,7 +15,7 @@
     "A  "
   ],
   "result": {
-    "item": "ubesdelight:rolling_pin_gold"
+    "item": "ubesdelight:rolling_pin_iron"
   },
   "show_notification": true
 }
