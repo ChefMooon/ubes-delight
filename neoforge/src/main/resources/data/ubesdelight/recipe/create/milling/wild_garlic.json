@@ -13,12 +13,14 @@
   ],
   "results": [
     {
-      "item": "ubesdelight:garlic",
-      "count": 1
+      "item": {
+        "id": "ubesdelight:garlic"
+      }
     },
     {
-      "item": "minecraft:pink_dye",
-      "count": 1
+      "item": {
+        "id": "minecraft:pink_dye"
+      }
     }
   ],
   "processingTime": 50

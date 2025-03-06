@@ -15,17 +15,20 @@
   ],
   "results": [
     {
-      "item": "ubesdelight:ube",
-      "count": 1
+      "item": {
+        "id": "ubesdelight:ube"
+      }
     },
     {
-      "item": "minecraft:purple_dye",
-      "count": 1
+      "item": {
+        "id": "minecraft:purple_dye"
+      }
     },
     {
-      "item": "minecraft:purple_dye",
-      "count": 1,
-      "chance": 0.5
+      "chance": 0.5,
+      "item": {
+        "id": "minecraft:purple_dye"
+      }
     }
   ],
   "processingTime": 50

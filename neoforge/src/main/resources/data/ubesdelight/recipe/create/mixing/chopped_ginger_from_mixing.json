@@ -13,8 +13,10 @@
   ],
   "results": [
     {
-      "item": "ubesdelight:ginger_chop",
-      "count": 2
+      "count": 2,
+      "item": {
+        "id": "ubesdelight:ginger_chop"
+      }
     }
   ]
 }

@@ -15,8 +15,10 @@
   ],
   "results": [
     {
-      "item": "ubesdelight:garlic_chop",
-      "count": 2
+      "count": 2,
+      "item": {
+        "id": "ubesdelight:garlic_chop"
+      }
     }
   ]
 }

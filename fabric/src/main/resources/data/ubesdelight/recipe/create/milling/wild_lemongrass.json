@@ -15,17 +15,20 @@
   ],
   "results": [
     {
-      "item": "ubesdelight:lemongrass",
-      "count": 1
+      "item": {
+        "id": "ubesdelight:lemongrass"
+      }
     },
     {
-      "item": "minecraft:lime_dye",
-      "count": 1
+      "item": {
+        "id": "minecraft:lime_dye"
+      }
     },
     {
-      "item": "minecraft:lime_dye",
-      "count": 1,
-      "chance": 0.5
+      "chance": 0.5,
+      "item": {
+        "id": "minecraft:lime_dye"
+      }
     }
   ],
   "processingTime": 50

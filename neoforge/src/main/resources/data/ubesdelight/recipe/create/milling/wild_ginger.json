@@ -13,13 +13,15 @@
   ],
   "results": [
     {
-      "item": "ubesdelight:ginger",
-      "count": 1
+      "item": {
+        "id": "ubesdelight:ginger"
+      }
     },
     {
-      "item": "minecraft:brown_dye",
-      "count": 1,
-      "chance": 0.5
+      "chance": 0.5,
+      "item": {
+        "id": "minecraft:brown_dye"
+      }
     }
   ],
   "processingTime": 50
