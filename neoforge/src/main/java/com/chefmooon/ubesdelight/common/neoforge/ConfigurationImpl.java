@@ -21,6 +21,7 @@ public class ConfigurationImpl extends MidnightConfig {
     public static int chanceWildGinger = 80;
     @Entry(category = "common") public static boolean generateWildLemongrass = true;
     public static int chanceWildLemongrass = 80;
+    @Entry(category = "common", min = 0.0D, max = 1.0D) public static double bakingMatFortuneBonus = 0.1D;
 
     @Entry(category = "client") public static boolean isFoodEffectTooltip = true;
 
@@ -70,6 +71,10 @@ public class ConfigurationImpl extends MidnightConfig {
 
     public static int chanceWildLemongrass() {
         return chanceWildLemongrass;
+    }
+
+    public static double bakingMatFortuneBonus() {
+        return bakingMatFortuneBonus;
     }
 
     public static boolean isFoodEffectTooltip() {

@@ -7,8 +7,13 @@ NeoForge and Fabric.
 
 ***
 
+### Added
+
+- Added a new config option to adjust the **Fortune bonus** for the **Baking Mat**.
+
 ### Fixed
 
-- Create Milling & Mixing Recipes Updated to mc1.21.1 format (1.21.1)
+- Fixed an issue where the Baking Mat had its Fortune effects reversed. (#38, Thank you ssfwuu0721!)
+- Create Milling & Mixing Recipes Updated to mc1.21.1 format
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
