@@ -235,7 +235,7 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
 
     @Override
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        return level.getBlockState(pos.below()).isSolidRender(level, pos);
+        return level.getBlockState(pos.below()).isSolid();
     }
 
     @Override
