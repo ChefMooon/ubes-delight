@@ -11,6 +11,10 @@ NeoForge, and Fabric
 
 - Added a new config option to adjust the **Fortune bonus** for the **Baking Mat**.
 
+### Changed
+
+- Expanded the placement options for Leaf Feasts, allowing them to be placed on more block types
+
 ### Fixed
 
 - Fixed an issue where the Baking Mat had its Fortune effects reversed. (#38, Thank you ssfwuu0721!)
