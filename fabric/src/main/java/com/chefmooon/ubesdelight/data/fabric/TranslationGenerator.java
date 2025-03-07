@@ -273,6 +273,9 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(CONFIG + "generateWildGinger", "Generate wild ginger in jungles?");
         translationBuilder.add(CONFIG + "generateWildLemongrass", "Generate wild lemongrass in jungles?");
 
+        translationBuilder.add(CONFIG + "bakingMatFortuneBonus", "Sets the bonus percentage each level of Fortune grants to Baking Mat success chances.");
+        translationBuilder.add(CONFIG + "bakingMatFortuneBonus.tooltip", "Set to 0.0 to disable Fortune's effect.");
+
         translationBuilder.add(CONFIG + "isFoodEffectTooltip", "Should meal and drink tooltips display which effects they provide?");
 
         translationBuilder.add(REI + "baking_mat", "Baking Mat");

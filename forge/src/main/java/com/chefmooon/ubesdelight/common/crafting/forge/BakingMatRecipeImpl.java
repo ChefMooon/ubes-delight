@@ -138,7 +138,7 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
         for (ChanceResult output : rollableResults) {
             ItemStack stack;
             if (output.chance() == 1) {
-                stack = output.rollOutput(rand, fortuneLevel);
+                stack = output.stack();
             } else {
                 stack = output.rollStackOutput(rand, fortuneLevel);
             }

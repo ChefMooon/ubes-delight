@@ -81,9 +81,6 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
         Optional<BakingMatRecipeImpl> matchingRecipe = getMatchingRecipe(new RecipeWrapper(inventory), tool, player);
 
         matchingRecipe.ifPresent(recipe -> {
-            // todo - after first commit - cleanup
-            //List<ItemStack> results = List.of();
-            //List<Ingredient> ingredients = recipe.getIngredients();
             List<Ingredient> processStages = recipe.getProcessStages();
             List<ItemStack> ingredientContainers = getInventoryContainers(inventory);
 
@@ -95,7 +92,6 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
                         spawnResults(ingredientContainers);
                     }
                     level.setBlockAndUpdate(getBlockPos(), this.getBlockState().setValue(BakingMatBlockImpl.PROCESSING, true));
-                    setInventory(NonNullList.withSize(MAX_INGREDIENTS, ItemStack.EMPTY));
                     clearInventory();
                     ItemStack itemStack = Arrays.stream(processStages.get(0).getItems()).findFirst().orElse(ItemStack.EMPTY);
                     inventory.setStackInSlot(0, itemStack);
@@ -271,7 +267,9 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     }
 
     public void clearInventory() {
-        setInventory(NonNullList.withSize(MAX_INGREDIENTS, ItemStack.EMPTY));
+        for (int i = 0; i < MAX_INGREDIENTS; i++) {
+            this.inventory.setStackInSlot(i, ItemStack.EMPTY);
+        }
     }
 
     public void setInventory(NonNullList<ItemStack> list) {

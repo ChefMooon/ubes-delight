@@ -1,6 +1,7 @@
 package com.chefmooon.ubesdelight.common.crafting.ingredient;
 
 import com.chefmooon.ubesdelight.UbesDelight;
+import com.chefmooon.ubesdelight.common.Configuration;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -22,7 +23,7 @@ public record ChanceResult(ItemStack stack, float chance) {
 
     public ItemStack rollOutput(RandomSource rand, int fortuneLevel) {
         int outputAmount = stack.getCount();
-        double fortuneBonus = 0.1 * fortuneLevel;
+        double fortuneBonus = Configuration.bakingMatFortuneBonus() * fortuneLevel;
         for (int roll = 0; roll < stack.getCount(); roll++)
             if (rand.nextFloat() > chance + fortuneBonus)
                 outputAmount--;
@@ -36,8 +37,8 @@ public record ChanceResult(ItemStack stack, float chance) {
     // This method rolls 1 time, and returns the stack amount if the roll succeeds instead of multiple rolls
     public ItemStack rollStackOutput(RandomSource rand, int fortuneLevel) {
         int outputAmount = stack.getCount();
-        double fortuneBonus = 0.1 * fortuneLevel;
-        if (rand.nextFloat() > chance + fortuneBonus) return new ItemStack(stack.copy().getItem(), outputAmount);
+        double fortuneBonus = Configuration.bakingMatFortuneBonus() * fortuneLevel;
+        if (rand.nextFloat() < chance + fortuneBonus) return new ItemStack(stack.copy().getItem(), outputAmount);
         return ItemStack.EMPTY;
     }
 

@@ -169,6 +169,8 @@
   "ubesdelight.advancement.use_leaf_feast.desc": "Edible items can be placed inside, try it out!",
   "ubesdelight.container.bowl": "Bowl Required.",
   "ubesdelight.container.punch_bowl": "Glass Bottle Required.",
+  "ubesdelight.midnightconfig.bakingMatFortuneBonus": "Sets the bonus percentage each level of Fortune grants to Baking Mat success chances.",
+  "ubesdelight.midnightconfig.bakingMatFortuneBonus.tooltip": "Set to 0.0 to disable Fortune's effect.",
   "ubesdelight.midnightconfig.category.client": "Client Settings",
   "ubesdelight.midnightconfig.category.common": "Common Settings",
   "ubesdelight.midnightconfig.enableUDCropCrates": "Enable UD Crop Crates",

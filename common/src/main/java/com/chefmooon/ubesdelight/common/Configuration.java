@@ -65,6 +65,11 @@ public class Configuration {
     }
 
     @ExpectPlatform
+    public static double bakingMatFortuneBonus() {
+        return 0.0D;
+    }
+
+    @ExpectPlatform
     public static boolean isFoodEffectTooltip() {
         return false;
     }
