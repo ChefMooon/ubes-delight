@@ -1,0 +1,37 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "frightsdelight"
+      ]
+    }
+  ],
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "item": "frightsdelight:wither_berry"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "processing_stages": [],
+  "result": [
+    {
+      "count": 8,
+      "item": "frightsdelight:cookie_wither_berry"
+    },
+    {
+      "chance": 0.25,
+      "count": 4,
+      "item": "frightsdelight:cookie_wither_berry"
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/rolling_pins"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "frightsdelight"
+    }
+  ],
+  "type": "ubesdelight:baking_mat",
+  "ingredients": [
+    {
+      "item": "frightsdelight:apple_slime"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "processing_stages": [],
+  "result": [
+    {
+      "count": 8,
+      "item": "frightsdelight:cookie_slimeapple"
+    },
+    {
+      "chance": 0.25,
+      "count": 4,
+      "item": "frightsdelight:cookie_slimeapple"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/rolling_pins"
+  }
+}
