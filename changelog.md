@@ -10,6 +10,9 @@ NeoForge and Fabric.
 ### Added
 
 - Added a new config option to adjust the **Fortune bonus** for the **Baking Mat**.
+- Added Fright's Delight Cookie recipe's for the **Baking Mat**.
+  - Rotten Flesh Cookie, Spider Eye Cookie, Slime-Apple Cookie , Slimeball Cookie, Cobweb Cookie,
+Ghast Tear Cookie, Soul Berry Cookie, Wither Berry Cookie
 
 ### Changed
 
