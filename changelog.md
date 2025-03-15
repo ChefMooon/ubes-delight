@@ -7,20 +7,8 @@ NeoForge, and Fabric
 
 ***
 
-### Added
-
-- Added a new config option to adjust the **Fortune bonus** for the **Baking Mat**.
-- Added Fright's Delight Cookie recipe's for the **Baking Mat**.
-  - Rotten Flesh Cookie, Spider Eye Cookie, Slime-Apple Cookie , Slimeball Cookie, Cobweb Cookie,
-Ghast Tear Cookie, Soul Berry Cookie, Wither Berry Cookie
-
-### Changed
-
-- Expanded the placement options for Leaf Feasts, allowing them to be placed on more block types
-
 ### Fixed
 
-- Fixed an issue where the Baking Mat had its Fortune effects reversed. (#38, Thank you ssfwuu0721!)
-- Fixed baking mat 9th slot not clearing after craft. (1.20.1 Forge | #38, Thank you ssfwuu0721!)
+- Remove texture reference chain errors for all models
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)

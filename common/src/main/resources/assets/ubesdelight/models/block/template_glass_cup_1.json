@@ -2,9 +2,7 @@
 	"credit": "Made with Blockbench",
 	"render_type": "minecraft:cutout",
 	"textures": {
-		"particle": "#cup",
-		"cup": "#cup",
-		"inside": "#inside"
+		"particle": "#cup"
 	},
 	"elements": [
 		{
