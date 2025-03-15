@@ -3,25 +3,12 @@ Before updating, please **back-up** your world. Greatly appreciate any bug repor
 actively watching the issues page to resolve any bugs as soon as possible.
 This is version is compatible with Minecraft 1.21-1.21.1 supporting Farmer's Delight
 NeoForge and Fabric.
-([details](https://github.com/ChefMooon/ubes-delight/wiki#compatible-versions)).
+([details](https://chefmooon.github.io/ubesdelight/wiki/1.21.1/home#compatible-versions)).
 
 ***
 
-### Added
-
-- Added a new config option to adjust the **Fortune bonus** for the **Baking Mat**.
-- Added Fright's Delight Cookie recipe's for the **Baking Mat**.
-  - Rotten Flesh Cookie, Spider Eye Cookie, Slime-Apple Cookie , Slimeball Cookie, Cobweb Cookie,
-Ghast Tear Cookie, Soul Berry Cookie, Wither Berry Cookie
-
-### Changed
-
-- Expanded the placement options for Leaf Feasts, allowing them to be placed on more block types
-
 ### Fixed
 
-- Fixed an issue where Leaf Feasts could not be placed on specific blocks.
-- Fixed an issue where the Baking Mat had its Fortune effects reversed. (#38, Thank you ssfwuu0721!)
-- Create Milling & Mixing Recipes Updated to mc1.21.1 format
+- Remove texture reference chain errors for all models
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
