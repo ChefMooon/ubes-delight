@@ -7,8 +7,6 @@ NeoForge and Fabric.
 
 ***
 
-### Fixed
-
-- Remove texture reference chain errors for all models
+### Changed
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
