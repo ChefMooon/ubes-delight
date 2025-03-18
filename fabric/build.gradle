@@ -46,9 +46,9 @@ dependencies {
     }
 
     // Porting Lib
-    for (String module in porting_lib_modules.split(",")) {
-        modApi("io.github.fabricators_of_create.Porting-Lib:$module:$porting_lib_version")
-    }
+//    for (String module in porting_lib_modules.split(",")) {
+//        modApi("io.github.fabricators_of_create.Porting-Lib:$module:$porting_lib_version")
+//    }
 
     // MidnightLib
     modImplementation include("maven.modrinth:midnightlib:${project.midnightlib_fabric_version}")

@@ -2,6 +2,7 @@ package com.chefmooon.ubesdelight.common.block;
 
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlockEntityTypes;
 import com.mojang.serialization.MapCodec;
+import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -11,6 +12,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -114,5 +116,10 @@ public class BakingMatBlock extends BaseEntityBlock implements SimpleWaterlogged
     @Override
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
+    }
+
+    @ExpectPlatform
+    public BlockEntityType<?> getBlockEntityType() {
+        throw new AssertionError();
     }
 }

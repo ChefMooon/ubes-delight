@@ -2,6 +2,7 @@ package com.chefmooon.ubesdelight.fabric;
 
 
 import com.chefmooon.ubesdelight.UbesDelight;
+import com.chefmooon.ubesdelight.common.event.fabric.LootModifierEvents;
 import com.chefmooon.ubesdelight.common.event.fabric.VillagerEventsImpl;
 import com.chefmooon.ubesdelight.common.fabric.CommonSetupImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.*;
@@ -25,12 +26,14 @@ public class UbesDelightImpl implements ModInitializer {
         UbesDelightRecipeTypesImpl.register();
         UbesDelightRecipeSerializersImpl.register();
         UbesDelightAdvancementsImpl.register();
-        UbesDelightLootModifiersImpl.register();
 
         VillagerEventsImpl.init();
 
         CommonSetupImpl.init();
         //AddLootTableModifierImpl.registerLootTable();
+
+        // 3.0.0
+        LootModifierEvents.init();
 
         UbesDelightBiomeModifiersImpl.init();
     }
