@@ -8,7 +8,6 @@ import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlockEntityTy
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightRecipeTypesImpl;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
-import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandlerContainer;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemVariant;
 import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
@@ -40,7 +39,8 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
-import vectorwing.farmersdelight.common.crafting.RecipeWrapper;
+import vectorwing.farmersdelight.refabricated.inventory.ItemStackHandler;
+import vectorwing.farmersdelight.refabricated.inventory.RecipeWrapper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,8 +52,8 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     public static final int MAX_INGREDIENTS = BakingMatBlockEntity.MAX_INGREDIENTS;
     public static final int MAX_PROCESSING_STAGES = BakingMatBlockEntity.MAX_PROCESSING_STAGES;
     public static final int MAX_RESULTS = BakingMatBlockEntity.MAX_RESULTS;
-    private final ItemStackHandlerContainer inventory;
-    private final ItemStackHandlerContainer inputHandler;
+    private final ItemStackHandler inventory;
+    private final ItemStackHandler inputHandler;
     private final RecipeManager.CachedCheck<RecipeWrapper, BakingMatRecipeImpl> quickCheck;
 
     public BakingMatBlockEntityImpl(BlockPos pos, BlockState state) {
@@ -96,19 +96,19 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
                     level.setBlockAndUpdate(blockPos, this.getBlockState().setValue(BakingMatBlockImpl.PROCESSING, true));
                     clearInventory();
                     ItemStack itemStack = Arrays.stream(processStages.get(0).getItems()).findFirst().orElse(ItemStack.EMPTY);
-                    inventory.setItem(0, itemStack);
+                    inventory.setStackInSlot(0, itemStack);
                     spawnParticles(level, blockPos, itemStack, 5);
                     inventoryChanged();
                 } else if (getBlockState().getValue(BakingMatBlockImpl.PROCESSING)) {
-                    int currentStage = getProcessStage(inventory.getItem(0), processStages);
+                    int currentStage = getProcessStage(inventory.getStackInSlot(0), processStages);
                     if (currentStage < recipe.value().getProcessStages().size() - 1) {
-                        ItemStack currentStageItem = inventory.getItem(0);
+                        ItemStack currentStageItem = inventory.getStackInSlot(0);
                         int nextStage = getNextProcessStage(currentStageItem, processStages);
                         if (!processStages.get(nextStage).isEmpty()) {
                             clearInventory();
                             ItemStack nextStageItem = Arrays.stream(processStages.get(nextStage).getItems()).findFirst().orElse(ItemStack.EMPTY);
                             spawnParticles(level, blockPos, nextStageItem, 5);
-                            inventory.setItem(0, nextStageItem);
+                            inventory.setStackInSlot(0, nextStageItem);
                             inventoryChanged();
                         }
                     } else if (currentStage == recipe.value().getProcessStages().size() - 1) {
@@ -228,10 +228,10 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
         return stage;
     }
 
-    private List<ItemStack> getInventoryContainers(ItemStackHandlerContainer inventory) {
+    private List<ItemStack> getInventoryContainers(ItemStackHandler inventory) {
         List<ItemStack> ingredientContainers = new ArrayList<>();
         for (int i = 0; i < inventory.getSlotCount(); i++) {
-            ItemStack itemStack = inventory.getItem(i);
+            ItemStack itemStack = inventory.getStackInSlot(i);
             if (!itemStack.isEmpty()) {
                 if (!itemStack.getRecipeRemainder().is(Items.AIR)) {
                     ingredientContainers.add(itemStack.getRecipeRemainder());
@@ -242,12 +242,16 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     }
 
     public void clearInventory() {
-        inventory.clearContent();
+        for (int i = 0; i < MAX_INGREDIENTS-1; i++) {
+            this.inventory.getStackInSlot(i);
+        }
+        this.inventory.commitModifiedStacks();
+//        inventory.clearContent();
     }
 
     public void setInventory(NonNullList<ItemStack> list) {
         for (int i = 0; i < MAX_INGREDIENTS-1; i++) {
-            this.inventory.setItem(i, list.get(i));
+            this.inventory.setStackInSlot(i, list.get(i));
         }
     }
 
@@ -258,24 +262,24 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     public NonNullList<ItemStack> getItems() {
         NonNullList<ItemStack> items = NonNullList.withSize(MAX_INGREDIENTS, ItemStack.EMPTY);
         for (int i = 0; i < MAX_INGREDIENTS; i++) {
-            items.set(i, inventory.getItem(i));
+            items.set(i, inventory.getStackInSlot(i));
         }
         return items;
     }
 
     public boolean isEmpty() {
-        return inventory.getItem(0).isEmpty();
+        return inventory.getStackInSlot(0).isEmpty();
     }
 
     public boolean isFull() {
-        return !inventory.getItem(MAX_INGREDIENTS).isEmpty();
+        return !inventory.getStackInSlot(MAX_INGREDIENTS).isEmpty();
     }
 
     public boolean addItem(ItemStack itemStack) {
         for (int i = 0; i < inventory.getSlotCount(); i++) {
-            ItemStack inventoryStack = inventory.getItem(i);
+            ItemStack inventoryStack = inventory.getStackInSlot(i);
             if (inventoryStack.isEmpty()) {
-                inventory.setItem(i, itemStack.split(1));
+                inventory.setStackInSlot(i, itemStack.split(1));
                 inventoryChanged();
                 return true;
             }
@@ -285,9 +289,9 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
 
     public ItemStack removeItem() {
         for (int i = MAX_INGREDIENTS-1; i >= 0; i--) {
-            ItemStack itemStack = inventory.getItem(i);
+            ItemStack itemStack = inventory.getStackInSlot(i);
             if (!itemStack.isEmpty()) {
-                inventory.setItem(i, ItemStack.EMPTY);
+                inventory.setStackInSlot(i, ItemStack.EMPTY);
                 inventoryChanged();
                 return itemStack;
             }
@@ -298,7 +302,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     public int getItemsQuantity() {
         int items = 0;
         for (int i = 0; i <= MAX_INGREDIENTS-1; i++) {
-            ItemStack itemstack = inventory.getItem(i);
+            ItemStack itemstack = inventory.getStackInSlot(i);
             if (!itemstack.isEmpty()) {
                 items++;
             }
@@ -306,7 +310,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
         return items;
     }
 
-    public ItemStackHandlerContainer getInventory() {
+    public ItemStackHandler getInventory() {
         return this.inventory;
     }
 
@@ -324,8 +328,8 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
         super.setRemoved();
     }
 
-    private ItemStackHandlerContainer createHandler() {
-        return new ItemStackHandlerContainer(MAX_INGREDIENTS)
+    private ItemStackHandler createHandler() {
+        return new ItemStackHandler(MAX_INGREDIENTS)
         {
             @Override
             public int getSlotLimit(int slot) {

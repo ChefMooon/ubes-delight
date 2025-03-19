@@ -4,7 +4,6 @@ import com.chefmooon.ubesdelight.client.renderer.BakingMatBlockEntityRender;
 import com.chefmooon.ubesdelight.common.block.entity.fabric.BakingMatBlockEntityImpl;
 import com.chefmooon.ubesdelight.common.block.fabric.BakingMatBlockImpl;
 import com.mojang.blaze3d.vertex.PoseStack;
-import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandlerContainer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -13,6 +12,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import vectorwing.farmersdelight.refabricated.inventory.ItemStackHandler;
 
 // TODO: portinglib found here
 public class BakingMatBlockEntityRenderImpl extends BakingMatBlockEntityRender implements BlockEntityRenderer<BakingMatBlockEntityImpl> {
@@ -24,7 +24,7 @@ public class BakingMatBlockEntityRenderImpl extends BakingMatBlockEntityRender i
 
         Direction direction = blockEntity.getBlockState().getValue(BakingMatBlockImpl.FACING).getOpposite();
         boolean proccessing = blockEntity.getBlockState().getValue(BakingMatBlockImpl.PROCESSING);
-        ItemStackHandlerContainer inventory = blockEntity.getInventory();
+        ItemStackHandler inventory = blockEntity.getInventory();
         int posLong = (int) blockEntity.getBlockPos().asLong();
 
         if (!blockEntity.isEmpty()) {
@@ -40,7 +40,7 @@ public class BakingMatBlockEntityRenderImpl extends BakingMatBlockEntityRender i
                     }
                 }
             } else {
-                ItemStack itemStack = inventory.getItem(0);
+                ItemStack itemStack = inventory.getStackInSlot(0);
                 if (!itemStack.isEmpty()) {
                     renderProcessing(poseStack, direction, blockEntity.getItemOffset(0));
 
