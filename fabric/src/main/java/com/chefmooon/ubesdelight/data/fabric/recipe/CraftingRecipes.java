@@ -5,7 +5,6 @@ import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.tag.CompatibilityTags;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil;
-import io.github.fabricators_of_create.porting_lib.tags.Tags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -15,10 +14,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
-import static com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil.MINECRAFT;
 import static com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil.simpleRecipeBuilder;
 
-// TODO: portinglib found here
 public class CraftingRecipes {
     private static RecipeOutput EXPORTER;
     public static void register(RecipeOutput exporter) {
@@ -64,8 +61,8 @@ public class CraftingRecipes {
                 .pattern(" B ")
                 .pattern("A  ")
                 .define('A', Items.STICK)
-                .define('B', Tags.Items.INGOTS_IRON)
-                .unlockedBy(RecipeUtil.hasItemTag(Tags.Items.INGOTS_IRON), RecipeUtil.getTriggerfromTag(Tags.Items.INGOTS_IRON))
+                .define('B', CommonTags.C_INGOTS_IRON)
+                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_INGOTS_IRON), RecipeUtil.getTriggerfromTag(CommonTags.C_INGOTS_IRON))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_IRON)));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, UbesDelightItemsImpl.ROLLING_PIN_GOLD)
@@ -73,8 +70,8 @@ public class CraftingRecipes {
                 .pattern(" B ")
                 .pattern("A  ")
                 .define('A', Items.STICK)
-                .define('B', Tags.Items.INGOTS_GOLD)
-                .unlockedBy(RecipeUtil.hasItemTag(Tags.Items.INGOTS_GOLD), RecipeUtil.getTriggerfromTag(Tags.Items.INGOTS_GOLD))
+                .define('B', CommonTags.C_INGOTS_GOLD)
+                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_INGOTS_GOLD), RecipeUtil.getTriggerfromTag(CommonTags.C_INGOTS_GOLD))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_GOLD)));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)
@@ -82,16 +79,16 @@ public class CraftingRecipes {
                 .pattern(" B ")
                 .pattern("A  ")
                 .define('A', Items.STICK)
-                .define('B', Tags.Items.GEMS_DIAMOND)
-                .unlockedBy(RecipeUtil.hasItemTag(Tags.Items.GEMS_DIAMOND), RecipeUtil.getTriggerfromTag(Tags.Items.GEMS_DIAMOND))
+                .define('B', CommonTags.C_GEMS_DIAMOND)
+                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_GEMS_DIAMOND), RecipeUtil.getTriggerfromTag(CommonTags.C_GEMS_DIAMOND))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)));
 
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
                         Ingredient.of(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND),
-                        Ingredient.of(Tags.Items.INGOTS_NETHERITE),
+                        Ingredient.of(CommonTags.C_INGOTS_NETHERITE),
                         RecipeCategory.TOOLS,
                         UbesDelightItemsImpl.ROLLING_PIN_NETHERITE)
-                .unlocks(RecipeUtil.hasItemTag(Tags.Items.INGOTS_NETHERITE), RecipeUtil.getTriggerfromTag(Tags.Items.INGOTS_NETHERITE))
+                .unlocks(RecipeUtil.hasItemTag(CommonTags.C_INGOTS_NETHERITE), RecipeUtil.getTriggerfromTag(CommonTags.C_INGOTS_NETHERITE))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE) + "_smithing")); // should this be in a smithing folder instead of crafting?
 
         /** CROPS **/
@@ -180,7 +177,7 @@ public class CraftingRecipes {
                 .pattern("ABA")
                 .define('A', CompatibilityTags.MINECRAFT_TERRACOTTA)
                 .define('B', Items.CAMPFIRE)
-                .define('C', Tags.Items.INGOTS_IRON)
+                .define('C', CommonTags.C_INGOTS_IRON)
                 .unlockedBy(RecipeProvider.getHasName(Items.CAMPFIRE), RecipeProvider.has(Items.CAMPFIRE))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.KALAN)));
 

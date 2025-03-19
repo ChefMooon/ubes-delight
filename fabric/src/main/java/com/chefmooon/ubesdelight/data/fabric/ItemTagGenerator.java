@@ -4,7 +4,6 @@ import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.tag.CompatibilityTags;
 import com.chefmooon.ubesdelight.common.tag.UbesDelightTags;
-import io.github.fabricators_of_create.porting_lib.tags.Tags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
@@ -13,7 +12,6 @@ import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
 
-// TODO: portinglib found here
 public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
     public ItemTagGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> completableFuture) {
         super(output, completableFuture);
@@ -254,7 +252,7 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.POLVORONE_UBE)
                 .add(UbesDelightItemsImpl.POLVORONE_CC);
 
-        getOrCreateTagBuilder(Tags.Items.FOODS_SOUPS)
+        getOrCreateTagBuilder(CommonTags.C_FOODS_SOUPS)
                 .add(UbesDelightItemsImpl.BULALO)
                 .add(UbesDelightItemsImpl.ARROZ_CALDO)
                 .add(UbesDelightItemsImpl.MECHADO);

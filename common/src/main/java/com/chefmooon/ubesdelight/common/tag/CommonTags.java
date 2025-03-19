@@ -65,6 +65,13 @@ public class CommonTags {
 
     public static final TagKey<Item> C_FOODS_COOKIE = getCommonItemTagKey("foods/cookie");
 
+    public static final TagKey<Item> C_FOODS_SOUPS = getCommonItemTagKey("foods/soups");
+
+    public static final TagKey<Item> C_INGOTS_IRON = getCommonItemTagKey("ingots/iron");
+    public static final TagKey<Item> C_INGOTS_GOLD = getCommonItemTagKey("ingots/gold");
+    public static final TagKey<Item> C_INGOTS_NETHERITE = getCommonItemTagKey("ingots/netherite");
+    public static final TagKey<Item> C_GEMS_DIAMOND = getCommonItemTagKey("gems/diamond");
+
     // Might but used for create compat
     public static final TagKey<Item> C_DOUGH = getCommonItemTagKey("dough");
 
