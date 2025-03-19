@@ -9,4 +9,11 @@ NeoForge and Fabric.
 
 ### Changed
 
+- Usage of Porting Lib removed
+  - This may cause instability, please report any bugs you find!
+
+### Fixed
+
+- Iron, Gold, Diamond, Netherite Rolling Pins now properly register with the dispenser behavior.
+
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
