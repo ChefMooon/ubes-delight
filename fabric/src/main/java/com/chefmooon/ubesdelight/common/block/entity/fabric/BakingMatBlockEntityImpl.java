@@ -243,10 +243,9 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
 
     public void clearInventory() {
         for (int i = 0; i < MAX_INGREDIENTS-1; i++) {
-            this.inventory.getStackInSlot(i);
+            this.inventory.setStackInSlot(i, new ItemStack(Items.AIR));
         }
         this.inventory.commitModifiedStacks();
-//        inventory.clearContent();
     }
 
     public void setInventory(NonNullList<ItemStack> list) {
@@ -272,7 +271,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     }
 
     public boolean isFull() {
-        return !inventory.getStackInSlot(MAX_INGREDIENTS).isEmpty();
+        return !inventory.getStackInSlot(MAX_INGREDIENTS-1).isEmpty();
     }
 
     public boolean addItem(ItemStack itemStack) {
@@ -292,6 +291,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
             ItemStack itemStack = inventory.getStackInSlot(i);
             if (!itemStack.isEmpty()) {
                 inventory.setStackInSlot(i, ItemStack.EMPTY);
+                inventory.commitModifiedStacks();
                 inventoryChanged();
                 return itemStack;
             }

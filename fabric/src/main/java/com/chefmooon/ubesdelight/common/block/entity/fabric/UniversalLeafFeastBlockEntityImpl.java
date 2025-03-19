@@ -47,7 +47,6 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
             this.inventory.getStackInSlot(i);
         }
         this.inventory.commitModifiedStacks();
-//        inventory.clearContent();
     }
 
     public void setInventory(NonNullList<ItemStack> list) {
@@ -93,6 +92,7 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
             ItemStack itemStack = inventory.getStackInSlot(i);
             if (!itemStack.isEmpty()) {
                 inventory.setStackInSlot(i, ItemStack.EMPTY);
+
                 inventoryChanged();
                 return itemStack;
             }
