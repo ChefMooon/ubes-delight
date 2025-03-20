@@ -117,9 +117,4 @@ public class BakingMatBlock extends BaseEntityBlock implements SimpleWaterlogged
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
-
-    @ExpectPlatform
-    public BlockEntityType<?> getBlockEntityType() {
-        throw new AssertionError();
-    }
 }
