@@ -291,7 +291,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
             if (!itemStack.isEmpty()) {
                 inventory.setStackInSlot(i, ItemStack.EMPTY);
                 inventory.commitModifiedStacks();
-                inventoryChanged();
+//                inventoryChanged();
                 return itemStack;
             }
         }
