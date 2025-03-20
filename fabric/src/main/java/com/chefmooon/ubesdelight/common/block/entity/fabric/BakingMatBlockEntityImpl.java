@@ -53,13 +53,11 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     public static final int MAX_PROCESSING_STAGES = BakingMatBlockEntity.MAX_PROCESSING_STAGES;
     public static final int MAX_RESULTS = BakingMatBlockEntity.MAX_RESULTS;
     private final ItemStackHandler inventory;
-    private final ItemStackHandler inputHandler;
     private final RecipeManager.CachedCheck<RecipeWrapper, BakingMatRecipeImpl> quickCheck;
 
     public BakingMatBlockEntityImpl(BlockPos pos, BlockState state) {
         super(UbesDelightBlockEntityTypesImpl.BAKING_MAT_BAMBOO.get(), pos, state);
         inventory = createHandler();
-        inputHandler = inventory;
         this.quickCheck = RecipeManager.createCheck(UbesDelightRecipeTypesImpl.BAKING_MAT.get());
     }
 
@@ -279,6 +277,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
             ItemStack inventoryStack = inventory.getStackInSlot(i);
             if (inventoryStack.isEmpty()) {
                 inventory.setStackInSlot(i, itemStack.split(1));
+                inventory.commitModifiedStacks();
                 inventoryChanged();
                 return true;
             }
@@ -311,7 +310,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     }
 
     public ItemStackHandler getInventory() {
-        return this.inventory;
+        return inventory;
     }
 
     public Vec2 getItemOffset(int index) {
@@ -320,7 +319,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
 
     @NotNull
     public Storage<ItemVariant> getStorage(@Nullable Direction side) {
-        return inputHandler;
+        return getInventory();
     }
 
     @Override

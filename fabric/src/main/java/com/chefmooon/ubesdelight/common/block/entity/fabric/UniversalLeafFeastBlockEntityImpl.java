@@ -80,6 +80,7 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
             ItemStack inventoryStack = inventory.getStackInSlot(i);
             if (inventoryStack.isEmpty()) {
                 inventory.setStackInSlot(i, itemStack.split(1));
+                inventory.commitModifiedStacks();
                 inventoryChanged();
                 return true;
             }
@@ -92,7 +93,7 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
             ItemStack itemStack = inventory.getStackInSlot(i);
             if (!itemStack.isEmpty()) {
                 inventory.setStackInSlot(i, ItemStack.EMPTY);
-
+                inventory.commitModifiedStacks();
                 inventoryChanged();
                 return itemStack;
             }
@@ -112,7 +113,7 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
     }
 
     public ItemStackHandler getInventory() {
-        return this.inventory;
+        return inventory;
     }
 
     public Vec2 getItemOffset(int index, LeafFeastTypes leafFeastType) {
@@ -121,7 +122,7 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
 
     @NotNull
     public Storage<ItemVariant> getStorage(@Nullable Direction side) {
-        return inputHandler;
+        return getInventory();
     }
 
     @Override
