@@ -9,7 +9,7 @@ NeoForge and Fabric.
 
 ### Changed
 
-- Usage of Porting Lib removed
+- Usage of Porting Lib removed (Fabric Only)
   - This may cause instability, please report any bugs you find!
 
 ### Fixed
