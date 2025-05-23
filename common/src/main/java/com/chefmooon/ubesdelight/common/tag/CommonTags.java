@@ -8,6 +8,20 @@ import net.minecraft.world.level.block.Block;
 
 public class CommonTags {
 
+    public static final TagKey<Block> C_STORAGE_BLOCKS = getCommonBlockTagKey("storage_blocks");
+
+    public static final TagKey<Block> C_STORAGE_BLOCKS_UBE = getCommonBlockTagKey("storage_blocks/ube");
+    public static final TagKey<Block> C_STORAGE_BLOCKS_GARLIC = getCommonBlockTagKey("storage_blocks/garlic");
+    public static final TagKey<Block> C_STORAGE_BLOCKS_GINGER = getCommonBlockTagKey("storage_blocks/ginger");
+    public static final TagKey<Block> C_STORAGE_BLOCKS_LEMONGRASS = getCommonBlockTagKey("storage_blocks/lemongrass");
+
+    public static final TagKey<Item> C_STORAGE_BLOCKS_ITEM = getCommonItemTagKey("storage_blocks");
+
+    public static final TagKey<Item> C_STORAGE_BLOCKS_ITEM_UBE = getCommonItemTagKey("storage_blocks/ube");
+    public static final TagKey<Item> C_STORAGE_BLOCKS_ITEM_GARLIC = getCommonItemTagKey("storage_blocks/garlic");
+    public static final TagKey<Item> C_STORAGE_BLOCKS_ITEM_GINGER = getCommonItemTagKey("storage_blocks/ginger");
+    public static final TagKey<Item> C_STORAGE_BLOCKS_ITEM_LEMONGRASS = getCommonItemTagKey("storage_blocks/lemongrass");
+
     public static final TagKey<Item> C_TOOLS = getCommonItemTagKey("tools");
     public static final TagKey<Item> C_TOOLS_ROLLING_PIN = getCommonItemTagKey("tools/rolling_pin");
     public static final TagKey<Item> C_TOOLS_KNIFE = getCommonItemTagKey("tools/knife");

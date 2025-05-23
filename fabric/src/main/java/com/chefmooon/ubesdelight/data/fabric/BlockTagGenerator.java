@@ -35,6 +35,17 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(UbesDelightBlocksImpl.LUMPIA_FEAST);
 
         getOrCreateTagBuilder(CommonTags.C_MINEABLE_ROLLING_PIN);
+
+        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS)
+                .addTag(CommonTags.C_STORAGE_BLOCKS_UBE)
+                .addTag(CommonTags.C_STORAGE_BLOCKS_GARLIC)
+                .addTag(CommonTags.C_STORAGE_BLOCKS_GINGER)
+                .addTag(CommonTags.C_STORAGE_BLOCKS_LEMONGRASS);
+
+        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_UBE).add(UbesDelightBlocksImpl.UBE_CRATE);
+        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_GARLIC).add(UbesDelightBlocksImpl.GARLIC_CRATE);
+        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_GINGER).add(UbesDelightBlocksImpl.GINGER_CRATE);
+        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_LEMONGRASS).add(UbesDelightBlocksImpl.LEMONGRASS_CRATE);
     }
 
     private void registerMinecraftBlockTags() {

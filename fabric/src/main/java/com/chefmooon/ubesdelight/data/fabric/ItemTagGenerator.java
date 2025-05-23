@@ -257,6 +257,17 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.ARROZ_CALDO)
                 .add(UbesDelightItemsImpl.MECHADO);
 
+        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM)
+                .addTag(CommonTags.C_STORAGE_BLOCKS_ITEM_UBE)
+                .addTag(CommonTags.C_STORAGE_BLOCKS_ITEM_GARLIC)
+                .addTag(CommonTags.C_STORAGE_BLOCKS_ITEM_GINGER)
+                .addTag(CommonTags.C_STORAGE_BLOCKS_ITEM_LEMONGRASS);
+
+        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_UBE).add(UbesDelightItemsImpl.UBE_CRATE);
+        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_GARLIC).add(UbesDelightItemsImpl.GARLIC_CRATE);
+        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_GINGER).add(UbesDelightItemsImpl.GINGER_CRATE);
+        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_LEMONGRASS).add(UbesDelightItemsImpl.LEMONGRASS_CRATE);
+
         // Create Dough Compat
         // todo - when create 1.21 releases check compatibility
 //        getOrCreateTagBuilder(CommonTags.C_FOODS_DOUGH)
