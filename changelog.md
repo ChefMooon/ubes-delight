@@ -9,6 +9,6 @@ NeoForge, and Fabric
 
 ### Fixed
 
-- Remove texture reference chain errors for all models
+- Fixed a bug in the Ube Master advancement where consuming an Ube Cake Slice was not properly tracked. (Thank you, IAmCloud!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
