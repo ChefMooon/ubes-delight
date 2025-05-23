@@ -9,8 +9,9 @@ NeoForge and Fabric.
 
 ### Fixed
 
+- Adjusted Potato Cannon projectiles to align with the Create 6.0.0+ data format
 - Fixed a bug in the Ube Master advancement where consuming an Ube Cake Slice was not properly tracked. (Thank you, IAmCloud!)
-- Fixed an issue where Mechado was missing from the Ube's Delight Master advancement.
+- Fixed an issue where Mechado was missing from the Ube's Delight Master advancement
 - Added blocks/items to tags: c:storage_blocks, c:storage_blocks/[item]
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
