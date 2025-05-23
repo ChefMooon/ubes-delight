@@ -151,6 +151,16 @@
       },
       "trigger": "minecraft:consume_item"
     },
+    "mechado": {
+      "conditions": {
+        "item": {
+          "items": [
+            "ubesdelight:mechado"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
     "milk_tea_ube": {
       "conditions": {
         "item": {
@@ -326,6 +336,9 @@
     ],
     [
       "arroz_caldo"
+    ],
+    [
+      "mechado"
     ],
     [
       "cookie_ube"
