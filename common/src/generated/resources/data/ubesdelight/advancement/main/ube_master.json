@@ -49,10 +49,10 @@
       },
       "trigger": "minecraft:consume_item"
     },
-    "ube_cake": {
+    "ube_cake_slice": {
       "conditions": {
         "item": {
-          "items": "ubesdelight:ube_cake"
+          "items": "ubesdelight:ube_cake_slice"
         }
       },
       "trigger": "minecraft:consume_item"
@@ -76,7 +76,7 @@
       "cookie_ube"
     ],
     [
-      "ube_cake"
+      "ube_cake_slice"
     ],
     [
       "polvorone_ube"

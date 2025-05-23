@@ -111,7 +111,7 @@ public class AdvancmentGenerator extends FabricAdvancementProvider {
 
         AdvancementHolder ubeMaster = getAdvancement(placeKalan, UbesDelightItemsImpl.UBE_CAKE_SLICE, "ube_master", AdvancementType.CHALLENGE, true, true, false)
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.COOKIE_UBE), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.COOKIE_UBE))
-                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.UBE_CAKE), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.UBE_CAKE))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.UBE_CAKE_SLICE), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.UBE_CAKE_SLICE))
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.POLVORONE_UBE), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.POLVORONE_UBE))
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.ENSAYMADA_UBE), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.ENSAYMADA_UBE))
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.PANDESAL_UBE), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.PANDESAL_UBE))

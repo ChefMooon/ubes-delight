@@ -7,13 +7,8 @@ NeoForge and Fabric.
 
 ***
 
-### Changed
-
-- Usage of Porting Lib removed (Fabric Only)
-  - This may cause instability, please report any bugs you find!
-
 ### Fixed
 
-- Iron, Gold, Diamond, Netherite Rolling Pins now properly register with the dispenser behavior.
+- Fixed a bug in the Ube Master advancement where consuming an Ube Cake Slice was not properly tracked. (Thank you, IAmCloud!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
