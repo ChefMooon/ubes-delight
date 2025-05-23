@@ -10,5 +10,6 @@ NeoForge and Fabric.
 ### Fixed
 
 - Fixed a bug in the Ube Master advancement where consuming an Ube Cake Slice was not properly tracked. (Thank you, IAmCloud!)
+- Fixed an issue where Mechado was missing from the Ube's Delight Master advancement.
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)

@@ -195,6 +195,7 @@ public class AdvancmentGenerator extends FabricAdvancementProvider {
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.SISIG), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.SISIG))
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.BULALO), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.BULALO))
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.ARROZ_CALDO), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.ARROZ_CALDO))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.MECHADO), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.MECHADO))
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.COOKIE_UBE), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.COOKIE_UBE))
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.COOKIE_GINGER), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.COOKIE_GINGER))
                 .addCriterion(RecipeProvider.getItemName(UbesDelightItemsImpl.LECHE_FLAN), ConsumeItemTrigger.TriggerInstance.usedItem(UbesDelightItemsImpl.LECHE_FLAN))
