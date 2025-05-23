@@ -1,0 +1,19 @@
+{
+  "items": [
+    "ubesdelight:poisonous_ube"
+  ],
+  "damage": 5,
+  "on_entity_hit": {
+    "type": "create:potion_effect",
+    "effect": "minecraft:poison",
+    "level": 1,
+    "recoverable": true,
+    "ticks": 160
+  },
+  "render_mode": {
+    "type": "create:tumble"
+  },
+  "reload_ticks": 15,
+  "knockback": 0.05,
+  "sound_pitch": 0.8
+}
