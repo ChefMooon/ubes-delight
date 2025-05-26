@@ -39,6 +39,10 @@ public class TranslationGenerator extends FabricLanguageProvider {
 
         translationBuilder.add(TOOLTIP + "glass_cup", "Shift-right-click to place. Right-click with a tool to rotate.");
 
+        translationBuilder.add(UbesDelightBlocksImpl.POTTED_UBE, "Potted Wild Ube");
+        translationBuilder.add(UbesDelightBlocksImpl.POTTED_GARLIC, "Potted Wild Garlic");
+        translationBuilder.add(UbesDelightBlocksImpl.POTTED_GINGER, "Potted Wild Ginger");
+
         translationBuilder.add(UbesDelightItemsImpl.KALAN, "Kalan");
         translationBuilder.add(UbesDelightItemsImpl.BAKING_MAT_BAMBOO, "Bamboo Baking Mat");
 
