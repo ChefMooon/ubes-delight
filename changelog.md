@@ -14,5 +14,6 @@ NeoForge and Fabric.
 - Fixed an issue where Mechado was missing from the Ube's Delight Master advancement
 - Added blocks/items to tags: c:storage_blocks, c:storage_blocks/[item]
 - Added missing potted block names to the language file
+- Updated MidnightLib version to 1.6.9+1.21 (Thank you, VaporeonScripts!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
