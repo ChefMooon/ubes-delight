@@ -190,13 +190,11 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
         BlockPos blockPos = context.getClickedPos();
         FluidState fluid = context.getLevel().getFluidState(blockPos);
         BlockGetter blockGetter = context.getLevel();
-        BlockState originBlockState = blockGetter.getBlockState(blockPos); // todo - keep for testing, remove on final cleanup
         Direction facing = context.getHorizontalDirection();
         Pair<Direction, Direction> connectDirections = getConnectDirections(facing.getOpposite());
         BlockState rightBlockState = blockGetter.getBlockState(blockPos.relative(connectDirections.getSecond()));
         BlockState leftBlockState = blockGetter.getBlockState(blockPos.relative(connectDirections.getFirst()));
 
-//        LeafFeastTypes leafFeastType = getLeafFeastType(leftBlockState.getBlock() instanceof LeafFeastBlock, rightBlockState.getBlock() instanceof LeafFeastBlock);
         LeafFeastTypes leafFeastType = getLeafFeastType(placementConnectsTo(facing, leftBlockState), placementConnectsTo(facing, rightBlockState));
 
 
