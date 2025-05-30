@@ -3,6 +3,7 @@ package com.chefmooon.ubesdelight.data.fabric;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.tag.CompatibilityTags;
+import com.chefmooon.ubesdelight.common.tag.UbesDelightTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
@@ -18,10 +19,21 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider arg) {
+        registerModItemTags();
         registerMinecraftItemTags();
         registerCompatibiltyItemTags();
         registerCommonItemTags();
         //registerFabricCommonItemTags(); // run once then move to fabric
+    }
+
+    private void registerModItemTags() {
+        getOrCreateTagBuilder(UbesDelightTags.TOOLS_ROLLING_PIN)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_WOOD)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_IRON)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_GOLD)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND)
+                .add(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE)
+        ;
     }
 
     private void registerMinecraftItemTags() {
@@ -33,6 +45,8 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.TALL_FLOWERS)
                 .add(UbesDelightItemsImpl.WILD_LEMONGRASS);
+
+        getOrCreateTagBuilder(ItemTags.TOOLS).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
     }
     private void registerCompatibiltyItemTags() {
         // Create Item Tags
