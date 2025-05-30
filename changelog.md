@@ -7,6 +7,10 @@ NeoForge and Fabric.
 
 ***
 
+### Changed
+
+- Rolling Pin's now break decorated pots (added to tag minecraft:breaks_decorated_pots)
+
 ### Fixed
 
 - Adjusted Potato Cannon projectiles to align with the Create 6.0.0+ data format
