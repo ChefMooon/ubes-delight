@@ -19,7 +19,6 @@ import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
 import vectorwing.farmersdelight.refabricated.inventory.ItemStackHandler;
 
-// TODO: portinglib found here
 public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
     public static final int MAX_ITEMS = UniversalLeafFeastBlockEntity.MAX_ITEMS;
     private final ItemStackHandler inventory;
