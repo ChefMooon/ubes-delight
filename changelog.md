@@ -9,6 +9,7 @@ NeoForge and Fabric.
 
 ### Changed
 
+- Ube Milk Tea and Halo Halo block break particles texture improved
 - Rolling Pin's now break decorated pots (added to tag minecraft:breaks_decorated_pots)
 
 ### Fixed
