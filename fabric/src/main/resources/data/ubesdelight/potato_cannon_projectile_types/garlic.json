@@ -1,0 +1,8 @@
+{
+  "items": [
+    "ubesdelight:garlic"
+  ],
+  "damage": 4,
+  "reload_ticks": 12,
+  "velocity_multiplier": 1.2
+}

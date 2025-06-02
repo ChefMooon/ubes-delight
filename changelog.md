@@ -7,17 +7,8 @@ NeoForge, and Fabric
 
 ***
 
-### Changed
-
-- Ube Milk Tea and Halo Halo block break particles texture improved
-- Rolling Pin's now break decorated pots
-
 ### Fixed
 
-- Adjusted Potato Cannon projectiles to align with the Create 6.0.0+ data format
-- Fixed a bug in the Ube Master advancement where consuming an Ube Cake Slice was not properly tracked. (Thank you, IAmCloud!)
-- Fixed an issue where Mechado was missing from the Ube's Delight Master advancement
-- Added blocks/items to tags: forge:storage_blocks, forge:storage_blocks/[item] (Forge Only)
-- Added missing potted block names to the language file
+- [Fabric 1.20.1 Only] Revert Potato Cannon projectile format
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)

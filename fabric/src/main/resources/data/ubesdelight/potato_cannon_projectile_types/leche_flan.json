@@ -1,0 +1,11 @@
+{
+  "items": [
+    "ubesdelight:leche_flan"
+  ],
+  "damage": 3.5,
+  "reload_ticks": 8,
+  "knockback": 0.1,
+  "velocity_multiplier": 1.4,
+  "sticky": true,
+  "sound_pitch": 1.5
+}

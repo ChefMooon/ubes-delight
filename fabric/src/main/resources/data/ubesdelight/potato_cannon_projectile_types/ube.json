@@ -1,0 +1,9 @@
+{
+  "items": [
+    "ubesdelight:ube"
+  ],
+  "damage": 5,
+  "reload_ticks": 15,
+  "knockback": 1.5,
+  "sound_pitch": 0.8
+}

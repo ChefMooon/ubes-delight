@@ -1,0 +1,9 @@
+{
+  "items": [
+    "ubesdelight:lemongrass"
+  ],
+  "damage": 4,
+  "reload_ticks": 12,
+  "knockback": 0.3,
+  "sound_pitch": 0.8
+}

@@ -1,0 +1,9 @@
+{
+  "items": [
+    "ubesdelight:poisonous_ube"
+  ],
+  "damage": 5,
+  "reload_ticks": 15,
+  "knockback": 0.05,
+  "sound_pitch": 0.8
+}
