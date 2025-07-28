@@ -7,8 +7,8 @@ NeoForge, and Fabric
 
 ***
 
-### Fixed
+### Updated
 
-- [Fabric 1.20.1 Only] Revert Potato Cannon projectile format
+- Updated zh_cn (Thank you, Don-Trueno and SlimeSB!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
