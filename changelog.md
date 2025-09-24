@@ -9,6 +9,6 @@ NeoForge and Fabric.
 
 ### Updated
 
-- Updated zh_cn (Thank you, Don-Trueno and SlimeSB!)
+- Updated MidnightLib version to 1.7.5 (Thank you, VaporeonScripts!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
