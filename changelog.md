@@ -7,8 +7,8 @@ NeoForge and Fabric.
 
 ***
 
-### Updated
+### Fixed
 
-- Updated MidnightLib version to 1.7.5 (Thank you, VaporeonScripts!)
+- [1.21.1 NeoForge Only] MidnightLib version reverted to 1.6.9
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
