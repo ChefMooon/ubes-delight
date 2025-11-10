@@ -9,6 +9,6 @@ NeoForge and Fabric.
 
 ### Fixed
 
-- [1.21.1 NeoForge Only] MidnightLib version reverted to 1.6.9
+- [1.21.1+ Fabric Only] Baking Mat properly clears inventory after crafting (Thank you, FelixAgairu!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)

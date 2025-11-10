@@ -239,7 +239,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
     }
 
     public void clearInventory() {
-        for (int i = 0; i < MAX_INGREDIENTS-1; i++) {
+        for (int i = 0; i < MAX_INGREDIENTS; i++) {
             this.inventory.setStackInSlot(i, new ItemStack(Items.AIR));
         }
         this.inventory.commitModifiedStacks();
