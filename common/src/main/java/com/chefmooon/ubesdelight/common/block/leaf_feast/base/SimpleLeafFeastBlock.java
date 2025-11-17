@@ -33,7 +33,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
 
@@ -123,51 +122,52 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
         int servings = state.getValue(SERVINGS);
         ItemStack itemStack = new ItemStack(servingItem.get());
         ItemStack heldItem = player.getItemInHand(hand);
-
         ItemStack container = ItemStackUtil.getContainer(itemStack);
-        if (!player.isShiftKeyDown()) {
-            if (!container.isEmpty()) {
-                if (!container.is(player.getItemInHand(hand).getItem())) {
-                    player.displayClientMessage(TextUtils.getTranslatable("container.bowl"), true);
+
+        if (servings >= 1) {
+            if (player.isShiftKeyDown() && heldItem.isEmpty() && player.canEat(itemStack.get(DataComponents.FOOD).canAlwaysEat())) {
+                tryEat(itemStack, level, pos, player);
+                return removeServing(state, level, pos, servings);
+            } else {
+                if (!container.isEmpty()) {
+                    if (!container.is(player.getItemInHand(hand).getItem())) {
+                        player.displayClientMessage(TextUtils.getTranslatable("container.bowl"), true);
+                        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+                    } else {
+                        if (!player.isCreative()) heldItem.split(1);
+                        if (!player.getInventory().add(itemStack)) {
+                            player.drop(itemStack, false);
+                        }
+                        return removeServing(state, level, pos, servings);
+                    }
+                } else if (container.isEmpty() && !heldItem.isEmpty()) {
                     return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-                } else {
-                    if (!player.isCreative()) heldItem.split(1);
+                } else if (heldItem.isEmpty()) {
+                    if (!player.isCreative()) {
+                        if (!player.getInventory().add(itemStack)) {
+                            player.drop(itemStack, false);
+                        }
+                    }
+                    return removeServing(state, level, pos, servings);
                 }
-            } else if (container.isEmpty() && !heldItem.isEmpty()) {
-                return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
             }
         }
 
-        if (servings > 1) {
-            level.setBlock(pos, state.setValue(SERVINGS, servings - 1), 3);
-            playRemoveSound(level, pos);
-            if (!player.isCreative()) {
-                if (player.isShiftKeyDown() && (player.getFoodData().needsFood() || Objects.requireNonNull(itemStack.get(DataComponents.FOOD)).canAlwaysEat())) {
-                    tryEat(itemStack, level, pos, player);
-                } else {
-                    if (!player.getInventory().add(itemStack)) {
-                        player.drop(itemStack, false);
-                    }
-                }
+        return ItemInteractionResult.FAIL;
+    }
+
+    private ItemInteractionResult removeServing(BlockState state, Level level, BlockPos pos, int servings) {
+        if (servings >= 1) {
+            if (servings > 1) {
+                level.setBlock(pos, state.setValue(SERVINGS, servings - 1), 3);
+            } else {
+                Block block = BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST);
+                level.setBlock(pos, getTransformState(block, state), 3);
+                level.updateNeighbourForOutputSignal(pos, block);
             }
-            return ItemInteractionResult.SUCCESS;
-        } else if (servings == 1) {
-            Block block = BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST);
-            level.setBlock(pos, getTransformState(block, state), 3);
-            level.updateNeighbourForOutputSignal(pos, block);
             playRemoveSound(level, pos);
-            if (!player.isCreative()) {
-                if (player.isShiftKeyDown() && (player.getFoodData().needsFood() || Objects.requireNonNull(itemStack.get(DataComponents.FOOD)).canAlwaysEat())) {
-                    tryEat(itemStack, level, pos, player);
-                } else {
-                    if (!player.getInventory().add(itemStack)) {
-                        player.drop(itemStack, false);
-                    }
-                }
-            }
             return ItemInteractionResult.SUCCESS;
         }
-
         return ItemInteractionResult.FAIL;
     }
 

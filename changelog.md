@@ -10,5 +10,6 @@ NeoForge and Fabric.
 ### Fixed
 
 - [1.21.1+ Fabric Only] Baking Mat properly clears inventory after crafting (Thank you, FelixAgairu!)
+- Fixed an issue where Rice Leaf Feast granted a serving without requiring a bowl when crouching
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
