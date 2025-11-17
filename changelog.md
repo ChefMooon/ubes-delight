@@ -7,8 +7,8 @@ NeoForge, and Fabric
 
 ***
 
-### Updated
+### Fixed
 
-- Updated zh_cn (Thank you, Don-Trueno and SlimeSB!)
+- Fixed an issue where Rice Leaf Feast granted a serving without requiring a bowl when crouching
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)

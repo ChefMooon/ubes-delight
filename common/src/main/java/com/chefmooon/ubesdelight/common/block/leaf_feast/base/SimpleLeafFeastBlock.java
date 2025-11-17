@@ -119,51 +119,52 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
         int servings = state.getValue(SERVINGS);
         ItemStack itemStack = new ItemStack(servingItem.get());
         ItemStack heldItem = player.getItemInHand(hand);
-
         ItemStack container = ItemStackUtil.getContainer(itemStack);
-        if (!player.isShiftKeyDown()) {
-            if (!container.isEmpty()) {
-                if (!container.is(player.getItemInHand(hand).getItem())) {
-                    player.displayClientMessage(TextUtils.getTranslatable("container.bowl"), true);
+
+        if (servings >= 1) {
+            if (player.isShiftKeyDown() && heldItem.isEmpty() && (player.getFoodData().needsFood() || itemStack.getItem().getFoodProperties().canAlwaysEat())) {
+                tryEat(itemStack, level, pos, player);
+                return removeServing(state, level, pos, servings);
+            } else {
+                if (!container.isEmpty()) {
+                    if (!container.is(player.getItemInHand(hand).getItem())) {
+                        player.displayClientMessage(TextUtils.getTranslatable("container.bowl"), true);
+                        return InteractionResult.PASS;
+                    } else {
+                        if (!player.isCreative()) heldItem.split(1);
+                        if (!player.getInventory().add(itemStack)) {
+                            player.drop(itemStack, false);
+                        }
+                        return removeServing(state, level, pos, servings);
+                    }
+                } else if (container.isEmpty() && !heldItem.isEmpty()) {
                     return InteractionResult.PASS;
-                } else {
-                    if (!player.isCreative()) heldItem.split(1);
+                } else if (heldItem.isEmpty()) {
+                    if (!player.isCreative()) {
+                        if (!player.getInventory().add(itemStack)) {
+                            player.drop(itemStack, false);
+                        }
+                    }
+                    return removeServing(state, level, pos, servings);
                 }
-            } else if (container.isEmpty() && !heldItem.isEmpty()) {
-                return InteractionResult.PASS;
             }
         }
 
-        if (servings > 1) {
-            level.setBlock(pos, state.setValue(SERVINGS, servings - 1), 3);
-            playRemoveSound(level, pos);
-            if (!player.isCreative()) {
-                if (player.isShiftKeyDown() && (player.getFoodData().needsFood() || itemStack.getItem().getFoodProperties().canAlwaysEat())) {
-                    tryEat(itemStack, level, pos, player);
-                } else {
-                    if (!player.getInventory().add(itemStack)) {
-                        player.drop(itemStack, false);
-                    }
-                }
+        return InteractionResult.FAIL;
+    }
+
+    private InteractionResult removeServing(BlockState state, Level level, BlockPos pos, int servings) {
+        if (servings >= 1) {
+            if (servings > 1) {
+                level.setBlock(pos, state.setValue(SERVINGS, servings - 1), 3);
+            } else {
+                Block block = BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST);
+                level.setBlock(pos, getTransformState(block, state), 3);
+                level.updateNeighbourForOutputSignal(pos, block);
             }
-            return InteractionResult.SUCCESS;
-        } else if (servings == 1) {
-            Block block = BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST);
-            level.setBlock(pos, getTransformState(block, state), 3);
-            level.updateNeighbourForOutputSignal(pos, block);
             playRemoveSound(level, pos);
-            if (!player.isCreative()) {
-                if (player.isShiftKeyDown() && (player.getFoodData().needsFood() || itemStack.getItem().getFoodProperties().canAlwaysEat())) {
-                    tryEat(itemStack, level, pos, player);
-                } else {
-                    if (!player.getInventory().add(itemStack)) {
-                        player.drop(itemStack, false);
-                    }
-                }
-            }
             return InteractionResult.SUCCESS;
         }
-
         return InteractionResult.FAIL;
     }
 
