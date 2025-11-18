@@ -2,16 +2,18 @@ package com.chefmooon.ubesdelight.data.fabric.builder;
 
 import com.chefmooon.ubesdelight.common.crafting.fabric.BakingMatRecipeImpl;
 import com.chefmooon.ubesdelight.common.crafting.ingredient.ChanceResult;
+import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.Nullable;
 
@@ -42,12 +44,6 @@ public class BakingMatRecipeJsonBuilder implements RecipeBuilder {
     public BakingMatRecipeJsonBuilder addOutput(Item item, Integer count, Float chance) {
         this.resultList.add(new ChanceResult(new ItemStack(item, count), chance));
         return this;
-    }
-    public BakingMatRecipeJsonBuilder input(TagKey<Item> tag) {
-        return this.input(Ingredient.of(tag));
-    }
-    public BakingMatRecipeJsonBuilder input(TagKey<Item> tag, int size) {
-        return this.input(Ingredient.of(tag), size);
     }
     public BakingMatRecipeJsonBuilder input(ItemLike itemProvider) {
         return this.input(Ingredient.of(itemProvider));
@@ -87,8 +83,13 @@ public class BakingMatRecipeJsonBuilder implements RecipeBuilder {
         return null;
     }
 
+    public void build(RecipeOutput output, String id) {
+        ResourceKey<Recipe<?>> resourceKey = ResourceKey.create(Registries.RECIPE, TextUtils.res("baking_mat/" + id));
+        this.save(output, resourceKey);
+    }
+
     @Override
-    public void save(RecipeOutput output, ResourceLocation id) {
+    public void save(RecipeOutput output, ResourceKey<Recipe<?>> resourceKey) {
         BakingMatRecipeImpl recipe = new BakingMatRecipeImpl(
                 "",
                 this.ingredientList,
@@ -97,6 +98,6 @@ public class BakingMatRecipeJsonBuilder implements RecipeBuilder {
                 this.resultList,
                 this.soundEvent == null ? Optional.empty() : Optional.of(this.soundEvent)
         );
-        output.accept(id.withPrefix("baking_mat/"), recipe, null);
+        output.accept(resourceKey, recipe, null);
     }
 }

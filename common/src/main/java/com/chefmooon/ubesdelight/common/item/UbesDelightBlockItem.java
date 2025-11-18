@@ -5,11 +5,14 @@ import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.block.Block;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class UbesDelightBlockItem extends BlockItem {
     protected final boolean hasFoodEffectTooltip;
@@ -35,14 +38,14 @@ public class UbesDelightBlockItem extends BlockItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag isAdvanced) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         if (Configuration.isFoodEffectTooltip()) { // todo - add new config BlockItem tooltips? V0.2.0
             if (hasCustomTooltip) {
-                tooltip.add(TextUtils.getTranslatable("tooltip." + this).withStyle(ChatFormatting.DARK_GRAY));
+                tooltipAdder.accept(TextUtils.getTranslatable("tooltip." + this).withStyle(ChatFormatting.DARK_GRAY));
             }
 
             if (hasFoodEffectTooltip) {
-                vectorwing.farmersdelight.common.utility.TextUtils.addFoodEffectTooltip(stack, tooltip::add, 1.0F, context.tickRate());
+                vectorwing.farmersdelight.common.utility.TextUtils.addFoodEffectTooltip(stack, tooltipAdder, 1.0F, context.tickRate());
             }
         }
     }

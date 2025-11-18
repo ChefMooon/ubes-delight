@@ -1,6 +1,5 @@
 package com.chefmooon.ubesdelight.common.block.leaf_feast.base;
 
-import com.chefmooon.ubesdelight.common.block.state.properties.LeafFeastTypeProperty;
 import com.chefmooon.ubesdelight.common.block.state.properties.UbesDelightBlockStateProperties;
 import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
@@ -17,15 +16,15 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public interface LeafFeastBlock {
     BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    LeafFeastTypeProperty LEAF_FEAST_TYPE = UbesDelightBlockStateProperties.LEAF_FEAST_TYPE;
+    Property<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
+    Property<LeafFeastTypes> LEAF_FEAST_TYPE = UbesDelightBlockStateProperties.LEAF_FEAST_TYPE;
     int MAX_SERVINGS = 6;
     IntegerProperty SERVINGS = IntegerProperty.create("servings", 1, MAX_SERVINGS);
     VoxelShape LEAF_BASE_SHAPE = UbesDelightShapes.LEAF_BASE_SHAPE;

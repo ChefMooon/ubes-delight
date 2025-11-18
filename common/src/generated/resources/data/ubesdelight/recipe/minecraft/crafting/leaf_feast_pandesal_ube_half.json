@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "ubesdelight:pandesal_ube"
-    },
-    "B": {
-      "tag": "minecraft:leaves"
-    }
+    "A": "ubesdelight:pandesal_ube",
+    "B": "#minecraft:leaves"
   },
   "pattern": [
     "AAA",

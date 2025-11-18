@@ -1,0 +1,12 @@
+{
+  "type": "farmersdelight:cooking",
+  "category": "drinks",
+  "ingredients": [
+    "#minecraft:fishes",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "count": 4,
+    "id": "ubesdelight:fish_sauce_bottle"
+  }
+}

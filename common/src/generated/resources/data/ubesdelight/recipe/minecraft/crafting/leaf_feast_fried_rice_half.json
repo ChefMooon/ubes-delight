@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "farmersdelight:fried_rice"
-    },
-    "B": {
-      "tag": "minecraft:leaves"
-    }
+    "A": "farmersdelight:fried_rice",
+    "B": "#minecraft:leaves"
   },
   "pattern": [
     "AAA",

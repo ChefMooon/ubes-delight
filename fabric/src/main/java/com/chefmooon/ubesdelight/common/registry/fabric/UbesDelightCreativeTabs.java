@@ -16,7 +16,7 @@ public class UbesDelightCreativeTabs {
     public static void register() {
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ITEM_GROUP, FabricItemGroup.builder()
                 .title(Component.translatable("itemGroup." + UbesDelight.MOD_ID))
-                .icon(() -> new ItemStack(UbesDelightItemsImpl.UBE))
+                .icon(() -> new ItemStack(UbesDelightItemsImpl.UBE.get()))
                 .build());
     }
 }

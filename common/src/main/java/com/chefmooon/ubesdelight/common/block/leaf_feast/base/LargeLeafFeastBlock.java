@@ -8,15 +8,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -46,17 +45,17 @@ public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
     }
 
     @Override
-    public ItemInteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public InteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         ItemStack heldItem = player.getItemInHand(hand);
 
         if (level.isClientSide()) {
             if (heldItem.isEmpty()) {
                 if (tryRemoveItem(state, level, pos, player, hand).consumesAction()) {
-                    return ItemInteractionResult.SUCCESS;
+                    return InteractionResult.SUCCESS;
                 }
             } else {
                 if (tryAddItem(state, level, pos, player, hand).consumesAction()) {
-                    return ItemInteractionResult.SUCCESS;
+                    return InteractionResult.SUCCESS;
                 }
             }
         }
@@ -68,7 +67,7 @@ public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
         }
     }
 
-    protected ItemInteractionResult tryAddItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
+    protected InteractionResult tryAddItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
         int servings = state.getValue(SERVINGS);
 
         if (servings < MAX_SERVINGS) {
@@ -78,11 +77,11 @@ public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
                 if (!player.getAbilities().instabuild) heldItem.split(1);
 
                 playAddSound(level, pos);
-                return ItemInteractionResult.SUCCESS;
+                return InteractionResult.SUCCESS;
             }
         }
 
-        return ItemInteractionResult.FAIL;
+        return InteractionResult.FAIL;
     }
 
     @Override
@@ -97,7 +96,7 @@ public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
         return false;
     }
 
-    protected ItemInteractionResult tryRemoveItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
+    protected InteractionResult tryRemoveItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
         int servings = state.getValue(SERVINGS);
         ItemStack itemStack = new ItemStack(servingItem.get());
 
@@ -113,7 +112,7 @@ public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
                     }
                 }
             }
-            return ItemInteractionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         } else if (servings == 1) {
             Block block = BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST);
             level.setBlock(pos, getTransformState(block, state), 3);
@@ -128,10 +127,10 @@ public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
                     }
                 }
             }
-            return ItemInteractionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
 
-        return ItemInteractionResult.FAIL;
+        return InteractionResult.FAIL;
     }
 
     @Override
@@ -171,8 +170,8 @@ public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
     }
 
     @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-        if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+    public BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess scheduledTickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
+        if (state.getValue(WATERLOGGED)) scheduledTickAccess.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
 
         Pair<Direction, Direction> connectDirections = getConnectDirections(state.getValue(FACING).getOpposite());
 

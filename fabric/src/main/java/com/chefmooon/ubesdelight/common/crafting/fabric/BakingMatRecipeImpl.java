@@ -3,37 +3,35 @@ package com.chefmooon.ubesdelight.common.crafting.fabric;
 import com.chefmooon.ubesdelight.common.block.entity.BakingMatBlockEntity;
 import com.chefmooon.ubesdelight.common.crafting.BakingMatRecipe;
 import com.chefmooon.ubesdelight.common.crafting.ingredient.ChanceResult;
+import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightRecipeBookCategoriesImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightRecipeSerializersImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightRecipeTypesImpl;
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.player.StackedContents;
+import net.minecraft.world.entity.player.StackedItemContents;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import vectorwing.farmersdelight.refabricated.inventory.RecipeWrapper;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<RecipeWrapper> {
 
-    public BakingMatRecipeImpl(String group, NonNullList<Ingredient> ingredientList, NonNullList<Ingredient> processStages, Ingredient tool, NonNullList<ChanceResult> resultList, Optional<SoundEvent> soundEvent) {
+    public BakingMatRecipeImpl(String group, List<Ingredient> ingredientList, List<Ingredient> processStages, Ingredient tool, List<ChanceResult> resultList, Optional<SoundEvent> soundEvent) {
         super(group, ingredientList, processStages, tool, resultList, soundEvent);
     }
 
@@ -43,20 +41,19 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
     }
 
     @Override
-    public String getGroup() {
+    public String group() {
         return this.group;
     }
 
-    @Override
-    public NonNullList<Ingredient> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return this.ingredientList;
     }
 
-    public NonNullList<Ingredient> getProcessStages() {
+    public List<Ingredient> getProcessStages() {
         return this.processStages;
     }
 
-    public NonNullList<Ingredient> getIngredientsAndTool() {
+    public List<Ingredient> getIngredientsAndTool() {
         NonNullList<Ingredient> ingredientTool = NonNullList.create();
         ingredientTool.addAll(this.ingredientList);
         ingredientTool.add(this.tool);
@@ -65,11 +62,6 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
 
     public Ingredient getTool() {
         return this.tool;
-    }
-
-    @Override
-    public ItemStack getResultItem(HolderLookup.Provider provider) {
-        return this.resultList.get(0).stack();
     }
 
     public List<ItemStack> getResultList() {
@@ -88,7 +80,7 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
         return getRollableResults().stream().filter(chanceResult -> chanceResult.chance() != 1).toList();
     }
 
-    public NonNullList<ChanceResult> getRollableResults() {
+    public List<ChanceResult> getRollableResults() {
         return this.resultList;
     }
 
@@ -97,21 +89,22 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
         boolean inputMatch;
         boolean processMatch = false;
 
-        StackedContents inputList = new StackedContents();
+        // inv.ingredientAmount() does not return the correct amount of ingredients? below is a workaround
+        StackedItemContents inputList = new StackedItemContents();
         int i = 0;
 
         for (int j = 0; j < BakingMatBlockEntity.MAX_INGREDIENTS; j++) {
             ItemStack itemStack = inv.getItem(j);
             if (!itemStack.isEmpty()) {
                 i++;
-                inputList.accountStack(itemStack);
+                inputList.accountStack(itemStack, 1);
             }
         }
-        inputMatch = (i == ingredientList.size() && inputList.canCraft(this, null));
+        inputMatch = (i == this.ingredientList.size() && inputList.canCraft(this, null));
 
-        if (!inputMatch && processStages.size() > 0 && !inputList.contents.isEmpty()) {
+        if (!inputMatch && !processStages.isEmpty() && !inv.isEmpty()) {
             for (Ingredient ingredient : processStages) {
-                if (Arrays.stream(ingredient.getItems()).findFirst().get().is(inv.getItem(0).getItem())) {
+                if (ingredient.test(inv.getItem(0))) {
                     processMatch = true;
                 }
             }
@@ -142,18 +135,26 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
     }
 
     @Override
-    public boolean canCraftInDimensions(int width, int height) {
-        return width * height >= this.ingredientList.size();
-    }
-
-    @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<? extends Recipe<RecipeWrapper>> getSerializer() {
         return UbesDelightRecipeSerializersImpl.BAKING_MAT.get();
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public RecipeType<? extends Recipe<RecipeWrapper>> getType() {
         return UbesDelightRecipeTypesImpl.BAKING_MAT.get();
+    }
+
+    @Override
+    public PlacementInfo placementInfo() {
+        if (placementInfo == null) {
+            placementInfo = PlacementInfo.create(ingredientList);
+        }
+        return placementInfo;
+    }
+
+    @Override
+    public RecipeBookCategory recipeBookCategory() {
+        return UbesDelightRecipeBookCategoriesImpl.BAKING_MAT.get();
     }
 
     public Optional<SoundEvent> getSoundEvent() {
@@ -167,7 +168,7 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
 
         BakingMatRecipeImpl that = (BakingMatRecipeImpl) o;
 
-        if (!getGroup().equals(that.getGroup())) return false;
+        if (!group().equals(that.group())) return false;
         if (!ingredientList.equals(that.ingredientList)) return false;
         if (!processStages.equals(that.processStages)) return false;
         if (!getTool().equals(that.getTool())) return false;
@@ -177,46 +178,22 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
 
     @Override
     public int hashCode() {
-        int result = getGroup().hashCode();
+        int result = group().hashCode();
         result = 31 * result + ingredientList.hashCode();
         result = 31 * result + processStages.hashCode();
         result = 31 * result + getTool().hashCode();
         result = 31 * result + getResultList().hashCode();
-        result = 31 * result + (soundEvent != null ? soundEvent.hashCode() : 0);
+        result = 31 * result + (soundEvent.map(Objects::hashCode).orElse(0));
         return result;
     }
 
     public static class Serializer implements RecipeSerializer<BakingMatRecipeImpl> {
         private static final MapCodec<BakingMatRecipeImpl> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-                Codec.STRING.optionalFieldOf("group", "").forGetter(BakingMatRecipeImpl::getGroup),
-                Ingredient.CODEC_NONEMPTY.listOf().fieldOf("ingredients").flatXmap(ingredients -> {
-                    if (ingredients.isEmpty()) {
-                        return DataResult.error(() -> "No ingredients for baking recipe");
-                    }
-                    if (ingredients.size() > BakingMatBlockEntity.MAX_INGREDIENTS) {
-                        return DataResult.error(() -> "Too many ingredients for baking recipe! Max ingredients is " + BakingMatBlockEntity.MAX_INGREDIENTS);
-                    }
-                    NonNullList<Ingredient> nonNullList = NonNullList.create();
-                    nonNullList.addAll(ingredients);
-                    return DataResult.success(nonNullList);
-                }, DataResult::success).forGetter(BakingMatRecipeImpl::getIngredients),
-                Ingredient.CODEC.listOf().fieldOf("processing_stages").flatXmap(processStages -> {
-                    if (processStages.size() > BakingMatBlockEntity.MAX_PROCESSING_STAGES) {
-                        return DataResult.error(() -> "Too many processing stages for baking recipe! Max processing stages is "+ BakingMatBlockEntity.MAX_PROCESSING_STAGES);
-                    }
-                    NonNullList<Ingredient> nonNullList = NonNullList.create();
-                    nonNullList.addAll(processStages);
-                    return DataResult.success(nonNullList);
-                }, DataResult::success).forGetter(BakingMatRecipeImpl::getProcessStages),
+                Codec.STRING.optionalFieldOf("group", "").forGetter(BakingMatRecipeImpl::group),
+                Ingredient.CODEC.listOf(1, BakingMatBlockEntity.MAX_INGREDIENTS).fieldOf("ingredients").forGetter(BakingMatRecipeImpl::getIngredients),
+                Ingredient.CODEC.listOf(0, BakingMatBlockEntity.MAX_PROCESSING_STAGES).fieldOf("processing_stages").forGetter(BakingMatRecipeImpl::getProcessStages),
                 Ingredient.CODEC.fieldOf("tool").forGetter(BakingMatRecipeImpl::getTool),
-                Codec.list(ChanceResult.CODEC).fieldOf("result").flatXmap(chanceResults -> {
-                    if (chanceResults.size() > BakingMatBlockEntity.MAX_RESULTS) {
-                        return DataResult.error(() -> "Too many results for baking recipe! The maximum quantity of unique results is "+ BakingMatBlockEntity.MAX_RESULTS);
-                    }
-                    NonNullList<ChanceResult> nonNullList = NonNullList.create();
-                    nonNullList.addAll(chanceResults);
-                    return DataResult.success(nonNullList);
-                }, DataResult::success).forGetter(BakingMatRecipeImpl::getRollableResults),
+                Codec.list(ChanceResult.CODEC).fieldOf("result").forGetter(BakingMatRecipeImpl::getRollableResults),
                 SoundEvent.DIRECT_CODEC.optionalFieldOf("sound").forGetter(BakingMatRecipeImpl::getSoundEvent)
         ).apply(inst, BakingMatRecipeImpl::new));
         public static final StreamCodec<RegistryFriendlyByteBuf, BakingMatRecipeImpl> STREAM_CODEC = StreamCodec.of(BakingMatRecipeImpl.Serializer::toNetwork, BakingMatRecipeImpl.Serializer::fromNetwork);
@@ -236,66 +213,22 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
         public static BakingMatRecipeImpl fromNetwork(RegistryFriendlyByteBuf buf) {
             String groupIn = buf.readUtf(32767);
 
-            int i = buf.readVarInt();
-            NonNullList<Ingredient> ingredientList = NonNullList.withSize(i, Ingredient.EMPTY);
-            for (int j = 0; j < ingredientList.size(); ++j) {
-                ingredientList.set(j, Ingredient.CONTENTS_STREAM_CODEC.decode(buf));
-            }
-
-            int k = buf.readVarInt();
-            NonNullList<Ingredient> processingStagesList = NonNullList.withSize(k, Ingredient.EMPTY);
-            for (int l = 0; l < processingStagesList.size(); ++l) {
-                processingStagesList.set(l, Ingredient.CONTENTS_STREAM_CODEC.decode(buf));
-            }
-
+            List<Ingredient> ingredientList = Ingredient.CONTENTS_STREAM_CODEC.apply(ByteBufCodecs.list(BakingMatBlockEntity.MAX_INGREDIENTS)).decode(buf);
+            List<Ingredient> processingStagesList = Ingredient.CONTENTS_STREAM_CODEC.apply(ByteBufCodecs.list(BakingMatBlockEntity.MAX_PROCESSING_STAGES)).decode(buf);
             Ingredient tool = Ingredient.CONTENTS_STREAM_CODEC.decode(buf);
-
-            int m = buf.readVarInt();
-            NonNullList<ChanceResult> resultsList = NonNullList.withSize(m, ChanceResult.EMPTY);
-            for (int n = 0; n < resultsList.size(); ++n) {
-                resultsList.set(n, ChanceResult.read(buf));
-            }
-
-            Optional<SoundEvent> soundID = Optional.empty();
-            if (buf.readBoolean()) {
-                Optional<Holder.Reference<SoundEvent>> holder = BuiltInRegistries.SOUND_EVENT.getHolder(buf.readResourceKey(Registries.SOUND_EVENT));
-                if (holder.isPresent() && holder.get().isBound()) {
-                    soundID = Optional.of(holder.get().value());
-                }
-            }
+            List<ChanceResult> resultsList = ChanceResult.STREAM_CODEC.apply(ByteBufCodecs.list( BakingMatBlockEntity.MAX_RESULTS)).decode(buf);
+            Optional<SoundEvent> soundID = ByteBufCodecs.optional(ByteBufCodecs.registry(Registries.SOUND_EVENT)).decode(buf);
 
             return new BakingMatRecipeImpl(groupIn, ingredientList, processingStagesList, tool, resultsList, soundID);
         }
 
         public static void toNetwork(RegistryFriendlyByteBuf buf, BakingMatRecipeImpl recipe) {
             buf.writeUtf(recipe.group);
-
-            buf.writeVarInt(recipe.ingredientList.size());
-            for (Ingredient ingredient : recipe.ingredientList) {
-                Ingredient.CONTENTS_STREAM_CODEC.encode(buf, ingredient);
-            }
-
-            buf.writeVarInt(recipe.processStages.size());
-            for (Ingredient processingStages : recipe.processStages) {
-                Ingredient.CONTENTS_STREAM_CODEC.encode(buf, processingStages);
-            }
-
+            Ingredient.CONTENTS_STREAM_CODEC.apply(ByteBufCodecs.list(BakingMatBlockEntity.MAX_INGREDIENTS)).encode(buf, recipe.ingredientList);
+            Ingredient.CONTENTS_STREAM_CODEC.apply(ByteBufCodecs.list(BakingMatBlockEntity.MAX_PROCESSING_STAGES)).encode(buf, recipe.processStages);
             Ingredient.CONTENTS_STREAM_CODEC.encode(buf, recipe.tool);
-
-            buf.writeVarInt(recipe.resultList.size());
-            for (ChanceResult result : recipe.resultList) {
-                result.write(buf);
-            }
-
-            if (recipe.getSoundEvent().isPresent()) {
-                Optional<ResourceKey<SoundEvent>> resourceKey = BuiltInRegistries.SOUND_EVENT.getResourceKey(recipe.getSoundEvent().get());
-                resourceKey.ifPresentOrElse(rk -> {
-                    buf.writeBoolean(true);
-                    buf.writeResourceKey(rk);
-                }, () -> buf.writeBoolean(false));
-            } else {
-                buf.writeBoolean(false);
-            }
+            ChanceResult.STREAM_CODEC.apply(ByteBufCodecs.list(BakingMatBlockEntity.MAX_RESULTS)).encode(buf, recipe.resultList);
+            ByteBufCodecs.optional(ByteBufCodecs.registry(Registries.SOUND_EVENT)).encode(buf, recipe.getSoundEvent());
         }
     }
 }

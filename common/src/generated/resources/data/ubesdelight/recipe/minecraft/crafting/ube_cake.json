@@ -2,21 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "tag": "c:foods/milk"
-    },
-    "B": {
-      "tag": "c:tea_ingredients/sweet/weak"
-    },
-    "C": {
-      "item": "minecraft:wheat"
-    },
-    "E": {
-      "tag": "c:eggs"
-    },
-    "F": {
-      "tag": "c:crops/ube"
-    }
+    "A": "#c:foods/milk",
+    "B": "#c:tea_ingredients/sweet/weak",
+    "C": "minecraft:wheat",
+    "E": "#c:eggs",
+    "F": "#c:crops/ube"
   },
   "pattern": [
     "AAA",

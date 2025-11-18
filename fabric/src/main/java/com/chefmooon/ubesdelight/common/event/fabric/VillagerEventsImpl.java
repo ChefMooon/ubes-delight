@@ -17,19 +17,23 @@ public class VillagerEventsImpl {
     public static void addTrades() {
         if (Configuration.farmersBuyUDCrops()) {
             TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 1, (trades) -> {
-                trades.add(emeraldForItemsTrade(UbesDelightItemsImpl.UBE,26, 16, 2));
-                trades.add(emeraldForItemsTrade(UbesDelightItemsImpl.GARLIC,26, 16, 2));
-                trades.add(emeraldForItemsTrade(UbesDelightItemsImpl.GINGER,26, 16, 2));
-                trades.add(emeraldForItemsTrade(UbesDelightItemsImpl.LEMONGRASS,20, 16, 5));// 2xp? same as wheat? others same as potato
+                trades.add(emeraldForItemsTrade(UbesDelightItemsImpl.UBE.get(),26, 16, 2));
+                trades.add(emeraldForItemsTrade(UbesDelightItemsImpl.GARLIC.get(),26, 16, 2));
+                trades.add(emeraldForItemsTrade(UbesDelightItemsImpl.GINGER.get(),26, 16, 2));
+                trades.add(emeraldForItemsTrade(UbesDelightItemsImpl.LEMONGRASS.get(),20, 16, 5));// 2xp? same as wheat? others same as potato
             });
         }
 
         if (Configuration.wanderingTraderSellsUDItems()) {
-            TradeOfferHelper.registerWanderingTraderOffers(1, (trades) -> {
-                trades.add(itemForEmeraldTrade(UbesDelightItemsImpl.UBE,1, 12));
-                trades.add(itemForEmeraldTrade(UbesDelightItemsImpl.GARLIC,1, 12));
-                trades.add(itemForEmeraldTrade(UbesDelightItemsImpl.GINGER,1, 12));
-                trades.add(itemForEmeraldTrade(UbesDelightItemsImpl.LEMONGRASS_SEEDS,1, 12));
+            TradeOfferHelper.registerWanderingTraderOffers((trades) -> {
+                trades.addOffersToPool(TradeOfferHelper.WanderingTraderOffersBuilder.BUY_ITEMS_POOL,
+                        itemForEmeraldTrade(UbesDelightItemsImpl.UBE.get(),1, 12));
+                trades.addOffersToPool(TradeOfferHelper.WanderingTraderOffersBuilder.BUY_ITEMS_POOL,
+                        itemForEmeraldTrade(UbesDelightItemsImpl.GARLIC.get(),1, 12));
+                trades.addOffersToPool(TradeOfferHelper.WanderingTraderOffersBuilder.BUY_ITEMS_POOL,
+                        itemForEmeraldTrade(UbesDelightItemsImpl.GINGER.get(),1, 12));
+                trades.addOffersToPool(TradeOfferHelper.WanderingTraderOffersBuilder.BUY_ITEMS_POOL,
+                        itemForEmeraldTrade(UbesDelightItemsImpl.LEMONGRASS_SEEDS.get(),1, 12));
             });
         }
     }

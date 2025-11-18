@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "ubesdelight:milk_tea_ube"
-    },
-    "B": {
-      "tag": "c:foods/milk"
-    }
+    "A": "ubesdelight:milk_tea_ube",
+    "B": "#c:foods/milk"
   },
   "pattern": [
     "   ",

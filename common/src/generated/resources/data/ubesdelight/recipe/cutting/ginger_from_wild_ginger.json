@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    "ubesdelight:wild_ginger"
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 1,
+        "id": "ubesdelight:ginger"
+      }
+    }
+  ],
+  "tool": "#c:tools/knife"
+}

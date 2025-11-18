@@ -17,7 +17,6 @@ public class DamageTypeTagGenerator extends TagsProvider<DamageType> {
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
-        // todo - this does not work, but it does not need to
         tag(DamageTypeTags.IS_FIRE).add(UbesDelightDamageTypes.KALAN_BURN);
         tag(DamageTypeTags.NO_KNOCKBACK).add(UbesDelightDamageTypes.KALAN_BURN);
         tag(DamageTypeTags.BURN_FROM_STEPPING).add(UbesDelightDamageTypes.KALAN_BURN);

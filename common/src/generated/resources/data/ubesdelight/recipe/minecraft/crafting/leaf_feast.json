@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "tag": "minecraft:leaves"
-    },
-    {
-      "tag": "minecraft:leaves"
-    },
-    {
-      "tag": "minecraft:leaves"
-    }
+    "#minecraft:leaves",
+    "#minecraft:leaves",
+    "#minecraft:leaves"
   ],
   "result": {
     "count": 1,

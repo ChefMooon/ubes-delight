@@ -8,6 +8,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -26,8 +27,8 @@ public class GingerCropBlock extends CropBlock {
             Block.box(.0d, .0d, .0d, 16.d, 8.d, 16.d),
             Block.box(.0d, .0d, .0d, 16.d, 9.d, 16.d)
     };
-    public GingerCropBlock() {
-        super(Block.Properties.ofFullCopy(Blocks.WHEAT));
+    public GingerCropBlock(BlockBehaviour.Properties properties) {
+        super(properties);
     }
 
 //    @Override

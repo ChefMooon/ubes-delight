@@ -1,15 +1,9 @@
 {
   "type": "ubesdelight:baking_mat",
   "ingredients": [
-    {
-      "item": "minecraft:honey_bottle"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "minecraft:wheat"
-    }
+    "minecraft:honey_bottle",
+    "minecraft:wheat",
+    "minecraft:wheat"
   ],
   "processing_stages": [],
   "result": [
@@ -27,7 +21,5 @@
       }
     }
   ],
-  "tool": {
-    "tag": "c:tools/rolling_pin"
-  }
+  "tool": "#c:tools/rolling_pin"
 }

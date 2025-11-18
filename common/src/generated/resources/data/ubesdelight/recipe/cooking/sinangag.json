@@ -1,0 +1,13 @@
+{
+  "type": "farmersdelight:cooking",
+  "category": "meals",
+  "experience": 1.0,
+  "ingredients": [
+    "#c:crops/rice",
+    "#c:crops/garlic"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:sinangag"
+  }
+}

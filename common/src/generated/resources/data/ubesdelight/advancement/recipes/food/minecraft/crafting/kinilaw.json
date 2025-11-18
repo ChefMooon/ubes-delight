@@ -17,7 +17,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/kinilaw"
+        "recipe": "minecraft:minecraft/crafting/kinilaw"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -30,7 +30,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ubesdelight:minecraft/crafting/kinilaw"
+      "minecraft:minecraft/crafting/kinilaw"
     ]
   }
 }

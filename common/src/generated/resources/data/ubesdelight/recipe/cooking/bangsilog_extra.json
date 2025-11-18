@@ -1,0 +1,14 @@
+{
+  "type": "farmersdelight:cooking",
+  "category": "meals",
+  "experience": 3.0,
+  "ingredients": [
+    "#minecraft:fishes",
+    "ubesdelight:sinangag",
+    "#c:foods/cooked_egg"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:bangsilog"
+  }
+}

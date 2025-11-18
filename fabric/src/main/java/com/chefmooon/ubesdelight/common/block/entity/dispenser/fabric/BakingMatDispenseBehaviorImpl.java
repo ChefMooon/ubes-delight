@@ -27,10 +27,10 @@ public class BakingMatDispenseBehaviorImpl {
     }
 
     public static void register() {
-        DispenserBlock.registerBehavior(UbesDelightItemsImpl.ROLLING_PIN_WOOD, new BakingMatDispenseBehavior());
-        DispenserBlock.registerBehavior(UbesDelightItemsImpl.ROLLING_PIN_IRON, new BakingMatDispenseBehavior());
-        DispenserBlock.registerBehavior(UbesDelightItemsImpl.ROLLING_PIN_GOLD, new BakingMatDispenseBehavior());
-        DispenserBlock.registerBehavior(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND, new BakingMatDispenseBehavior());
-        DispenserBlock.registerBehavior(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE, new BakingMatDispenseBehavior());
+        DispenserBlock.registerBehavior(UbesDelightItemsImpl.ROLLING_PIN_WOOD.get(), new BakingMatDispenseBehavior());
+        DispenserBlock.registerBehavior(UbesDelightItemsImpl.ROLLING_PIN_IRON.get(), new BakingMatDispenseBehavior());
+        DispenserBlock.registerBehavior(UbesDelightItemsImpl.ROLLING_PIN_GOLD.get(), new BakingMatDispenseBehavior());
+        DispenserBlock.registerBehavior(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND.get(), new BakingMatDispenseBehavior());
+        DispenserBlock.registerBehavior(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE.get(), new BakingMatDispenseBehavior());
     }
 }

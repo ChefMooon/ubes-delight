@@ -2,27 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "ubesdelight:hopia_munggo"
-    },
-    {
-      "item": "ubesdelight:hopia_munggo"
-    },
-    {
-      "item": "ubesdelight:hopia_munggo"
-    },
-    {
-      "item": "ubesdelight:hopia_munggo"
-    },
-    {
-      "item": "ubesdelight:hopia_munggo"
-    },
-    {
-      "item": "ubesdelight:hopia_munggo"
-    },
-    {
-      "item": "ubesdelight:leaf_feast"
-    }
+    "ubesdelight:hopia_munggo",
+    "ubesdelight:hopia_munggo",
+    "ubesdelight:hopia_munggo",
+    "ubesdelight:hopia_munggo",
+    "ubesdelight:hopia_munggo",
+    "ubesdelight:hopia_munggo",
+    "ubesdelight:leaf_feast"
   ],
   "result": {
     "count": 1,

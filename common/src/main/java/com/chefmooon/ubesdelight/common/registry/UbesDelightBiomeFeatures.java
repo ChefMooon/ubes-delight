@@ -5,4 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class UbesDelightBiomeFeatures {
     public static final ResourceLocation WILD_TERTIARY_CROP = TextUtils.res("wild_tertiary_crop");
+
+    public static void init() {
+    }
 }

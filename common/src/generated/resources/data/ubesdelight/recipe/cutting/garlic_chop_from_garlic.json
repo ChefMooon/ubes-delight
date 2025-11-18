@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    "ubesdelight:garlic"
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 2,
+        "id": "ubesdelight:garlic_chop"
+      }
+    }
+  ],
+  "tool": "#c:tools/knife"
+}

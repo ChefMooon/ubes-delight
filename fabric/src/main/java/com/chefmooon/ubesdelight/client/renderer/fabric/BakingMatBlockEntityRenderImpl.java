@@ -12,15 +12,15 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec3;
 import vectorwing.farmersdelight.refabricated.inventory.ItemStackHandler;
 
-// TODO: portinglib found here
 public class BakingMatBlockEntityRenderImpl extends BakingMatBlockEntityRender implements BlockEntityRenderer<BakingMatBlockEntityImpl> {
     public BakingMatBlockEntityRenderImpl(BlockEntityRendererProvider.Context context) {
     }
 
     @Override
-    public void render(BakingMatBlockEntityImpl blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
+    public void render(BakingMatBlockEntityImpl blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay, Vec3 cameraPos) {
 
         Direction direction = blockEntity.getBlockState().getValue(BakingMatBlockImpl.FACING).getOpposite();
         boolean proccessing = blockEntity.getBlockState().getValue(BakingMatBlockImpl.PROCESSING);

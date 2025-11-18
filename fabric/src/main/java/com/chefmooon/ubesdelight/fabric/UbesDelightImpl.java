@@ -26,11 +26,11 @@ public class UbesDelightImpl implements ModInitializer {
         UbesDelightRecipeTypesImpl.register();
         UbesDelightRecipeSerializersImpl.register();
         UbesDelightAdvancementsImpl.register();
+        UbesDelightRecipeBookCategoriesImpl.register();
 
         VillagerEventsImpl.init();
 
         CommonSetupImpl.init();
-        //AddLootTableModifierImpl.registerLootTable();
 
         // 3.0.0
         LootModifierEvents.init();

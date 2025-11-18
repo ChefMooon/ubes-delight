@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 600,
   "experience": 0.5,
-  "ingredient": {
-    "item": "ubesdelight:hopia_munggo_raw"
-  },
+  "ingredient": "ubesdelight:hopia_munggo_raw",
   "result": {
     "id": "ubesdelight:hopia_munggo"
   }

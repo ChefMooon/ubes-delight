@@ -1,6 +1,7 @@
 package com.chefmooon.ubesdelight.common.block.entity.fabric;
 
 import com.chefmooon.ubesdelight.common.block.entity.UniversalLeafFeastBlockEntity;
+import com.chefmooon.ubesdelight.common.block.fabric.BakingMatBlockImpl;
 import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlockEntityTypesImpl;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemVariant;
@@ -10,8 +11,10 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.Containers;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec2;
 import org.jetbrains.annotations.NotNull;
@@ -22,17 +25,15 @@ import vectorwing.farmersdelight.refabricated.inventory.ItemStackHandler;
 public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
     public static final int MAX_ITEMS = UniversalLeafFeastBlockEntity.MAX_ITEMS;
     private final ItemStackHandler inventory;
-    private final ItemStackHandler inputHandler;
     public UniversalLeafFeastBlockEntityImpl(BlockPos pos, BlockState state) {
         super(UbesDelightBlockEntityTypesImpl.UNIVERSAL_LEAF_FEAST.get(), pos, state);
         inventory = createHandler();
-        inputHandler = inventory;
     }
 
     @Override
     public void loadAdditional(CompoundTag compound, HolderLookup.Provider registries) {
         super.loadAdditional(compound, registries);
-        inventory.deserializeNBT(registries, compound.getCompound("Inventory"));
+        inventory.deserializeNBT(registries, compound.getCompoundOrEmpty("Inventory"));
     }
 
     @Override
@@ -41,11 +42,20 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
         compound.put("Inventory", inventory.serializeNBT(registries));
     }
 
+    @Override
+    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (blockEntity instanceof UniversalLeafFeastBlockEntityImpl universalLeafFeastBlockEntity) {
+            Containers.dropContents(level, pos, universalLeafFeastBlockEntity.getItems());
+        }
+        super.preRemoveSideEffects(pos, state);
+    }
+
     public void clearInventory() {
         for (int i = 0; i < MAX_ITEMS-1; i++) {
             this.inventory.getStackInSlot(i);
         }
-        this.inventory.commitModifiedStacks();
+        inventoryChanged();
     }
 
     public void setInventory(NonNullList<ItemStack> list) {
@@ -79,7 +89,6 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
             ItemStack inventoryStack = inventory.getStackInSlot(i);
             if (inventoryStack.isEmpty()) {
                 inventory.setStackInSlot(i, itemStack.split(1));
-                inventory.commitModifiedStacks();
                 inventoryChanged();
                 return true;
             }
@@ -92,8 +101,7 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
             ItemStack itemStack = inventory.getStackInSlot(i);
             if (!itemStack.isEmpty()) {
                 inventory.setStackInSlot(i, ItemStack.EMPTY);
-                inventory.commitModifiedStacks();
-//                inventoryChanged();
+                inventoryChanged();
                 return itemStack;
             }
         }

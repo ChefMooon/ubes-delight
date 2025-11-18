@@ -1,29 +1,15 @@
 {
   "type": "ubesdelight:baking_mat",
   "ingredients": [
-    {
-      "item": "ubesdelight:raw_polvorone_pinipig"
-    },
-    {
-      "item": "ubesdelight:raw_polvorone_pinipig"
-    },
-    {
-      "item": "ubesdelight:raw_polvorone_pinipig"
-    },
-    {
-      "item": "ubesdelight:raw_polvorone_pinipig"
-    }
+    "ubesdelight:raw_polvorone_pinipig",
+    "ubesdelight:raw_polvorone_pinipig",
+    "ubesdelight:raw_polvorone_pinipig",
+    "ubesdelight:raw_polvorone_pinipig"
   ],
   "processing_stages": [
-    {
-      "item": "ubesdelight:polvorone_pinipig_stage0"
-    },
-    {
-      "item": "ubesdelight:polvorone_pinipig_stage1"
-    },
-    {
-      "item": "ubesdelight:polvorone_pinipig_stage2"
-    }
+    "ubesdelight:polvorone_pinipig_stage0",
+    "ubesdelight:polvorone_pinipig_stage1",
+    "ubesdelight:polvorone_pinipig_stage2"
   ],
   "result": [
     {
@@ -40,7 +26,5 @@
       }
     }
   ],
-  "tool": {
-    "tag": "c:tools/rolling_pin"
-  }
+  "tool": "#c:tools/rolling_pin"
 }

@@ -4,6 +4,8 @@ import com.chefmooon.ubesdelight.common.Configuration;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 
@@ -16,6 +18,11 @@ public record ChanceResult(ItemStack stack, float chance) {
             ItemStack.CODEC.fieldOf("item").forGetter(ChanceResult::stack),
             Codec.FLOAT.optionalFieldOf("chance", 1.0f).forGetter(ChanceResult::chance)
     ).apply(inst, ChanceResult::new));
+    public static final StreamCodec<RegistryFriendlyByteBuf, ChanceResult> STREAM_CODEC = StreamCodec.composite(
+            ItemStack.STREAM_CODEC, ChanceResult::stack,
+            ByteBufCodecs.FLOAT, ChanceResult::chance,
+            ChanceResult::new
+    );
 
     public ItemStack rollOutput(RandomSource rand, int fortuneLevel) {
         int outputAmount = stack.getCount();

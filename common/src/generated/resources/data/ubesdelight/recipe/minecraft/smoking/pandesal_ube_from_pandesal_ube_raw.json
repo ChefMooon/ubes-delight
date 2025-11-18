@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 100,
   "experience": 0.5,
-  "ingredient": {
-    "item": "ubesdelight:pandesal_ube_raw"
-  },
+  "ingredient": "ubesdelight:pandesal_ube_raw",
   "result": {
     "id": "ubesdelight:pandesal_ube"
   }

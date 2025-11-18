@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "category": "meals",
+  "experience": 4.0,
+  "ingredients": [
+    "#c:foods/raw_beef",
+    "#c:crops/onion",
+    "#c:crops/garlic",
+    "#c:crops/tomato",
+    "#c:foods/vegetable",
+    "ubesdelight:fish_sauce_bottle"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:mechado"
+  }
+}

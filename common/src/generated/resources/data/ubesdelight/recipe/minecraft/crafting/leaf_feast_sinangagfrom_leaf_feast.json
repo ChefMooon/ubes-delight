@@ -2,27 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "ubesdelight:sinangag"
-    },
-    {
-      "item": "ubesdelight:sinangag"
-    },
-    {
-      "item": "ubesdelight:sinangag"
-    },
-    {
-      "item": "ubesdelight:sinangag"
-    },
-    {
-      "item": "ubesdelight:sinangag"
-    },
-    {
-      "item": "ubesdelight:sinangag"
-    },
-    {
-      "item": "ubesdelight:leaf_feast"
-    }
+    "ubesdelight:sinangag",
+    "ubesdelight:sinangag",
+    "ubesdelight:sinangag",
+    "ubesdelight:sinangag",
+    "ubesdelight:sinangag",
+    "ubesdelight:sinangag",
+    "ubesdelight:leaf_feast"
   ],
   "result": {
     "count": 1,

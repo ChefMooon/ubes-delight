@@ -1,21 +1,11 @@
 {
   "type": "ubesdelight:baking_mat",
   "ingredients": [
-    {
-      "item": "minecraft:water_bucket"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "minecraft:wheat"
-    }
+    "minecraft:water_bucket",
+    "minecraft:wheat",
+    "minecraft:wheat",
+    "minecraft:wheat",
+    "minecraft:wheat"
   ],
   "processing_stages": [],
   "result": [
@@ -33,7 +23,5 @@
       }
     }
   ],
-  "tool": {
-    "tag": "c:tools/rolling_pin"
-  }
+  "tool": "#c:tools/rolling_pin"
 }

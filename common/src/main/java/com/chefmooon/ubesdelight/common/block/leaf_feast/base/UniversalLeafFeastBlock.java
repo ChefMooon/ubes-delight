@@ -7,10 +7,12 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -75,8 +77,8 @@ public class UniversalLeafFeastBlock extends BaseEntityBlock implements LeafFeas
     }
 
     @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-        if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+    public BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess scheduledTickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
+        if (state.getValue(WATERLOGGED)) scheduledTickAccess.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
 
         Pair<Direction, Direction> connectDirections = getConnectDirections(state.getValue(FACING).getOpposite());
         if (direction == connectDirections.getFirst() || direction == connectDirections.getSecond())  {
@@ -94,7 +96,7 @@ public class UniversalLeafFeastBlock extends BaseEntityBlock implements LeafFeas
 
         if (direction == Direction.DOWN && !state.canSurvive(level, pos)) return Blocks.AIR.defaultBlockState();
 
-        return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
+        return super.updateShape(state, level, scheduledTickAccess, pos, direction, neighborPos, neighborState, random);
     }
 
     @Override
@@ -105,7 +107,7 @@ public class UniversalLeafFeastBlock extends BaseEntityBlock implements LeafFeas
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return Objects.requireNonNull(BuiltInRegistries.BLOCK_ENTITY_TYPE.get(UbesDelightBlockEntityTypes.UNIVERSAL_LEAF_FEAST)).create(pos, state);
+        return Objects.requireNonNull(BuiltInRegistries.BLOCK_ENTITY_TYPE.get(UbesDelightBlockEntityTypes.UNIVERSAL_LEAF_FEAST)).get().value().create(pos, state);
     }
 
     @Override

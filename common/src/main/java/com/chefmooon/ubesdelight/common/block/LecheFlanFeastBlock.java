@@ -1,5 +1,6 @@
 package com.chefmooon.ubesdelight.common.block;
 
+import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.utility.TagUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -7,17 +8,19 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.Consumable;
+import net.minecraft.world.item.component.ConsumableListener;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -42,8 +45,8 @@ public class LecheFlanFeastBlock extends Block {
             Block.box(7.0, 0.0, 3.0, 13.0, 6.0, 13.0),
             Block.box(9.0, 0.0, 3.0, 13.0, 6.0, 13.0),
             Block.box(11.0, 0.0, 3.0, 13.0, 6.0, 13.0)};
-    public LecheFlanFeastBlock(Supplier<Item> serving) {
-        super(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE));
+    public LecheFlanFeastBlock(Supplier<Item> serving, BlockBehaviour.Properties properties) {
+        super(properties);
         this.serving = serving;
         this.registerDefaultState(this.stateDefinition.any().setValue(BITES, 0));
     }
@@ -54,12 +57,12 @@ public class LecheFlanFeastBlock extends Block {
     }
 
     @Override
-    public ItemInteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public InteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (heldStack.is(TagUtils.getKifeItemTag())) {
             return cutSlice(level, pos, state);
         }
 
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return InteractionResult.TRY_WITH_EMPTY_HAND;
     }
 
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
@@ -85,15 +88,13 @@ public class LecheFlanFeastBlock extends Block {
         } else {
             ItemStack cakeSlice = getCakeSliceStack();
             FoodProperties slice = cakeSlice.get(DataComponents.FOOD);
+            Consumable sliceConsumable = cakeSlice.get(DataComponents.CONSUMABLE);
 
-            player.awardStat(Stats.EAT_CAKE_SLICE);
-            level.gameEvent(player, GameEvent.EAT, pos);
-            player.getFoodData().eat(slice);
             if (slice != null) {
-                for (FoodProperties.PossibleEffect effect : slice.effects()) {
-                    if (!level.isClientSide && effect != null) {
-                        player.addEffect(effect.effect());
-                    }
+                level.gameEvent(player, GameEvent.EAT, pos);
+                cakeSlice.getAllOfType(ConsumableListener.class).forEach(consumableListener -> consumableListener.onConsume(level, player, cakeSlice, sliceConsumable));
+                if (!level.isClientSide && sliceConsumable != null) {
+                    sliceConsumable.onConsumeEffects().forEach(consumeEffect -> consumeEffect.apply(level, cakeSlice, player));
                 }
             }
         }
@@ -104,12 +105,12 @@ public class LecheFlanFeastBlock extends Block {
             level.removeBlock(pos, false);
             level.gameEvent(player, GameEvent.BLOCK_DESTROY, pos);
         }
-        level. playSound(null, pos, SoundEvents.GENERIC_EAT, SoundSource.PLAYERS, 0.8f, 0.8f);
+        level.playSound(null, pos, SoundEvents.GENERIC_EAT.value(), SoundSource.PLAYERS, 0.8f, 0.8f);
 
         return InteractionResult.SUCCESS;
     }
 
-    protected ItemInteractionResult cutSlice(Level level, BlockPos pos, BlockState state) {
+    protected InteractionResult cutSlice(Level level, BlockPos pos, BlockState state) {
         int bites = state.getValue(BITES);
         if (bites < MAX_BITES - 1) {
             level.setBlock(pos, state.setValue(BITES, bites + 1), 3);
@@ -121,12 +122,12 @@ public class LecheFlanFeastBlock extends Block {
         Block.popResource(level, pos, getCakeSliceStack());
         level.playSound(null, pos, SoundEvents.WOOL_BREAK, SoundSource.BLOCKS, 0.8f, 0.8f);
 
-        return ItemInteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
     @Override
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
-        return facing == Direction.DOWN && !stateIn.canSurvive(level, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(stateIn, facing, facingState, level, currentPos, facingPos);
+    public BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess scheduledTickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
+        return direction == Direction.DOWN && !state.canSurvive(level, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, level, scheduledTickAccess, pos, direction, neighborPos, neighborState, random);
     }
 
     @Override

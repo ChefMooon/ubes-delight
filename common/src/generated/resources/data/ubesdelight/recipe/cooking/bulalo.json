@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "category": "meals",
+  "experience": 4.0,
+  "ingredients": [
+    "#c:foods/raw_beef",
+    "#c:bones",
+    "#c:crops/onion",
+    "#c:crops/cabbage",
+    "ubesdelight:fish_sauce_bottle",
+    "#c:crops/lemongrass"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:bulalo"
+  }
+}

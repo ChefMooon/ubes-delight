@@ -17,7 +17,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/lumpia_wrapper_from_water_bucket"
+        "recipe": "minecraft:minecraft/crafting/lumpia_wrapper_from_water_bucket"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -30,7 +30,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ubesdelight:minecraft/crafting/lumpia_wrapper_from_water_bucket"
+      "minecraft:minecraft/crafting/lumpia_wrapper_from_water_bucket"
     ]
   }
 }

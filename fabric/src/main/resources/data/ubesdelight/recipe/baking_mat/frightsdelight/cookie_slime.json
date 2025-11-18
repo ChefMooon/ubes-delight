@@ -9,15 +9,9 @@
   ],
   "type": "ubesdelight:baking_mat",
   "ingredients": [
-    {
-      "item": "minecraft:slime_ball"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "minecraft:wheat"
-    }
+    "minecraft:slime_ball",
+    "minecraft:wheat",
+    "minecraft:wheat"
   ],
   "processing_stages": [],
   "result": [
@@ -35,7 +29,5 @@
       }
     }
   ],
-  "tool": {
-    "tag": "c:tools/rolling_pin"
-  }
+  "tool": "#c:tools/rolling_pin"
 }

@@ -1,26 +1,14 @@
 {
   "type": "ubesdelight:baking_mat",
   "ingredients": [
-    {
-      "tag": "c:foods/dough"
-    },
-    {
-      "tag": "c:tea_ingredients/sweet/weak"
-    },
-    {
-      "item": "minecraft:bread"
-    }
+    "#c:foods/dough",
+    "#c:tea_ingredients/sweet/weak",
+    "minecraft:bread"
   ],
   "processing_stages": [
-    {
-      "item": "ubesdelight:pandesal_stage0"
-    },
-    {
-      "item": "ubesdelight:pandesal_stage1"
-    },
-    {
-      "item": "ubesdelight:pandesal_stage2"
-    }
+    "ubesdelight:pandesal_stage0",
+    "ubesdelight:pandesal_stage1",
+    "ubesdelight:pandesal_stage2"
   ],
   "result": [
     {
@@ -37,7 +25,5 @@
       }
     }
   ],
-  "tool": {
-    "tag": "c:tools/rolling_pin"
-  }
+  "tool": "#c:tools/rolling_pin"
 }

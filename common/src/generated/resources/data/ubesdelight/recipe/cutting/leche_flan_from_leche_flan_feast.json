@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    "ubesdelight:leche_flan_feast"
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 5,
+        "id": "ubesdelight:leche_flan"
+      }
+    }
+  ],
+  "tool": "#c:tools/knife"
+}

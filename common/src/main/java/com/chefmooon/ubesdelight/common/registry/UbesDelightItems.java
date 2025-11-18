@@ -2,11 +2,22 @@ package com.chefmooon.ubesdelight.common.registry;
 
 import com.chefmooon.ubesdelight.common.item.RollingPinItem;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
+import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.annotation.Nullable;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.component.Consumable;
+import net.minecraft.world.item.component.Consumables;
+import net.minecraft.world.item.component.Tool;
+import net.minecraft.world.item.component.Weapon;
+import net.minecraft.world.level.block.Block;
+
+import java.util.List;
 
 public class UbesDelightItems {
 
@@ -14,8 +25,16 @@ public class UbesDelightItems {
         return new Item.Properties();
     }
 
-    public static Item.Properties rollingPinItem(Tier tier) {
-        return new Item.Properties().attributes(RollingPinItem.createAttributes(tier, 1.0F, -2.0F));
+    public static Item.Properties rollingPinItem(ToolMaterial toolMaterial) {
+        HolderGetter<Block> holderGetter = BuiltInRegistries.acquireBootstrapRegistrationLookup(BuiltInRegistries.BLOCK);
+        return new Item.Properties()
+                .durability(toolMaterial.durability())
+                .repairable(toolMaterial.repairItems())
+                .enchantable(toolMaterial.enchantmentValue())
+                .attributes(RollingPinItem.createAttributes(toolMaterial, 1.0F, -2.0F))
+                .component(DataComponents.TOOL, new Tool(
+                        List.of(Tool.Rule.deniesDrops(holderGetter.getOrThrow(toolMaterial.incorrectBlocksForDrops()))), 1.0F, 1, false))
+                .component(DataComponents.WEAPON, new Weapon(1));
     }
 
     public static Item.Properties noStack() {
@@ -31,15 +50,29 @@ public class UbesDelightItems {
     }
 
     public static Item.Properties foodItem(FoodProperties food) {
-        return new Item.Properties().food(food);
+        return foodItem(food, null);
+    }
+    public static Item.Properties foodItem(FoodProperties food, @Nullable Consumable consumable) {
+        return new Item.Properties().food(food)
+                .component(DataComponents.CONSUMABLE, consumable != null ? consumable : Consumables.DEFAULT_FOOD);
     }
 
     public static Item.Properties bowlFoodItem(FoodProperties food) {
-        return new Item.Properties().food(food).craftRemainder(Items.BOWL).stacksTo(16);
+        return bowlFoodItem(food, null);
+    }
+    public static Item.Properties bowlFoodItem(FoodProperties food, @Nullable Consumable consumable) {
+        return new Item.Properties().food(food)
+                .component(DataComponents.CONSUMABLE, consumable != null ? consumable : Consumables.DEFAULT_FOOD)
+                .craftRemainder(Items.BOWL).stacksTo(16);
     }
 
     public static Item.Properties drinkItem(FoodProperties food) {
-        return new Item.Properties().food(food).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16);
+        return drinkItem(food, null);
+    }
+    public static Item.Properties drinkItem(FoodProperties food, @Nullable Consumable consumable) {
+        return new Item.Properties().food(food)
+                .component(DataComponents.CONSUMABLE, consumable != null ? consumable : Consumables.DEFAULT_FOOD)
+                .craftRemainder(Items.GLASS_BOTTLE).stacksTo(16);
     }
 
     public static final ResourceLocation KALAN = item("kalan");
@@ -190,6 +223,9 @@ public class UbesDelightItems {
 
     private static ResourceLocation item(String string) {
         return TextUtils.res(string);
+    }
+
+    public static void init() {
     }
 
 }

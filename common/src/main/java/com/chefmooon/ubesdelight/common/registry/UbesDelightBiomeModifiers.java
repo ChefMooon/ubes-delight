@@ -12,4 +12,7 @@ public class UbesDelightBiomeModifiers {
     private static ResourceLocation biomeModifier(String string) {
         return TextUtils.res(string);
     }
+
+    public static void init() {
+    }
 }

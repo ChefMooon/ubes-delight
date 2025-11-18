@@ -3,6 +3,9 @@
     "#c:foods/garlic",
     "#c:foods/ginger",
     "#c:foods/lemongrass",
-    "#c:foods/ube"
+    "#c:foods/ube",
+    "ubesdelight:ube",
+    "ubesdelight:garlic",
+    "ubesdelight:ginger"
   ]
 }

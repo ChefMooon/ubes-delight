@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 600,
   "experience": 0.5,
-  "ingredient": {
-    "item": "ubesdelight:ensaymada_ube_raw"
-  },
+  "ingredient": "ubesdelight:ensaymada_ube_raw",
   "result": {
     "id": "ubesdelight:ensaymada_ube"
   }

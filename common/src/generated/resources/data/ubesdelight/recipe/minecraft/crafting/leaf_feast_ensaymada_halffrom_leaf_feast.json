@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "ubesdelight:ensaymada"
-    },
-    {
-      "item": "ubesdelight:ensaymada"
-    },
-    {
-      "item": "ubesdelight:ensaymada"
-    },
-    {
-      "item": "ubesdelight:leaf_feast"
-    }
+    "ubesdelight:ensaymada",
+    "ubesdelight:ensaymada",
+    "ubesdelight:ensaymada",
+    "ubesdelight:leaf_feast"
   ],
   "result": {
     "count": 1,

@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "minecraft:bamboo"
-    },
-    "B": {
-      "item": "minecraft:honeycomb"
-    }
+    "A": "minecraft:bamboo",
+    "B": "minecraft:honeycomb"
   },
   "pattern": [
     "AAA",

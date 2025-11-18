@@ -16,7 +16,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/leaf_feast_pandesal_halffrom_leaf_feast"
+        "recipe": "minecraft:minecraft/crafting/leaf_feast_pandesal_halffrom_leaf_feast"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -29,7 +29,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ubesdelight:minecraft/crafting/leaf_feast_pandesal_halffrom_leaf_feast"
+      "minecraft:minecraft/crafting/leaf_feast_pandesal_halffrom_leaf_feast"
     ]
   }
 }

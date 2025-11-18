@@ -13,19 +13,26 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.Consumable;
+import net.minecraft.world.item.component.ConsumableListener;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
@@ -47,14 +54,14 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
     }
 
     @Override
-    public ItemInteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public InteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         ItemStack heldItem = player.getItemInHand(hand);
 
         if (level.isClientSide()) {
             if (heldItem.isEmpty()) {
-                if (tryRemoveItem(state, level, pos, player, hand).consumesAction()) return ItemInteractionResult.SUCCESS;
+                if (tryRemoveItem(state, level, pos, player, hand).consumesAction()) return InteractionResult.SUCCESS;
             } else {
-                if (tryAddItem(state, level, pos, player, hand).consumesAction()) return ItemInteractionResult.SUCCESS;
+                if (tryAddItem(state, level, pos, player, hand).consumesAction()) return InteractionResult.SUCCESS;
             }
         }
 
@@ -65,12 +72,12 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
         }
     }
 
-    protected ItemInteractionResult tryAddItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
+    protected InteractionResult tryAddItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
         ItemStack heldItem = player.getItemInHand(hand);
 
         if (!player.isShiftKeyDown()) {
             if (addItem(heldItem, state, level, pos, player).consumesAction()) {
-                return ItemInteractionResult.SUCCESS;
+                return InteractionResult.SUCCESS;
             }
         }
 
@@ -78,15 +85,15 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
             return transformToUniversal(heldItem, state, level, pos, player);
         }
 
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return InteractionResult.PASS;
     }
 
     @ExpectPlatform
-    public static ItemInteractionResult transformToUniversal(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player) {
+    public static InteractionResult transformToUniversal(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player) {
         throw new AssertionError();
     }
 
-    private ItemInteractionResult addItem(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player) {
+    private InteractionResult addItem(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player) {
         Block block = getLeafFeastBlock(itemStack);
 
         if (block != Blocks.AIR) {
@@ -109,12 +116,12 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
                 }
                 playAddSound(level, pos);
                 LeafFeastBlock.triggerInsertAdvancement(player);
-                return ItemInteractionResult.SUCCESS;
+                return InteractionResult.SUCCESS;
             }
 
         }
 
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION; // is fail better here?
+        return InteractionResult.PASS; // is fail better here?
     }
 
     public static void tryEat(ItemStack itemStack, Level level, BlockPos pos, Player player) {
@@ -122,7 +129,17 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
         if (!container.isEmpty()) {
             spawnContainer(level, pos, player.getDirection().getOpposite(), container);
         }
-        player.eat(level, itemStack);
+        FoodProperties foodProperties = itemStack.get(DataComponents.FOOD);
+        Consumable consumable = itemStack.get(DataComponents.CONSUMABLE);
+
+        if (foodProperties != null) {
+            level.gameEvent(player, GameEvent.EAT, pos);
+            itemStack.getAllOfType(ConsumableListener.class).forEach(consumableListener -> consumableListener.onConsume(level, player, itemStack, consumable));
+            if (!level.isClientSide && consumable != null) {
+                consumable.onConsumeEffects().forEach(consumeEffect -> consumeEffect.apply(level, itemStack, player));
+            }
+        }
+        if (!level.isClientSide) level.playSound(null, pos, SoundEvents.GENERIC_EAT.value(), SoundSource.PLAYERS, 0.8F, 0.8F);
         LeafFeastBlock.triggerConsumeAdvancement(player);
     }
 
@@ -163,9 +180,9 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
             return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST_HOPIA_UBE);
         } else if (itemStack.is(BuiltInRegistryUtil.getItem(UbesDelightItems.LUMPIA))) {
             return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LUMPIA_FEAST);
-        } else if (itemStack.is(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice")))) {
+        } else if (itemStack.is(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice")).get())) {
             return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST_COOKED_RICE);
-        } else if (itemStack.is(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "fried_rice")))) {
+        } else if (itemStack.is(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "fried_rice")).get())) {
             return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST_FRIED_RICE);
         } else if (itemStack.is(BuiltInRegistryUtil.getItem(UbesDelightItems.SINANGAG))) {
             return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST_SINANGAG);
@@ -173,9 +190,9 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
         return Blocks.AIR;
     }
 
-    protected ItemInteractionResult tryRemoveItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
+    protected InteractionResult tryRemoveItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
         // Not sure if needed
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return InteractionResult.PASS;
     }
 
     @Override
@@ -203,8 +220,8 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
     }
 
     @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-        if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+    public BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess scheduledTickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
+        if (state.getValue(WATERLOGGED)) scheduledTickAccess.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
 
         Pair<Direction, Direction> connectDirections = getConnectDirections(state.getValue(FACING).getOpposite());
 
@@ -223,7 +240,7 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
 
         if (direction == Direction.DOWN && !state.canSurvive(level, pos)) return Blocks.AIR.defaultBlockState();
 
-        return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
+        return super.updateShape(state, level, scheduledTickAccess, pos, direction, neighborPos, neighborState, random);
     }
 
     @Override

@@ -2,23 +2,23 @@ package com.chefmooon.ubesdelight.common.block;
 
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlockEntityTypes;
 import com.mojang.serialization.MapCodec;
-import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -31,7 +31,7 @@ public class BakingMatBlock extends BaseEntityBlock implements SimpleWaterlogged
     public static final MapCodec<BakingMatBlock> CODEC = simpleCodec(BakingMatBlock::new);
     public static final BooleanProperty PROCESSING = BooleanProperty.create("processing");
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final Property<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     protected static final VoxelShape SHAPE = Block.box(1.d, .0d, 1.d, 15.d, 1.d, 15.d);
 
     public BakingMatBlock(BlockBehaviour.Properties properties) {
@@ -71,13 +71,13 @@ public class BakingMatBlock extends BaseEntityBlock implements SimpleWaterlogged
     }
 
     @Override
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
-        if (stateIn.getValue(WATERLOGGED)) {
-            level.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+    public BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess scheduledTickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
+        if (state.getValue(WATERLOGGED)) {
+            scheduledTickAccess.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
-        return facing == Direction.DOWN && !stateIn.canSurvive(level, currentPos)
+        return direction == Direction.DOWN && !state.canSurvive(level, pos)
                 ? Blocks.AIR.defaultBlockState()
-                : super.updateShape(stateIn, facing, facingState, level, currentPos, facingPos);
+                : super.updateShape(state, level, scheduledTickAccess, pos, direction, neighborPos, neighborState, random);
     }
 
     @Override
@@ -95,7 +95,7 @@ public class BakingMatBlock extends BaseEntityBlock implements SimpleWaterlogged
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return Objects.requireNonNull(BuiltInRegistries.BLOCK_ENTITY_TYPE.get(UbesDelightBlockEntityTypes.BAKING_MAT_BAMBOO)).create(pos, state);
+        return Objects.requireNonNull(BuiltInRegistries.BLOCK_ENTITY_TYPE.get(UbesDelightBlockEntityTypes.BAKING_MAT_BAMBOO)).get().value().create(pos, state);
     }
 
     @Override

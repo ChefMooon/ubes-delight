@@ -2,12 +2,13 @@ package com.chefmooon.ubesdelight.data.fabric;
 
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import com.chefmooon.ubesdelight.common.utility.fabric.UbesDelightModels;
-import net.minecraft.data.models.ItemModelGenerators;
-import net.minecraft.data.models.model.ModelLocationUtils;
-import net.minecraft.data.models.model.ModelTemplates;
-import net.minecraft.data.models.model.TextureMapping;
-import net.minecraft.data.models.model.TextureSlot;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.item.ItemModel;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+
+import java.util.function.Supplier;
 
 public class ItemModelGenerator {
     private static ItemModelGenerators GENERATOR;
@@ -148,17 +149,19 @@ public class ItemModelGenerator {
         generateFlatItem(UbesDelightItemsImpl.POLVORONE_CC_STAGE2);
     }
 
-    private static void generateFlatItem(Item item) {
-        GENERATOR.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
+    private static void generateFlatItem(Supplier<Item> item) {
+        GENERATOR.generateFlatItem(item.get(), ModelTemplates.FLAT_ITEM);
     }
 
-    private static void generateFlatHandheldItemFlipped(Item item) {
-        GENERATOR.generateFlatItem(item, UbesDelightModels.FLAT_HANDHELD_ITEM_FLIPPED);
+    private static void generateFlatHandheldItemFlipped(Supplier<Item> item) {
+        GENERATOR.generateFlatItem(item.get(), UbesDelightModels.FLAT_HANDHELD_ITEM_FLIPPED);
     }
 
-    private static void generateRollingPinItem(Item item) {
-        UbesDelightModels.TEMPLATE_ROLLING_PIN_3D.create(ModelLocationUtils.getModelLocation(item),
-                new TextureMapping().put(TextureSlot.CONTENT, ModelLocationUtils.getModelLocation(item, "_3d")),
-                GENERATOR.output);
+    private static void generateRollingPinItem(Supplier<Item> item) {
+        ResourceLocation resourceLocation = UbesDelightModels.TEMPLATE_ROLLING_PIN_3D.create(ModelLocationUtils.getModelLocation(item.get()),
+                new TextureMapping().put(TextureSlot.CONTENT, ModelLocationUtils.getModelLocation(item.get(), "_3d")),
+                GENERATOR.modelOutput);
+        ItemModel.Unbaked model = ItemModelUtils.plainModel(resourceLocation);
+        GENERATOR.itemModelOutput.accept(item.get(), model);
     }
 }

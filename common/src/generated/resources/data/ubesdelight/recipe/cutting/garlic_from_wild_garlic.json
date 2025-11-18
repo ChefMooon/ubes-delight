@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    "ubesdelight:wild_garlic"
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 1,
+        "id": "ubesdelight:garlic"
+      }
+    }
+  ],
+  "tool": "#c:tools/knife"
+}

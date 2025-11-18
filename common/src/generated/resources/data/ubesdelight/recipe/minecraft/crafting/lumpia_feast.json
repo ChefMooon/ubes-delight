@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "ud_leaf_feast",
   "key": {
-    "A": {
-      "item": "ubesdelight:lumpia"
-    },
-    "B": {
-      "tag": "minecraft:leaves"
-    }
+    "A": "ubesdelight:lumpia",
+    "B": "#minecraft:leaves"
   },
   "pattern": [
     "AAA",

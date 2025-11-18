@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -32,8 +33,8 @@ public class LemongrassLeafCropBlock extends CropBlock {
             Block.box(1.d, .0d, 1.d, 15.d, 10.d, 15.d),
             Block.box(1.d, .0d, 1.d, 15.d, 14.d, 15.d)
     };
-    public LemongrassLeafCropBlock() {
-        super(Block.Properties.ofFullCopy(Blocks.WHEAT));
+    public LemongrassLeafCropBlock(BlockBehaviour.Properties properties) {
+        super(properties);
     }
 
     @Override

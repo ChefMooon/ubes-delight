@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    "ubesdelight:ube_cake"
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 7,
+        "id": "ubesdelight:ube_cake_slice"
+      }
+    }
+  ],
+  "tool": "#c:tools/knife"
+}

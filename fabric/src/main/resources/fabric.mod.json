@@ -25,17 +25,11 @@
     "fabric-datagen": [
       "com.chefmooon.ubesdelight.data.fabric.DataGenerationFabric"
     ],
-    "jei_mod_plugin": [
-      "com.chefmooon.ubesdelight.integration.jei.fabric.JEIPluginImpl"
-    ],
     "rei_client": [
-      "com.chefmooon.ubesdelight.integration.rei.fabric.ClientREIPluginImpl"
+      "com.chefmooon.ubesdelight.integration.rei.client.fabric.ClientREIPluginImpl"
     ],
-    "rei_server": [
-      "com.chefmooon.ubesdelight.integration.rei.fabric.ServerREIPluginImpl"
-    ],
-    "emi": [
-      "com.chefmooon.ubesdelight.integration.emi.fabric.EMIPluginImpl"
+    "rei_common": [
+      "com.chefmooon.ubesdelight.integration.rei.fabric.CommonREIPluginImpl"
     ]
   },
   "mixins": [

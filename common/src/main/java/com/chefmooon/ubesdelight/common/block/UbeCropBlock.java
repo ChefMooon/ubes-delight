@@ -1,18 +1,16 @@
 package com.chefmooon.ubesdelight.common.block;
 
-import com.chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import static com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil.getBlock;
 import static com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil.getItem;
 
 public class UbeCropBlock extends CropBlock {
@@ -26,8 +24,8 @@ public class UbeCropBlock extends CropBlock {
             Block.box(.0d, .0d, .0d, 16.d, 8.d, 16.d),
             Block.box(.0d, .0d, .0d, 16.d, 9.d, 16.d)
     };
-    public UbeCropBlock() {
-        super(Block.Properties.ofFullCopy(Blocks.WHEAT));
+    public UbeCropBlock(BlockBehaviour.Properties properties) {
+        super(properties);
     }
 
 //    @Override

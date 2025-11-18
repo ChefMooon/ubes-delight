@@ -7,16 +7,10 @@ import com.chefmooon.ubesdelight.common.registry.UbesDelightShapes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -65,22 +59,22 @@ public class RiceLeafFeastBlock extends SimpleLeafFeastBlock {
     }
 
     @Override
-    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData) {
         if (state.getValue(SERVINGS) == 3) {
-            if (servingItem.get() == BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice"))) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_COOKED_RICE_HALF));
-            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "fried_rice"))) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_FRIED_RICE_HALF));
-            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.SINANGAG)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_SINANGAG_HALF));
+            if (servingItem.get() == BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice")).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_COOKED_RICE_HALF).get());
+            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "fried_rice")).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_FRIED_RICE_HALF).get());
+            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.SINANGAG).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_SINANGAG_HALF).get());
             }
         } else {
-            if (servingItem.get() == BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice"))) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_COOKED_RICE));
-            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "fried_rice"))) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_FRIED_RICE));
-            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.SINANGAG)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_SINANGAG));
+            if (servingItem.get() == BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice")).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_COOKED_RICE).get());
+            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "fried_rice")).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_FRIED_RICE).get());
+            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.SINANGAG).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_SINANGAG).get());
             }
         }
         return new ItemStack(this);

@@ -49,18 +49,18 @@ public class PandesalLeafFeastBlock extends SimpleLeafFeastBlock {
     }
 
     @Override
-    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData) {
         if (state.getValue(SERVINGS) == 3) {
-            if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.PANDESAL)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_PANDESAL_HALF));
-            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.PANDESAL_UBE)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_PANDESAL_UBE_HALF));
+            if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.PANDESAL).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_PANDESAL_HALF).get());
+            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.PANDESAL_UBE).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_PANDESAL_UBE_HALF).get());
             }
         } else {
-            if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.PANDESAL)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_PANDESAL));
-            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.PANDESAL_UBE)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_PANDESAL_UBE));
+            if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.PANDESAL).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_PANDESAL).get());
+            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.PANDESAL_UBE).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_PANDESAL_UBE).get());
             }
         }
         return new ItemStack(this);

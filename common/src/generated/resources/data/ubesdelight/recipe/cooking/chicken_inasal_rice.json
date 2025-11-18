@@ -1,0 +1,13 @@
+{
+  "type": "farmersdelight:cooking",
+  "category": "meals",
+  "experience": 3.0,
+  "ingredients": [
+    "ubesdelight:chicken_inasal",
+    "ubesdelight:sinangag"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:chicken_inasal_rice"
+  }
+}

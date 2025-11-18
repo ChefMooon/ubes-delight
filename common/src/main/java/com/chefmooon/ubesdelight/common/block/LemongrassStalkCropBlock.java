@@ -10,6 +10,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -35,8 +36,8 @@ public class LemongrassStalkCropBlock extends CropBlock {
             Block.box(1.d, .0d, 1.d, 15.d, 16.d, 15.d),
             Block.box(1.d, .0d, 1.d, 15.d, 16.d, 15.d)
     };
-    public LemongrassStalkCropBlock() {
-        super(Block.Properties.ofFullCopy(Blocks.WHEAT).strength(0.2F));
+    public LemongrassStalkCropBlock(BlockBehaviour.Properties properties) {
+        super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(LEMONGRASS_AGE, 0).setValue(SUPPORTING, false));
     }
 
@@ -142,14 +143,14 @@ public class LemongrassStalkCropBlock extends CropBlock {
     }
 
     @Override
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
-        BlockState state = super.updateShape(stateIn, facing, facingState, level, currentPos, facingPos);
-        if (!state.isAir()) {
-            if (facing == Direction.UP) {
-                return state.setValue(SUPPORTING, isSupportingLemongrass(facingState));
+    public BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess scheduledTickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
+        BlockState newState = super.updateShape(state, level, scheduledTickAccess, pos, direction, neighborPos, neighborState, random);
+        if (!newState.isAir()) {
+            if (direction == Direction.UP) {
+                return newState.setValue(SUPPORTING, isSupportingLemongrass(neighborState));
             }
         }
-        return state;
+        return newState;
     }
 
     public boolean isSupportingLemongrass(BlockState topState) {

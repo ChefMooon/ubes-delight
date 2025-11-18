@@ -13,16 +13,18 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.List;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 public class UbesDelightDrinkableBlockItem extends UbesDelightBlockItem {
     public UbesDelightDrinkableBlockItem(Block block, Properties properties, boolean hasFoodEffectTooltip, boolean hasCustomTooltip) {
@@ -35,9 +37,10 @@ public class UbesDelightDrinkableBlockItem extends UbesDelightBlockItem {
             this.affectConsumer(stack, level, consumer);
         }
 
-        ItemStack containerStack = new ItemStack(Objects.requireNonNull(stack.getItem().getCraftingRemainingItem()));
+//        ItemStack containerStack = new ItemStack(Objects.requireNonNull(stack.getItem().getCraftingRemainder()).getItem());
+        ItemStack containerStack = stack.getRecipeRemainder();
         Player player;
-        if (stack.get(DataComponents.FOOD) != null) {
+        if (stack.get(DataComponents.FOOD) != null || stack.get(DataComponents.CONSUMABLE) != null) {
             super.finishUsingItem(stack, level, consumer);
         } else {
             player = consumer instanceof Player ? (Player)consumer : null;
@@ -98,20 +101,19 @@ public class UbesDelightDrinkableBlockItem extends UbesDelightBlockItem {
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
-        return UseAnim.DRINK;
+    public ItemUseAnimation getUseAnimation(ItemStack stack) {
+        return ItemUseAnimation.DRINK;
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag isAdvanced) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         if (Configuration.isFoodEffectTooltip()) { // todo - add new config BlockItem tooltips? V0.2.0
             if (hasCustomTooltip) {
-//                tooltip.add(TextUtils.getTranslatable("tooltip." + this).withStyle(ChatFormatting.DARK_GRAY));
-                tooltip.add(TextUtils.getTranslatable("tooltip.glass_cup").withStyle(ChatFormatting.DARK_GRAY));
+                tooltipAdder.accept(TextUtils.getTranslatable("tooltip.glass_cup").withStyle(ChatFormatting.DARK_GRAY));
             }
 
             if (hasFoodEffectTooltip) {
-                vectorwing.farmersdelight.common.utility.TextUtils.addFoodEffectTooltip(stack, tooltip::add, 1.0F, context.tickRate());
+                vectorwing.farmersdelight.common.utility.TextUtils.addFoodEffectTooltip(stack, tooltipAdder, 1.0F, context.tickRate());
             }
         }
     }

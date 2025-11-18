@@ -13,15 +13,15 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import vectorwing.farmersdelight.refabricated.inventory.ItemStackHandler;
 
-// TODO: portinglib found here
 public class UniversalLeafFeastBlockEntityRenderImpl extends UniversalLeafFeastBlockEntityRender implements BlockEntityRenderer<UniversalLeafFeastBlockEntityImpl> {
     public UniversalLeafFeastBlockEntityRenderImpl(BlockEntityRendererProvider.Context context) {
     }
 
     @Override
-    public void render(UniversalLeafFeastBlockEntityImpl blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+    public void render(UniversalLeafFeastBlockEntityImpl blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, Vec3 cameraPos) {
         BlockState state = blockEntity.getBlockState();
         Direction direction = state.getValue(UniversalLeafFeastBlock.FACING);
         ItemStackHandler inventory = blockEntity.getInventory();

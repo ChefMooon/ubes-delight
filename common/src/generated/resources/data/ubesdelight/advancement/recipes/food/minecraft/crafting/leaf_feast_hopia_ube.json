@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/leaf_feast_hopia_ube"
+        "recipe": "minecraft:minecraft/crafting/leaf_feast_hopia_ube"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ubesdelight:minecraft/crafting/leaf_feast_hopia_ube"
+      "minecraft:minecraft/crafting/leaf_feast_hopia_ube"
     ]
   }
 }

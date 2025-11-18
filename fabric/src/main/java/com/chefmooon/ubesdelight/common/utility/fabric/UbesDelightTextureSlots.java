@@ -1,6 +1,6 @@
 package com.chefmooon.ubesdelight.common.utility.fabric;
 
-import net.minecraft.data.models.model.TextureSlot;
+import net.minecraft.client.data.models.model.TextureSlot;
 
 public class UbesDelightTextureSlots {
     public static final TextureSlot DRINK_FEAST_INSIDE = TextureSlot.create("inside");

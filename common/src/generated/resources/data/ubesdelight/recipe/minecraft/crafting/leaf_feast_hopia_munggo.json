@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "ubesdelight:hopia_munggo"
-    },
-    "B": {
-      "tag": "minecraft:leaves"
-    }
+    "A": "ubesdelight:hopia_munggo",
+    "B": "#minecraft:leaves"
   },
   "pattern": [
     "AAA",

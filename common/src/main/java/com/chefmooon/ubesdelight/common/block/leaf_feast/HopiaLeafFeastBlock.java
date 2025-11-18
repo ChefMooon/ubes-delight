@@ -49,18 +49,18 @@ public class HopiaLeafFeastBlock extends SimpleLeafFeastBlock {
     }
 
     @Override
-    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData) {
         if (state.getValue(SERVINGS) == 3) {
-            if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.HOPIA_MUNGGO)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_HOPIA_MUNGGO_HALF));
-            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.HOPIA_UBE)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_HOPIA_UBE_HALF));
+            if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.HOPIA_MUNGGO).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_HOPIA_MUNGGO_HALF).get());
+            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.HOPIA_UBE).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_HOPIA_UBE_HALF).get());
             }
         } else {
-            if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.HOPIA_MUNGGO)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_HOPIA_MUNGGO));
-            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.HOPIA_UBE)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_HOPIA_UBE));
+            if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.HOPIA_MUNGGO).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_HOPIA_MUNGGO).get());
+            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.HOPIA_UBE).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_HOPIA_UBE).get());
             }
         }
         return new ItemStack(this);

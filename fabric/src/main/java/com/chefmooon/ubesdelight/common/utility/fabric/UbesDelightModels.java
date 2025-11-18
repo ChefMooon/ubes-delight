@@ -1,8 +1,8 @@
 package com.chefmooon.ubesdelight.common.utility.fabric;
 
 import com.chefmooon.ubesdelight.UbesDelight;
-import net.minecraft.data.models.model.ModelTemplate;
-import net.minecraft.data.models.model.TextureSlot;
+import net.minecraft.client.data.models.model.ModelTemplate;
+import net.minecraft.client.data.models.model.TextureSlot;
 
 import java.util.Optional;
 

@@ -3,22 +3,25 @@ package com.chefmooon.ubesdelight.data.fabric.recipe;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
 public class SmeltingRecipes {
 
-    public static void register(RecipeOutput exporter) {
-        RecipeUtil.offerSmeltCampSmokeRecipe(Items.SUGAR, RecipeCategory.FOOD, UbesDelightItemsImpl.SUGAR_BROWN, 0.5F, 200, exporter);
+    public static void register(HolderGetter<Item> holderGetter, HolderLookup.Provider provider, RecipeOutput exporter) {
+        RecipeUtil.offerSmeltCampSmokeRecipe(holderGetter, Items.SUGAR, RecipeCategory.FOOD, UbesDelightItemsImpl.SUGAR_BROWN.get(), 0.5F, 200, exporter);
 
-        RecipeUtil.offerSmeltCampSmokeRecipe(UbesDelightItemsImpl.PANDESAL_RAW, RecipeCategory.FOOD, UbesDelightItemsImpl.PANDESAL, 0.5F, 200, exporter);
-        RecipeUtil.offerSmeltCampSmokeRecipe(UbesDelightItemsImpl.PANDESAL_UBE_RAW, RecipeCategory.FOOD, UbesDelightItemsImpl.PANDESAL_UBE, 0.5F, 200, exporter);
-        RecipeUtil.offerSmeltCampSmokeRecipe(UbesDelightItemsImpl.ENSAYMADA_RAW, RecipeCategory.FOOD, UbesDelightItemsImpl.ENSAYMADA, 0.5F, 200, exporter);
-        RecipeUtil.offerSmeltCampSmokeRecipe(UbesDelightItemsImpl.ENSAYMADA_UBE_RAW, RecipeCategory.FOOD, UbesDelightItemsImpl.ENSAYMADA_UBE, 0.5F, 200, exporter);
-        RecipeUtil.offerSmeltCampSmokeRecipe(UbesDelightItemsImpl.HOPIA_MUNGGO_RAW, RecipeCategory.FOOD, UbesDelightItemsImpl.HOPIA_MUNGGO, 0.5F, 200, exporter);
-        RecipeUtil.offerSmeltCampSmokeRecipe(UbesDelightItemsImpl.HOPIA_UBE_RAW, RecipeCategory.FOOD, UbesDelightItemsImpl.HOPIA_UBE, 0.5F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeRecipe(holderGetter, UbesDelightItemsImpl.PANDESAL_RAW.get(), RecipeCategory.FOOD, UbesDelightItemsImpl.PANDESAL.get(), 0.5F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeRecipe(holderGetter, UbesDelightItemsImpl.PANDESAL_UBE_RAW.get(), RecipeCategory.FOOD, UbesDelightItemsImpl.PANDESAL_UBE.get(), 0.5F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeRecipe(holderGetter, UbesDelightItemsImpl.ENSAYMADA_RAW.get(), RecipeCategory.FOOD, UbesDelightItemsImpl.ENSAYMADA.get(), 0.5F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeRecipe(holderGetter, UbesDelightItemsImpl.ENSAYMADA_UBE_RAW.get(), RecipeCategory.FOOD, UbesDelightItemsImpl.ENSAYMADA_UBE.get(), 0.5F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeRecipe(holderGetter, UbesDelightItemsImpl.HOPIA_MUNGGO_RAW.get(), RecipeCategory.FOOD, UbesDelightItemsImpl.HOPIA_MUNGGO.get(), 0.5F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeRecipe(holderGetter, UbesDelightItemsImpl.HOPIA_UBE_RAW.get(), RecipeCategory.FOOD, UbesDelightItemsImpl.HOPIA_UBE.get(), 0.5F, 200, exporter);
 
-        RecipeUtil.offerSmeltCampSmokeFromTag(CommonTags.C_FOODS_MILK, UbesDelightItemsImpl.MILK_POWDER, 0.2F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeFromTag(holderGetter, CommonTags.C_FOODS_MILK, UbesDelightItemsImpl.MILK_POWDER.get(), 0.2F, 200, exporter);
     }
 }

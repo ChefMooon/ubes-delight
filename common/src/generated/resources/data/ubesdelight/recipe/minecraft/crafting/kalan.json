@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "tag": "minecraft:terracotta"
-    },
-    "B": {
-      "item": "minecraft:campfire"
-    },
-    "C": {
-      "tag": "c:ingots/iron"
-    }
+    "A": "#minecraft:terracotta",
+    "B": "minecraft:campfire",
+    "C": "#c:ingots/iron"
   },
   "pattern": [
     "AAA",

@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "ubesdelight:sinangag"
-    },
-    "B": {
-      "tag": "minecraft:leaves"
-    }
+    "A": "ubesdelight:sinangag",
+    "B": "#minecraft:leaves"
   },
   "pattern": [
     "AAA",

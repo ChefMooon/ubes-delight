@@ -1,0 +1,16 @@
+{
+  "type": "farmersdelight:cooking",
+  "category": "meals",
+  "cookingtime": 100,
+  "experience": 0.5,
+  "ingredients": [
+    "#c:eggs",
+    "#c:eggs",
+    "#c:tea_ingredients/sweet/weak",
+    "ubesdelight:condensed_milk_bottle"
+  ],
+  "result": {
+    "count": 4,
+    "id": "ubesdelight:leche_flan"
+  }
+}

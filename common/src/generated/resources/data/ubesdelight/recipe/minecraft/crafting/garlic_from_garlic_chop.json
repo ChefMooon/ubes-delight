@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "ubesdelight:garlic_chop"
-    },
-    {
-      "item": "ubesdelight:garlic_chop"
-    }
+    "ubesdelight:garlic_chop",
+    "ubesdelight:garlic_chop"
   ],
   "result": {
     "count": 1,

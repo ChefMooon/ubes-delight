@@ -9,15 +9,9 @@
   ],
   "type": "ubesdelight:baking_mat",
   "ingredients": [
-    {
-      "item": "frightsdelight:soul_berry"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "minecraft:wheat"
-    }
+    "frightsdelight:soul_berry",
+    "minecraft:wheat",
+    "minecraft:wheat"
   ],
   "processing_stages": [],
   "result": [
@@ -35,7 +29,5 @@
       }
     }
   ],
-  "tool": {
-    "tag": "c:tools/rolling_pin"
-  }
+  "tool": "#c:tools/rolling_pin"
 }

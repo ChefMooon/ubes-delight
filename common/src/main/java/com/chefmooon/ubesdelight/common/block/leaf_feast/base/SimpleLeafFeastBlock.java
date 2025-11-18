@@ -1,5 +1,6 @@
 package com.chefmooon.ubesdelight.common.block.leaf_feast.base;
 
+import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightDataComponentTypes;
@@ -13,18 +14,23 @@ import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.Consumable;
+import net.minecraft.world.item.component.ConsumableListener;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
@@ -51,17 +57,17 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
     }
 
     @Override
-    public ItemInteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public InteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         ItemStack heldItem = player.getItemInHand(hand);
 
         if (level.isClientSide()) {
             if (heldItem.isEmpty() || heldItem.is(Items.BOWL)) {
                 if (tryRemoveItem(state, level, pos, player, hand).consumesAction()) {
-                    return ItemInteractionResult.SUCCESS;
+                    return InteractionResult.SUCCESS;
                 }
             } else {
                 if (tryAddItem(state, level, pos, player, hand).consumesAction()) {
-                    return ItemInteractionResult.SUCCESS;
+                    return InteractionResult.SUCCESS;
                 }
             }
         }
@@ -73,21 +79,20 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
         }
     }
 
-    protected ItemInteractionResult tryAddItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
+    protected InteractionResult tryAddItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
         int servings = state.getValue(SERVINGS);
 
         if (servings < MAX_SERVINGS) {
             ItemStack heldItem = player.getItemInHand(hand);
             if (heldItem.is(servingItem.get())) {
                 if (state.getValue(LEAF_FEAST_TYPE).getId() == 1 || state.getValue(LEAF_FEAST_TYPE).getId() == 3) {
-                    if (servings >= 3) return ItemInteractionResult.FAIL;
+                    if (servings >= 3) return InteractionResult.FAIL;
                 }
                 level.setBlock(pos, state.setValue(SERVINGS, servings + 1), 3);
                 if (!player.getAbilities().instabuild) {
                     ItemStack itemStack = heldItem.split(1);
                     ItemStack container = ItemStackUtil.getContainer(itemStack);
                     if (!container.isEmpty()) {
-//                        spawnContainer(level, pos, player.getDirection().getOpposite(), container);
                         if (!player.getInventory().add(container)) {
                             player.drop(container, false);
                         }
@@ -95,15 +100,25 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
                 }
                 playAddSound(level, pos);
                 LeafFeastBlock.triggerInsertAdvancement(player);
-                return ItemInteractionResult.SUCCESS;
+                return InteractionResult.SUCCESS;
             }
         }
 
-        return ItemInteractionResult.FAIL;
+        return InteractionResult.FAIL;
     }
 
     public static void tryEat(ItemStack itemStack, Level level, BlockPos pos, Player player) {
-        player.eat(level, itemStack);
+        FoodProperties foodProperties = itemStack.get(DataComponents.FOOD);
+        Consumable consumable = itemStack.get(DataComponents.CONSUMABLE);
+
+        if (foodProperties != null) {
+            level.gameEvent(player, GameEvent.EAT, pos);
+            itemStack.getAllOfType(ConsumableListener.class).forEach(consumableListener -> consumableListener.onConsume(level, player, itemStack, consumable));
+            if (!level.isClientSide && consumable != null) {
+                consumable.onConsumeEffects().forEach(consumeEffect -> consumeEffect.apply(level, itemStack, player));
+            }
+        }
+        level.playSound(null, pos, SoundEvents.GENERIC_EAT.value(), SoundSource.PLAYERS, 0.8F, 0.8F);
         LeafFeastBlock.triggerConsumeAdvancement(player);
     }
 
@@ -119,56 +134,57 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
         return false;
     }
 
-    protected ItemInteractionResult tryRemoveItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
+    protected InteractionResult tryRemoveItem(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
         int servings = state.getValue(SERVINGS);
         ItemStack itemStack = new ItemStack(servingItem.get());
         ItemStack heldItem = player.getItemInHand(hand);
-
         ItemStack container = ItemStackUtil.getContainer(itemStack);
-        if (!player.isShiftKeyDown()) {
-            if (!container.isEmpty()) {
-                if (!container.is(player.getItemInHand(hand).getItem())) {
-                    player.displayClientMessage(TextUtils.getTranslatable("container.bowl"), true);
-                    return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-                } else {
-                    if (!player.isCreative()) heldItem.split(1);
+
+        if (servings >= 1) {
+            if (player.isShiftKeyDown() && heldItem.isEmpty() && player.canEat(itemStack.get(DataComponents.FOOD).canAlwaysEat())) {
+                tryEat(itemStack, level, pos, player);
+                return removeServing(state, level, pos, servings);
+            } else {
+                if (!container.isEmpty()) {
+                    if (!container.is(player.getItemInHand(hand).getItem())) {
+                        player.displayClientMessage(TextUtils.getTranslatable("container.bowl"), true);
+                        return InteractionResult.PASS;
+                    } else {
+                        if (!player.isCreative()) heldItem.split(1);
+                        if (!player.getInventory().add(itemStack)) {
+                            player.drop(itemStack, false);
+                        }
+                        return removeServing(state, level, pos, servings);
+                    }
+                } else if (container.isEmpty() && !heldItem.isEmpty()) {
+                    return InteractionResult.PASS;
+                } else if (heldItem.isEmpty()) {
+                    if (!player.isCreative()) {
+                        if (!player.getInventory().add(itemStack)) {
+                            player.drop(itemStack, false);
+                        }
+                    }
+                    return removeServing(state, level, pos, servings);
                 }
-            } else if (container.isEmpty() && !heldItem.isEmpty()) {
-                return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
             }
         }
 
-        if (servings > 1) {
-            level.setBlock(pos, state.setValue(SERVINGS, servings - 1), 3);
-            playRemoveSound(level, pos);
-            if (!player.isCreative()) {
-                if (player.isShiftKeyDown() && (player.getFoodData().needsFood() || Objects.requireNonNull(itemStack.get(DataComponents.FOOD)).canAlwaysEat())) {
-                    tryEat(itemStack, level, pos, player);
-                } else {
-                    if (!player.getInventory().add(itemStack)) {
-                        player.drop(itemStack, false);
-                    }
-                }
-            }
-            return ItemInteractionResult.SUCCESS;
-        } else if (servings == 1) {
-            Block block = BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST);
-            level.setBlock(pos, getTransformState(block, state), 3);
-            level.updateNeighbourForOutputSignal(pos, block);
-            playRemoveSound(level, pos);
-            if (!player.isCreative()) {
-                if (player.isShiftKeyDown() && (player.getFoodData().needsFood() || Objects.requireNonNull(itemStack.get(DataComponents.FOOD)).canAlwaysEat())) {
-                    tryEat(itemStack, level, pos, player);
-                } else {
-                    if (!player.getInventory().add(itemStack)) {
-                        player.drop(itemStack, false);
-                    }
-                }
-            }
-            return ItemInteractionResult.SUCCESS;
-        }
+        return InteractionResult.FAIL;
+    }
 
-        return ItemInteractionResult.FAIL;
+    private InteractionResult removeServing(BlockState state, Level level, BlockPos pos, int servings) {
+        if (servings >= 1) {
+            if (servings > 1) {
+                level.setBlock(pos, state.setValue(SERVINGS, servings - 1), 3);
+            } else {
+                Block block = BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST);
+                level.setBlock(pos, getTransformState(block, state), 3);
+                level.updateNeighbourForOutputSignal(pos, block);
+            }
+            playRemoveSound(level, pos);
+            return InteractionResult.SUCCESS;
+        }
+        return InteractionResult.FAIL;
     }
 
     @Override
@@ -205,8 +221,8 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
         BlockState rightBlockState = blockGetter.getBlockState(blockPos.relative(connectDirections.getSecond()));
         BlockState leftBlockState = blockGetter.getBlockState(blockPos.relative(connectDirections.getFirst()));
 
-        int servings = context.getItemInHand().has(BuiltInRegistries.DATA_COMPONENT_TYPE.get(UbesDelightDataComponentTypes.SIMPLE_LEAF_FEAST_SERVINGS))
-                ? context.getItemInHand().get((DataComponentType<Integer>) BuiltInRegistries.DATA_COMPONENT_TYPE.get(UbesDelightDataComponentTypes.SIMPLE_LEAF_FEAST_SERVINGS))
+        int servings = context.getItemInHand().has(BuiltInRegistries.DATA_COMPONENT_TYPE.get(UbesDelightDataComponentTypes.SIMPLE_LEAF_FEAST_SERVINGS).get().value())
+                ? context.getItemInHand().get((DataComponentType<Integer>) BuiltInRegistries.DATA_COMPONENT_TYPE.get(UbesDelightDataComponentTypes.SIMPLE_LEAF_FEAST_SERVINGS).get().value())
                 : MAX_SERVINGS;
         LeafFeastTypes leafFeastType = servings > 3
                 ? placementConnectsTo(facing, leftBlockState) || placementConnectsTo(facing, rightBlockState) ? LeafFeastTypes.MIDDLE : LeafFeastTypes.BASE
@@ -216,8 +232,8 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
     }
 
     @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-        return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
+    public BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess scheduledTickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
+        return super.updateShape(state, level, scheduledTickAccess, pos, direction, neighborPos, neighborState, random);
     }
 
     @Override

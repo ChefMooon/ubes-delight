@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    "ubesdelight:halo_halo_feast"
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 4,
+        "id": "ubesdelight:halo_halo"
+      }
+    }
+  ],
+  "tool": "#c:tools/knife"
+}

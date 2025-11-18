@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.DispenserBlock;
 
 public class DrinkableFeastDispenseBehaviorImpl {
     public static void register() {
-        DispenserBlock.registerBehavior(UbesDelightItemsImpl.HALO_HALO, new DrinkableFeastDispenseBehavior());
-        DispenserBlock.registerBehavior(UbesDelightItemsImpl.MILK_TEA_UBE, new DrinkableFeastDispenseBehavior());
+        DispenserBlock.registerBehavior(UbesDelightItemsImpl.HALO_HALO.get(), new DrinkableFeastDispenseBehavior());
+        DispenserBlock.registerBehavior(UbesDelightItemsImpl.MILK_TEA_UBE.get(), new DrinkableFeastDispenseBehavior());
     }
 }

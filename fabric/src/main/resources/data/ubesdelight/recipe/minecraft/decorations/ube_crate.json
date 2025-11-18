@@ -1,10 +1,7 @@
 {
   "fabric:load_conditions": [
     {
-      "condition": "ubesdelight:ud_crates_enabled",
-      "values": [
-        "true"
-      ]
+      "condition": "ubesdelight:ud_crates_enabled"
     }
   ],
   "type": "minecraft:crafting_shaped",
@@ -15,9 +12,7 @@
     "###"
   ],
   "key": {
-    "#": {
-      "item": "ubesdelight:ube"
-    }
+    "#": "ubesdelight:ube"
   },
   "result": {
     "count": 1,

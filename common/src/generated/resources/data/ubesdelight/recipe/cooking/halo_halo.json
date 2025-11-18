@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "category": "drinks",
+  "experience": 1.0,
+  "ingredients": [
+    "#c:crops/ube",
+    "ubesdelight:leche_flan",
+    "ubesdelight:condensed_milk_bottle",
+    "minecraft:sweet_berries",
+    "minecraft:glow_berries",
+    "minecraft:melon_slice"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:halo_halo"
+  }
+}

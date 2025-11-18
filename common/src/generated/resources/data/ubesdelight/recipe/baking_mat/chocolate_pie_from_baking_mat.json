@@ -1,33 +1,15 @@
 {
   "type": "ubesdelight:baking_mat",
   "ingredients": [
-    {
-      "tag": "c:foods/milk"
-    },
-    {
-      "tag": "c:foods/milk"
-    },
-    {
-      "tag": "c:foods/milk"
-    },
-    {
-      "item": "minecraft:cocoa_beans"
-    },
-    {
-      "item": "farmersdelight:pie_crust"
-    },
-    {
-      "item": "minecraft:cocoa_beans"
-    },
-    {
-      "item": "minecraft:cocoa_beans"
-    },
-    {
-      "tag": "c:tea_ingredients/sweet/weak"
-    },
-    {
-      "tag": "c:tea_ingredients/sweet/weak"
-    }
+    "#c:foods/milk",
+    "#c:foods/milk",
+    "#c:foods/milk",
+    "minecraft:cocoa_beans",
+    "farmersdelight:pie_crust",
+    "minecraft:cocoa_beans",
+    "minecraft:cocoa_beans",
+    "#c:tea_ingredients/sweet/weak",
+    "#c:tea_ingredients/sweet/weak"
   ],
   "processing_stages": [],
   "result": [
@@ -45,7 +27,5 @@
       }
     }
   ],
-  "tool": {
-    "tag": "c:tools/rolling_pin"
-  }
+  "tool": "#c:tools/rolling_pin"
 }

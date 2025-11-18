@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "category": "meals",
+  "experience": 4.0,
+  "ingredients": [
+    "#c:foods/raw_chicken",
+    "#c:crops/grain",
+    "#c:crops/garlic",
+    "#c:crops/ginger",
+    "#c:crops/lemongrass",
+    "ubesdelight:fish_sauce_bottle"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:arroz_caldo"
+  }
+}

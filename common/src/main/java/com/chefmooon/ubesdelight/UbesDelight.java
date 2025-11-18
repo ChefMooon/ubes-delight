@@ -1,8 +1,7 @@
 package com.chefmooon.ubesdelight;
 
 import com.chefmooon.ubesdelight.common.Configuration;
-import com.chefmooon.ubesdelight.common.registry.UbesDelightAdvancements;
-import com.chefmooon.ubesdelight.common.registry.UbesDelightSounds;
+import com.chefmooon.ubesdelight.common.registry.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dev.architectury.injectables.annotations.ExpectPlatform;
@@ -25,9 +24,17 @@ public class UbesDelight {
     }
 
     public static void init() {
-        UbesDelightSounds.init();
-        UbesDelightAdvancements.init();
         Configuration.init();
+
+        UbesDelightSounds.init();
+        UbesDelightBlocks.init();
+        UbesDelightItems.init();
+        UbesDelightBlockEntityTypes.init();
+        UbesDelightBiomeFeatures.init();
+        UbesDelightBiomeModifiers.init();
+        UbesDelightPlacementModifiers.init();
+        UbesDelightAdvancements.init();
+        UbesDelightRecipeBookCategories.init();
     }
 
     @ExpectPlatform

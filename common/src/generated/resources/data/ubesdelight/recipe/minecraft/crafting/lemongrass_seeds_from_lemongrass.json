@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "ubesdelight:lemongrass"
-    }
+    "ubesdelight:lemongrass"
   ],
   "result": {
     "count": 1,

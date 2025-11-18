@@ -9,18 +9,18 @@ import net.minecraft.world.level.block.Block;
 
 public class BuiltInRegistryUtil {
     public static Item getItem(ResourceLocation resourceLocation) {
-        return BuiltInRegistries.ITEM.get(resourceLocation);
+        return BuiltInRegistries.ITEM.get(resourceLocation).get().value();
     }
 
     public static ItemStack getItemStack(ResourceLocation resourceLocation) {
-        return new ItemStack(BuiltInRegistries.ITEM.get(resourceLocation));
+        return new ItemStack(BuiltInRegistries.ITEM.get(resourceLocation).get());
     }
 
     public static ItemLike getItemLike(ResourceLocation resourceLocation) {
-        return () -> BuiltInRegistries.ITEM.get(resourceLocation);
+        return () -> BuiltInRegistries.ITEM.get(resourceLocation).get().value();
     }
 
     public static Block getBlock(ResourceLocation resourceLocation) {
-        return BuiltInRegistries.BLOCK.get(resourceLocation);
+        return BuiltInRegistries.BLOCK.get(resourceLocation).get().value();
     }
 }

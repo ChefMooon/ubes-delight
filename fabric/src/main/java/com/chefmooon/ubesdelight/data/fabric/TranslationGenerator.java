@@ -40,7 +40,7 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(MOD_ID + ".container.punch_bowl", "Glass Bottle Required.");
         translationBuilder.add(MOD_ID + ".container.bowl", "Bowl Required.");
 
-        translationBuilder.add(TOOLTIP + UbesDelightItemsImpl.KALAN.getDescriptionId(), "Traditional Filipino Clay Oven.");
+        translationBuilder.add(TOOLTIP + UbesDelightItemsImpl.KALAN.get().getDescriptionId(), "Traditional Filipino Clay Oven.");
         translationBuilder.add(TOOLTIP + "knife", "Knife Required.");
 
         translationBuilder.add(TOOLTIP + "baking_mat.invalid_item", "Invalid Items");
@@ -48,166 +48,168 @@ public class TranslationGenerator extends FabricLanguageProvider {
 
         translationBuilder.add(TOOLTIP + "glass_cup", "Shift-right-click to place. Right-click with a tool to rotate.");
 
-        translationBuilder.add(UbesDelightBlocksImpl.POTTED_UBE, "Potted Wild Ube");
-        translationBuilder.add(UbesDelightBlocksImpl.POTTED_GARLIC, "Potted Wild Garlic");
-        translationBuilder.add(UbesDelightBlocksImpl.POTTED_GINGER, "Potted Wild Ginger");
+        translationBuilder.add(UbesDelightBlocksImpl.POTTED_UBE.get(), "Potted Wild Ube");
+        translationBuilder.add(UbesDelightBlocksImpl.POTTED_GARLIC.get(), "Potted Wild Garlic");
+        translationBuilder.add(UbesDelightBlocksImpl.POTTED_GINGER.get(), "Potted Wild Ginger");
 
-        translationBuilder.add(UbesDelightItemsImpl.KALAN, "Kalan");
-        translationBuilder.add(UbesDelightItemsImpl.BAKING_MAT_BAMBOO, "Bamboo Baking Mat");
+        translationBuilder.add(UbesDelightBlocksImpl.KALAN.get(), "Kalan");
+        translationBuilder.add(UbesDelightBlocksImpl.BAKING_MAT_BAMBOO.get(), "Bamboo Baking Mat");
 
-        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_WOOD, "Wood Rolling Pin");
-        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_IRON, "Iron Rolling Pin");
-        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_GOLD, "Gold Rolling Pin");
-        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND, "Diamond Rolling Pin");
-        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE, "Netherite Rolling Pin");
+        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_WOOD.get(), "Wood Rolling Pin");
+        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_IRON.get(), "Iron Rolling Pin");
+        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_GOLD.get(), "Gold Rolling Pin");
+        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND.get(), "Diamond Rolling Pin");
+        translationBuilder.add(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE.get(), "Netherite Rolling Pin");
 
-        translationBuilder.add(UbesDelightItemsImpl.UBE_CRATE, "Ube Crate");
-        translationBuilder.add(UbesDelightItemsImpl.GARLIC_CRATE, "Garlic Crate");
-        translationBuilder.add(UbesDelightItemsImpl.GINGER_CRATE, "Ginger Crate");
-        translationBuilder.add(UbesDelightItemsImpl.LEMONGRASS_CRATE, "Lemongrass Crate");
+        translationBuilder.add(UbesDelightItemsImpl.UBE_CRATE.get(), "Ube Crate");
+        translationBuilder.add(UbesDelightItemsImpl.GARLIC_CRATE.get(), "Garlic Crate");
+        translationBuilder.add(UbesDelightItemsImpl.GINGER_CRATE.get(), "Ginger Crate");
+        translationBuilder.add(UbesDelightItemsImpl.LEMONGRASS_CRATE.get(), "Lemongrass Crate");
 
-        translationBuilder.add(UbesDelightItemsImpl.WILD_UBE, "Wild Ube");
-        translationBuilder.add(UbesDelightItemsImpl.WILD_GARLIC, "Wild Garlic");
-        translationBuilder.add(UbesDelightItemsImpl.WILD_GINGER, "Wild Ginger");
-        translationBuilder.add(UbesDelightItemsImpl.WILD_LEMONGRASS, "Wild Lemongrass");
+        translationBuilder.add(UbesDelightItemsImpl.WILD_UBE.get(), "Wild Ube");
+        translationBuilder.add(UbesDelightItemsImpl.WILD_GARLIC.get(), "Wild Garlic");
+        translationBuilder.add(UbesDelightItemsImpl.WILD_GINGER.get(), "Wild Ginger");
+        translationBuilder.add(UbesDelightItemsImpl.WILD_LEMONGRASS.get(), "Wild Lemongrass");
 
-        translationBuilder.add(UbesDelightItemsImpl.SINANGAG, "Sinangag");
-        translationBuilder.add(UbesDelightItemsImpl.KINILAW, "Kinilaw");
-        translationBuilder.add(UbesDelightItemsImpl.LUMPIA, "Lumpia");
-        translationBuilder.add(UbesDelightItemsImpl.TOCINO, "Tocino");
-        translationBuilder.add(UbesDelightItemsImpl.CHICKEN_INASAL, "Chicken Inasal");
+        translationBuilder.add(UbesDelightItemsImpl.SINANGAG.get(), "Sinangag");
+        translationBuilder.add(UbesDelightItemsImpl.KINILAW.get(), "Kinilaw");
+        translationBuilder.add(UbesDelightItemsImpl.LUMPIA.get(), "Lumpia");
+        translationBuilder.add(UbesDelightItemsImpl.TOCINO.get(), "Tocino");
+        translationBuilder.add(UbesDelightItemsImpl.CHICKEN_INASAL.get(), "Chicken Inasal");
 
-        translationBuilder.add(UbesDelightItemsImpl.CHICKEN_INASAL_RICE, "Chicken Inasal Plate");
-        translationBuilder.add(UbesDelightItemsImpl.TOSILOG, "Tosilog");
-        translationBuilder.add(UbesDelightItemsImpl.BANGSILOG, "Bangsilog");
-        translationBuilder.add(UbesDelightItemsImpl.SISIG, "Sisig");
-        translationBuilder.add(UbesDelightItemsImpl.BULALO, "Bulalo");
-        translationBuilder.add(UbesDelightItemsImpl.ARROZ_CALDO, "Arroz Caldo");
-        translationBuilder.add(UbesDelightItemsImpl.MECHADO, "Mechado");
+        translationBuilder.add(UbesDelightItemsImpl.CHICKEN_INASAL_RICE.get(), "Chicken Inasal Plate");
+        translationBuilder.add(UbesDelightItemsImpl.TOSILOG.get(), "Tosilog");
+        translationBuilder.add(UbesDelightItemsImpl.BANGSILOG.get(), "Bangsilog");
+        translationBuilder.add(UbesDelightItemsImpl.SISIG.get(), "Sisig");
+        translationBuilder.add(UbesDelightItemsImpl.BULALO.get(), "Bulalo");
+        translationBuilder.add(UbesDelightItemsImpl.ARROZ_CALDO.get(), "Arroz Caldo");
+        translationBuilder.add(UbesDelightItemsImpl.MECHADO.get(), "Mechado");
 
-        translationBuilder.add(UbesDelightItemsImpl.POISONOUS_UBE, "Poisonous Ube");
-        translationBuilder.add(UbesDelightItemsImpl.UBE, "Ube");
-        translationBuilder.add(UbesDelightItemsImpl.GARLIC, "Garlic");
-        translationBuilder.add(UbesDelightItemsImpl.GINGER, "Ginger");
-        translationBuilder.add(UbesDelightItemsImpl.LEMONGRASS, "Lemongrass");
-        translationBuilder.add(UbesDelightItemsImpl.LEMONGRASS_SEEDS, "Lemongrass Seeds");
+        translationBuilder.add(UbesDelightItemsImpl.POISONOUS_UBE.get(), "Poisonous Ube");
+        translationBuilder.add(UbesDelightItemsImpl.UBE.get(), "Ube");
+        translationBuilder.add(UbesDelightItemsImpl.GARLIC.get(), "Garlic");
+        translationBuilder.add(UbesDelightItemsImpl.GINGER.get(), "Ginger");
+        translationBuilder.add(UbesDelightItemsImpl.LEMONGRASS.get(), "Lemongrass");
+        translationBuilder.add(UbesDelightItemsImpl.LEMONGRASS_SEEDS.get(), "Lemongrass Seeds");
 
-        translationBuilder.add(UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE, "Condensed Milk Bottle");
-        translationBuilder.add(UbesDelightItemsImpl.FISH_SAUCE_BOTTLE, "Fish Sauce Bottle");
-        translationBuilder.add(UbesDelightItemsImpl.MILK_POWDER, "Milk Powder");
-        translationBuilder.add(UbesDelightItemsImpl.SUGAR_BROWN, "Brown Sugar");
-        translationBuilder.add(UbesDelightItemsImpl.LUMPIA_WRAPPER, "Lumpia Wrapper");
+        translationBuilder.add(UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE.get(), "Condensed Milk Bottle");
+        translationBuilder.add(UbesDelightItemsImpl.FISH_SAUCE_BOTTLE.get(), "Fish Sauce Bottle");
+        translationBuilder.add(UbesDelightItemsImpl.MILK_POWDER.get(), "Milk Powder");
+        translationBuilder.add(UbesDelightItemsImpl.SUGAR_BROWN.get(), "Brown Sugar");
+        translationBuilder.add(UbesDelightItemsImpl.LUMPIA_WRAPPER.get(), "Lumpia Wrapper");
 
-        translationBuilder.add(UbesDelightItemsImpl.GARLIC_CHOP, "Chopped Garlic");
-        translationBuilder.add(UbesDelightItemsImpl.GINGER_CHOP, "Chopped Ginger");
+        translationBuilder.add(UbesDelightItemsImpl.GARLIC_CHOP.get(), "Chopped Garlic");
+        translationBuilder.add(UbesDelightItemsImpl.GINGER_CHOP.get(), "Chopped Ginger");
 
-        translationBuilder.add(UbesDelightItemsImpl.LECHE_FLAN, "Leche Flan Slice");
-        translationBuilder.add(UbesDelightItemsImpl.COOKIE_UBE, "Ube Cookie");
-        translationBuilder.add(UbesDelightItemsImpl.COOKIE_GINGER, "Ginger Cookie");
+        translationBuilder.add(UbesDelightItemsImpl.LECHE_FLAN.get(), "Leche Flan Slice");
+        translationBuilder.add(UbesDelightItemsImpl.COOKIE_UBE.get(), "Ube Cookie");
+        translationBuilder.add(UbesDelightItemsImpl.COOKIE_GINGER.get(), "Ginger Cookie");
 
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE, "Polvorone");
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_PINIPIG, "Pinipig Polvorone");
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_UBE, "Ube Polvorone");
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_CC, "Cookies and Cream Polvorone");
-        translationBuilder.add(UbesDelightItemsImpl.RAW_POLVORONE, "Raw Polvorone");
-        translationBuilder.add(UbesDelightItemsImpl.RAW_POLVORONE_PINIPIG, "Raw Pinipig Polvorone");
-        translationBuilder.add(UbesDelightItemsImpl.RAW_POLVORONE_UBE, "Raw Ube Polvorone");
-        translationBuilder.add(UbesDelightItemsImpl.RAW_POLVORONE_CC, "Raw Cookies and Cream Polvorone");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE.get(), "Polvorone");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_PINIPIG.get(), "Pinipig Polvorone");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_UBE.get(), "Ube Polvorone");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_CC.get(), "Cookies and Cream Polvorone");
+        translationBuilder.add(UbesDelightItemsImpl.RAW_POLVORONE.get(), "Raw Polvorone");
+        translationBuilder.add(UbesDelightItemsImpl.RAW_POLVORONE_PINIPIG.get(), "Raw Pinipig Polvorone");
+        translationBuilder.add(UbesDelightItemsImpl.RAW_POLVORONE_UBE.get(), "Raw Ube Polvorone");
+        translationBuilder.add(UbesDelightItemsImpl.RAW_POLVORONE_CC.get(), "Raw Cookies and Cream Polvorone");
 
-        translationBuilder.add(UbesDelightItemsImpl.LECHE_FLAN_FEAST, "Leche Flan");
-        translationBuilder.add(UbesDelightItemsImpl.HALO_HALO_FEAST, "Bowl of Halo Halo");
-        translationBuilder.add(UbesDelightItemsImpl.MILK_TEA_UBE_FEAST, "Bowl of Ube Milk Tea");
-        translationBuilder.add(UbesDelightItemsImpl.LUMPIA_FEAST, "Lumpia Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LECHE_FLAN_FEAST.get(), "Leche Flan");
+        translationBuilder.add(UbesDelightItemsImpl.HALO_HALO_FEAST.get(), "Bowl of Halo Halo");
+        translationBuilder.add(UbesDelightItemsImpl.HALO_HALO.get(), "Halo Halo");
+        translationBuilder.add(UbesDelightItemsImpl.MILK_TEA_UBE_FEAST.get(), "Bowl of Ube Milk Tea");
+        translationBuilder.add(UbesDelightItemsImpl.MILK_TEA_UBE.get(), "Ube Milk Tea");
+        translationBuilder.add(UbesDelightItemsImpl.LUMPIA_FEAST.get(), "Lumpia Leaf Feast");
 
-        translationBuilder.add(UbesDelightItemsImpl.UBE_CAKE, "Ube Cake");
-        translationBuilder.add(UbesDelightItemsImpl.UBE_CAKE_SLICE, "Ube Cake Slice");
+        translationBuilder.add(UbesDelightItemsImpl.UBE_CAKE.get(), "Ube Cake");
+        translationBuilder.add(UbesDelightItemsImpl.UBE_CAKE_SLICE.get(), "Ube Cake Slice");
 
-        translationBuilder.add(UbesDelightItemsImpl.PANDESAL, "Pandesal");
-        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_UBE, "Ube Pandesal");
-        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA, "Ensaymada");
-        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_UBE, "Ube Ensaymada");
-        translationBuilder.add(UbesDelightItemsImpl.HOPIA_MUNGGO, "Hopia Munggo");
-        translationBuilder.add(UbesDelightItemsImpl.HOPIA_UBE, "Hopia Ube");
+        translationBuilder.add(UbesDelightItemsImpl.PANDESAL.get(), "Pandesal");
+        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_UBE.get(), "Ube Pandesal");
+        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA.get(), "Ensaymada");
+        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_UBE.get(), "Ube Ensaymada");
+        translationBuilder.add(UbesDelightItemsImpl.HOPIA_MUNGGO.get(), "Hopia Munggo");
+        translationBuilder.add(UbesDelightItemsImpl.HOPIA_UBE.get(), "Hopia Ube");
 
-        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_STAGE0, "Pandesal Stage 0");
-        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_STAGE1, "Pandesal Stage 1");
-        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_STAGE2, "Pandesal Stage 2");
-        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_RAW, "Raw Pandesal");
+        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_STAGE0.get(), "Pandesal Stage 0");
+        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_STAGE1.get(), "Pandesal Stage 1");
+        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_STAGE2.get(), "Pandesal Stage 2");
+        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_RAW.get(), "Raw Pandesal");
 
-        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_UBE_STAGE0, "Ube Pandesal Stage 0");
-        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_UBE_STAGE1, "Ube Pandesal Stage 1");
-        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_UBE_STAGE2, "Ube Pandesal Stage 2");
-        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_UBE_RAW, "Raw Ube Pandesal");
+        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_UBE_STAGE0.get(), "Ube Pandesal Stage 0");
+        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_UBE_STAGE1.get(), "Ube Pandesal Stage 1");
+        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_UBE_STAGE2.get(), "Ube Pandesal Stage 2");
+        translationBuilder.add(UbesDelightItemsImpl.PANDESAL_UBE_RAW.get(), "Raw Ube Pandesal");
 
-        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_STAGE0, "Ensaymada Stage 0");
-        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_STAGE1, "Ensaymada Stage 1");
-        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_STAGE2, "Ensaymada Stage 2");
-        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_STAGE3, "Ensaymada Stage 3");
-        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_RAW, "Raw Ensaymada");
+        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_STAGE0.get(), "Ensaymada Stage 0");
+        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_STAGE1.get(), "Ensaymada Stage 1");
+        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_STAGE2.get(), "Ensaymada Stage 2");
+        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_STAGE3.get(), "Ensaymada Stage 3");
+        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_RAW.get(), "Raw Ensaymada");
 
-        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE0, "Ube Ensaymada Stage 0");
-        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE1, "Ube Ensaymada Stage 1");
-        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE2, "Ube Ensaymada Stage 2");
-        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE3, "Ube Ensaymada Stage 3");
-        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_UBE_RAW, "Raw Ube Ensaymada");
+        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE0.get(), "Ube Ensaymada Stage 0");
+        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE1.get(), "Ube Ensaymada Stage 1");
+        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE2.get(), "Ube Ensaymada Stage 2");
+        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE3.get(), "Ube Ensaymada Stage 3");
+        translationBuilder.add(UbesDelightItemsImpl.ENSAYMADA_UBE_RAW.get(), "Raw Ube Ensaymada");
 
-        translationBuilder.add(UbesDelightItemsImpl.HOPIA_MUNGGO_STAGE0, "Hopia Munggo Stage 0");
-        translationBuilder.add(UbesDelightItemsImpl.HOPIA_MUNGGO_STAGE1, "Hopia Munggo Stage 1");
-        translationBuilder.add(UbesDelightItemsImpl.HOPIA_MUNGGO_STAGE2, "Hopia Munggo Stage 2");
-        translationBuilder.add(UbesDelightItemsImpl.HOPIA_MUNGGO_RAW, "Raw Hopia Munggo");
+        translationBuilder.add(UbesDelightItemsImpl.HOPIA_MUNGGO_STAGE0.get(), "Hopia Munggo Stage 0");
+        translationBuilder.add(UbesDelightItemsImpl.HOPIA_MUNGGO_STAGE1.get(), "Hopia Munggo Stage 1");
+        translationBuilder.add(UbesDelightItemsImpl.HOPIA_MUNGGO_STAGE2.get(), "Hopia Munggo Stage 2");
+        translationBuilder.add(UbesDelightItemsImpl.HOPIA_MUNGGO_RAW.get(), "Raw Hopia Munggo");
 
-        translationBuilder.add(UbesDelightItemsImpl.HOPIA_UBE_STAGE0, "Hopia Ube Stage 0");
-        translationBuilder.add(UbesDelightItemsImpl.HOPIA_UBE_STAGE1, "Hopia Ube Stage 1");
-        translationBuilder.add(UbesDelightItemsImpl.HOPIA_UBE_STAGE2, "Hopia Ube Stage 2");
-        translationBuilder.add(UbesDelightItemsImpl.HOPIA_UBE_RAW, "Raw Hopia Ube");
+        translationBuilder.add(UbesDelightItemsImpl.HOPIA_UBE_STAGE0.get(), "Hopia Ube Stage 0");
+        translationBuilder.add(UbesDelightItemsImpl.HOPIA_UBE_STAGE1.get(), "Hopia Ube Stage 1");
+        translationBuilder.add(UbesDelightItemsImpl.HOPIA_UBE_STAGE2.get(), "Hopia Ube Stage 2");
+        translationBuilder.add(UbesDelightItemsImpl.HOPIA_UBE_RAW.get(), "Raw Hopia Ube");
 
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_STAGE0, "Polvorone Stage 0");
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_STAGE1, "Polvorone Stage 1");
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_STAGE2, "Polvorone Stage 2");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_STAGE0.get(), "Polvorone Stage 0");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_STAGE1.get(), "Polvorone Stage 1");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_STAGE2.get(), "Polvorone Stage 2");
 
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_PINIPIG_STAGE0, "Pinipig Polvorone Stage 0");
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_PINIPIG_STAGE1, "Pinipig Polvorone Stage 1");
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_PINIPIG_STAGE2, "Pinipig Polvorone Stage 2");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_PINIPIG_STAGE0.get(), "Pinipig Polvorone Stage 0");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_PINIPIG_STAGE1.get(), "Pinipig Polvorone Stage 1");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_PINIPIG_STAGE2.get(), "Pinipig Polvorone Stage 2");
 
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_UBE_STAGE0, "Ube Polvorone Stage 0");
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_UBE_STAGE1, "Ube Polvorone Stage 1");
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_UBE_STAGE2, "Ube Polvorone Stage 2");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_UBE_STAGE0.get(), "Ube Polvorone Stage 0");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_UBE_STAGE1.get(), "Ube Polvorone Stage 1");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_UBE_STAGE2.get(), "Ube Polvorone Stage 2");
 
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_CC_STAGE0, "Cookies and Cream Polvorone Stage 0");
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_CC_STAGE1, "Cookies and Cream Polvorone Stage 1");
-        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_CC_STAGE2, "Cookies and Cream Polvorone Stage 2");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_CC_STAGE0.get(), "Cookies and Cream Polvorone Stage 0");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_CC_STAGE1.get(), "Cookies and Cream Polvorone Stage 1");
+        translationBuilder.add(UbesDelightItemsImpl.POLVORONE_CC_STAGE2.get(), "Cookies and Cream Polvorone Stage 2");
 
-        translationBuilder.add(UbesDelightBlocksImpl.UBE_CROP, "Ube Crop");
-        translationBuilder.add(UbesDelightBlocksImpl.GARLIC_CROP, "Garlic Crop");
-        translationBuilder.add(UbesDelightBlocksImpl.GINGER_CROP, "Ginger Crop");
+        translationBuilder.add(UbesDelightBlocksImpl.UBE_CROP.get(), "Ube Crop");
+        translationBuilder.add(UbesDelightBlocksImpl.GARLIC_CROP.get(), "Garlic Crop");
+        translationBuilder.add(UbesDelightBlocksImpl.GINGER_CROP.get(), "Ginger Crop");
 
-        translationBuilder.add(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP, "Lemongrass Stalk");
-        translationBuilder.add(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP, "Lemongrass Leaves");
+        translationBuilder.add(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP.get(), "Lemongrass Stalk");
+        translationBuilder.add(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get(), "Lemongrass Leaves");
 
-        translationBuilder.add(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO, "Halo Halo");
-        translationBuilder.add(UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE, "Ube Milk Tea");
+        translationBuilder.add(UbesDelightBlocksImpl.GLASS_CUP_HALO_HALO.get(), "Halo Halo");
+        translationBuilder.add(UbesDelightBlocksImpl.GLASS_CUP_MILK_TEA_UBE.get(), "Ube Milk Tea");
 
-        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST, "Leaf Feast");
-        translationBuilder.add(UbesDelightBlocksImpl.UNIVERSAL_LEAF_FEAST, "Leaf Feast");
-        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA, "Ensaymada Leaf Feast");
-        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE, "Ube Ensaymada Leaf Feast");
-        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL, "Pandesal Leaf Feast");
-        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE, "Ube Pandesal Leaf Feast");
-        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO, "Hopia Munggo Leaf Feast");
-        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE, "Hopia Ube Leaf Feast");
-        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_COOKED_RICE, "Cooked Rice Leaf Feast");
-        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_FRIED_RICE, "Fried Rice Leaf Feast");
-        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_SINANGAG, "Sinangag Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST.get(), "Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.UNIVERSAL_LEAF_FEAST.get(), "Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA.get(), "Ensaymada Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_ENSAYMADA_UBE.get(), "Ube Ensaymada Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL.get(), "Pandesal Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_PANDESAL_UBE.get(), "Ube Pandesal Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_MUNGGO.get(), "Hopia Munggo Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_HOPIA_UBE.get(), "Hopia Ube Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_COOKED_RICE.get(), "Cooked Rice Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_FRIED_RICE.get(), "Fried Rice Leaf Feast");
+        translationBuilder.add(UbesDelightBlocksImpl.LEAF_FEAST_SINANGAG.get(), "Sinangag Leaf Feast");
 
-        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF, "Ensaymada Half Leaf Feast");
-        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE_HALF, "Ube Ensaymada Half Leaf Feast");
-        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_HALF, "Pandesal Half Leaf Feast");
-        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE_HALF, "Ube Pandesal Half Leaf Feast");
-        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF, "Hopia Munggo Half Leaf Feast");
-        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF, "Hopia Ube Half Leaf Feast");
-        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF, "Cooked Rice Half Leaf Feast");
-        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF, "Fried Rice Half Leaf Feast");
-        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF, "Sinangag Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF.get(), "Ensaymada Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE_HALF.get(), "Ube Ensaymada Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_HALF.get(), "Pandesal Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE_HALF.get(), "Ube Pandesal Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF.get(), "Hopia Munggo Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF.get(), "Hopia Ube Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF.get(), "Cooked Rice Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF.get(), "Fried Rice Half Leaf Feast");
+        translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF.get(), "Sinangag Half Leaf Feast");
 
         translationBuilder.add(ADVANCEMENT + "root", FORMATTED_MOD_ID);
         translationBuilder.add(ADVANCEMENT + "root.desc", "Cuisine from the Phillipines!");

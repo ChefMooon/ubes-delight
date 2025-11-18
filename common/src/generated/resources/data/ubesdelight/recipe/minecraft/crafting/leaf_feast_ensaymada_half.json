@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "ubesdelight:ensaymada"
-    },
-    "B": {
-      "tag": "minecraft:leaves"
-    }
+    "A": "ubesdelight:ensaymada",
+    "B": "#minecraft:leaves"
   },
   "pattern": [
     "AAA",

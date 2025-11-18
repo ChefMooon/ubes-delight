@@ -15,16 +15,11 @@ public class LeafFeastItem extends BlockItem {
     }
     @Override
     protected boolean placeBlock(BlockPlaceContext context, BlockState state) {
-        if (state.getBlock() instanceof SimpleLeafFeastBlock && context.getItemInHand().has(BuiltInRegistries.DATA_COMPONENT_TYPE.get(UbesDelightDataComponentTypes.SIMPLE_LEAF_FEAST_SERVINGS))) {
-            int servings = context.getItemInHand().get((DataComponentType<Integer>) BuiltInRegistries.DATA_COMPONENT_TYPE.get(UbesDelightDataComponentTypes.SIMPLE_LEAF_FEAST_SERVINGS));
+        if (state.getBlock() instanceof SimpleLeafFeastBlock && context.getItemInHand().has(BuiltInRegistries.DATA_COMPONENT_TYPE.get(UbesDelightDataComponentTypes.SIMPLE_LEAF_FEAST_SERVINGS).get().value())) {
+            int servings = context.getItemInHand().get((DataComponentType<Integer>) BuiltInRegistries.DATA_COMPONENT_TYPE.get(UbesDelightDataComponentTypes.SIMPLE_LEAF_FEAST_SERVINGS).get().value());
             BlockState newState = state.setValue(SimpleLeafFeastBlock.SERVINGS, servings);
             return super.placeBlock(context, newState);
         }
         return false;
-    }
-
-    @Override
-    public String getDescriptionId() {
-        return this.getOrCreateDescriptionId();
     }
 }

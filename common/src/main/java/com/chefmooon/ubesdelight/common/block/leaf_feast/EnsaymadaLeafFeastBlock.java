@@ -49,18 +49,18 @@ public class EnsaymadaLeafFeastBlock extends SimpleLeafFeastBlock {
     }
 
     @Override
-    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData) {
         if (state.getValue(SERVINGS) == 3) {
-            if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.ENSAYMADA)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_ENSAYMADA_HALF));
-            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.ENSAYMADA_UBE)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_ENSAYMADA_UBE_HALF));
+            if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.ENSAYMADA).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_ENSAYMADA_HALF).get());
+            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.ENSAYMADA_UBE).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_ENSAYMADA_UBE_HALF).get());
             }
         } else {
-            if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.ENSAYMADA)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_ENSAYMADA));
-            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.ENSAYMADA_UBE)) {
-                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_ENSAYMADA_UBE));
+            if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.ENSAYMADA).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_ENSAYMADA).get());
+            } else if (servingItem.get() == BuiltInRegistries.ITEM.get(UbesDelightItems.ENSAYMADA_UBE).get().value()) {
+                return new ItemStack(BuiltInRegistries.ITEM.get(UbesDelightItems.LEAF_FEAST_ENSAYMADA_UBE).get());
             }
         }
         return new ItemStack(this);

@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cooking",
+  "category": "meals",
+  "cookingtime": 100,
+  "ingredients": [
+    "#c:crops/grain",
+    "#c:tea_ingredients/sweet/weak",
+    "ubesdelight:milk_powder",
+    "minecraft:cookie"
+  ],
+  "result": {
+    "count": 4,
+    "id": "ubesdelight:raw_polvorone_cc"
+  }
+}
