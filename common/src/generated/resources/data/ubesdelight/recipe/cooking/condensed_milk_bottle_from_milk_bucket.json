@@ -1,6 +1,5 @@
 {
   "type": "farmersdelight:cooking",
-  "category": "drinks",
   "ingredients": [
     "#c:tea_ingredients/sweet/weak",
     "#c:tea_ingredients/sweet/weak",
@@ -8,6 +7,7 @@
     "#c:tea_ingredients/sweet/weak",
     "minecraft:milk_bucket"
   ],
+  "recipe_book_tab": "drinks",
   "result": {
     "count": 4,
     "id": "ubesdelight:condensed_milk_bottle"

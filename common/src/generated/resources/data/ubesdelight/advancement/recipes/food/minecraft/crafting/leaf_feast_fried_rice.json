@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:minecraft/crafting/leaf_feast_fried_rice"
+        "recipe": "ubesdelight:minecraft/crafting/leaf_feast_fried_rice"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/leaf_feast_fried_rice"
+      "ubesdelight:minecraft/crafting/leaf_feast_fried_rice"
     ]
   }
 }

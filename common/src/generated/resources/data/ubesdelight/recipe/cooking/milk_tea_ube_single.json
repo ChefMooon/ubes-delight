@@ -1,6 +1,5 @@
 {
   "type": "farmersdelight:cooking",
-  "category": "drinks",
   "cookingtime": 50,
   "experience": 0.25,
   "ingredients": [
@@ -8,6 +7,7 @@
     "#c:tea_ingredients/sweet/weak",
     "ubesdelight:condensed_milk_bottle"
   ],
+  "recipe_book_tab": "drinks",
   "result": {
     "count": 1,
     "id": "ubesdelight:milk_tea_ube"

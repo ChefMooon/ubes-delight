@@ -1,6 +1,5 @@
 {
   "type": "farmersdelight:cooking",
-  "category": "meals",
   "experience": 4.0,
   "ingredients": [
     "#c:foods/raw_chicken",
@@ -10,6 +9,7 @@
     "#c:crops/lemongrass",
     "ubesdelight:fish_sauce_bottle"
   ],
+  "recipe_book_tab": "meals",
   "result": {
     "count": 1,
     "id": "ubesdelight:arroz_caldo"

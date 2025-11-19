@@ -4,9 +4,9 @@ import com.chefmooon.ubesdelight.client.renderer.fabric.BakingMatBlockEntityRend
 import com.chefmooon.ubesdelight.client.renderer.fabric.UniversalLeafFeastBlockEntityRenderImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlockEntityTypesImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.renderer.RenderType;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 
 public class ClientSetupEventsImpl {
 
@@ -16,7 +16,7 @@ public class ClientSetupEventsImpl {
     }
 
     public static void onRegisterBlockRenderLayerMap() {
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(),
+        BlockRenderLayerMap.putBlocks(ChunkSectionLayer.CUTOUT,
                 UbesDelightBlocksImpl.BAKING_MAT_BAMBOO.get(),
                 UbesDelightBlocksImpl.WILD_UBE.get(),
                 UbesDelightBlocksImpl.WILD_GARLIC.get(),

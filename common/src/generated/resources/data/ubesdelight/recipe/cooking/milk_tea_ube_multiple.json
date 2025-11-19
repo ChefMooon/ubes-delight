@@ -1,6 +1,5 @@
 {
   "type": "farmersdelight:cooking",
-  "category": "drinks",
   "experience": 1.0,
   "ingredients": [
     "#c:crops/ube",
@@ -10,6 +9,7 @@
     "ubesdelight:condensed_milk_bottle",
     "ubesdelight:condensed_milk_bottle"
   ],
+  "recipe_book_tab": "drinks",
   "result": {
     "count": 4,
     "id": "ubesdelight:milk_tea_ube"

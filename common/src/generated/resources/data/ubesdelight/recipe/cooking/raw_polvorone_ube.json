@@ -1,6 +1,5 @@
 {
   "type": "farmersdelight:cooking",
-  "category": "meals",
   "cookingtime": 100,
   "ingredients": [
     "#c:crops/grain",
@@ -8,6 +7,7 @@
     "ubesdelight:milk_powder",
     "#c:crops/ube"
   ],
+  "recipe_book_tab": "meals",
   "result": {
     "count": 4,
     "id": "ubesdelight:raw_polvorone_ube"

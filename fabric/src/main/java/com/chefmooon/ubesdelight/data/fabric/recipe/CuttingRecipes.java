@@ -25,12 +25,12 @@ public class CuttingRecipes {
                 .addResult(Items.PURPLE_DYE)
                 .addResultWithChance(Items.PURPLE_DYE, 0.5F)
 //                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_TOOLS_KNIFE), RecipeUtil.has(holderGetter, CommonTags.C_TOOLS_KNIFE))
-                .build(exporter, RecipeProvider.getConversionRecipeName(UbesDelightItemsImpl.UBE.get(), UbesDelightItemsImpl.WILD_UBE.get()));
+                .build(exporter, suffix(RecipeProvider.getConversionRecipeName(UbesDelightItemsImpl.UBE.get(), UbesDelightItemsImpl.WILD_UBE.get())));
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(UbesDelightItemsImpl.WILD_LEMONGRASS.get()), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TOOLS_KNIFE)), UbesDelightItemsImpl.LEMONGRASS.get())
                 .addResult(Items.LIME_DYE)
                 .addResultWithChance(Items.LIME_DYE, 0.5F)
 //                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_TOOLS_KNIFE), RecipeUtil.has(holderGetter, CommonTags.C_TOOLS_KNIFE))
-                .build(exporter, RecipeProvider.getConversionRecipeName(UbesDelightItemsImpl.LEMONGRASS.get(), UbesDelightItemsImpl.WILD_LEMONGRASS.get()));
+                .build(exporter, suffix(RecipeProvider.getConversionRecipeName(UbesDelightItemsImpl.LEMONGRASS.get(), UbesDelightItemsImpl.WILD_LEMONGRASS.get())));
         basicCuttingRecipeBuilder(holderGetter, UbesDelightItemsImpl.HALO_HALO_FEAST.get(), UbesDelightItemsImpl.HALO_HALO.get(), 4, 1.0F, exporter);
         basicCuttingRecipeBuilder(holderGetter, UbesDelightItemsImpl.LECHE_FLAN_FEAST.get(), UbesDelightItemsImpl.LECHE_FLAN.get(), 5, 1.0F, exporter);
         basicCuttingRecipeBuilder(holderGetter, UbesDelightItemsImpl.UBE_CAKE.get(), UbesDelightItemsImpl.UBE_CAKE_SLICE.get(), 7, 1.0F, exporter);

@@ -16,7 +16,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:minecraft/crafting/baking_mat_bamboo"
+        "recipe": "ubesdelight:minecraft/crafting/baking_mat_bamboo"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -29,7 +29,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/baking_mat_bamboo"
+      "ubesdelight:minecraft/crafting/baking_mat_bamboo"
     ]
   }
 }

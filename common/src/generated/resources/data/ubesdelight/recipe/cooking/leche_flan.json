@@ -1,6 +1,5 @@
 {
   "type": "farmersdelight:cooking",
-  "category": "meals",
   "cookingtime": 100,
   "experience": 0.5,
   "ingredients": [
@@ -9,6 +8,7 @@
     "#c:tea_ingredients/sweet/weak",
     "ubesdelight:condensed_milk_bottle"
   ],
+  "recipe_book_tab": "meals",
   "result": {
     "count": 4,
     "id": "ubesdelight:leche_flan"

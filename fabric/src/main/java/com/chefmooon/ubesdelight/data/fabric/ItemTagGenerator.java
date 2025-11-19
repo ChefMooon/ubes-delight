@@ -28,7 +28,7 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
     }
 
     private void registerModItemTags() {
-        getOrCreateTagBuilder(UbesDelightTags.TOOLS_ROLLING_PIN)
+        valueLookupBuilder(UbesDelightTags.TOOLS_ROLLING_PIN)
                 .add(UbesDelightItemsImpl.ROLLING_PIN_WOOD.get())
                 .add(UbesDelightItemsImpl.ROLLING_PIN_IRON.get())
                 .add(UbesDelightItemsImpl.ROLLING_PIN_GOLD.get())
@@ -39,37 +39,37 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
 
     private void registerMinecraftItemTags() {
         // Minecraft Item Tags
-        getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS)
+        valueLookupBuilder(ItemTags.SMALL_FLOWERS)
                 .add(UbesDelightItemsImpl.WILD_UBE.get())
                 .add(UbesDelightItemsImpl.WILD_GARLIC.get())
                 .add(UbesDelightItemsImpl.WILD_GINGER.get());
 
-        getOrCreateTagBuilder(ConventionalItemTags.TALL_FLOWERS)
+        valueLookupBuilder(ConventionalItemTags.TALL_FLOWERS)
                 .add(UbesDelightItemsImpl.WILD_LEMONGRASS.get());
 
-        getOrCreateTagBuilder(ItemTags.PARROT_FOOD)
+        valueLookupBuilder(ItemTags.PARROT_FOOD)
                 .add(UbesDelightItemsImpl.LEMONGRASS_SEEDS.get());
 
-        getOrCreateTagBuilder(ItemTags.CHICKEN_FOOD)
+        valueLookupBuilder(ItemTags.CHICKEN_FOOD)
                 .add(UbesDelightItemsImpl.LEMONGRASS_SEEDS.get());
 
-        getOrCreateTagBuilder(ItemTags.PIG_FOOD)
+        valueLookupBuilder(ItemTags.PIG_FOOD)
                 .add(UbesDelightItemsImpl.UBE.get())
                 .add(UbesDelightItemsImpl.GARLIC.get())
                 .add(UbesDelightItemsImpl.GINGER.get())
                 .add(UbesDelightItemsImpl.LEMONGRASS.get());
 
-        getOrCreateTagBuilder(ItemTags.RABBIT_FOOD)
+        valueLookupBuilder(ItemTags.RABBIT_FOOD)
                 .add(UbesDelightItemsImpl.GINGER.get())
                 .add(UbesDelightItemsImpl.LEMONGRASS.get());
 
-        getOrCreateTagBuilder(ItemTags.DURABILITY_ENCHANTABLE).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
-        getOrCreateTagBuilder(ItemTags.MINING_LOOT_ENCHANTABLE).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
-        getOrCreateTagBuilder(ItemTags.BREAKS_DECORATED_POTS).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
+        valueLookupBuilder(ItemTags.DURABILITY_ENCHANTABLE).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
+        valueLookupBuilder(ItemTags.MINING_LOOT_ENCHANTABLE).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
+        valueLookupBuilder(ItemTags.BREAKS_DECORATED_POTS).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
     }
     private void registerCompatibiltyItemTags() {
         // Create Item Tags
-        getOrCreateTagBuilder(CompatibilityTags.CREATE_UPRIGHT_ON_BELT)
+        valueLookupBuilder(CompatibilityTags.CREATE_UPRIGHT_ON_BELT)
                 .add(UbesDelightItemsImpl.MILK_TEA_UBE.get())
                 .add(UbesDelightItemsImpl.HALO_HALO.get())
                 .add(UbesDelightItemsImpl.FISH_SAUCE_BOTTLE.get())
@@ -83,17 +83,17 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.MECHADO.get());
 
         // Farmers Delight Item Tags
-        getOrCreateTagBuilder(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS)
+        valueLookupBuilder(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS)
                 .add(UbesDelightItemsImpl.UBE.get());
 
-        getOrCreateTagBuilder(CompatibilityTags.FARMERS_DELIGHT_WILD_CROPS_ITEM)
+        valueLookupBuilder(CompatibilityTags.FARMERS_DELIGHT_WILD_CROPS_ITEM)
                 .add(UbesDelightItemsImpl.WILD_UBE.get())
                 .add(UbesDelightItemsImpl.WILD_GARLIC.get())
                 .add(UbesDelightItemsImpl.WILD_GINGER.get())
                 .add(UbesDelightItemsImpl.WILD_LEMONGRASS.get());
 
         // Supplementaries Item Tags
-        getOrCreateTagBuilder(CompatibilityTags.SUPPLEMENTARIES_COOKIES)
+        valueLookupBuilder(CompatibilityTags.SUPPLEMENTARIES_COOKIES)
                 .add(UbesDelightItemsImpl.COOKIE_UBE.get())
                 .add(UbesDelightItemsImpl.COOKIE_GINGER.get())
                 .add(UbesDelightItemsImpl.POLVORONE.get())
@@ -102,23 +102,23 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.POLVORONE_CC.get());
 
         // Dehydration Item Tags
-        getOrCreateTagBuilder(CompatibilityTags.DEHYDRATION_HYDRATING_DRINKS)
+        valueLookupBuilder(CompatibilityTags.DEHYDRATION_HYDRATING_DRINKS)
                 .add(UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE.get())
                 .add(UbesDelightItemsImpl.FISH_SAUCE_BOTTLE.get())
                 .add(UbesDelightItemsImpl.MILK_TEA_UBE.get())
                 .add(UbesDelightItemsImpl.HALO_HALO.get());
 
-        getOrCreateTagBuilder(CompatibilityTags.DEHYDRATION_HYDRATING_STEW)
+        valueLookupBuilder(CompatibilityTags.DEHYDRATION_HYDRATING_STEW)
                 .add(UbesDelightItemsImpl.BULALO.get())
                 .add(UbesDelightItemsImpl.ARROZ_CALDO.get())
                 .add(UbesDelightItemsImpl.MECHADO.get());
 
         // Origins Item Tags
-        getOrCreateTagBuilder(CompatibilityTags.ORIGINS_IGNORE_DIET)
+        valueLookupBuilder(CompatibilityTags.ORIGINS_IGNORE_DIET)
                 .add(UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE.get())
                 .add(UbesDelightItemsImpl.FISH_SAUCE_BOTTLE.get());
 
-        getOrCreateTagBuilder(CompatibilityTags.ORIGINS_MEAT)
+        valueLookupBuilder(CompatibilityTags.ORIGINS_MEAT)
                 .add(UbesDelightItemsImpl.LUMPIA.get())
                 .add(UbesDelightItemsImpl.TOCINO.get())
                 .add(UbesDelightItemsImpl.CHICKEN_INASAL.get())
@@ -131,68 +131,69 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.MECHADO.get());
 
         // Serene Seasons
-        getOrCreateTagBuilder(CompatibilityTags.SERENE_SEASONS_AUTUMN_CROPS)
+        valueLookupBuilder(CompatibilityTags.SERENE_SEASONS_AUTUMN_CROPS)
                 .add(UbesDelightItemsImpl.GARLIC.get())
                 .add(UbesDelightItemsImpl.GINGER.get());
-        getOrCreateTagBuilder(CompatibilityTags.SERENE_SEASONS_SPRING_CROPS)
+        valueLookupBuilder(CompatibilityTags.SERENE_SEASONS_SPRING_CROPS)
                 .add(UbesDelightItemsImpl.UBE.get())
                 .add(UbesDelightItemsImpl.LEMONGRASS_SEEDS.get());
-        getOrCreateTagBuilder(CompatibilityTags.SERENE_SEASONS_SUMMER_CROPS)
+        valueLookupBuilder(CompatibilityTags.SERENE_SEASONS_SUMMER_CROPS)
                 .add(UbesDelightItemsImpl.UBE.get())
                 .add(UbesDelightItemsImpl.GARLIC.get())
                 .add(UbesDelightItemsImpl.GINGER.get())
                 .add(UbesDelightItemsImpl.LEMONGRASS_SEEDS.get());
     }
 
+    @SuppressWarnings("unchecked")
     private void registerCommonItemTags() {
-        getOrCreateTagBuilder(CommonTags.C_FOOD_WRAPPERS)
+        valueLookupBuilder(CommonTags.C_FOOD_WRAPPERS)
                 .forceAddTag(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER);
-        getOrCreateTagBuilder(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER)
+        valueLookupBuilder(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER)
                 .add(UbesDelightItemsImpl.LUMPIA_WRAPPER.get());
 
-        getOrCreateTagBuilder(CommonTags.C_TOOLS)
+        valueLookupBuilder(CommonTags.C_TOOLS)
                 .forceAddTag(CommonTags.C_TOOLS_ROLLING_PIN);
-        getOrCreateTagBuilder(CommonTags.C_TOOLS_ROLLING_PIN)
+        valueLookupBuilder(CommonTags.C_TOOLS_ROLLING_PIN)
                 .add(UbesDelightItemsImpl.ROLLING_PIN_WOOD.get())
                 .add(UbesDelightItemsImpl.ROLLING_PIN_IRON.get())
                 .add(UbesDelightItemsImpl.ROLLING_PIN_GOLD.get())
                 .add(UbesDelightItemsImpl.ROLLING_PIN_DIAMOND.get())
                 .add(UbesDelightItemsImpl.ROLLING_PIN_NETHERITE.get());
 
-        getOrCreateTagBuilder(CommonTags.C_TEA_INGREDIENTS)
+        valueLookupBuilder(CommonTags.C_TEA_INGREDIENTS)
                 .forceAddTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK);
-        getOrCreateTagBuilder(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)
+        valueLookupBuilder(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)
                 .add(Items.SUGAR)
                 .add(UbesDelightItemsImpl.SUGAR_BROWN.get());
 
-        getOrCreateTagBuilder(CommonTags.C_CROPS_GARLIC)
+        valueLookupBuilder(CommonTags.C_CROPS_GARLIC)
                 .add(UbesDelightItemsImpl.GARLIC.get())
                 .add(UbesDelightItemsImpl.GARLIC_CHOP.get());
-        getOrCreateTagBuilder(CommonTags.C_CROPS_GINGER)
+        valueLookupBuilder(CommonTags.C_CROPS_GINGER)
                 .add(UbesDelightItemsImpl.GINGER.get())
                 .add(UbesDelightItemsImpl.GINGER_CHOP.get());
-        getOrCreateTagBuilder(CommonTags.C_CROPS_LEMONGRASS)
+        valueLookupBuilder(CommonTags.C_CROPS_LEMONGRASS)
                 .add(UbesDelightItemsImpl.LEMONGRASS.get());
-        getOrCreateTagBuilder(CommonTags.C_CROPS_UBE)
+        valueLookupBuilder(CommonTags.C_CROPS_UBE)
                 .add(UbesDelightItemsImpl.UBE.get());
 
-        getOrCreateTagBuilder(CommonTags.C_FOODS_VEGETABLE)
+        valueLookupBuilder(CommonTags.C_FOODS_VEGETABLE)
                 .forceAddTag(CommonTags.C_FOODS_GARLIC)
                 .forceAddTag(CommonTags.C_FOODS_GINGER)
                 .forceAddTag(CommonTags.C_FOODS_LEMONGRASS)
                 .forceAddTag(CommonTags.C_FOODS_UBE);
-        getOrCreateTagBuilder(CommonTags.C_FOODS_GARLIC)
+        valueLookupBuilder(CommonTags.C_FOODS_GARLIC)
                 .add(UbesDelightItemsImpl.GARLIC.get())
                 .add(UbesDelightItemsImpl.GARLIC_CHOP.get());
-        getOrCreateTagBuilder(CommonTags.C_FOODS_GINGER)
+        valueLookupBuilder(CommonTags.C_FOODS_GINGER)
                 .add(UbesDelightItemsImpl.GINGER.get())
                 .add(UbesDelightItemsImpl.GINGER_CHOP.get());
-        getOrCreateTagBuilder(CommonTags.C_FOODS_LEMONGRASS)
+        valueLookupBuilder(CommonTags.C_FOODS_LEMONGRASS)
                 .add(UbesDelightItemsImpl.LEMONGRASS.get());
-        getOrCreateTagBuilder(CommonTags.C_FOODS_UBE)
+        valueLookupBuilder(CommonTags.C_FOODS_UBE)
                 .add(UbesDelightItemsImpl.UBE.get());
 
-        getOrCreateTagBuilder(CommonTags.C_FOODS)
+        valueLookupBuilder(CommonTags.C_FOODS)
                 .add(UbesDelightItemsImpl.POISONOUS_UBE.get())
                 .add(UbesDelightItemsImpl.UBE.get())
                 .add(UbesDelightItemsImpl.GARLIC.get())
@@ -231,18 +232,18 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.HOPIA_UBE.get())
         ;
 
-        getOrCreateTagBuilder(CommonTags.C_FOODS_MILK)
+        valueLookupBuilder(CommonTags.C_FOODS_MILK)
                 .forceAddTag(CommonTags.C_FOODS_MILK_BOTTLE);
-        getOrCreateTagBuilder(CommonTags.C_FOODS_MILK_BOTTLE)
+        valueLookupBuilder(CommonTags.C_FOODS_MILK_BOTTLE)
                 .add(UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE.get());
 
-        getOrCreateTagBuilder(CommonTags.C_FOODS_LEAFY_GREEN)
+        valueLookupBuilder(CommonTags.C_FOODS_LEAFY_GREEN)
                 .forceAddTag(CommonTags.C_FOODS_LEMONGRASS);
 
-        getOrCreateTagBuilder(CommonTags.C_SEEDS)
+        valueLookupBuilder(CommonTags.C_SEEDS)
                 .add(UbesDelightItemsImpl.LEMONGRASS_SEEDS.get());
 
-        getOrCreateTagBuilder(CommonTags.C_FOODS_COOKIE)
+        valueLookupBuilder(CommonTags.C_FOODS_COOKIE)
                 .add(UbesDelightItemsImpl.COOKIE_UBE.get())
                 .add(UbesDelightItemsImpl.COOKIE_GINGER.get())
                 .add(UbesDelightItemsImpl.POLVORONE.get())
@@ -250,33 +251,34 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.POLVORONE_UBE.get())
                 .add(UbesDelightItemsImpl.POLVORONE_CC.get());
 
-        getOrCreateTagBuilder(CommonTags.C_FOODS_SOUPS)
+        valueLookupBuilder(CommonTags.C_FOODS_SOUPS)
                 .add(UbesDelightItemsImpl.BULALO.get())
                 .add(UbesDelightItemsImpl.ARROZ_CALDO.get())
                 .add(UbesDelightItemsImpl.MECHADO.get());
 
-        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_UBE).add(UbesDelightItemsImpl.UBE_CRATE.get());
-        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_GARLIC).add(UbesDelightItemsImpl.GARLIC_CRATE.get());
-        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_GINGER).add(UbesDelightItemsImpl.GINGER_CRATE.get());
-        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_LEMONGRASS).add(UbesDelightItemsImpl.LEMONGRASS_CRATE.get());
+        valueLookupBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_UBE).add(UbesDelightItemsImpl.UBE_CRATE.get());
+        valueLookupBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_GARLIC).add(UbesDelightItemsImpl.GARLIC_CRATE.get());
+        valueLookupBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_GINGER).add(UbesDelightItemsImpl.GINGER_CRATE.get());
+        valueLookupBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_LEMONGRASS).add(UbesDelightItemsImpl.LEMONGRASS_CRATE.get());
 
         // Create Dough Compat
         // todo - when create 1.21 releases check compatibility
-//        getOrCreateTagBuilder(CommonTags.C_FOODS_DOUGH)
+//        valueLookupBuilder(CommonTags.C_FOODS_DOUGH)
 //                .addOptionalTag(CommonTags.C_DOUGH);
     }
 
+    @SuppressWarnings("unchecked")
     private void registerConventionalItemTags() {
-        getOrCreateTagBuilder(ConventionalItemTags.VEGETABLE_FOODS)
+        valueLookupBuilder(ConventionalItemTags.VEGETABLE_FOODS)
                 .add(UbesDelightItemsImpl.UBE.get())
                 .add(UbesDelightItemsImpl.GARLIC.get())
                 .add(UbesDelightItemsImpl.GINGER.get());
 
-        getOrCreateTagBuilder(ConventionalItemTags.COOKIE_FOODS)
+        valueLookupBuilder(ConventionalItemTags.COOKIE_FOODS)
                 .add(UbesDelightItemsImpl.COOKIE_UBE.get())
                 .add(UbesDelightItemsImpl.COOKIE_GINGER.get());
 
-        getOrCreateTagBuilder(ConventionalItemTags.EDIBLE_WHEN_PLACED_FOODS)
+        valueLookupBuilder(ConventionalItemTags.EDIBLE_WHEN_PLACED_FOODS)
                 .add(UbesDelightItemsImpl.UBE_CAKE.get())
                 .add(UbesDelightItemsImpl.LECHE_FLAN_FEAST.get())
                 .add(UbesDelightItemsImpl.HALO_HALO_FEAST.get())
@@ -301,23 +303,22 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF.get())
         ;
 
-        getOrCreateTagBuilder(ConventionalItemTags.SOUP_FOODS)
+        valueLookupBuilder(ConventionalItemTags.SOUP_FOODS)
                 .add(UbesDelightItemsImpl.BULALO.get())
                 .add(UbesDelightItemsImpl.ARROZ_CALDO.get())
                 .add(UbesDelightItemsImpl.MECHADO.get());
 
-        getOrCreateTagBuilder(ConventionalItemTags.CROPS).forceAddTags(
-                CommonTags.C_CROPS_UBE,
-                CommonTags.C_CROPS_GARLIC,
-                CommonTags.C_CROPS_GINGER,
-                CommonTags.C_CROPS_LEMONGRASS
-        );
+        valueLookupBuilder(ConventionalItemTags.CROPS)
+                .forceAddTag(CommonTags.C_CROPS_UBE)
+                .forceAddTag(CommonTags.C_CROPS_UBE)
+                .forceAddTag(CommonTags.C_CROPS_GARLIC)
+                .forceAddTag(CommonTags.C_CROPS_GINGER)
+                .forceAddTag(CommonTags.C_CROPS_LEMONGRASS);
 
-        getOrCreateTagBuilder(ConventionalItemTags.STORAGE_BLOCKS).forceAddTags(
-                CommonTags.C_STORAGE_BLOCKS_ITEM_UBE,
-                CommonTags.C_STORAGE_BLOCKS_ITEM_GARLIC,
-                CommonTags.C_STORAGE_BLOCKS_ITEM_GINGER,
-                CommonTags.C_STORAGE_BLOCKS_ITEM_LEMONGRASS
-        );
+        valueLookupBuilder(ConventionalItemTags.STORAGE_BLOCKS)
+                .forceAddTag(CommonTags.C_STORAGE_BLOCKS_ITEM_UBE)
+                .forceAddTag(CommonTags.C_STORAGE_BLOCKS_ITEM_GARLIC)
+                .forceAddTag(CommonTags.C_STORAGE_BLOCKS_ITEM_GINGER)
+                .forceAddTag(CommonTags.C_STORAGE_BLOCKS_ITEM_LEMONGRASS);
     }
 }

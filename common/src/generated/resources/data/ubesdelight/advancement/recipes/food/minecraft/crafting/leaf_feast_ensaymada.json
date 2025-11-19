@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:minecraft/crafting/leaf_feast_ensaymada"
+        "recipe": "ubesdelight:minecraft/crafting/leaf_feast_ensaymada"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/leaf_feast_ensaymada"
+      "ubesdelight:minecraft/crafting/leaf_feast_ensaymada"
     ]
   }
 }

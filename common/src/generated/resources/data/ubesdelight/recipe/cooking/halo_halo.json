@@ -1,6 +1,5 @@
 {
   "type": "farmersdelight:cooking",
-  "category": "drinks",
   "experience": 1.0,
   "ingredients": [
     "#c:crops/ube",
@@ -10,6 +9,7 @@
     "minecraft:glow_berries",
     "minecraft:melon_slice"
   ],
+  "recipe_book_tab": "drinks",
   "result": {
     "count": 1,
     "id": "ubesdelight:halo_halo"

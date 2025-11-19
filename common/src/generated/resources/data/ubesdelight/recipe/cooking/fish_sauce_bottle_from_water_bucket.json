@@ -1,10 +1,10 @@
 {
   "type": "farmersdelight:cooking",
-  "category": "drinks",
   "ingredients": [
     "#c:foods/safe_raw_fish",
     "minecraft:water_bucket"
   ],
+  "recipe_book_tab": "drinks",
   "result": {
     "count": 4,
     "id": "ubesdelight:fish_sauce_bottle"

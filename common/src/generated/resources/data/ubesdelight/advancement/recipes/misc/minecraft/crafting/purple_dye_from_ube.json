@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:minecraft/crafting/purple_dye_from_ube"
+        "recipe": "ubesdelight:minecraft/crafting/purple_dye_from_ube"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:minecraft/crafting/purple_dye_from_ube"
+      "ubesdelight:minecraft/crafting/purple_dye_from_ube"
     ]
   }
 }

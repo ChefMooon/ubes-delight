@@ -29,23 +29,23 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
     }
 
     private void registerCommonBlockTags() {
-        getOrCreateTagBuilder(CommonTags.C_MINEABLE_KNIFE)
+        valueLookupBuilder(CommonTags.C_MINEABLE_KNIFE)
                 .add(UbesDelightBlocksImpl.UBE_CAKE.get())
                 .add(UbesDelightBlocksImpl.LECHE_FLAN_FEAST.get())
                 .add(UbesDelightBlocksImpl.HALO_HALO_FEAST.get())
                 .add(UbesDelightBlocksImpl.MILK_TEA_UBE_FEAST.get())
                 .add(UbesDelightBlocksImpl.LUMPIA_FEAST.get());
 
-        getOrCreateTagBuilder(CommonTags.C_MINEABLE_ROLLING_PIN);
+        valueLookupBuilder(CommonTags.C_MINEABLE_ROLLING_PIN);
 
-        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_UBE).add(UbesDelightBlocksImpl.UBE_CRATE.get());
-        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_GARLIC).add(UbesDelightBlocksImpl.GARLIC_CRATE.get());
-        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_GINGER).add(UbesDelightBlocksImpl.GINGER_CRATE.get());
-        getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_LEMONGRASS).add(UbesDelightBlocksImpl.LEMONGRASS_CRATE.get());
+        valueLookupBuilder(CommonTags.C_STORAGE_BLOCKS_UBE).add(UbesDelightBlocksImpl.UBE_CRATE.get());
+        valueLookupBuilder(CommonTags.C_STORAGE_BLOCKS_GARLIC).add(UbesDelightBlocksImpl.GARLIC_CRATE.get());
+        valueLookupBuilder(CommonTags.C_STORAGE_BLOCKS_GINGER).add(UbesDelightBlocksImpl.GINGER_CRATE.get());
+        valueLookupBuilder(CommonTags.C_STORAGE_BLOCKS_LEMONGRASS).add(UbesDelightBlocksImpl.LEMONGRASS_CRATE.get());
     }
 
     private void registerMinecraftBlockTags() {
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
+        valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
                 .add(UbesDelightBlocksImpl.BAKING_MAT_BAMBOO.get())
 
                 .add(UbesDelightBlocksImpl.UBE_CRATE.get())
@@ -53,21 +53,21 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(UbesDelightBlocksImpl.GINGER_CRATE.get())
                 .add(UbesDelightBlocksImpl.LEMONGRASS_CRATE.get());
 
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
+        valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(UbesDelightBlocksImpl.KALAN.get());
 
-        getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
+        valueLookupBuilder(BlockTags.SMALL_FLOWERS)
                 .add(UbesDelightBlocksImpl.WILD_UBE.get())
                 .add(UbesDelightBlocksImpl.WILD_GARLIC.get())
                 .add(UbesDelightBlocksImpl.WILD_GINGER.get());
 
-        getOrCreateTagBuilder(BlockTags.CROPS)
+        valueLookupBuilder(BlockTags.CROPS)
                 .add(UbesDelightBlocksImpl.UBE_CROP.get())
                 .add(UbesDelightBlocksImpl.GARLIC_CROP.get())
                 .add(UbesDelightBlocksImpl.GINGER_CROP.get())
                 .add(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get());
 
-        getOrCreateTagBuilder(BlockTags.MAINTAINS_FARMLAND)
+        valueLookupBuilder(BlockTags.MAINTAINS_FARMLAND)
                 .add(UbesDelightBlocksImpl.UBE_CROP.get())
                 .add(UbesDelightBlocksImpl.GINGER_CROP.get())
                 .add(UbesDelightBlocksImpl.GARLIC_CROP.get())
@@ -76,31 +76,31 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
 
     private void registerCompatibilityTags() {
         // Create Block Tags
-        getOrCreateTagBuilder(CompatibilityTags.CREATE_PASSIVE_BOILER_HEATERS)
+        valueLookupBuilder(CompatibilityTags.CREATE_PASSIVE_BOILER_HEATERS)
                 .add(UbesDelightBlocksImpl.KALAN.get());
 
-        getOrCreateTagBuilder(CompatibilityTags.CREATE_BRITTLE)
+        valueLookupBuilder(CompatibilityTags.CREATE_BRITTLE)
                 .add(UbesDelightBlocksImpl.BAKING_MAT_BAMBOO.get());
 
         // Farmer's Delight Block Tags
-        getOrCreateTagBuilder(CompatibilityTags.FARMERS_DELIGHT_HEAT_SOURCES)
+        valueLookupBuilder(CompatibilityTags.FARMERS_DELIGHT_HEAT_SOURCES)
                 .add(UbesDelightBlocksImpl.KALAN.get());
 
-        getOrCreateTagBuilder(CompatibilityTags.FARMERS_DELIGHT_WILD_CROPS)
+        valueLookupBuilder(CompatibilityTags.FARMERS_DELIGHT_WILD_CROPS)
                 .add(UbesDelightBlocksImpl.WILD_UBE.get())
                 .add(UbesDelightBlocksImpl.WILD_GARLIC.get())
                 .add(UbesDelightBlocksImpl.WILD_GINGER.get())
                 .add(UbesDelightBlocksImpl.WILD_LEMONGRASS.get());
 
         // Serene Seasons
-        getOrCreateTagBuilder(CompatibilityTags.SERENE_SEASONS_AUTUMN_CROPS_BLOCK)
+        valueLookupBuilder(CompatibilityTags.SERENE_SEASONS_AUTUMN_CROPS_BLOCK)
                 .add(UbesDelightBlocksImpl.GARLIC_CROP.get())
                 .add(UbesDelightBlocksImpl.GINGER_CROP.get());
-        getOrCreateTagBuilder(CompatibilityTags.SERENE_SEASONS_SPRING_CROPS_BLOCK)
+        valueLookupBuilder(CompatibilityTags.SERENE_SEASONS_SPRING_CROPS_BLOCK)
                 .add(UbesDelightBlocksImpl.UBE_CROP.get())
                 .add(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get())
                 .add(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP.get());
-        getOrCreateTagBuilder(CompatibilityTags.SERENE_SEASONS_SUMMER_CROPS_BLOCK)
+        valueLookupBuilder(CompatibilityTags.SERENE_SEASONS_SUMMER_CROPS_BLOCK)
                 .add(UbesDelightBlocksImpl.UBE_CROP.get())
                 .add(UbesDelightBlocksImpl.GARLIC_CROP.get())
                 .add(UbesDelightBlocksImpl.GINGER_CROP.get())
@@ -108,15 +108,15 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP.get());
     }
 
+    @SuppressWarnings("unchecked")
     private void registerConventionalBlockTags() {
-        getOrCreateTagBuilder(ConventionalBlockTags.STORAGE_BLOCKS).addTags(
-                CommonTags.C_STORAGE_BLOCKS_UBE,
-                CommonTags.C_STORAGE_BLOCKS_GARLIC,
-                CommonTags.C_STORAGE_BLOCKS_GINGER,
-                CommonTags.C_STORAGE_BLOCKS_LEMONGRASS
-        );
+        valueLookupBuilder(ConventionalBlockTags.STORAGE_BLOCKS)
+                .forceAddTag(CommonTags.C_STORAGE_BLOCKS_UBE)
+                .forceAddTag(CommonTags.C_STORAGE_BLOCKS_GARLIC)
+                .forceAddTag(CommonTags.C_STORAGE_BLOCKS_GINGER)
+                .forceAddTag(CommonTags.C_STORAGE_BLOCKS_LEMONGRASS);
 
-        getOrCreateTagBuilder(ConventionalBlockTags.TALL_FLOWERS)
+        valueLookupBuilder(ConventionalBlockTags.TALL_FLOWERS)
                 .add(UbesDelightBlocksImpl.WILD_LEMONGRASS.get());
     }
 }
