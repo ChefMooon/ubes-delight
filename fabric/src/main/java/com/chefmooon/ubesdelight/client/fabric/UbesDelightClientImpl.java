@@ -3,14 +3,11 @@ package com.chefmooon.ubesdelight.client.fabric;
 import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.client.UbesDelightClient;
 import com.chefmooon.ubesdelight.client.event.fabric.ClientSetupEventsImpl;
-import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 
 public class UbesDelightClientImpl implements ClientModInitializer {
