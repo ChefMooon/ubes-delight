@@ -138,7 +138,7 @@ publishing {
 }
 
 def buildSuffix = mod_version_type != "release" ? "-${mod_version_type}" + (mod_build_number != "0" ? "-${mod_build_number}" : "") : ""
-version = "${project.name}-${minecraft_version}-${mod_version}${buildSuffix}" + "-3.0.0+refab"
+version = "${project.name}-${minecraft_version}-${mod_version}${buildSuffix}"
 
 var env = System.getenv()
 
