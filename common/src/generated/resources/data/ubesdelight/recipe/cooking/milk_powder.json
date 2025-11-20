@@ -3,7 +3,7 @@
   "category": "drinks",
   "experience": 0.2,
   "ingredients": [
-    "#c:foods/milk"
+    "#c:drinks/milk"
   ],
   "result": {
     "count": 1,

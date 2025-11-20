@@ -75,8 +75,8 @@ public class CookingRecipes {
                 .build(exporter, recipeConversionName(UbesDelightItemsImpl.FISH_SAUCE_BOTTLE.get(), Items.WATER_BUCKET));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItemsImpl.MILK_POWDER.get(), 1, 200,  0.2F)
-                .addIngredient(CommonTags.C_FOODS_MILK)
-                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_MILK), RecipeUtil.has(holderGetter, CommonTags.C_FOODS_MILK))
+                .addIngredient(ConventionalItemTags.MILK_DRINKS)
+                .unlockedBy(RecipeUtil.hasItemTag(ConventionalItemTags.MILK_DRINKS), RecipeUtil.has(holderGetter, ConventionalItemTags.MILK_DRINKS))
                 .setRecipeBookCategory(CookingPotBookCategory.DRINKS)
                 .build(exporter, recipeName(UbesDelightItemsImpl.MILK_POWDER.get()));
 
