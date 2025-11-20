@@ -6,6 +6,10 @@ This is version is compatible with Minecraft 1.21.5 supporting Farmer's Delight 
 
 ***
 
+### Added
+
+- [1.21.5+] Extended ItemView (EIV) support
+
 ### Fixed
 
 - [1.21.1+ Fabric Only] Baking Mat properly clears inventory after crafting (Thank you, FelixAgairu!)
