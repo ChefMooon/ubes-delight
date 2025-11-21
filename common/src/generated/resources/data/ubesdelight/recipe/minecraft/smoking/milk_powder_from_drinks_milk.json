@@ -1,9 +1,9 @@
 {
-  "type": "minecraft:campfire_cooking",
+  "type": "minecraft:smoking",
   "category": "food",
-  "cookingtime": 600,
+  "cookingtime": 100,
   "experience": 0.2,
-  "ingredient": "#c:foods/milk",
+  "ingredient": "#c:drinks/milk",
   "result": {
     "id": "ubesdelight:milk_powder"
   }

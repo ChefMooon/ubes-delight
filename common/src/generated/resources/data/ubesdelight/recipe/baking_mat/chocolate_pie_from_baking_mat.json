@@ -1,9 +1,9 @@
 {
   "type": "ubesdelight:baking_mat",
   "ingredients": [
-    "#c:foods/milk",
-    "#c:foods/milk",
-    "#c:foods/milk",
+    "#c:drinks/milk",
+    "#c:drinks/milk",
+    "#c:drinks/milk",
     "minecraft:cocoa_beans",
     "farmersdelight:pie_crust",
     "minecraft:cocoa_beans",
