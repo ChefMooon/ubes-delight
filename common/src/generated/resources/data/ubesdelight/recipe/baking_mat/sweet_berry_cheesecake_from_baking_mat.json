@@ -8,8 +8,8 @@
     "farmersdelight:pie_crust",
     "minecraft:sweet_berries",
     "minecraft:sweet_berries",
-    "#c:foods/milk",
-    "#c:foods/milk"
+    "#c:drinks/milk",
+    "#c:drinks/milk"
   ],
   "processing_stages": [],
   "result": [

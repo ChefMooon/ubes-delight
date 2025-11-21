@@ -4,6 +4,7 @@ import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import com.chefmooon.ubesdelight.data.fabric.builder.BakingMatRecipeJsonBuilder;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -56,8 +57,8 @@ public class BakingMatRecipes {
         // Ube Cake
         BakingMatRecipeJsonBuilder.create(
                 nonNullList(Ingredient.of(Items.EGG), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)),
-                                Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_CROPS_UBE)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK)),
-                                Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK)), Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT)),
+                                Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_CROPS_UBE)), Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS)),
+                                Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS)), Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT)),
                         null,
                         Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TOOLS_ROLLING_PIN)),
                         UbesDelightItemsImpl.UBE_CAKE.get()
@@ -143,7 +144,7 @@ public class BakingMatRecipes {
 
         // Ensaymada
         BakingMatRecipeJsonBuilder.create(
-                nonNullList(Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_DOUGH)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK))),
+                nonNullList(Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_DOUGH)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)), Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS))),
                         nonNullList(Ingredient.of(UbesDelightItemsImpl.ENSAYMADA_STAGE0.get()),
                                 Ingredient.of(UbesDelightItemsImpl.ENSAYMADA_STAGE1.get()),
                                 Ingredient.of(UbesDelightItemsImpl.ENSAYMADA_STAGE2.get()),
@@ -156,7 +157,7 @@ public class BakingMatRecipes {
 
         // Ensaymada Ube
         BakingMatRecipeJsonBuilder.create(
-                nonNullList(Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_DOUGH)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_CROPS_UBE))),
+                nonNullList(Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_DOUGH)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)), Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_CROPS_UBE))),
                         nonNullList(Ingredient.of(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE0.get()),
                                 Ingredient.of(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE1.get()),
                                 Ingredient.of(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE2.get()),
@@ -225,8 +226,8 @@ public class BakingMatRecipes {
         // Cake
         BakingMatRecipeJsonBuilder.create(
                 nonNullList(Ingredient.of(Items.EGG), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)),
-                                Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK)), Ingredient.of(Items.WHEAT), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK)),
-                                Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK)), Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT)),
+                                Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS)), Ingredient.of(Items.WHEAT), Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS)),
+                                Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS)), Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT)),
                         null,
                         Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TOOLS_ROLLING_PIN)),
                         Items.CAKE
@@ -299,7 +300,7 @@ public class BakingMatRecipes {
 
         //Pie Crust
         BakingMatRecipeJsonBuilder.create(
-                nonNullList(Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK))),
+                nonNullList(Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT), Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS))),
                         null,
                         Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TOOLS_ROLLING_PIN)),
                         PIE_CRUST
@@ -323,7 +324,7 @@ public class BakingMatRecipes {
         BakingMatRecipeJsonBuilder.create(
                         nonNullList(Ingredient.of(Items.SWEET_BERRIES), Ingredient.of(Items.SWEET_BERRIES), Ingredient.of(Items.SWEET_BERRIES),
                                 Ingredient.of(Items.SWEET_BERRIES), Ingredient.of(PIE_CRUST), Ingredient.of(Items.SWEET_BERRIES),
-                                Ingredient.of(Items.SWEET_BERRIES), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK))),
+                                Ingredient.of(Items.SWEET_BERRIES), Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS)), Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS))),
                         null,
                         Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TOOLS_ROLLING_PIN)),
                         SWEET_BERRY_CHEESECAKE
@@ -333,7 +334,7 @@ public class BakingMatRecipes {
 
         //Chocolate Pie
         BakingMatRecipeJsonBuilder.create(
-                nonNullList(Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_MILK)),
+                nonNullList(Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS)), Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS)), Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MILK_DRINKS)),
                                 Ingredient.of(Items.COCOA_BEANS), Ingredient.of(PIE_CRUST), Ingredient.of(Items.COCOA_BEANS),
                                 Ingredient.of(Items.COCOA_BEANS), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK))),
                         null,

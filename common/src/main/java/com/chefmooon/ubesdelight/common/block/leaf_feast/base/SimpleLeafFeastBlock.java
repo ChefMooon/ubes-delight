@@ -114,7 +114,7 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
         if (foodProperties != null) {
             level.gameEvent(player, GameEvent.EAT, pos);
             itemStack.getAllOfType(ConsumableListener.class).forEach(consumableListener -> consumableListener.onConsume(level, player, itemStack, consumable));
-            if (!level.isClientSide && consumable != null) {
+            if (!level.isClientSide() && consumable != null) {
                 consumable.onConsumeEffects().forEach(consumeEffect -> consumeEffect.apply(level, itemStack, player));
             }
         }
@@ -237,7 +237,7 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
     }
 
     @Override
-    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, Direction direction) {
         return getOutputSignal((Integer)state.getValue(SERVINGS));
     }
 

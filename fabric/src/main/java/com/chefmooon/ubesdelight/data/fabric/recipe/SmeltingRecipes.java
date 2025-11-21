@@ -1,8 +1,8 @@
 package com.chefmooon.ubesdelight.data.fabric.recipe;
 
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
-import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -22,6 +22,6 @@ public class SmeltingRecipes {
         RecipeUtil.offerSmeltCampSmokeRecipe(holderGetter, UbesDelightItemsImpl.HOPIA_MUNGGO_RAW.get(), RecipeCategory.FOOD, UbesDelightItemsImpl.HOPIA_MUNGGO.get(), 0.5F, 200, exporter);
         RecipeUtil.offerSmeltCampSmokeRecipe(holderGetter, UbesDelightItemsImpl.HOPIA_UBE_RAW.get(), RecipeCategory.FOOD, UbesDelightItemsImpl.HOPIA_UBE.get(), 0.5F, 200, exporter);
 
-        RecipeUtil.offerSmeltCampSmokeFromTag(holderGetter, CommonTags.C_FOODS_MILK, UbesDelightItemsImpl.MILK_POWDER.get(), 0.2F, 200, exporter);
+        RecipeUtil.offerSmeltCampSmokeFromTag(holderGetter, ConventionalItemTags.MILK_DRINKS, UbesDelightItemsImpl.MILK_POWDER.get(), 0.2F, 200, exporter);
     }
 }

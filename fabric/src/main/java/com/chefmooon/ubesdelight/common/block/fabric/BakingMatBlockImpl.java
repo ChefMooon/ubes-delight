@@ -4,6 +4,7 @@ import com.chefmooon.ubesdelight.common.block.BakingMatBlock;
 import com.chefmooon.ubesdelight.common.block.entity.fabric.BakingMatBlockEntityImpl;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightSounds;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
@@ -27,7 +28,7 @@ public class BakingMatBlockImpl extends BakingMatBlock {
     }
 
     @Override
-    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, Direction direction) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof BakingMatBlockEntityImpl bakingMatBlockEntity) {
             return bakingMatBlockEntity.getItemsQuantity();

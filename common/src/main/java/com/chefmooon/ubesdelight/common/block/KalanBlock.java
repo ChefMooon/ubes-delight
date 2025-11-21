@@ -43,7 +43,7 @@ public class KalanBlock extends Block {
         if (state.getValue(LIT)) {
             if (heldStack.is(ItemTags.SHOVELS)) {
                 extinguish(state, level, pos);
-                heldStack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+                heldStack.hurtAndBreak(1, player, hand.asEquipmentSlot());
                 return InteractionResult.SUCCESS;
             } else if (heldItem == Items.WATER_BUCKET) {
                 if (!level.isClientSide()) {
@@ -59,7 +59,7 @@ public class KalanBlock extends Block {
             if (heldItem instanceof FlintAndSteelItem) {
                 level.playSound(player, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, MathUtils.RAND.nextFloat() * 0.4F + 0.8F);
                 level.setBlock(pos, state.setValue(BlockStateProperties.LIT, Boolean.TRUE), 11);
-                heldStack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+                heldStack.hurtAndBreak(1, player, hand.asEquipmentSlot());
                 return InteractionResult.SUCCESS;
             } else if (heldItem instanceof FireChargeItem) {
                 level.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, (MathUtils.RAND.nextFloat() - MathUtils.RAND.nextFloat()) * 0.2F + 1.0F);

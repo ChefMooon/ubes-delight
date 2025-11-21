@@ -228,7 +228,7 @@ public class CraftingRecipes {
                 .pattern("ABA")
                 .pattern(" A ")
                 .define('A', UbesDelightItemsImpl.HALO_HALO.get())
-                .define('B', CommonTags.C_FOODS_MILK)
+                .define('B', ConventionalItemTags.MILK_DRINKS)
                 .unlockedBy(RecipeUtil.hasAny(), RecipeUtil.has(holderGetter, UbesDelightItemsImpl.HALO_HALO.get(), UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE.get(), Items.MILK_BUCKET))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.HALO_HALO_FEAST.get())));
 
@@ -237,7 +237,7 @@ public class CraftingRecipes {
                 .pattern("ABA")
                 .pattern(" A ")
                 .define('A', UbesDelightItemsImpl.MILK_TEA_UBE.get())
-                .define('B', CommonTags.C_FOODS_MILK)
+                .define('B', ConventionalItemTags.MILK_DRINKS)
                 .unlockedBy(RecipeUtil.hasAny(), RecipeUtil.has(holderGetter, UbesDelightItemsImpl.MILK_TEA_UBE.get(), UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE.get(), Items.MILK_BUCKET))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.MILK_TEA_UBE_FEAST.get())));
 
@@ -245,7 +245,7 @@ public class CraftingRecipes {
                 .pattern("AAA")
                 .pattern("BEB")
                 .pattern("CFC")
-                .define('A', CommonTags.C_FOODS_MILK)
+                .define('A', ConventionalItemTags.MILK_DRINKS)
                 .define('B', CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)
                 .define('C', Items.WHEAT)
                 .define('E', ConventionalItemTags.EGGS)

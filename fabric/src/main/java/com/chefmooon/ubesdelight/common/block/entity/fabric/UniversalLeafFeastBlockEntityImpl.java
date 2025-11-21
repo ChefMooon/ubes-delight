@@ -122,7 +122,7 @@ public class UniversalLeafFeastBlockEntityImpl extends SyncedBlockEntity {
         return inventory;
     }
 
-    public Vec2 getItemOffset(int index, LeafFeastTypes leafFeastType) {
+    public static Vec2 getItemOffset(int index, LeafFeastTypes leafFeastType) {
         return UniversalLeafFeastBlockEntity.getItemOffset(index, leafFeastType);
     }
 

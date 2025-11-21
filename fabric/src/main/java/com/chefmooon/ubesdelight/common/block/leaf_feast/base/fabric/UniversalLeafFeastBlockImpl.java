@@ -115,7 +115,7 @@ public class UniversalLeafFeastBlockImpl extends UniversalLeafFeastBlock {
         if (foodProperties != null) {
             level.gameEvent(player, GameEvent.EAT, pos);
             itemStack.getAllOfType(ConsumableListener.class).forEach(consumableListener -> consumableListener.onConsume(level, player, itemStack, consumable));
-            if (!level.isClientSide && consumable != null) {
+            if (!level.isClientSide() && consumable != null) {
                 consumable.onConsumeEffects().forEach(consumeEffect -> consumeEffect.apply(level, itemStack, player));
             }
         }
@@ -133,7 +133,7 @@ public class UniversalLeafFeastBlockImpl extends UniversalLeafFeastBlock {
     }
 
     @Override
-    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, Direction direction) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof UniversalLeafFeastBlockEntityImpl universalLeafFeastBlockEntity) {
             return universalLeafFeastBlockEntity.getItemsQuantity() * 2;

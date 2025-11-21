@@ -62,7 +62,7 @@ public class UbesDelightBlocksImpl {
             GingerCropBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT));
     public static final Supplier<Block> LEMONGRASS_STALK_CROP = registerBlock(UbesDelightBlocks.LEMONGRASS_STALK_CROP,
             LemongrassStalkCropBlock::new, BlockBehaviour.Properties.of()
-                    .noCollission()
+                    .noCollision()
                     .randomTicks()
                     .instabreak()
                     .strength(0.2F)
@@ -70,7 +70,7 @@ public class UbesDelightBlocksImpl {
                     .pushReaction(PushReaction.DESTROY));
     public static final Supplier<Block> LEMONGRASS_LEAF_CROP = registerBlock(UbesDelightBlocks.LEMONGRASS_LEAF_CROP,
             LemongrassLeafCropBlock::new, BlockBehaviour.Properties.of()
-                    .noCollission()
+                    .noCollision()
                     .randomTicks()
                     .instabreak()
                     .sound(SoundType.CROP)

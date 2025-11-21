@@ -159,7 +159,7 @@ public class DrinkableFeastBlock extends Block {
     }
 
     @Override
-    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, Direction direction) {
         return getOutputSignal((Integer)state.getValue(SERVINGS));
     }
 

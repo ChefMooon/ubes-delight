@@ -135,11 +135,11 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
         if (foodProperties != null) {
             level.gameEvent(player, GameEvent.EAT, pos);
             itemStack.getAllOfType(ConsumableListener.class).forEach(consumableListener -> consumableListener.onConsume(level, player, itemStack, consumable));
-            if (!level.isClientSide && consumable != null) {
+            if (!level.isClientSide() && consumable != null) {
                 consumable.onConsumeEffects().forEach(consumeEffect -> consumeEffect.apply(level, itemStack, player));
             }
         }
-        if (!level.isClientSide) level.playSound(null, pos, SoundEvents.GENERIC_EAT.value(), SoundSource.PLAYERS, 0.8F, 0.8F);
+        if (!level.isClientSide()) level.playSound(null, pos, SoundEvents.GENERIC_EAT.value(), SoundSource.PLAYERS, 0.8F, 0.8F);
         LeafFeastBlock.triggerConsumeAdvancement(player);
     }
 

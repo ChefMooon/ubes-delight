@@ -334,7 +334,7 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
         return inventory;
     }
 
-    public Vec2 getItemOffset(int index) {
+    public static Vec2 getItemOffset(int index) {
         return BakingMatBlockEntity.getItemOffset(index);
     }
 

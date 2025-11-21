@@ -66,7 +66,7 @@ public class UbesDelightCakeBlock extends Block {
     }
 
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (level.isClientSide) {
+        if (level.isClientSide()) {
             if (consumeBite(level, pos, state, player).consumesAction()) {
                 return InteractionResult.SUCCESS;
             }
@@ -93,7 +93,7 @@ public class UbesDelightCakeBlock extends Block {
             if (slice != null) {
                 level.gameEvent(player, GameEvent.EAT, pos);
                 cakeSlice.getAllOfType(ConsumableListener.class).forEach(consumableListener -> consumableListener.onConsume(level, player, cakeSlice, sliceConsumable));
-                if (!level.isClientSide && sliceConsumable != null) {
+                if (!level.isClientSide() && sliceConsumable != null) {
                     sliceConsumable.onConsumeEffects().forEach(consumeEffect -> consumeEffect.apply(level, cakeSlice, player));
                 }
             }
@@ -141,7 +141,7 @@ public class UbesDelightCakeBlock extends Block {
     }
 
     @Override
-    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, Direction direction) {
         return getOutputSignal((Integer)state.getValue(BITES));
     }
 

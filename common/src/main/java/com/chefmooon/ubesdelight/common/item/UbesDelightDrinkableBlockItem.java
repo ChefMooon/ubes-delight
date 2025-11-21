@@ -33,7 +33,7 @@ public class UbesDelightDrinkableBlockItem extends UbesDelightBlockItem {
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity consumer) {
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             this.affectConsumer(stack, level, consumer);
         }
 
