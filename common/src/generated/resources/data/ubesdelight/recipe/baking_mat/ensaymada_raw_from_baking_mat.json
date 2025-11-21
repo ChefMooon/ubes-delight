@@ -3,7 +3,7 @@
   "ingredients": [
     "#c:foods/dough",
     "#c:tea_ingredients/sweet/weak",
-    "#c:foods/milk"
+    "#c:drinks/milk"
   ],
   "processing_stages": [
     "ubesdelight:ensaymada_stage0",
