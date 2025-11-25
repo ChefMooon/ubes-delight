@@ -220,5 +220,15 @@
   "ubesdelight.container.bowl": "Bowl Required.",
   "ubesdelight.midnightconfig.bakingMatFortuneBonus": "Sets the bonus percentage each level of \nFortune grants to Baking Mat success chances.",
   "ubesdelight.midnightconfig.bakingMatFortuneBonus.tooltip": "Set to 0.0 to disable Fortune's effect.",
-  "ubesdelight.tooltip.glass_cup": "Shift-right-click to place. Right-click with a tool to rotate."
+  "ubesdelight.tooltip.glass_cup": "Shift-right-click to place. Right-click with a tool to rotate.",
+  "block.ubesdelight.leaf_feast_cooked_rice_half": "Cooked Rice Half Leaf Feast",
+  "block.ubesdelight.leaf_feast_ensaymada_half": "Ensaymada Half Leaf Feast",
+  "block.ubesdelight.leaf_feast_ensaymada_ube_half": "Ube Ensaymada Half Leaf Feast",
+  "block.ubesdelight.leaf_feast_fried_rice_half": "Fried Rice Half Leaf Feast",
+  "block.ubesdelight.leaf_feast_hopia_munggo_half": "Hopia Munggo Half Leaf Feast",
+  "block.ubesdelight.leaf_feast_hopia_ube_half": "Hopia Ube Half Leaf Feast",
+  "block.ubesdelight.leaf_feast_pandesal_half": "Pandesal Half Leaf Feast",
+  "block.ubesdelight.leaf_feast_pandesal_ube_half": "Ube Pandesal Half Leaf Feast",
+  "block.ubesdelight.leaf_feast_sinangag_half": "Sinangag Half Leaf Feast",
+  "item.ubesdelight.halo_halo": "Halo Halo"
 }
