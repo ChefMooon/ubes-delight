@@ -25,6 +25,9 @@
     "fabric-datagen": [
       "com.chefmooon.ubesdelight.data.fabric.DataGenerationFabric"
     ],
+    "jei_mod_plugin": [
+      "com.chefmooon.ubesdelight.integration.jei.fabric.JEIPluginImpl"
+    ],
     "rei_client": [
       "com.chefmooon.ubesdelight.integration.rei.client.fabric.ClientREIPluginImpl"
     ],
