@@ -323,7 +323,6 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_FOODS_GINGER), "Ginger");
         translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_FOODS_LEMONGRASS), "Lemongrass");
 
-        translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_FOODS_MILK_BOTTLE), "Milk Bottles");
         translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_TEA_INGREDIENTS), "Tea Ingredients");
         translationBuilder.add(C_TAG + getTranslationKey(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), "Sweet Weak");
 
