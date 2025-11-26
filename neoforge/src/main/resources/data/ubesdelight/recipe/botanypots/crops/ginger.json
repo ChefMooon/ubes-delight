@@ -5,24 +5,9 @@
       "modid": "botanypots"
     }
   ],
-  "type":"botanypots:crop",
-  "seed":  {
-    "item":"ubesdelight:ginger"
-  },
-  "categories": ["dirt","farmland"],
-  "growthTicks":1200,
-  "display": {
-    "type":"botanypots:aging",
-    "block":"ubesdelight:ginger_crop"
-  },
-  "drops": [
-    {
-      "chance":1.00,
-      "output": {
-        "item":"ubesdelight:ginger"
-      },
-      "minRolls":2,
-      "maxRolls":3
-    }
-  ]
+  "type": "botanypots:block_derived_crop",
+  "block": "ubesdelight:ginger_crop",
+  "input": {
+    "item": "ubesdelight:ginger"
+  }
 }
