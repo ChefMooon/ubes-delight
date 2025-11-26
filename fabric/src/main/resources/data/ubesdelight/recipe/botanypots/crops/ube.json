@@ -7,24 +7,9 @@
       ]
     }
   ],
-  "type":"botanypots:crop",
-  "seed":  {
-    "item":"ubesdelight:ube"
-  },
-  "categories": ["dirt","farmland"],
-  "growthTicks":1200,
-  "display": {
-    "type":"botanypots:aging",
-    "block":"ubesdelight:ube_crop"
-  },
-  "drops": [
-    {
-      "chance":1.00,
-      "output": {
-        "item":"ubesdelight:ube"
-      },
-      "minRolls":2,
-      "maxRolls":3
-    }
-  ]
+  "type": "botanypots:block_derived_crop",
+  "block": "ubesdelight:ube_crop",
+  "input": {
+    "item": "ubesdelight:ube"
+  }
 }
