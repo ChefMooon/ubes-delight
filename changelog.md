@@ -12,8 +12,6 @@ This is version is compatible with Minecraft 1.21.8 supporting Farmer's Delight 
 
 ### Fixed
 
-- [1.21.1+ Fabric Only] Baking Mat properly clears inventory after crafting (Thank you, FelixAgairu!)
 - [1.21.1] Fixed Botany Pots Crop integration
-- Fixed an issue where Rice Leaf Feast granted a serving without requiring a bowl when crouching
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
