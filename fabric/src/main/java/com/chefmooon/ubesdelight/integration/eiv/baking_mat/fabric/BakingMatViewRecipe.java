@@ -92,6 +92,7 @@ public class BakingMatViewRecipe implements IEivViewRecipe {
     @Override
     public List<SlotContent> getResults() {
         List<SlotContent> results = new ArrayList<>(this.mandatoryOutputs);
+        results.addAll(this.processStages);
         results.addAll(this.chanceOutputs.keySet());
         return results;
     }
