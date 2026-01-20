@@ -3,7 +3,7 @@ package com.chefmooon.ubesdelight.common.utility;
 import com.chefmooon.ubesdelight.UbesDelight;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class TextUtils {
 
@@ -11,7 +11,7 @@ public class TextUtils {
         return Component.translatable(UbesDelight.MOD_ID + "." + string, args);
     }
 
-    public static ResourceLocation res(String string) {
-        return ResourceLocation.fromNamespaceAndPath(UbesDelight.MOD_ID, string);
+    public static Identifier res(String string) {
+        return Identifier.fromNamespaceAndPath(UbesDelight.MOD_ID, string);
     }
 }

@@ -11,7 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -180,9 +180,9 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
             return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST_HOPIA_UBE);
         } else if (itemStack.is(BuiltInRegistryUtil.getItem(UbesDelightItems.LUMPIA))) {
             return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LUMPIA_FEAST);
-        } else if (itemStack.is(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice")).get())) {
+        } else if (itemStack.is(BuiltInRegistries.ITEM.get(Identifier.fromNamespaceAndPath("farmersdelight", "cooked_rice")).get())) {
             return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST_COOKED_RICE);
-        } else if (itemStack.is(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "fried_rice")).get())) {
+        } else if (itemStack.is(BuiltInRegistries.ITEM.get(Identifier.fromNamespaceAndPath("farmersdelight", "fried_rice")).get())) {
             return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST_FRIED_RICE);
         } else if (itemStack.is(BuiltInRegistryUtil.getItem(UbesDelightItems.SINANGAG))) {
             return BuiltInRegistryUtil.getBlock(UbesDelightBlocks.LEAF_FEAST_SINANGAG);

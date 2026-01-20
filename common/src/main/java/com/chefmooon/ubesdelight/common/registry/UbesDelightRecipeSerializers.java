@@ -1,8 +1,8 @@
 package com.chefmooon.ubesdelight.common.registry;
 
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class UbesDelightRecipeSerializers {
-    public static final ResourceLocation BAKING_MAT = TextUtils.res("baking_mat");
+    public static final Identifier BAKING_MAT = TextUtils.res("baking_mat");
 }

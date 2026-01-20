@@ -17,7 +17,7 @@ import me.shedaniel.rei.plugin.common.displays.crafting.CraftingDisplay;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import org.jetbrains.annotations.Nullable;
 
@@ -42,7 +42,7 @@ public class BakingMatRecipeDisplay extends BasicDisplay implements CraftingDisp
             RecordCodecBuilder.mapCodec(inst -> inst.group(
                     EntryIngredient.codec().listOf().fieldOf("inputs").forGetter(BakingMatRecipeDisplay::getIngredientEntries),
                     EntryIngredient.codec().listOf().fieldOf("outputs").forGetter(BakingMatRecipeDisplay::getOutputEntries),
-                    ResourceLocation.CODEC.optionalFieldOf("location").forGetter(BakingMatRecipeDisplay::getDisplayLocation),
+                    Identifier.CODEC.optionalFieldOf("location").forGetter(BakingMatRecipeDisplay::getDisplayLocation),
                     EntryIngredient.codec().fieldOf("tool").forGetter(BakingMatRecipeDisplay::getToolInput),
                     EntryIngredient.codec().listOf().fieldOf("processing_stages").forGetter(BakingMatRecipeDisplay::getProcessStages),
                     EntryIngredient.codec().listOf().fieldOf("mandatory_outputs").forGetter(BakingMatRecipeDisplay::getMandatoryOutputs),
@@ -51,7 +51,7 @@ public class BakingMatRecipeDisplay extends BasicDisplay implements CraftingDisp
             StreamCodec.composite(
                     EntryIngredient.streamCodec().apply(ByteBufCodecs.list()), BakingMatRecipeDisplay::getIngredientEntries,
                     EntryIngredient.streamCodec().apply(ByteBufCodecs.list()), BakingMatRecipeDisplay::getOutputEntries,
-                    ByteBufCodecs.optional(ResourceLocation.STREAM_CODEC), BakingMatRecipeDisplay::getDisplayLocation,
+                    ByteBufCodecs.optional(Identifier.STREAM_CODEC), BakingMatRecipeDisplay::getDisplayLocation,
                     EntryIngredient.streamCodec(), BakingMatRecipeDisplay::getToolInput,
                     EntryIngredient.streamCodec().apply(ByteBufCodecs.list()), BakingMatRecipeDisplay::getProcessStages,
                     EntryIngredient.streamCodec().apply(ByteBufCodecs.list()), BakingMatRecipeDisplay::getMandatoryOutputs,
@@ -60,10 +60,10 @@ public class BakingMatRecipeDisplay extends BasicDisplay implements CraftingDisp
             )
     );
     public BakingMatRecipeDisplay(RecipeHolder<BakingMatRecipeImpl> recipe) {
-        this(EntryIngredients.ofIngredients(recipe.value().getIngredients()), recipe.value().getResultList().stream().map(EntryIngredients::of).toList(), Optional.of(recipe.id().location()), EntryIngredients.ofIngredient(recipe.value().getTool()), EntryIngredients.ofIngredients(recipe.value().getProcessStages()), recipe.value().getMandatoryResults().stream().map(EntryIngredients::of).toList(), recipe.value().getVariableResult().stream().map(result -> Pair.of(EntryIngredients.of(result.stack()), result.chance())).toList());
+        this(EntryIngredients.ofIngredients(recipe.value().getIngredients()), recipe.value().getResultList().stream().map(EntryIngredients::of).toList(), Optional.of(recipe.id().identifier()), EntryIngredients.ofIngredient(recipe.value().getTool()), EntryIngredients.ofIngredients(recipe.value().getProcessStages()), recipe.value().getMandatoryResults().stream().map(EntryIngredients::of).toList(), recipe.value().getVariableResult().stream().map(result -> Pair.of(EntryIngredients.of(result.stack()), result.chance())).toList());
     }
 
-    public BakingMatRecipeDisplay(List<EntryIngredient> inputs, List<EntryIngredient> outputs, Optional<ResourceLocation> location, EntryIngredient tool, List<EntryIngredient> processStages, List<EntryIngredient> mandatoryOutputs, List<Pair<EntryIngredient, Float>> chanceOutputs) {
+    public BakingMatRecipeDisplay(List<EntryIngredient> inputs, List<EntryIngredient> outputs, Optional<Identifier> location, EntryIngredient tool, List<EntryIngredient> processStages, List<EntryIngredient> mandatoryOutputs, List<Pair<EntryIngredient, Float>> chanceOutputs) {
         super(inputs, outputs, location);
         this.toolInput = tool;
         this.mandatoryOutputs = mandatoryOutputs;

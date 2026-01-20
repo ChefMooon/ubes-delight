@@ -9,8 +9,8 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
@@ -308,14 +308,14 @@ public class UbesDelightItemsImpl {
     public static final Supplier<Item> HOPIA_UBE_STAGE2 = registerItemNoTab(UbesDelightItems.HOPIA_UBE_STAGE2,
             Item::new, basicItem());
 
-    public static Supplier<Item> registerItemWithTab(final ResourceLocation location, final Function<Item.Properties, Item> function, final Item.Properties properties) {
+    public static Supplier<Item> registerItemWithTab(final Identifier location, final Function<Item.Properties, Item> function, final Item.Properties properties) {
         properties.setId(ResourceKey.create(Registries.ITEM, location));
         Supplier<Item> item = registerItemNoTab(location, () -> function.apply(properties));
         ItemGroupEvents.modifyEntriesEvent(UbesDelightCreativeTabs.ITEM_GROUP).register(entries -> entries.accept(item.get()));
         return item;
     }
 
-    public static Supplier<Item> registerBlockWithTab(final ResourceLocation location, final BiFunction<Block, Item.Properties, Item> function, final Block block, final Item.Properties properties) {
+    public static Supplier<Item> registerBlockWithTab(final Identifier location, final BiFunction<Block, Item.Properties, Item> function, final Block block, final Item.Properties properties) {
         properties.setId(ResourceKey.create(Registries.ITEM, location));
         properties.useBlockDescriptionPrefix();
         Supplier<Item> item = registerItemNoTab(location, () -> function.apply(block, properties));
@@ -323,24 +323,24 @@ public class UbesDelightItemsImpl {
         return item;
     }
 
-    private static Supplier<Item> registerItemNoTab(final ResourceLocation location, final Function<Item.Properties, Item> function, final Item.Properties properties) {
+    private static Supplier<Item> registerItemNoTab(final Identifier location, final Function<Item.Properties, Item> function, final Item.Properties properties) {
         properties.setId(ResourceKey.create(Registries.ITEM, location));
         return registerItemNoTab(location, () -> function.apply(properties));
     }
 
-    private static <T extends Item> Supplier<T> registerItemNoTab(ResourceLocation location, Supplier<T> supplier) {
+    private static <T extends Item> Supplier<T> registerItemNoTab(Identifier location, Supplier<T> supplier) {
         T object = supplier.get();
         Registry.register(BuiltInRegistries.ITEM, location, object);
         return () -> object;
     }
 
-//    public static Item registerItemWithTab(final ResourceLocation location, final Item item) {
+//    public static Item registerItemWithTab(final Identifier location, final Item item) {
 //        Registry.register(BuiltInRegistries.ITEM, location, item);
 //        ItemGroupEvents.modifyEntriesEvent(UbesDelightCreativeTabs.ITEM_GROUP).register(entries -> entries.accept(item));
 //        return item;
 //    }
 //
-//    public static Item registerItem(final ResourceLocation location, final Item item) {
+//    public static Item registerItem(final Identifier location, final Item item) {
 //        Registry.register(BuiltInRegistries.ITEM, location, item);
 //        return item;
 //    }

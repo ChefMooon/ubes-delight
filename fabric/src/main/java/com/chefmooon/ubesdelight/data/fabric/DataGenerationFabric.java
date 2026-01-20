@@ -28,6 +28,6 @@ public class DataGenerationFabric implements DataGeneratorEntrypoint {
     @Override
     public void buildRegistry(RegistrySetBuilder registryBuilder) {
         registryBuilder.add(Registries.DAMAGE_TYPE, bootstrapContext -> bootstrapContext.register(UbesDelightDamageTypes.KALAN_BURN,
-                new DamageType(UbesDelight.MOD_ID + "." + UbesDelightDamageTypes.KALAN_BURN.location().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0.1f, DamageEffects.BURNING)));
+                new DamageType(UbesDelight.MOD_ID + "." + UbesDelightDamageTypes.KALAN_BURN.identifier().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0.1f, DamageEffects.BURNING)));
     }
 }

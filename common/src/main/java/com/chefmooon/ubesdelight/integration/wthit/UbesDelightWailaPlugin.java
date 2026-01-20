@@ -6,13 +6,13 @@ import com.chefmooon.ubesdelight.integration.wthit.provider.DrinkableFeastProvid
 import mcp.mobius.waila.api.IRegistrar;
 import mcp.mobius.waila.api.IWailaPlugin;
 import mcp.mobius.waila.api.TooltipPosition;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class UbesDelightWailaPlugin implements IWailaPlugin {
 
     public static class Options {
-        public static final ResourceLocation PUNCHBOWL_SERVINGS = TextUtils.res("punchbowl_servings");
-        public static final ResourceLocation FEAST_SERVINGS = TextUtils.res("feast_servings"); // todo - maybe use for all feast, must make extend AbstractFeastBlock
+        public static final Identifier PUNCHBOWL_SERVINGS = TextUtils.res("punchbowl_servings");
+        public static final Identifier FEAST_SERVINGS = TextUtils.res("feast_servings"); // todo - maybe use for all feast, must make extend AbstractFeastBlock
     }
 
     @Override

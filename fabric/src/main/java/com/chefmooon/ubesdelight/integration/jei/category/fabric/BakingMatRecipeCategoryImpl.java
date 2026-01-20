@@ -6,6 +6,7 @@ import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import com.chefmooon.ubesdelight.integration.jei.fabric.UDRecipeTypesImpl;
 import com.mojang.datafixers.util.Pair;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -16,10 +17,9 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.recipe.types.IRecipeType;
 import net.minecraft.ChatFormatting;
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeHolder;
@@ -37,7 +37,7 @@ public class BakingMatRecipeCategoryImpl implements IRecipeCategory<RecipeHolder
 
     public BakingMatRecipeCategoryImpl(IGuiHelper helper) {
         title = TextUtils.getTranslatable("rei.baking_mat");
-        ResourceLocation backgroundImage = TextUtils.res("textures/gui/emi/baking_mat.png");
+        Identifier backgroundImage = TextUtils.res("textures/gui/emi/baking_mat.png");
         slotLarge = helper.createDrawable(backgroundImage, 0, 80, 18, 18);
         slotChance = helper.createDrawable(backgroundImage, 18, 80, 18, 18);
         background = helper.createDrawable(backgroundImage, 7, 9, 149, 56);
@@ -54,10 +54,10 @@ public class BakingMatRecipeCategoryImpl implements IRecipeCategory<RecipeHolder
         return this.title;
     }
 
-    @Override
-    public IDrawable getBackground() {
-        return this.background;
-    }
+//    @Override
+//    public IDrawable getBackground() {
+//        return this.background;
+//    }
 
     @Override
     public IDrawable getIcon() {

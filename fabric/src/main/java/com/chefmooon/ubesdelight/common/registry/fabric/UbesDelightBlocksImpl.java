@@ -9,10 +9,13 @@ import com.chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -113,18 +116,18 @@ public class UbesDelightBlocksImpl {
             (properties) -> new HopiaLeafFeastBlock(() -> UbesDelightItemsImpl.HOPIA_UBE.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
 
     public static final Supplier<Block> LEAF_FEAST_COOKED_RICE = registerBlock(UbesDelightBlocks.LEAF_FEAST_COOKED_RICE,
-            (properties) -> new RiceLeafFeastBlock(() -> BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "cooked_rice")).get().value(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            (properties) -> new RiceLeafFeastBlock(() -> BuiltInRegistries.ITEM.get(Identifier.fromNamespaceAndPath("farmersdelight", "cooked_rice")).get().value(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
     public static final Supplier<Block> LEAF_FEAST_FRIED_RICE = registerBlock(UbesDelightBlocks.LEAF_FEAST_FRIED_RICE,
-            (properties) -> new RiceLeafFeastBlock(() -> BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("farmersdelight", "fried_rice")).get().value(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            (properties) -> new RiceLeafFeastBlock(() -> BuiltInRegistries.ITEM.get(Identifier.fromNamespaceAndPath("farmersdelight", "fried_rice")).get().value(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
     public static final Supplier<Block> LEAF_FEAST_SINANGAG = registerBlock(UbesDelightBlocks.LEAF_FEAST_SINANGAG,
             (properties) -> new RiceLeafFeastBlock(() -> UbesDelightItemsImpl.SINANGAG.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
 
-    public static Supplier<Block> registerBlock(final ResourceLocation location, final Function<BlockBehaviour.Properties, Block> function, final BlockBehaviour.Properties properties) {
+    public static Supplier<Block> registerBlock(final Identifier location, final Function<BlockBehaviour.Properties, Block> function, final BlockBehaviour.Properties properties) {
         properties.setId(ResourceKey.create(Registries.BLOCK, location));
         return regBlock(location, () -> function.apply(properties));
     }
 
-    private static <B extends Block> Supplier<B> regBlock(final ResourceLocation location, Supplier<B> supplier) {
+    private static <B extends Block> Supplier<B> regBlock(final Identifier location, Supplier<B> supplier) {
         B object = supplier.get();
         Registry.register(BuiltInRegistries.BLOCK, location, object);
         return () -> object;

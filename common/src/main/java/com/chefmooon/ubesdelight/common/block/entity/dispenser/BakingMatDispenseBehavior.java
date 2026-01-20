@@ -1,7 +1,7 @@
 package com.chefmooon.ubesdelight.common.block.entity.dispenser;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import dev.architectury.injectables.annotations.ExpectPlatform;
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.dispenser.BlockSource;

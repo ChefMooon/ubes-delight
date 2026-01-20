@@ -8,7 +8,7 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class UbesDelightClientImpl implements ClientModInitializer {
 
@@ -25,12 +25,12 @@ public class UbesDelightClientImpl implements ClientModInitializer {
     public static void onBuiltinPackRegistration() {
         if (isModLoaded("presencefootsteps")) {
             FabricLoader.getInstance().getModContainer(UbesDelight.MOD_ID).ifPresent(udpresencefootsteps ->
-                    ResourceManagerHelper.registerBuiltinResourcePack(ResourceLocation.parse("udpresencefootsteps"), udpresencefootsteps, ResourcePackActivationType.DEFAULT_ENABLED));
+                    ResourceManagerHelper.registerBuiltinResourcePack(Identifier.parse("udpresencefootsteps"), udpresencefootsteps, ResourcePackActivationType.DEFAULT_ENABLED));
         }
 
         if (isModLoaded("eatinganimationid")) {
             FabricLoader.getInstance().getModContainer(UbesDelight.MOD_ID).ifPresent(udsupporteatinganimation ->
-                    ResourceManagerHelper.registerBuiltinResourcePack(ResourceLocation.parse("udsupporteatinganimation"), udsupporteatinganimation, ResourcePackActivationType.DEFAULT_ENABLED));
+                    ResourceManagerHelper.registerBuiltinResourcePack(Identifier.parse("udsupporteatinganimation"), udsupporteatinganimation, ResourcePackActivationType.DEFAULT_ENABLED));
         }
     }
 

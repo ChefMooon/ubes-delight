@@ -7,8 +7,8 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -24,7 +24,7 @@ public class UbesDelightBiomeModifiersImpl {
     public static final ResourceKey<PlacedFeature> WILD_LEMONGRASS = modFeature(UbesDelightBiomeModifiers.PATCH_WILD_LEMONGRASS);
 
     @NotNull
-    private static ResourceKey<PlacedFeature> modFeature(ResourceLocation location) {
+    private static ResourceKey<PlacedFeature> modFeature(Identifier location) {
         return ResourceKey.create(Registries.PLACED_FEATURE, location);
     }
 

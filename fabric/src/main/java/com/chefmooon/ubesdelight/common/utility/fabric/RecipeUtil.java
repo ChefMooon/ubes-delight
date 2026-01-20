@@ -2,15 +2,15 @@ package com.chefmooon.ubesdelight.common.utility.fabric;
 
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.MinMaxBounds;
+import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.advancements.criterion.ItemPredicate;
+import net.minecraft.advancements.criterion.MinMaxBounds;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -18,7 +18,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.List;
 
 public class RecipeUtil {
-    public static final ResourceLocation MINECRAFT = ResourceLocation.parse("minecraft");
+    public static final Identifier MINECRAFT = Identifier.parse("minecraft");
 
     public static void simpleRecipeBuilder(HolderGetter<Item> holderGetter, RecipeOutput exporter, RecipeCategory category, Item inputItem, int inputCount, Item outputItem, int outputCount) {
         ShapelessRecipeBuilder.shapeless(holderGetter, category, outputItem, outputCount)

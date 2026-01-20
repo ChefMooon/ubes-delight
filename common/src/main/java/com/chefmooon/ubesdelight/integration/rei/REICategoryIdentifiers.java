@@ -1,8 +1,8 @@
 package com.chefmooon.ubesdelight.integration.rei;
 
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class REICategoryIdentifiers {
-    public static final ResourceLocation BAKING_MAT = TextUtils.res("plugins/baking_mat");
+    public static final Identifier BAKING_MAT = TextUtils.res("plugins/baking_mat");
 }

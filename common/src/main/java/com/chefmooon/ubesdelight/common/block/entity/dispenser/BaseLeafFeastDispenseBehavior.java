@@ -5,8 +5,8 @@ import com.chefmooon.ubesdelight.common.block.leaf_feast.base.LargeLeafFeastBloc
 import com.chefmooon.ubesdelight.common.block.leaf_feast.base.SimpleLeafFeastBlock;
 import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.utility.ItemStackUtil;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import dev.architectury.injectables.annotations.ExpectPlatform;
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;

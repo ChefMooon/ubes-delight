@@ -9,7 +9,7 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -349,7 +349,7 @@ public class BakingMatRecipes {
         return RecipeProvider.getItemName(item) + suffix();
     }
 
-    private static ResourceLocation suffix(String string) {
+    private static Identifier suffix(String string) {
         return TextUtils.res(string + suffix());
     }
 

@@ -11,14 +11,14 @@ import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancements.*;
-import net.minecraft.advancements.critereon.ConsumeItemTrigger;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.ItemUsedOnLocationTrigger;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.advancements.criterion.ConsumeItemTrigger;
+import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.advancements.criterion.ItemUsedOnLocationTrigger;
+import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -38,7 +38,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .display(new ItemStack(UbesDelightItemsImpl.UBE.get()),
                         TextUtils.getTranslatable("advancement.root"),
                         TextUtils.getTranslatable("advancement.root.desc"),
-                        ResourceLocation.withDefaultNamespace("block/bamboo_block"),
+                        Identifier.withDefaultNamespace("block/bamboo_block"),
                         AdvancementType.TASK, false, false, false)
                 .addCriterion(RecipeProvider.getHasName(Items.WHEAT_SEEDS), InventoryChangeTrigger.TriggerInstance.hasItems(new ItemLike[]{}))
                 .build(getAdvancementName("root"));
@@ -221,7 +221,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         null, type, showToast, announceChat, hidden);
     }
 
-    private static ResourceLocation getAdvancementName(String string) {
+    private static Identifier getAdvancementName(String string) {
         return TextUtils.res("main/" + string);
     }
 }

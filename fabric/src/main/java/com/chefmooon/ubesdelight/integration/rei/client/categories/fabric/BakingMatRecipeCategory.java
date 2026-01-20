@@ -17,14 +17,14 @@ import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BakingMatRecipeCategory implements DisplayCategory<BakingMatRecipeDisplay> {
 
-    private static final ResourceLocation GUI_TEXTURE = TextUtils.res("textures/gui/rei/baking_mat.png");
+    private static final Identifier GUI_TEXTURE = TextUtils.res("textures/gui/rei/baking_mat.png");
 
 
     @Override

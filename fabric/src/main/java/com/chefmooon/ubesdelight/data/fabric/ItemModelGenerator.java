@@ -5,7 +5,7 @@ import com.chefmooon.ubesdelight.common.utility.fabric.UbesDelightModels;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.ItemModel;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 
 import java.util.function.Supplier;
@@ -158,7 +158,7 @@ public class ItemModelGenerator {
     }
 
     private static void generateRollingPinItem(Supplier<Item> item) {
-        ResourceLocation resourceLocation = UbesDelightModels.TEMPLATE_ROLLING_PIN_3D.create(ModelLocationUtils.getModelLocation(item.get()),
+        Identifier resourceLocation = UbesDelightModels.TEMPLATE_ROLLING_PIN_3D.create(ModelLocationUtils.getModelLocation(item.get()),
                 new TextureMapping().put(TextureSlot.CONTENT, ModelLocationUtils.getModelLocation(item.get(), "_3d")),
                 GENERATOR.modelOutput);
         ItemModel.Unbaked model = ItemModelUtils.plainModel(resourceLocation);
