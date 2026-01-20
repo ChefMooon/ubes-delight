@@ -33,6 +33,9 @@
     ],
     "rei_common": [
       "com.chefmooon.ubesdelight.integration.rei.fabric.CommonREIPluginImpl"
+    ],
+    "rrv": [
+      "com.chefmooon.ubesdelight.integration.rrv.fabric.RRVPluginImpl"
     ]
   },
   "mixins": [

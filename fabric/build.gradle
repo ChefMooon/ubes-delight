@@ -64,12 +64,18 @@ dependencies {
     modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:$rei_version") { transitive = false }
     modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version")
 
+    // RRV
+    modCompileOnly("maven.modrinth:rrv:${rrv_version}-fabric") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+
     switch (recipe_viewer.toLowerCase(Locale.ROOT)) {
         case "jei": modLocalRuntime("mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"); break
 //        case "rei": modLocalRuntime("me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"); break
         case "emi": modLocalRuntime("dev.emi:emi-fabric:${emi_version}"); break
+        case "rrv": modLocalRuntime("maven.modrinth:rrv:${rrv_version}-fabric") {exclude(group: "net.fabricmc.fabric-api")}; break
         case "disabled": break
-        default: println("Unknown recipe viewer specified: ${recipe_viewer}. Must be JEI, REI, EMI, or disabled.")
+        default: println("Unknown recipe viewer specified: ${recipe_viewer}. Must be JEI, REI, EMI, RRV, or disabled.")
     }
 
     // compile against the API
