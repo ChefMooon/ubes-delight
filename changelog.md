@@ -6,14 +6,8 @@ This is version is compatible with Minecraft 1.21.11 supporting Farmer's Delight
 
 ***
 
-Minecraft 1.21.11 release!
+### Fixed
 
-### Added
-
-- [1.21.11] Reliable Recipe Viewer support
-
-### Removed
-
-- [1.21.11] Extended ItemView support
+- Fixed Kalan chat messages upon player death (Thank you, bobqianic!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
