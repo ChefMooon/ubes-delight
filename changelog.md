@@ -7,6 +7,10 @@ NeoForge, and Fabric
 
 ***
 
+### Changed
+
+- MidnightLib version updated
+
 ### Fixed
 
 - Fixed Kalan chat messages upon player death (Thank you, bobqianic!)
