@@ -6,6 +6,10 @@ This is version is compatible with Minecraft 1.21.9-1.21.10 supporting Farmer's 
 
 ***
 
+### Changed
+
+- MidnightLib version updated
+
 ### Fixed
 
 - Fixed Kalan chat messages upon player death (Thank you, bobqianic!)
