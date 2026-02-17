@@ -9,6 +9,6 @@ NeoForge, and Fabric
 
 ### Fixed
 
-- Fixed an issue where Rice Leaf Feast granted a serving without requiring a bowl when crouching
+- Fixed Kalan chat messages upon player death (Thank you, bobqianic!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)

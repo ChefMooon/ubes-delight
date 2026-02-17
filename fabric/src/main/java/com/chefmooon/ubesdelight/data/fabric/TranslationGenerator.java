@@ -200,6 +200,9 @@ public class TranslationGenerator extends FabricLanguageProvider {
         translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF, "Fried Rice Half Leaf Feast");
         translationBuilder.add(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF, "Sinangag Half Leaf Feast");
 
+        translationBuilder.add("death.attack." + MOD_ID + ".kalan", "%1$s underestimated the heat of a Kalan");
+        translationBuilder.add("death.attack." + MOD_ID + ".kalan.player", "%2$s was served extra crispy by %1$s");
+
         translationBuilder.add(ADVANCEMENT + "root", FORMATTED_MOD_ID);
         translationBuilder.add(ADVANCEMENT + "root.desc", "Cuisine from the Phillipines!");
 

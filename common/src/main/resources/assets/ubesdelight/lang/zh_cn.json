@@ -205,5 +205,7 @@
   "ubesdelight.tooltip.glass_cup": "Shift右击放置。使用工具右击旋转。",
   "ubesdelight.tooltip.kalan": "一种菲律宾传统的黏土烤炉。",
   "ubesdelight.tooltip.knife": "需要刀。",
-  "ubesdelight.tooltip.waila.punchbowl_servings": "份量"
+  "ubesdelight.tooltip.waila.punchbowl_servings": "份量",
+  "death.attack.ubesdelight.kalan": "%1$s underestimated the heat of a Kalan",
+  "death.attack.ubesdelight.kalan.player": "%2$s was served extra crispy by %1$s"
 }
