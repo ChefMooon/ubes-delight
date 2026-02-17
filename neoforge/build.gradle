@@ -112,60 +112,46 @@ publishing {
     }
 }
 
-var env = System.getenv()
-
 var changelogFile = rootProject.file("changelog.md")
 var changelogText = changelogFile.exists() ? changelogFile.text : ""
 var vName = mod_name + " " + project.version
 
-if (env.MODRINTH_TOKEN) {
-    modrinth {
-        token = System.getenv("MODRINTH_TOKEN") // This is the default. Remember to have the MODRINTH_TOKEN environment variable set or else this will fail, or set it to whatever you want - just make sure it stays private!
-        projectId = modrinth_project_id // This can be the project ID or the slug. Either will work!
-        versionName = vName
-        versionNumber = project.version // You don't need to set this manually. Will fail if Modrinth has this version already
-        versionType = mod_version_type // This is the default -- can also be `beta` or `alpha`
-        changelog = changelogText
-        uploadFile = remapJar // With Loom, this MUST be set to `remapJar` instead of `jar`!
-        gameVersions = minecraft_supported_versions.split(",").toList()
-        loaders = ["neoforge"]
-        dependencies {
-            // scope.type
-            // The scope can be `required`, `optional`, `incompatible`, or `embedded`
-            // The type can either be `project` or `version`
-            required.project "farmers-delight"
-            embedded.project "midnightlib"
-            optional.project "jei"
-            optional.project "rei"
-            optional.project "emi"
-        }
+publishMods {
+    file = remapJar.archiveFile // With Loom, this MUST be set to `remapJar` instead of `jar`!
+    changelog = changelogText
+    version = project.version
+    type = me.modmuss50.mpp.ReleaseType.valueOf(mod_version_type)
+    displayName = vName
+
+    modLoaders.add("neoforge")
+
+    curseforge("curseforgeNeoforge") {
+        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+        projectId = curseforge_project_id
+
+        minecraftVersions.addAll(minecraft_supported_versions.split(","))
+        javaVersions.add(JavaVersion.VERSION_21)
+
+        clientRequired = true
+        serverRequired = true
+
+        requires("farmers-delight")
+        embeds("midnightlib")
+        optional("jei")
+        optional("roughly-enough-items")
+        optional("emi")
     }
-}
 
-if (env.CURSEFORGE_TOKEN) {
-    curseforge {
-        apiKey = env.CURSEFORGE_TOKEN
-        project {
-            id = curseforge_project_id
-            changelog = changelogText
-            changelogType = 'markdown'
-            releaseType = mod_version_type
-            for (String v : minecraft_supported_versions.split(",").toList()) {
-                addGameVersion v
-            }
-            addGameVersion "NeoForge"
+    modrinth("modrinthNeoforge") {
+        accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+        projectId = modrinth_project_id
 
-            mainArtifact(remapJar) {
-                displayName = vName
-            }
+        minecraftVersions.addAll(minecraft_supported_versions.split(","))
 
-            relations {
-                requiredDependency "farmers-delight"
-                embeddedLibrary "midnightlib"
-                optionalDependency "jei"
-                optionalDependency "roughly-enough-items"
-                optionalDependency "emi"
-            }
-        }
+        requires("farmers-delight")
+        embeds("midnightlib")
+        optional("jei")
+        optional("rei")
+        optional("emi")
     }
 }
