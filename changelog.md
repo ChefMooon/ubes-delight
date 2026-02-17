@@ -9,6 +9,6 @@ NeoForge and Fabric.
 
 ### Fixed
 
-- [1.21.1] Fixed Botany Pots Crop integration
+- Fixed Kalan chat messages upon player death (Thank you, bobqianic!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)

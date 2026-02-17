@@ -37,6 +37,8 @@
   "block.ubesdelight.wild_ube": "Wild Ube",
   "config.waila.plugin_ubesdelight": "Ube's Delight",
   "config.waila.plugin_ubesdelight.punchbowl_servings": "Punch Bowl Servings",
+  "death.attack.ubesdelight.kalan": "%1$s underestimated the heat of a Kalan",
+  "death.attack.ubesdelight.kalan.player": "%2$s was served extra crispy by %1$s",
   "emi.category.ubesdelight.baking_mat": "Baking Mat",
   "item.ubesdelight.arroz_caldo": "Arroz Caldo",
   "item.ubesdelight.bangsilog": "Bangsilog",

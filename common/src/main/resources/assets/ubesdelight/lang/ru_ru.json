@@ -221,5 +221,7 @@
   "ubesdelight.container.bowl": "Bowl Required.",
   "ubesdelight.midnightconfig.bakingMatFortuneBonus": "Sets the bonus percentage each level of \nFortune grants to Baking Mat success chances.",
   "ubesdelight.midnightconfig.bakingMatFortuneBonus.tooltip": "Set to 0.0 to disable Fortune's effect.",
-  "ubesdelight.tooltip.glass_cup": "Shift-right-click to place. Right-click with a tool to rotate."
+  "ubesdelight.tooltip.glass_cup": "Shift-right-click to place. Right-click with a tool to rotate.",
+  "death.attack.ubesdelight.kalan": "%1$s underestimated the heat of a Kalan",
+  "death.attack.ubesdelight.kalan.player": "%2$s was served extra crispy by %1$s"
 }
