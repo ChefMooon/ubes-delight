@@ -6,12 +6,8 @@ This is version is compatible with Minecraft 1.21.5 supporting Farmer's Delight 
 
 ***
 
-### Added
-
-- [1.21.5+] Extended ItemView (EIV) support
-
 ### Fixed
 
-- [1.21.1] Fixed Botany Pots Crop integration
+- Fixed Kalan chat messages upon player death (Thank you, bobqianic!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
