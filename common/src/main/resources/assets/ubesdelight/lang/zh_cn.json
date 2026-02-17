@@ -230,5 +230,7 @@
   "tag.item.c.tea_ingredients.sweet.weak": "Sweet Weak",
   "tag.item.c.tools.rolling_pin": "Rolling Pins",
   "tag.item.ubesdelight.tools.rolling_pin": "Rolling Pins",
-  "ubesdelight.tooltip.block.ubesdelight.kalan": "Traditional Filipino Clay Oven."
+  "ubesdelight.tooltip.block.ubesdelight.kalan": "Traditional Filipino Clay Oven.",
+  "death.attack.ubesdelight.kalan": "%1$s underestimated the heat of a Kalan",
+  "death.attack.ubesdelight.kalan.player": "%2$s was served extra crispy by %1$s"
 }

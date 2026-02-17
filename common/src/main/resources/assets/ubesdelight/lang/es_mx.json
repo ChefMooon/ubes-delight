@@ -261,5 +261,7 @@
   "block.ubesdelight.leaf_feast_pandesal_half": "Pandesal Half Leaf Feast",
   "block.ubesdelight.leaf_feast_pandesal_ube_half": "Ube Pandesal Half Leaf Feast",
   "block.ubesdelight.leaf_feast_sinangag_half": "Sinangag Half Leaf Feast",
-  "item.ubesdelight.halo_halo": "Halo Halo"
+  "item.ubesdelight.halo_halo": "Halo Halo",
+  "death.attack.ubesdelight.kalan": "%1$s underestimated the heat of a Kalan",
+  "death.attack.ubesdelight.kalan.player": "%2$s was served extra crispy by %1$s"
 }
