@@ -9,7 +9,7 @@ NeoForge and Fabric.
 
 ### Changed
 
-- FD 1.2.10 - 1.21.1 Tag Changes:
+- [1.21.1 only] Match FD 1.2.10 - 1.21.1 Tag Changes:
   - All usages of `c:foods/milk` -> `c:drinks/milk`
   - Condensed Milk added to `c:drinks/milk`
   - Add Ube Cake, Leche Flan, and Leaf Feasts to `c:foods/edible_when_placed`
