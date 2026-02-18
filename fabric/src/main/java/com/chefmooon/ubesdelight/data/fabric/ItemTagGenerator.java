@@ -294,6 +294,15 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF)
         ;
 
+        getOrCreateTagBuilder(ConventionalItemTags.FOOD_POISONING_FOODS)
+                .add(UbesDelightItemsImpl.PANDESAL_RAW)
+                .add(UbesDelightItemsImpl.PANDESAL_UBE_RAW)
+                .add(UbesDelightItemsImpl.ENSAYMADA_RAW)
+                .add(UbesDelightItemsImpl.ENSAYMADA_UBE_RAW)
+                .add(UbesDelightItemsImpl.HOPIA_MUNGGO_RAW)
+                .add(UbesDelightItemsImpl.HOPIA_UBE_RAW)
+        ;
+
         // Create Dough Compat
         // todo - when create 1.21 releases check compatibility
 //        getOrCreateTagBuilder(CommonTags.C_FOODS_DOUGH)
