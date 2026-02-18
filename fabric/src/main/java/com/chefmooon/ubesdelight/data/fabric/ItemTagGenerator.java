@@ -271,6 +271,29 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_GINGER).add(UbesDelightItemsImpl.GINGER_CRATE);
         getOrCreateTagBuilder(CommonTags.C_STORAGE_BLOCKS_ITEM_LEMONGRASS).add(UbesDelightItemsImpl.LEMONGRASS_CRATE);
 
+        getOrCreateTagBuilder(ConventionalItemTags.EDIBLE_WHEN_PLACED_FOODS)
+                .add(UbesDelightItemsImpl.UBE_CAKE)
+                .add(UbesDelightItemsImpl.LECHE_FLAN_FEAST)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_HALF)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_ENSAYMADA_UBE_HALF)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_HALF)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_PANDESAL_UBE_HALF)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_MUNGGO_HALF)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_HOPIA_UBE_HALF)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_COOKED_RICE_HALF)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_FRIED_RICE_HALF)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG)
+                .add(UbesDelightItemsImpl.LEAF_FEAST_SINANGAG_HALF)
+        ;
+
         // Create Dough Compat
         // todo - when create 1.21 releases check compatibility
 //        getOrCreateTagBuilder(CommonTags.C_FOODS_DOUGH)
