@@ -6,6 +6,7 @@ import com.chefmooon.ubesdelight.common.tag.CompatibilityTags;
 import com.chefmooon.ubesdelight.common.tag.UbesDelightTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
@@ -234,9 +235,10 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.HOPIA_UBE)
         ;
 
+        // TODO: remove from C_FOODS_MILK in next few releases, keep for compatibility
         getOrCreateTagBuilder(CommonTags.C_FOODS_MILK)
-                .forceAddTag(CommonTags.C_FOODS_MILK_BOTTLE);
-        getOrCreateTagBuilder(CommonTags.C_FOODS_MILK_BOTTLE)
+                .add(UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE);
+        getOrCreateTagBuilder(ConventionalItemTags.MILK_DRINKS)
                 .add(UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE);
 
         getOrCreateTagBuilder(CommonTags.C_FOODS_LEAFY_GREEN)

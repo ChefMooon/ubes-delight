@@ -73,7 +73,6 @@ public class CommonTags {
     public static final TagKey<Item> C_FOODS_COOKED_EGG = getCommonItemTagKey("foods/cooked_egg");
 
     public static final TagKey<Item> C_FOODS_MILK = getCommonItemTagKey("foods/milk");
-    public static final TagKey<Item> C_FOODS_MILK_BOTTLE = getCommonItemTagKey("foods/milk_bottle");
 
     public static final TagKey<Item> C_FOODS_DOUGH = getCommonItemTagKey("foods/dough");
 

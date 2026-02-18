@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_foods_milk": {
+    "has_drinks_milk": {
       "conditions": {
         "items": [
           {
-            "items": "#c:foods/milk"
+            "items": "#c:drinks/milk"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_foods_milk"
+      "has_drinks_milk"
     ]
   ],
   "rewards": {

@@ -5,6 +5,7 @@ import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.tag.CompatibilityTags;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -225,7 +226,7 @@ public class CraftingRecipes {
                 .pattern("ABA")
                 .pattern(" A ")
                 .define('A', UbesDelightItemsImpl.HALO_HALO)
-                .define('B', CommonTags.C_FOODS_MILK)
+                .define('B', ConventionalItemTags.MILK_DRINKS)
                 .unlockedBy(RecipeUtil.hasAny(), RecipeUtil.getTriggerfromItems(UbesDelightItemsImpl.HALO_HALO, UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE, Items.MILK_BUCKET))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.HALO_HALO_FEAST)));
 
@@ -234,7 +235,7 @@ public class CraftingRecipes {
                 .pattern("ABA")
                 .pattern(" A ")
                 .define('A', UbesDelightItemsImpl.MILK_TEA_UBE)
-                .define('B', CommonTags.C_FOODS_MILK)
+                .define('B', ConventionalItemTags.MILK_DRINKS)
                 .unlockedBy(RecipeUtil.hasAny(), RecipeUtil.getTriggerfromItems(UbesDelightItemsImpl.MILK_TEA_UBE, UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE, Items.MILK_BUCKET))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItemsImpl.MILK_TEA_UBE_FEAST)));
 
@@ -242,7 +243,7 @@ public class CraftingRecipes {
                 .pattern("AAA")
                 .pattern("BEB")
                 .pattern("CFC")
-                .define('A', CommonTags.C_FOODS_MILK)
+                .define('A', ConventionalItemTags.MILK_DRINKS)
                 .define('B', CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)
                 .define('C', Items.WHEAT)
                 .define('E', CommonTags.C_EGGS)

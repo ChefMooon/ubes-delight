@@ -6,6 +6,7 @@ import com.chefmooon.ubesdelight.common.tag.CompatibilityTags;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import com.chefmooon.ubesdelight.common.utility.fabric.RecipeUtil;
 import com.chefmooon.ubesdelight.data.fabric.builder.CookingPotRecipeJsonBuilder;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -77,8 +78,8 @@ public class CookingRecipes {
                 .save(exporter, recipeConversionName(UbesDelightItemsImpl.FISH_SAUCE_BOTTLE, Items.WATER_BUCKET));
 
         CookingPotRecipeJsonBuilder.create(UbesDelightItemsImpl.MILK_POWDER, 1, 200,  0.2F,
-                        nonNullList(Ingredient.of(CommonTags.C_FOODS_MILK)))
-                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_MILK), RecipeProvider.has(CommonTags.C_FOODS_MILK))
+                        nonNullList(Ingredient.of(ConventionalItemTags.MILK_DRINKS)))
+                .unlockedBy(RecipeUtil.hasItemTag(ConventionalItemTags.MILK_DRINKS), RecipeProvider.has(ConventionalItemTags.MILK_DRINKS))
                 .setRecipeBookTab(CookingPotRecipeBookTab.DRINKS)
                 .save(exporter, recipeName(UbesDelightItemsImpl.MILK_POWDER));
 

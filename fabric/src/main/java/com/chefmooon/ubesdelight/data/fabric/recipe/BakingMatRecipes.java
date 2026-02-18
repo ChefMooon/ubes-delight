@@ -4,6 +4,7 @@ import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
 import com.chefmooon.ubesdelight.data.fabric.builder.BakingMatRecipeJsonBuilder;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -54,8 +55,8 @@ public class BakingMatRecipes {
         // Ube Cake
         BakingMatRecipeJsonBuilder.create(
                 nonNullList(Ingredient.of(Items.EGG), Ingredient.of(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), Ingredient.of(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK),
-                                Ingredient.of(CommonTags.C_FOODS_MILK), Ingredient.of(CommonTags.C_CROPS_UBE), Ingredient.of(CommonTags.C_FOODS_MILK),
-                                Ingredient.of(CommonTags.C_FOODS_MILK), Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT)),
+                                Ingredient.of(ConventionalItemTags.MILK_DRINKS), Ingredient.of(CommonTags.C_CROPS_UBE), Ingredient.of(ConventionalItemTags.MILK_DRINKS),
+                                Ingredient.of(ConventionalItemTags.MILK_DRINKS), Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT)),
                         null,
                         Ingredient.of(CommonTags.C_TOOLS_ROLLING_PIN),
                         UbesDelightItemsImpl.UBE_CAKE
@@ -141,7 +142,7 @@ public class BakingMatRecipes {
 
         // Ensaymada
         BakingMatRecipeJsonBuilder.create(
-                nonNullList(Ingredient.of(CommonTags.C_FOODS_DOUGH), Ingredient.of(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), Ingredient.of(CommonTags.C_FOODS_MILK)),
+                nonNullList(Ingredient.of(CommonTags.C_FOODS_DOUGH), Ingredient.of(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), Ingredient.of(ConventionalItemTags.MILK_DRINKS)),
                         nonNullList(Ingredient.of(UbesDelightItemsImpl.ENSAYMADA_STAGE0),
                                 Ingredient.of(UbesDelightItemsImpl.ENSAYMADA_STAGE1),
                                 Ingredient.of(UbesDelightItemsImpl.ENSAYMADA_STAGE2),
@@ -154,7 +155,7 @@ public class BakingMatRecipes {
 
         // Ensaymada Ube
         BakingMatRecipeJsonBuilder.create(
-                nonNullList(Ingredient.of(CommonTags.C_FOODS_DOUGH), Ingredient.of(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), Ingredient.of(CommonTags.C_FOODS_MILK), Ingredient.of(CommonTags.C_CROPS_UBE)),
+                nonNullList(Ingredient.of(CommonTags.C_FOODS_DOUGH), Ingredient.of(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), Ingredient.of(ConventionalItemTags.MILK_DRINKS), Ingredient.of(CommonTags.C_CROPS_UBE)),
                         nonNullList(Ingredient.of(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE0),
                                 Ingredient.of(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE1),
                                 Ingredient.of(UbesDelightItemsImpl.ENSAYMADA_UBE_STAGE2),
@@ -218,19 +219,19 @@ public class BakingMatRecipes {
                         Items.PUMPKIN_PIE
                 )
                 .addOutput(Items.PUMPKIN_PIE, 1, 0.25f)
-                .save(exporter, Items.PUMPKIN_PIE.toString() + suffix());
+                .save(exporter, TextUtils.res(formatVanillaItem(Items.PUMPKIN_PIE) + suffix()));
 
         // Cake
         BakingMatRecipeJsonBuilder.create(
                 nonNullList(Ingredient.of(Items.EGG), Ingredient.of(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), Ingredient.of(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK),
-                                Ingredient.of(CommonTags.C_FOODS_MILK), Ingredient.of(Items.WHEAT), Ingredient.of(CommonTags.C_FOODS_MILK),
-                                Ingredient.of(CommonTags.C_FOODS_MILK), Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT)),
+                                Ingredient.of(ConventionalItemTags.MILK_DRINKS), Ingredient.of(Items.WHEAT), Ingredient.of(ConventionalItemTags.MILK_DRINKS),
+                                Ingredient.of(ConventionalItemTags.MILK_DRINKS), Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT)),
                         null,
                         Ingredient.of(CommonTags.C_TOOLS_ROLLING_PIN),
                         Items.CAKE
                 )
                 .addOutput(Items.CAKE, 1, 0.5f)
-                .save(exporter, Items.CAKE + suffix());
+                .save(exporter, TextUtils.res(formatVanillaItem(Items.CAKE) + suffix()));
 
         // Farmer's Delight Recipe's
 
@@ -242,7 +243,7 @@ public class BakingMatRecipes {
                         WHEAT_DOUGH, 3
                 )
                 .addOutput(WHEAT_DOUGH, 1, 0.25f)
-                .save(exporter, RecipeProvider.getConversionRecipeName(WHEAT_DOUGH, Items.EGG) + suffix());
+                .save(exporter, TextUtils.res(formatFDItem(WHEAT_DOUGH) + "_from_" + RecipeProvider.getItemName(Items.EGG) + suffix()));
 
         // Wheat Dough (Water Bucket)
         BakingMatRecipeJsonBuilder.create(
@@ -252,7 +253,7 @@ public class BakingMatRecipes {
                         WHEAT_DOUGH, 3
                 )
                 .addOutput(WHEAT_DOUGH, 1, 0.25f)
-                .save(exporter, RecipeProvider.getConversionRecipeName(WHEAT_DOUGH, Items.WATER_BUCKET) + suffix());
+                .save(exporter, TextUtils.res(formatFDItem(WHEAT_DOUGH) + "_from_" + RecipeProvider.getItemName(Items.WATER_BUCKET) + suffix()));
 
         // Raw Pasta (Egg)
         BakingMatRecipeJsonBuilder.create(
@@ -262,7 +263,7 @@ public class BakingMatRecipes {
                         RAW_PASTA
                 )
                 .addOutput(RAW_PASTA, 1, 0.2f)
-                .save(exporter, RecipeProvider.getConversionRecipeName(RAW_PASTA, Items.EGG) + suffix());
+                .save(exporter, TextUtils.res(formatFDItem(RAW_PASTA) + "_from_" + RecipeProvider.getItemName(Items.EGG) + suffix()));
 
         // Raw Pasta (Water Bucket)
         BakingMatRecipeJsonBuilder.create(
@@ -273,7 +274,7 @@ public class BakingMatRecipes {
                         RAW_PASTA, 2
                 )
                 .addOutput(RAW_PASTA, 1, 0.2f)
-                .save(exporter, RecipeProvider.getConversionRecipeName(RAW_PASTA, Items.WATER_BUCKET) + suffix());
+                .save(exporter, TextUtils.res(formatFDItem(RAW_PASTA) + "_from_" + RecipeProvider.getItemName(Items.WATER_BUCKET) + suffix()));
 
         // Sweet Berry Cookie
         BakingMatRecipeJsonBuilder.create(
@@ -283,7 +284,7 @@ public class BakingMatRecipes {
                         SWEET_BERRY_COOKIE, 8
                 )
                 .addOutput(SWEET_BERRY_COOKIE, 4, 0.25f)
-                .save(exporter, SWEET_BERRY_COOKIE.toString() + suffix());
+                .save(exporter, TextUtils.res(formatFDItem(SWEET_BERRY_COOKIE) + suffix()));
 
         //Honey Cookie
         BakingMatRecipeJsonBuilder.create(
@@ -293,17 +294,17 @@ public class BakingMatRecipes {
                         HONEY_COOKIE, 8
                 )
                 .addOutput(HONEY_COOKIE, 4, 0.25f)
-                .save(exporter, HONEY_COOKIE.toString() + suffix());
+                .save(exporter, TextUtils.res(formatFDItem(HONEY_COOKIE) + suffix()));
 
         //Pie Crust
         BakingMatRecipeJsonBuilder.create(
-                nonNullList(Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT), Ingredient.of(CommonTags.C_FOODS_MILK)),
+                nonNullList(Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT), Ingredient.of(Items.WHEAT), Ingredient.of(ConventionalItemTags.MILK_DRINKS)),
                         null,
                         Ingredient.of(CommonTags.C_TOOLS_ROLLING_PIN),
                         PIE_CRUST
                 )
                 .addOutput(PIE_CRUST, 1, 0.25f)
-                .save(exporter, PIE_CRUST.toString() + suffix());
+                .save(exporter, TextUtils.res(formatFDItem(PIE_CRUST) + suffix()));
 
         //Apple Pie
         BakingMatRecipeJsonBuilder.create(
@@ -315,23 +316,23 @@ public class BakingMatRecipes {
                         APPLE_PIE
                 )
                 .addOutput(APPLE_PIE, 1, 0.5f)
-                .save(exporter, APPLE_PIE.toString() + suffix());
+                .save(exporter, TextUtils.res(formatFDItem(APPLE_PIE) + suffix()));
 
         //Sweet Berry Cheesecake
         BakingMatRecipeJsonBuilder.create(
                         nonNullList(Ingredient.of(Items.SWEET_BERRIES), Ingredient.of(Items.SWEET_BERRIES), Ingredient.of(Items.SWEET_BERRIES),
                                 Ingredient.of(Items.SWEET_BERRIES), Ingredient.of(PIE_CRUST), Ingredient.of(Items.SWEET_BERRIES),
-                                Ingredient.of(Items.SWEET_BERRIES), Ingredient.of(CommonTags.C_FOODS_MILK), Ingredient.of(CommonTags.C_FOODS_MILK)),
+                                Ingredient.of(Items.SWEET_BERRIES), Ingredient.of(ConventionalItemTags.MILK_DRINKS), Ingredient.of(ConventionalItemTags.MILK_DRINKS)),
                         null,
                         Ingredient.of(CommonTags.C_TOOLS_ROLLING_PIN),
                         SWEET_BERRY_CHEESECAKE
                 )
                 .addOutput(SWEET_BERRY_CHEESECAKE, 1, 0.5f)
-                .save(exporter, SWEET_BERRY_CHEESECAKE.toString() + suffix());
+                .save(exporter, TextUtils.res(formatFDItem(SWEET_BERRY_CHEESECAKE) + suffix()));
 
         //Chocolate Pie
         BakingMatRecipeJsonBuilder.create(
-                nonNullList(Ingredient.of(CommonTags.C_FOODS_MILK), Ingredient.of(CommonTags.C_FOODS_MILK), Ingredient.of(CommonTags.C_FOODS_MILK),
+                nonNullList(Ingredient.of(ConventionalItemTags.MILK_DRINKS), Ingredient.of(ConventionalItemTags.MILK_DRINKS), Ingredient.of(ConventionalItemTags.MILK_DRINKS),
                                 Ingredient.of(Items.COCOA_BEANS), Ingredient.of(PIE_CRUST), Ingredient.of(Items.COCOA_BEANS),
                                 Ingredient.of(Items.COCOA_BEANS), Ingredient.of(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), Ingredient.of(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)),
                         null,
@@ -339,7 +340,15 @@ public class BakingMatRecipes {
                         CHOCOLATE_PIE
                 )
                 .addOutput(CHOCOLATE_PIE, 1, 0.5f)
-                .save(exporter, CHOCOLATE_PIE.toString() + suffix());
+                .save(exporter, TextUtils.res(formatFDItem(CHOCOLATE_PIE) + suffix()));
+    }
+
+    private static String formatVanillaItem(Item item) {
+        return item.getDescriptionId().replace("block.minecraft.", "").replace("item.minecraft.", "");
+    }
+
+    private static String formatFDItem(Item item) {
+        return item.getDescriptionId().replace("block.farmersdelight.", "").replace("item.farmersdelight.", "");
     }
 
     private static ResourceLocation recipeName(Item item) {

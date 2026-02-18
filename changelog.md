@@ -9,6 +9,9 @@ NeoForge and Fabric.
 
 ### Changed
 
+- FD 1.2.10 - 1.21.1 Tag Changes
+  - All usages of `c:foods/milk` -> `c:drinks/milk`
+  - Condensed Milk added to `c:drinks/milk`
 - MidnightLib version updated
 
 ### Fixed

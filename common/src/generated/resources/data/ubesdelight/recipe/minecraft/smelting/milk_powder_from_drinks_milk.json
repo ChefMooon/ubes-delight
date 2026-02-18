@@ -4,7 +4,7 @@
   "cookingtime": 200,
   "experience": 0.2,
   "ingredient": {
-    "tag": "c:foods/milk"
+    "tag": "c:drinks/milk"
   },
   "result": {
     "id": "ubesdelight:milk_powder"

@@ -23,10 +23,10 @@
       "item": "minecraft:sweet_berries"
     },
     {
-      "tag": "c:foods/milk"
+      "tag": "c:drinks/milk"
     },
     {
-      "tag": "c:foods/milk"
+      "tag": "c:drinks/milk"
     }
   ],
   "processing_stages": [],
