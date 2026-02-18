@@ -6,6 +6,11 @@ This is version is compatible with Minecraft 1.21.11 supporting Farmer's Delight
 
 ***
 
+### Changed
+
+- Match FD 1.2.10 Tag Changes
+  - [1.21.1+] Added raw dough items to `c:foods/food_poisoning`
+
 ### Fixed
 
 - Fixed Kalan chat messages upon player death (Thank you, bobqianic!)

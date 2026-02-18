@@ -11,6 +11,7 @@ c20b2ac37d4e1e789774abb4859865b7bf68f572 data/c/tags/item/crops/ube.json
 a59156c9804342e9fe62b93fbcbecfb1920a7930 data/c/tags/item/foods.json
 a8ac530eaabd4becf900e1758a164201600cbe76 data/c/tags/item/foods/cookie.json
 0b2ae3e43cf26795714db9fab27289f48b8dfb9a data/c/tags/item/foods/edible_when_placed.json
+68a38fda014fe0776b431def0358833c1412b8d6 data/c/tags/item/foods/food_poisoning.json
 db433723554ca0068e238f203205fb258748b3ed data/c/tags/item/foods/garlic.json
 8f9f33e65018e503dd75014f35525e26ddd2212c data/c/tags/item/foods/ginger.json
 f8dbd6f4de004a9d0a08f07dae913f59a6a257f4 data/c/tags/item/foods/leafy_green.json

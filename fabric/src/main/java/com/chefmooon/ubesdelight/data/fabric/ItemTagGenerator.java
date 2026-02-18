@@ -305,5 +305,14 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .forceAddTag(CommonTags.C_STORAGE_BLOCKS_ITEM_GARLIC)
                 .forceAddTag(CommonTags.C_STORAGE_BLOCKS_ITEM_GINGER)
                 .forceAddTag(CommonTags.C_STORAGE_BLOCKS_ITEM_LEMONGRASS);
+
+        valueLookupBuilder(ConventionalItemTags.FOOD_POISONING_FOODS)
+                .add(UbesDelightItemsImpl.PANDESAL_RAW.get())
+                .add(UbesDelightItemsImpl.PANDESAL_UBE_RAW.get())
+                .add(UbesDelightItemsImpl.ENSAYMADA_RAW.get())
+                .add(UbesDelightItemsImpl.ENSAYMADA_UBE_RAW.get())
+                .add(UbesDelightItemsImpl.HOPIA_MUNGGO_RAW.get())
+                .add(UbesDelightItemsImpl.HOPIA_UBE_RAW.get())
+        ;
     }
 }
