@@ -17,7 +17,7 @@ NeoForge and Fabric.
   - [1.21.1 only] All usages of `c:foods/milk` -> `c:drinks/milk`
   - [1.21.1 only] Condensed Milk added to `c:drinks/milk`
   - [1.21.1 only] Add Ube Cake, Leche Flan, and Leaf Feasts to `c:foods/edible_when_placed`
-  - [1.21.1+] Added raw dough items to `c:foods/food_poisoning`
+  - [1.21.1, 1.21.11] Added raw dough items to `c:foods/food_poisoning`
 - Add Sinangag, Kinilaw, Chicken Inasal Plate, Tosilog, Bangsilog, and Sisig to `create:upright_on_belt` tag
 - MidnightLib version updated
 
