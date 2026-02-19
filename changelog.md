@@ -10,6 +10,7 @@ This is version is compatible with Minecraft 1.21.11 supporting Farmer's Delight
 
 - Match FD 1.2.10 Tag Changes
   - [1.21.1+] Added raw dough items to `c:foods/food_poisoning`
+- Add Sinangag, Kinilaw, Chicken Inasal Plate, Tosilog, Bangsilog, and Sisig to `create:upright_on_belt` tag
 
 ### Fixed
 
