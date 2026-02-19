@@ -8,6 +8,7 @@ This is version is compatible with Minecraft 1.21.8 supporting Farmer's Delight 
 
 ### Changed
 
+- Add Sinangag, Kinilaw, Chicken Inasal Plate, Tosilog, Bangsilog, and Sisig to `create:upright_on_belt` tag
 - MidnightLib version updated
 
 ### Fixed
