@@ -77,6 +77,12 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.LECHE_FLAN_FEAST)
                 .add(UbesDelightItemsImpl.HALO_HALO_FEAST)
                 .add(UbesDelightItemsImpl.MILK_TEA_UBE_FEAST)
+                .add(UbesDelightItemsImpl.SINANGAG)
+                .add(UbesDelightItemsImpl.KINILAW)
+                .add(UbesDelightItemsImpl.CHICKEN_INASAL_RICE)
+                .add(UbesDelightItemsImpl.TOSILOG)
+                .add(UbesDelightItemsImpl.BANGSILOG)
+                .add(UbesDelightItemsImpl.SISIG)
                 .add(UbesDelightItemsImpl.BULALO)
                 .add(UbesDelightItemsImpl.ARROZ_CALDO)
                 .add(UbesDelightItemsImpl.MECHADO);
