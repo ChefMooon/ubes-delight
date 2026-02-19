@@ -6,6 +6,10 @@ This is version is compatible with Minecraft 1.21.5 supporting Farmer's Delight 
 
 ***
 
+### Added
+
+- Villagers can now consume, harvest, and plant Ube, Garlic, Ginger, and Lemongrass crops
+
 ### Changed
 
 - Add Sinangag, Kinilaw, Chicken Inasal Plate, Tosilog, Bangsilog, and Sisig to `create:upright_on_belt` tag

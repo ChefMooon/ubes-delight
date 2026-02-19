@@ -66,6 +66,19 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.DURABILITY_ENCHANTABLE).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
         getOrCreateTagBuilder(ItemTags.MINING_LOOT_ENCHANTABLE).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
         getOrCreateTagBuilder(ItemTags.BREAKS_DECORATED_POTS).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
+
+        getOrCreateTagBuilder(ItemTags.VILLAGER_PICKS_UP)
+                .add(UbesDelightItemsImpl.UBE.get())
+                .add(UbesDelightItemsImpl.GARLIC.get())
+                .add(UbesDelightItemsImpl.GINGER.get())
+                .add(UbesDelightItemsImpl.LEMONGRASS.get())
+                .add(UbesDelightItemsImpl.LEMONGRASS_SEEDS.get());
+
+        getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS)
+                .add(UbesDelightItemsImpl.UBE.get())
+                .add(UbesDelightItemsImpl.GARLIC.get())
+                .add(UbesDelightItemsImpl.GINGER.get())
+                .add(UbesDelightItemsImpl.LEMONGRASS_SEEDS.get());
     }
     private void registerCompatibiltyItemTags() {
         // Create Item Tags
