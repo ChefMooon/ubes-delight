@@ -5,11 +5,17 @@ import com.chefmooon.ubesdelight.common.block.entity.dispenser.DrinkableFeastDis
 import com.chefmooon.ubesdelight.common.block.entity.dispenser.BaseLeafFeastDispenseBehavior;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import com.chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil;
+import com.google.common.collect.ImmutableMap;
+import net.minecraft.world.entity.npc.villager.Villager;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.ComposterBlock;
+
+import java.util.HashMap;
 
 public class CommonSetup {
     public static void init() {
         registerDispenserBehaviors();
+        registerItemSetAdditions();
     }
 
     public static void registerDispenserBehaviors() {
@@ -53,5 +59,14 @@ public class CommonSetup {
 
         ComposterBlock.COMPOSTABLES.put(BuiltInRegistryUtil.getItem(UbesDelightItems.UBE_CAKE), 1.0f);
         ComposterBlock.COMPOSTABLES.put(BuiltInRegistryUtil.getItem(UbesDelightItems.LECHE_FLAN_FEAST), 1.0f);
+    }
+
+    public static void registerItemSetAdditions() {
+        HashMap<Item, Integer> foodPoints = new HashMap<>(Villager.FOOD_POINTS);
+        foodPoints.put(BuiltInRegistryUtil.getItem(UbesDelightItems.UBE), 1);
+        foodPoints.put(BuiltInRegistryUtil.getItem(UbesDelightItems.GARLIC), 1);
+        foodPoints.put(BuiltInRegistryUtil.getItem(UbesDelightItems.GINGER), 1);
+        foodPoints.put(BuiltInRegistryUtil.getItem(UbesDelightItems.LEMONGRASS), 1);
+        Villager.FOOD_POINTS = foodPoints;
     }
 }

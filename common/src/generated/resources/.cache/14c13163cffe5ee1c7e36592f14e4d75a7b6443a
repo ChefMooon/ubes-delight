@@ -42,6 +42,8 @@ f79ea96a8eae46f174397ae5e4f93ae507e66b45 data/minecraft/tags/item/enchantable/mi
 009dc1c5b6fd06e9c2393d841ad82e7d14980d41 data/minecraft/tags/item/pig_food.json
 97cb409e8f86d8b038d4ab81540e679f15e9b470 data/minecraft/tags/item/rabbit_food.json
 8794859a6cb91750fa73a1ed0d6415e4ce8aa9f1 data/minecraft/tags/item/small_flowers.json
+298debe609fedbf77439014d0c6f06b44e7febfe data/minecraft/tags/item/villager_picks_up.json
+ee0c679f02fffadcaf18e571d2878c3d23d0e225 data/minecraft/tags/item/villager_plantable_seeds.json
 5d06324b131dfa26a105d6f7d7554f3685a34354 data/origins/tags/item/ignore_diet.json
 400a5a67f1a2e633ec928937384713999ebfae6f data/origins/tags/item/meat.json
 7142bd3ed04671bbeeefb6a0585e3bd28446da51 data/sereneseasons/tags/item/autumn_crops.json

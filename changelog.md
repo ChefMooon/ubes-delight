@@ -6,6 +6,10 @@ This is version is compatible with Minecraft 1.21.11 supporting Farmer's Delight
 
 ***
 
+### Added
+
+- Villagers can now consume, harvest, and plant Ube, Garlic, Ginger, and Lemongrass crops
+
 ### Changed
 
 - Match FD 1.2.10 Tag Changes
