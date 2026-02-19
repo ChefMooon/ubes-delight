@@ -47,6 +47,12 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.WILD_LEMONGRASS);
 
         getOrCreateTagBuilder(ItemTags.TOOLS).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
+
+        getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS)
+                .add(UbesDelightItemsImpl.UBE)
+                .add(UbesDelightItemsImpl.GARLIC)
+                .add(UbesDelightItemsImpl.GINGER)
+                .add(UbesDelightItemsImpl.LEMONGRASS_SEEDS);
     }
     private void registerCompatibiltyItemTags() {
         // Create Item Tags

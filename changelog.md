@@ -7,6 +7,10 @@ NeoForge, and Fabric
 
 ***
 
+### Added
+
+- Villagers can now consume, harvest, and plant Ube, Garlic, Ginger, and Lemongrass crops
+
 ### Changed
 
 - Add Sinangag, Kinilaw, Chicken Inasal Plate, Tosilog, Bangsilog, and Sisig to `create:upright_on_belt` tag
