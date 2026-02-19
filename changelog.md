@@ -9,6 +9,7 @@ NeoForge, and Fabric
 
 ### Changed
 
+- Add Sinangag, Kinilaw, Chicken Inasal Plate, Tosilog, Bangsilog, and Sisig to `create:upright_on_belt` tag
 - MidnightLib version updated
 
 ### Fixed
