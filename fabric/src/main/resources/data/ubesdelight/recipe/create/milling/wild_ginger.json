@@ -2,29 +2,19 @@
   "fabric:load_conditions": [
     {
       "condition": "fabric:all_mods_loaded",
-      "values": [
-        "create"
-      ]
+      "values": ["create"]
     }
   ],
   "type": "create:milling",
-  "ingredients": [
-    {
-      "item": "ubesdelight:wild_ginger"
-    }
-  ],
+  "ingredient": "ubesdelight:wild_ginger",
   "results": [
     {
-      "item": {
-        "id": "ubesdelight:ginger"
-      }
+      "id": "ubesdelight:ginger"
     },
     {
       "chance": 0.5,
-      "item": {
-        "id": "minecraft:brown_dye"
-      }
+      "id": "minecraft:brown_dye"
     }
   ],
-  "processingTime": 50
+  "processing_time": 50
 }
