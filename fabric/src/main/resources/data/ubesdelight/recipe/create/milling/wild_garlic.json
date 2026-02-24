@@ -2,28 +2,18 @@
   "fabric:load_conditions": [
     {
       "condition": "fabric:all_mods_loaded",
-      "values": [
-        "create"
-      ]
+      "values": ["create"]
     }
   ],
   "type": "create:milling",
-  "ingredients": [
-    {
-      "item": "ubesdelight:wild_garlic"
-    }
-  ],
+  "ingredient": "ubesdelight:wild_garlic",
   "results": [
     {
-      "item": {
-        "id": "ubesdelight:garlic"
-      }
+      "id": "ubesdelight:garlic"
     },
     {
-      "item": {
-        "id": "minecraft:pink_dye"
-      }
+      "id": "minecraft:pink_dye"
     }
   ],
-  "processingTime": 50
+  "processing_time": 50
 }
