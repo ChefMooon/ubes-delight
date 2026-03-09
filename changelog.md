@@ -13,6 +13,6 @@ NeoForge, and Fabric
 
 ### Fixed
 
-- revert midnightlib 1.4.1-fabric 1.4.2-forge, update caused crashes (Thank you, HoshiHikirai!)
+- [1.20.1 only] revert midnightlib 1.4.1-fabric 1.4.2-forge, update caused crashes (Thank you, HoshiHikirai!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
