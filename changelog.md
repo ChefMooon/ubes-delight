@@ -8,15 +8,6 @@ This is version is compatible with Minecraft 1.21.9-1.21.10 supporting Farmer's 
 
 ### Added
 
-- Villagers can now consume, harvest, and plant Ube, Garlic, Ginger, and Lemongrass crops
-
-### Changed
-
-- Add Sinangag, Kinilaw, Chicken Inasal Plate, Tosilog, Bangsilog, and Sisig to `create:upright_on_belt` tag
-- MidnightLib version updated
-
-### Fixed
-
-- Fixed Kalan chat messages upon player death (Thank you, bobqianic!)
+- ko_kr translations (Thank you, choryuidentify!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
