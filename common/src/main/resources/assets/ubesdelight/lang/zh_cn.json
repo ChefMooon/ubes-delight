@@ -150,7 +150,7 @@
   "ubesdelight.advancement.leaf_feast_master.desc": "叶席餐和半份叶席餐都可以合成得到。每一种都试试！",
   "ubesdelight.advancement.master_baker": "特级面包师",
   "ubesdelight.advancement.master_baker.desc": "制作所有种类的菲律宾面包！",
-  "ubesdelight.advancement.netherite_rolling_pin": "Rolling in the Deep",
+  "ubesdelight.advancement.netherite_rolling_pin": "坠入深渊",
   "ubesdelight.advancement.netherite_rolling_pin.desc": "使用下界合金锭升级擀面杖！你对待烘焙真的很认真呢",
   "ubesdelight.advancement.place_drinkable_feast": "潘趣碗",
   "ubesdelight.advancement.place_drinkable_feast.desc": "饮料可以组合后放置。放下来，舀一瓶，喝一口吧！",
@@ -206,6 +206,6 @@
   "ubesdelight.tooltip.kalan": "一种菲律宾传统的黏土烤炉。",
   "ubesdelight.tooltip.knife": "需要刀。",
   "ubesdelight.tooltip.waila.punchbowl_servings": "份量",
-  "death.attack.ubesdelight.kalan": "%1$s underestimated the heat of a Kalan",
-  "death.attack.ubesdelight.kalan.player": "%2$s was served extra crispy by %1$s"
+  "death.attack.ubesdelight.kalan": "%1$s低估了卡兰炉的温度",
+  "death.attack.ubesdelight.kalan.player": "%2$s被%1$s炸得焦香酥脆"
 }
