@@ -6,8 +6,8 @@ This is version is compatible with Minecraft 1.21.11 supporting Farmer's Delight
 
 ***
 
-### Added
+### Updated
 
-- ko_kr translations (Thank you, choryuidentify!)
+- zh_cn translations (Thank you, Don-Trueno!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
