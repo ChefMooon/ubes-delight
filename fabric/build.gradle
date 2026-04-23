@@ -1,5 +1,5 @@
 plugins {
-    id "com.gradleup.shadow" version "9.3.0"
+    id "com.gradleup.shadow"
 }
 
 architectury {
@@ -9,7 +9,7 @@ architectury {
 
 loom {
     Project common = project(":common")
-    accessWidenerPath = common.loom.accessWidenerPath
+//    accessWidenerPath = common.loom.accessWidenerPath
 
     runs {
         datagen {
@@ -35,57 +35,56 @@ configurations {
 }
 
 dependencies {
-    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
-    // Remove the next line if you don't want to depend on the API
-    //modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
+    api "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    api "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
 
     // FD Refabricated
-    modImplementation ("vectorwing:FarmersDelight:${fdrf_version}") {
+    implementation ("vectorwing:FarmersDelight:${fdrf_version}") {
         exclude(group: "net.fabricmc")
     }
 
     // MidnightLib
-    modImplementation include("maven.modrinth:midnightlib:${project.midnightlib_fabric_version}")
+    implementation include("maven.modrinth:midnightlib:${project.midnightlib_fabric_version}")
 
     // ModMenu
-    modLocalRuntime("com.terraformersmc:modmenu:${mod_menu_version}")
+    localRuntime("com.terraformersmc:modmenu:${mod_menu_version}")
 
     // Recipe Viewers
     // EMI
-    modCompileOnly("dev.emi:emi-fabric:$emi_version:api") {
-        transitive = false
-        exclude(group: "net.fabricmc.fabric-api")
-    }
+//    compileOnly("dev.emi:emi-fabric:$emi_version:api") {
+//        transitive = false
+//        exclude(group: "net.fabricmc.fabric-api")
+//    }
     // JEI
-    modCompileOnly("mezz.jei:jei-$minecraft_version-common-api:$jei_version") { transitive = false }
-    modCompileOnly("mezz.jei:jei-$minecraft_version-fabric-api:$jei_version") { transitive = false }
+//    compileOnly("mezz.jei:jei-$minecraft_version-common-api:$jei_version") { transitive = false }
+//    compileOnly("mezz.jei:jei-$minecraft_version-fabric-api:$jei_version") { transitive = false }
     // REI
-    modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:$rei_version") { transitive = false }
-    modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version")
+//    compileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:$rei_version") { transitive = false }
+//    compileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version")
 
     // RRV
-    modCompileOnly("maven.modrinth:rrv:${rrv_version}-fabric") {
+    compileOnly("cc.cassian.rrv:reliable-recipe-viewer-fabric:${rrv_version}") {
         exclude(group: "net.fabricmc.fabric-api")
+        exclude(group: "eu.pb4")
     }
 
     switch (recipe_viewer.toLowerCase(Locale.ROOT)) {
-        case "jei": modLocalRuntime("mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"); break
-//        case "rei": modLocalRuntime("me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"); break
-        case "emi": modLocalRuntime("dev.emi:emi-fabric:${emi_version}"); break
-        case "rrv": modLocalRuntime("maven.modrinth:rrv:${rrv_version}-fabric") {exclude(group: "net.fabricmc.fabric-api")}; break
+//        case "jei": localRuntime("mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"); break
+//        case "rei": localRuntime("me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"); break
+//        case "emi": localRuntime("dev.emi:emi-fabric:${emi_version}"); break
+        case "rrv": localRuntime("maven.modrinth:rrv:${rrv_version}-fabric") {exclude(group: "net.fabricmc.fabric-api")}; break
         case "disabled": break
         default: println("Unknown recipe viewer specified: ${recipe_viewer}. Must be JEI, REI, EMI, RRV, or disabled.")
     }
 
     // compile against the API
-    modCompileOnly "mcp.mobius.waila:wthit-api:fabric-${wthitVersion}"
+    compileOnly "mcp.mobius.waila:wthit-api:fabric-${wthitVersion}"
 
     // run against the full jar
-    modRuntimeOnly "mcp.mobius.waila:wthit:fabric-${wthitVersion}"
-    modRuntimeOnly "lol.bai:badpackets:fabric-${badpacketsVersion}"
+    runtimeOnly "mcp.mobius.waila:wthit:fabric-${wthitVersion}"
+    runtimeOnly "lol.bai:badpackets:fabric-${badpacketsVersion}"
 
-    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    common(project(path: ":common")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
 
     // Integration Testing
@@ -97,18 +96,18 @@ dependencies {
 processResources {
 }
 
-shadowJar {
-    exclude "architectury.common.json"
-
-    configurations = [project.configurations.shadowCommon]
-    archiveClassifier = "dev-shadow"
+jar {
+    archiveClassifier = "raw"
 }
 
-remapJar {
-    injectAccessWidener = true
-    input.set shadowJar.archiveFile
-    dependsOn shadowJar
+shadowJar {
+    dependsOn(jar)
+    mainSpec.sourcePaths.clear()       // Remove default source set inclusion
+    from(zipTree(jar.archiveFile))     // Unpack jar output (preserves Loom modifications)
 
+    configurations = [project.configurations.shadowCommon]
+    archiveClassifier = null           // shadowJar becomes the main artifact
+    from rootProject.file("LICENSE.md")
 }
 
 sourcesJar {
@@ -145,7 +144,7 @@ var changelogText = changelogFile.exists() ? changelogFile.text : ""
 var vName = mod_name + " " + project.version
 
 publishMods {
-    file = remapJar.archiveFile
+    file = shadowJar.archiveFile
     changelog = changelogText
     version = project.version
     type = mod_version_type
