@@ -7,8 +7,8 @@ NeoForge and Fabric.
 
 ***
 
-### Added
+### Updated
 
-- ko_kr translations (Thank you, choryuidentify!)
+- zh_cn translations (Thank you, Don-Trueno!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
