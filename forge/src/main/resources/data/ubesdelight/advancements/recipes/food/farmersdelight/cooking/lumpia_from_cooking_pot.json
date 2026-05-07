@@ -1,16 +1,6 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cabbage_roll_ingredients": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "farmersdelight:cabbage_roll_ingredients"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_crops_lemongrass": {
       "conditions": {
         "items": [
@@ -50,7 +40,6 @@
   },
   "requirements": [
     [
-      "has_cabbage_roll_ingredients",
       "has_salad_ingredients",
       "has_crops_lemongrass",
       "has_food_wrappers_lumpia_wrapper",

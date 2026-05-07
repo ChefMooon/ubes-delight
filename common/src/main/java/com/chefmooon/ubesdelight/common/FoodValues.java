@@ -16,7 +16,6 @@ public class FoodValues {
     public static final int MEDIUM_DURATION = 3600;    // 3 minutes
     public static final int LONG_DURATION = 6000;    // 5 minutes
 
-    private static final MobEffect COMFORT = getComfort();
     private static final MobEffect NOURISHMENT = getNourishment();
 
 
@@ -26,9 +25,9 @@ public class FoodValues {
     public static final FoodProperties LEMONGRASS = foodProperty(2, 0.4F);
 
     public static final FoodProperties SINANGAG = foodProperty(7, 0.45F,
-            List.of(new MobEffectInfo(COMFORT, BRIEF_DURATION, 1.0F)));
+            List.of(new MobEffectInfo(NOURISHMENT, BRIEF_DURATION, 1.0F)));
     public static final FoodProperties KINILAW = foodProperty(6, 0.6F,
-            List.of(new MobEffectInfo(COMFORT, SHORT_DURATION, 1.0F)));
+            List.of(new MobEffectInfo(NOURISHMENT, SHORT_DURATION, 1.0F)));
     public static final FoodProperties LUMPIA = foodProperty(7, 0.7F,
             true, false, false, null);
     public static final FoodProperties TOCINO = foodProperty(8, 0.7F,
@@ -45,11 +44,11 @@ public class FoodValues {
     public static final FoodProperties SISIG = foodProperty(13, 0.7F,
             true, false, false, List.of(new MobEffectInfo(NOURISHMENT, LONG_DURATION, 1.0F)));
     public static final FoodProperties BULALO = foodProperty(14, 0.75F,
-            true, false, false, List.of(new MobEffectInfo(COMFORT, LONG_DURATION, 1.0F)));
+            true, false, false, List.of(new MobEffectInfo(NOURISHMENT, LONG_DURATION, 1.0F)));
     public static final FoodProperties ARROZ_CALDO = foodProperty(14, 0.75F,
-            true, false, false, List.of(new MobEffectInfo(COMFORT, LONG_DURATION, 1.0F)));
+            true, false, false, List.of(new MobEffectInfo(NOURISHMENT, LONG_DURATION, 1.0F)));
     public static final FoodProperties MECHADO = foodProperty(14, 0.75F,
-            true, false, false, List.of(new MobEffectInfo(COMFORT, LONG_DURATION, 1.0F)));
+            true, false, false, List.of(new MobEffectInfo(NOURISHMENT, LONG_DURATION, 1.0F)));
 
     public static final FoodProperties CONDENSED_MILK_BOTTLE = foodProperty(0, 0.0F,
             false, false, true, List.of(new MobEffectInfo(MobEffects.MOVEMENT_SPEED, SHORT_DURATION, 1.0F)));

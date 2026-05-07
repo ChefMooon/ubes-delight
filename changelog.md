@@ -11,4 +11,10 @@ NeoForge, and Fabric
 
 - zh_cn translations (Thank you, Don-Trueno!)
 
+**FD 1.3 Updates** (Forge Only)
+- Updated to match Farmer's Delight 1.3.0 changes
+- Now requires Farmer's Delight 1.3.0 or higher to run
+- Updated comfort to new nourishment effect
+- Updated usages of tag farmersdelight:cabbage_roll_ingredients
+
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)

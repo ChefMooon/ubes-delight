@@ -138,17 +138,17 @@ public class CookingRecipes {
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
                 .save(exporter, recipeName(UbesDelightItemsImpl.SINANGAG));
 
-        CookingPotRecipeJsonBuilder.create(UbesDelightItemsImpl.LUMPIA, 1, 200, 2.0F,
-                        List.of(Ingredient.of(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS),
-                                Ingredient.of(CommonTags.C_SALAD_INGREDIENTS),
-                                Ingredient.of(CommonTags.C_CROPS_LEMONGRASS),
-                                Ingredient.of(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER)))
-                .unlockedBy(RecipeUtil.hasItemTag(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS), RecipeProvider.has(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS))
-                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_SALAD_INGREDIENTS), RecipeProvider.has(CommonTags.C_SALAD_INGREDIENTS))
-                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_LEMONGRASS), RecipeProvider.has(CommonTags.C_CROPS_LEMONGRASS))
-                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER), RecipeProvider.has(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER))
-                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
-                .save(exporter, recipeName(UbesDelightItemsImpl.LUMPIA));
+//        CookingPotRecipeJsonBuilder.create(UbesDelightItemsImpl.LUMPIA, 1, 200, 2.0F, // Moved to manual for 1.3, fabric:any?/forge array of options
+//                        List.of(Ingredient.of(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS),
+//                                Ingredient.of(CommonTags.C_SALAD_INGREDIENTS),
+//                                Ingredient.of(CommonTags.C_CROPS_LEMONGRASS),
+//                                Ingredient.of(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER)))
+//                .unlockedBy(RecipeUtil.hasItemTag(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS), RecipeProvider.has(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS))
+//                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_SALAD_INGREDIENTS), RecipeProvider.has(CommonTags.C_SALAD_INGREDIENTS))
+//                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_LEMONGRASS), RecipeProvider.has(CommonTags.C_CROPS_LEMONGRASS))
+//                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER), RecipeProvider.has(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER))
+//                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+//                .save(exporter, recipeName(UbesDelightItemsImpl.LUMPIA));
 
         CookingPotRecipeJsonBuilder.create(UbesDelightItemsImpl.TOCINO, 1, 200, 2.0F,
                         List.of(Ingredient.of(CommonTags.C_FOODS_RAW_MEATS_RAW_PORK),
