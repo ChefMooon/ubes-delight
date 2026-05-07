@@ -251,9 +251,6 @@ public class UDItemTags extends ItemTagsProvider {
                 .add(UbesDelightItems.HOPIA_UBE.get())
         ;
 
-        // TODO: remove from C_FOODS_MILK in next few releases, keep for compatibility
-        tag(CommonTags.C_FOODS_MILK)
-                .add(UbesDelightItems.CONDENSED_MILK_BOTTLE.get());
         tag(Tags.Items.DRINKS_MILK)
                 .add(UbesDelightItems.CONDENSED_MILK_BOTTLE.get());
 

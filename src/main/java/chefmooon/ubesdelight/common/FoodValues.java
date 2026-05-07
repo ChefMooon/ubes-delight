@@ -18,9 +18,7 @@ public class FoodValues {
     public static final int MEDIUM_DURATION = 3600;    // 3 minutes
     public static final int LONG_DURATION = 6000;    // 5 minutes
 
-    private static final Holder<MobEffect> COMFORT = ModEffects.COMFORT;
     private static final Holder<MobEffect> NOURISHMENT = ModEffects.NOURISHMENT;
-
 
     public static final FoodProperties UBE = foodProperty(2, 0.4F);
     public static final FoodProperties GARLIC = foodProperty(2, 0.4F);
@@ -28,9 +26,9 @@ public class FoodValues {
     public static final FoodProperties LEMONGRASS = foodProperty(2, 0.4F);
 
     public static final FoodProperties SINANGAG = foodProperty(7, 0.45F,
-            List.of(new MobEffectInfo(ModEffects.COMFORT, BRIEF_DURATION, 1.0F)));
+            List.of(new MobEffectInfo(NOURISHMENT, BRIEF_DURATION, 1.0F)));
     public static final FoodProperties KINILAW = foodProperty(6, 0.6F,
-            List.of(new MobEffectInfo(ModEffects.COMFORT, SHORT_DURATION, 1.0F)));
+            List.of(new MobEffectInfo(NOURISHMENT, SHORT_DURATION, 1.0F)));
     public static final FoodProperties LUMPIA = foodProperty(7, 0.7F,
             false, false, null);
     public static final FoodProperties TOCINO = foodProperty(8, 0.7F,
@@ -39,19 +37,19 @@ public class FoodValues {
             true, false, null);
 
     public static final FoodProperties CHICKEN_INASAL_RICE = foodProperty(13, 0.75F,
-            false, false, List.of(new MobEffectInfo(ModEffects.NOURISHMENT, LONG_DURATION, 1.0F)));
+            false, false, List.of(new MobEffectInfo(NOURISHMENT, LONG_DURATION, 1.0F)));
     public static final FoodProperties TOSILOG = foodProperty(13, 0.75F,
-            false, false, List.of(new MobEffectInfo(ModEffects.NOURISHMENT, LONG_DURATION, 1.0F)));
+            false, false, List.of(new MobEffectInfo(NOURISHMENT, LONG_DURATION, 1.0F)));
     public static final FoodProperties BANGSILOG = foodProperty(13, 0.75F,
-            false, false, List.of(new MobEffectInfo(ModEffects.NOURISHMENT, LONG_DURATION, 1.0F)));
+            false, false, List.of(new MobEffectInfo(NOURISHMENT, LONG_DURATION, 1.0F)));
     public static final FoodProperties SISIG = foodProperty(13, 0.7F,
-            false, false, List.of(new MobEffectInfo(ModEffects.NOURISHMENT, LONG_DURATION, 1.0F)));
+            false, false, List.of(new MobEffectInfo(NOURISHMENT, LONG_DURATION, 1.0F)));
     public static final FoodProperties BULALO = foodProperty(14, 0.75F,
-            false, false, List.of(new MobEffectInfo(ModEffects.COMFORT, LONG_DURATION, 1.0F)));
+            false, false, List.of(new MobEffectInfo(NOURISHMENT, LONG_DURATION, 1.0F)));
     public static final FoodProperties ARROZ_CALDO = foodProperty(14, 0.75F,
-            false, false, List.of(new MobEffectInfo(ModEffects.COMFORT, LONG_DURATION, 1.0F)));
+            false, false, List.of(new MobEffectInfo(NOURISHMENT, LONG_DURATION, 1.0F)));
     public static final FoodProperties MECHADO = foodProperty(14, 0.75F,
-            false, false, List.of(new MobEffectInfo(ModEffects.COMFORT, LONG_DURATION, 1.0F)));
+            false, false, List.of(new MobEffectInfo(NOURISHMENT, LONG_DURATION, 1.0F)));
 
     public static final FoodProperties CONDENSED_MILK_BOTTLE = foodProperty(0, 0.0F,
             false, true, List.of(new MobEffectInfo(MobEffects.MOVEMENT_SPEED, SHORT_DURATION, 1.0F)));
@@ -61,7 +59,7 @@ public class FoodValues {
     public static final FoodProperties MILK_TEA_UBE = foodProperty(0, 0.0F,
             false, false, List.of(new MobEffectInfo(MobEffects.NIGHT_VISION, SHORT_DURATION, 1.0F)));
     public static final FoodProperties HALO_HALO = foodProperty(0, 0.0F,
-            false, false, List.of(new MobEffectInfo(ModEffects.NOURISHMENT, MEDIUM_DURATION, 1.0F)));
+            false, false, List.of(new MobEffectInfo(NOURISHMENT, MEDIUM_DURATION, 1.0F)));
 
     public static final FoodProperties GARLIC_CHOP = foodProperty(1, 0.4F);
     public static final FoodProperties GINGER_CHOP = foodProperty(1, 0.4F);

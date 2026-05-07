@@ -33,12 +33,12 @@ public class CuttingRecipes extends UDRecipes {
                 .addResult(Items.PURPLE_DYE)
                 .addResultWithChance(Items.PURPLE_DYE, 0.5F)
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_TOOLS_KNIFE), RecipeUtil.getTriggerfromTag(CommonTags.C_TOOLS_KNIFE))
-                .save(exporter, TextUtils.res(RecipeProvider.getConversionRecipeName(UbesDelightItems.UBE.get(), UbesDelightItems.WILD_UBE.get())));
+                .save(exporter, prefix(TextUtils.res(RecipeProvider.getConversionRecipeName(UbesDelightItems.UBE.get(), UbesDelightItems.WILD_UBE.get()))));
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(UbesDelightItems.WILD_LEMONGRASS.get()), Ingredient.of(CommonTags.C_TOOLS_KNIFE), UbesDelightItems.LEMONGRASS.get(), 1, 1.0F)
                 .addResult(Items.LIME_DYE)
                 .addResultWithChance(Items.LIME_DYE, 0.5F)
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_TOOLS_KNIFE), RecipeUtil.getTriggerfromTag(CommonTags.C_TOOLS_KNIFE))
-                .save(exporter, TextUtils.res(RecipeProvider.getConversionRecipeName(UbesDelightItems.LEMONGRASS.get(), UbesDelightItems.WILD_LEMONGRASS.get())));
+                .save(exporter, prefix(TextUtils.res(RecipeProvider.getConversionRecipeName(UbesDelightItems.LEMONGRASS.get(), UbesDelightItems.WILD_LEMONGRASS.get()))));
         basicCuttingRecipeBuilder(UbesDelightItems.HALO_HALO_FEAST.get(), UbesDelightItems.HALO_HALO.get(), 4, 1.0F, exporter);
         basicCuttingRecipeBuilder(UbesDelightItems.LECHE_FLAN_FEAST.get(), UbesDelightItems.LECHE_FLAN.get(), 5, 1.0F, exporter);
         basicCuttingRecipeBuilder(UbesDelightItems.UBE_CAKE.get(), UbesDelightItems.UBE_CAKE_SLICE.get(), 7, 1.0F, exporter);
@@ -47,10 +47,14 @@ public class CuttingRecipes extends UDRecipes {
 
     private static void basicCuttingRecipeBuilder(Item input, Item output, int outputCount, float chance, RecipeOutput exporter) {
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(input), Ingredient.of(CommonTags.C_TOOLS_KNIFE), output, outputCount, chance)
-                .save(exporter, suffix(RecipeProvider.getConversionRecipeName(output, input)));
+                .save(exporter, prefix(suffix(RecipeProvider.getConversionRecipeName(output, input))));
     }
 
     private static ResourceLocation suffix(String string) {
         return TextUtils.res(string);
+    }
+
+    private static ResourceLocation prefix(ResourceLocation resourceLocation) {
+        return resourceLocation.withPrefix("cutting/");
     }
 }

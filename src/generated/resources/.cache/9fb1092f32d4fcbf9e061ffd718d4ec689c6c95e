@@ -1,4 +1,4 @@
-// 1.21.1	2026-05-06T09:15:36.6381034	Recipes
+// 1.21.1	2026-05-07T18:39:48.5522397	Recipes
 e49b7d290b524c6cbb7059048108c23327a0228f data/ubesdelight/advancement/recipes/cooking/arroz_caldo.json
 b429832a88fd993284328ddc7647698119d19622 data/ubesdelight/advancement/recipes/cooking/bangsilog.json
 b5755734fc17243edd216166812803a469bd76c1 data/ubesdelight/advancement/recipes/cooking/bangsilog_extra.json
@@ -11,7 +11,7 @@ b5755734fc17243edd216166812803a469bd76c1 data/ubesdelight/advancement/recipes/co
 f30d3c37fd752974b980d0af8180f906ebc9994c data/ubesdelight/advancement/recipes/cooking/fish_sauce_bottle_from_water_bucket_extra.json
 61bbd967c92cb0a6eef14c334174821b2b9c8c44 data/ubesdelight/advancement/recipes/cooking/halo_halo.json
 8805f144c45a189b8b0c3bc3b6cde2880885675c data/ubesdelight/advancement/recipes/cooking/leche_flan.json
-e7a36ad7e1eb5d47e7cfcd7e7200a667ac8d2e61 data/ubesdelight/advancement/recipes/cooking/lumpia.json
+b1c9ccc41f18d1b929abcd867aad0783dfc7f0f6 data/ubesdelight/advancement/recipes/cooking/lumpia.json
 4ad27f25218058ad8ffbc7bac79f00c7d09d595c data/ubesdelight/advancement/recipes/cooking/mechado.json
 44e5a13c64391974cb75e65d742ee080b34b516d data/ubesdelight/advancement/recipes/cooking/milk_powder.json
 54f7200e1b2823d5c895147f284ee704d34a67ca data/ubesdelight/advancement/recipes/cooking/milk_tea_ube_multiple.json
@@ -151,7 +151,7 @@ dbb1c74da92ca29bb8b4d4948af4b5cc3b52a4f6 data/ubesdelight/recipe/cooking/bulalo.
 c3b5be4d6a94d4fa063f375fb7c34b77922c01fc data/ubesdelight/recipe/cooking/fish_sauce_bottle_from_water_bucket_extra.json
 8cee93f27d8353c7aada6469d4fb35c919f6c445 data/ubesdelight/recipe/cooking/halo_halo.json
 92d6ed89902dee042fd55fe37f734980d3167008 data/ubesdelight/recipe/cooking/leche_flan.json
-10b7721f0574e62c0736a57b4c5320be2bc4dc0c data/ubesdelight/recipe/cooking/lumpia.json
+ee556cedf3a268f619aaabbe222b5893bd46b0ef data/ubesdelight/recipe/cooking/lumpia.json
 8abeaa2a0707a9d5dd93d2b9bff0df6999e752a0 data/ubesdelight/recipe/cooking/mechado.json
 f620fc732db60d3b9174b1580b8e47185d8e0356 data/ubesdelight/recipe/cooking/milk_powder.json
 4d26ec161d42e1eac60a2daeb1a7bab48472e3d8 data/ubesdelight/recipe/cooking/milk_tea_ube_multiple.json

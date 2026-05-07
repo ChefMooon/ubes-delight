@@ -16,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.crafting.CompoundIngredient;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
@@ -137,11 +138,15 @@ public class CookingRecipes extends UDRecipes {
                 .save(exporter, recipeName(UbesDelightItems.SINANGAG.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(UbesDelightItems.LUMPIA.get(), 1, 200, 2.0F)
-                .addIngredient(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS)
+                .addIngredient(CompoundIngredient.of(
+                        Ingredient.of(Tags.Items.FOODS_RAW_MEAT),
+                        Ingredient.of(CommonTags.C_FOODS_SAFE_RAW_FISH),
+                        Ingredient.of(Tags.Items.FOODS_VEGETABLE),
+                        Ingredient.of(Tags.Items.MUSHROOMS)
+                ))
                 .addIngredient(CommonTags.C_FOODS_LEAFY_GREEN)
                 .addIngredient(CommonTags.C_CROPS_LEMONGRASS)
                 .addIngredient(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER)
-                .unlockedBy(RecipeUtil.hasItemTag(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS), RecipeProvider.has(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_LEAFY_GREEN), RecipeProvider.has(CommonTags.C_FOODS_LEAFY_GREEN))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_LEMONGRASS), RecipeProvider.has(CommonTags.C_CROPS_LEMONGRASS))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER), RecipeProvider.has(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER))
@@ -198,7 +203,7 @@ public class CookingRecipes extends UDRecipes {
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.SINANGAG.get()), RecipeProvider.has(UbesDelightItems.SINANGAG.get()))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_COOKED_EGG), RecipeProvider.has(CommonTags.C_FOODS_COOKED_EGG))
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
-                .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItems.BANGSILOG.get()) + "_extra"));
+                .save(exporter, prefix(suffix(RecipeProvider.getItemName(UbesDelightItems.BANGSILOG.get()) + "_extra")));
 
         CookingPotRecipeBuilder.cookingPotRecipe(UbesDelightItems.SISIG.get(), 1, 200, 4.0F)
                 .addIngredient(CommonTags.C_FOODS_RAW_PORK)
@@ -322,14 +327,18 @@ public class CookingRecipes extends UDRecipes {
     }
 
     private static ResourceLocation recipeConversionName(Item output, Item input) {
-        return suffix(RecipeProvider.getConversionRecipeName(output, input));
+        return prefix(suffix(RecipeProvider.getConversionRecipeName(output, input)));
     }
 
     private static ResourceLocation recipeName(Item item) {
-        return suffix(RecipeProvider.getItemName(item));
+        return prefix(suffix(RecipeProvider.getItemName(item)));
     }
 
     private static ResourceLocation suffix(String string) {
         return TextUtils.res(string);
+    }
+
+    private static ResourceLocation prefix(ResourceLocation resourceLocation) {
+        return resourceLocation.withPrefix("cooking/");
     }
 }

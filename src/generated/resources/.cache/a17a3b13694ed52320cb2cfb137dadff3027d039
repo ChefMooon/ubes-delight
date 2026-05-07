@@ -1,11 +1,11 @@
-// 1.21.1	2026-05-05T15:42:30.7264838	Tags for minecraft:item mod id ubesdelight
+// 1.21.1	2026-05-07T18:52:02.6387738	Tags for minecraft:item mod id ubesdelight
 fc394e8cdbf0b29aca7ca28e60e65a207de1e3b7 data/create/tags/item/upright_on_belt.json
 e962b08e59aa3e3e071af3aebcc932bd68c4d271 data/c/tags/item/crops.json
 db433723554ca0068e238f203205fb258748b3ed data/c/tags/item/crops/garlic.json
 8f9f33e65018e503dd75014f35525e26ddd2212c data/c/tags/item/crops/ginger.json
 2151bb74d673905efe3f0ba3c4b774d80c48d7e2 data/c/tags/item/crops/lemongrass.json
 c20b2ac37d4e1e789774abb4859865b7bf68f572 data/c/tags/item/crops/ube.json
-03814dae1cddef6c1229ef273a83fe0e3d91b5cc data/c/tags/item/drinks/milk.json
+59ae49019b500df6550765f66b109a89848bb97d data/c/tags/item/drinks/milk.json
 a59156c9804342e9fe62b93fbcbecfb1920a7930 data/c/tags/item/foods.json
 a8ac530eaabd4becf900e1758a164201600cbe76 data/c/tags/item/foods/cookie.json
 81a1d5bdaa85afd837d317e23c05969b5efcc264 data/c/tags/item/foods/edible_when_placed.json
@@ -14,7 +14,6 @@ db433723554ca0068e238f203205fb258748b3ed data/c/tags/item/foods/garlic.json
 8f9f33e65018e503dd75014f35525e26ddd2212c data/c/tags/item/foods/ginger.json
 f8dbd6f4de004a9d0a08f07dae913f59a6a257f4 data/c/tags/item/foods/leafy_green.json
 2151bb74d673905efe3f0ba3c4b774d80c48d7e2 data/c/tags/item/foods/lemongrass.json
-03814dae1cddef6c1229ef273a83fe0e3d91b5cc data/c/tags/item/foods/milk.json
 0b93c147311c2c26c6419106a9236ed963549821 data/c/tags/item/foods/soups.json
 c20b2ac37d4e1e789774abb4859865b7bf68f572 data/c/tags/item/foods/ube.json
 39551f160cc820cf497838ff9dca5210a8b50b91 data/c/tags/item/foods/vegetable.json
