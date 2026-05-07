@@ -14,24 +14,18 @@ import java.util.List;
 public class UbesDelightBlockItem extends BlockItem {
     protected final boolean hasFoodEffectTooltip;
     protected final boolean hasCustomTooltip;
-    private final int burnTime;
     public UbesDelightBlockItem(Block block, Properties properties) {
-        this(block, properties, false, false, 0);
+        this(block, properties, false, false);
     }
 
     public UbesDelightBlockItem(Block block, Properties properties, boolean hasFoodEffectTooltip) {
-        this(block, properties, hasFoodEffectTooltip, false, 0);
+        this(block, properties, hasFoodEffectTooltip, false);
     }
 
     public UbesDelightBlockItem(Block block, Properties properties, boolean hasFoodEffectTooltip, boolean hasCustomTooltip) {
-        this(block, properties, hasFoodEffectTooltip, hasCustomTooltip, 0);
-    }
-
-    public UbesDelightBlockItem(Block block, Properties properties, boolean hasFoodEffectTooltip, boolean hasCustomTooltip, int burnTime) {
         super(block, properties);
         this.hasCustomTooltip = hasCustomTooltip;
         this.hasFoodEffectTooltip = hasFoodEffectTooltip;
-        this.burnTime = burnTime;
     }
 
     @Override

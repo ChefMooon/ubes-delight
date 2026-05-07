@@ -54,7 +54,7 @@ public class UbesDelightItems {
     public static final Supplier<Item> KALAN = registerItemWithTab("kalan",
             () -> new UbesDelightBlockItem(UbesDelightBlocks.KALAN.get(), basicItem()));
     public static final Supplier<Item> BAKING_MAT_BAMBOO = registerItemWithTab("baking_mat_bamboo",
-            () -> new UbesDelightFuelBlockItem(UbesDelightBlocks.BAKING_MAT_BAMBOO.get(), basicItem(), false, false, 250));
+            () -> new UbesDelightBlockItem(UbesDelightBlocks.BAKING_MAT_BAMBOO.get(), basicItem()));
     public static final Supplier<Item> ROLLING_PIN_WOOD = registerItemWithTab("rolling_pin_wood",
             () -> new RollingPinItem(UDTiers.ROLLING_PIN_WOOD, basicItem()));
     public static final Supplier<Item> ROLLING_PIN_IRON = registerItemWithTab("rolling_pin_iron",

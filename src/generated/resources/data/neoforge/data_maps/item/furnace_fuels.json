@@ -1,3 +1,7 @@
 {
-  "values": {}
+  "values": {
+    "ubesdelight:baking_mat_bamboo": {
+      "burn_time": 250
+    }
+  }
 }

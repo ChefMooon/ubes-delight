@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.common.data.DataMapProvider;
 import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
+import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 
 import java.util.concurrent.CompletableFuture;
@@ -18,7 +19,9 @@ public class UDDataMaps extends DataMapProvider {
     }
 
     protected void gather(HolderLookup.Provider provider) {
-        builder(NeoForgeDataMaps.FURNACE_FUELS); // TODO: Add furnace fuels
+        builder(NeoForgeDataMaps.FURNACE_FUELS)
+                .add(item(UbesDelightItems.BAKING_MAT_BAMBOO.get()), new FurnaceFuel(250), false)
+        ; // TODO: Add furnace fuels
 
         builder(NeoForgeDataMaps.COMPOSTABLES)
                 .add(item(UbesDelightItems.LEMONGRASS_SEEDS.get()), new Compostable(0.3F), false)
