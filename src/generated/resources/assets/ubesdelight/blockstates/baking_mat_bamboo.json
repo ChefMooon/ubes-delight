@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,processing=false": {
+      "model": "ubesdelight:block/baking_mat_bamboo",
+      "y": 90
+    },
+    "facing=east,processing=true": {
+      "model": "ubesdelight:block/baking_mat_bamboo",
+      "y": 90
+    },
+    "facing=north,processing=false": {
+      "model": "ubesdelight:block/baking_mat_bamboo"
+    },
+    "facing=north,processing=true": {
+      "model": "ubesdelight:block/baking_mat_bamboo"
+    },
+    "facing=south,processing=false": {
+      "model": "ubesdelight:block/baking_mat_bamboo",
+      "y": 180
+    },
+    "facing=south,processing=true": {
+      "model": "ubesdelight:block/baking_mat_bamboo",
+      "y": 180
+    },
+    "facing=west,processing=false": {
+      "model": "ubesdelight:block/baking_mat_bamboo",
+      "y": 270
+    },
+    "facing=west,processing=true": {
+      "model": "ubesdelight:block/baking_mat_bamboo",
+      "y": 270
+    }
+  }
+}

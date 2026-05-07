@@ -1,0 +1,7 @@
+{
+  "parent": "ubesdelight:block/template_crop_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "ubesdelight:block/wild_ginger"
+  }
+}

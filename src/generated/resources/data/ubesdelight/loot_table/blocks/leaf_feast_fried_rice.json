@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ubesdelight:leaf_feast"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ubesdelight:blocks/leaf_feast_fried_rice"
+}

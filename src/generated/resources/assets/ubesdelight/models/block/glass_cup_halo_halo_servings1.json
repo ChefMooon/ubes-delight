@@ -1,0 +1,8 @@
+{
+  "parent": "ubesdelight:block/template_glass_cup_1",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cup": "ubesdelight:block/glass_cup",
+    "inside": "ubesdelight:block/glass_cup_halo_halo"
+  }
+}

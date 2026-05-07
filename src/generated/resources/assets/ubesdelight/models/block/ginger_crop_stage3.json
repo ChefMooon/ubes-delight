@@ -1,0 +1,8 @@
+{
+  "parent": "ubesdelight:block/template_complex_crop_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross_v1": "ubesdelight:block/ginger_crop_stage3_v1",
+    "cross_v2": "ubesdelight:block/ginger_crop_stage3_v2"
+  }
+}

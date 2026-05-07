@@ -1,0 +1,9 @@
+{
+  "parent": "ubesdelight:block/template_drink_feast_stage2",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "inside": "ubesdelight:block/halo_halo_feast",
+    "particle": "ubesdelight:block/punch_bowl",
+    "punch_bowl": "ubesdelight:block/punch_bowl"
+  }
+}

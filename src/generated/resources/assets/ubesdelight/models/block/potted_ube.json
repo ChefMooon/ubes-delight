@@ -1,0 +1,7 @@
+{
+  "parent": "ubesdelight:block/template_potted_flower",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "plant": "ubesdelight:block/wild_ube"
+  }
+}

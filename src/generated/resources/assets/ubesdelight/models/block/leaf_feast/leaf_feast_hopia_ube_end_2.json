@@ -1,0 +1,9 @@
+{
+  "parent": "ubesdelight:block/leaf_feast/template_leaf_feast_end_hopia_2",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "ubesdelight:block/leaf_feast_end_bottom",
+    "content": "ubesdelight:block/hopia_ube",
+    "top": "ubesdelight:block/leaf_feast_end_top"
+  }
+}

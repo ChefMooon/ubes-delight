@@ -1,0 +1,10 @@
+{
+  "parent": "ubesdelight:block/template_leche_flan_feast_bite1",
+  "textures": {
+    "bottom": "ubesdelight:block/leche_flan_feast_bottom",
+    "inside": "ubesdelight:block/leche_flan_feast_inner",
+    "particle": "ubesdelight:block/leche_flan_feast_side",
+    "side": "ubesdelight:block/leche_flan_feast_side",
+    "top": "ubesdelight:block/leche_flan_feast_top"
+  }
+}

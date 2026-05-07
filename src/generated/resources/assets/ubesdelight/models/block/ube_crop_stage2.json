@@ -1,0 +1,7 @@
+{
+  "parent": "ubesdelight:block/template_odd_crop",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "odd_crop": "ubesdelight:block/ube_crop_stage2"
+  }
+}
