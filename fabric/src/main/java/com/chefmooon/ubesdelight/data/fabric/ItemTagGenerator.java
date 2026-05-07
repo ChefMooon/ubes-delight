@@ -247,9 +247,6 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.HOPIA_UBE)
         ;
 
-        // TODO: remove from C_FOODS_MILK in next few releases, keep for compatibility
-        getOrCreateTagBuilder(CommonTags.C_FOODS_MILK)
-                .add(UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE);
         getOrCreateTagBuilder(ConventionalItemTags.MILK_DRINKS)
                 .add(UbesDelightItemsImpl.CONDENSED_MILK_BOTTLE);
 

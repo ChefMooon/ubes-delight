@@ -1,7 +1,7 @@
-// 1.21.1	2026-02-19T10:47:44.2575386	Ube's Delight/Tags for minecraft:item
+// 1.21.1	2026-05-07T19:27:52.4054614	Ube's Delight/Tags for minecraft:item
 5d06324b131dfa26a105d6f7d7554f3685a34354 data\origins\tags\item\ignore_diet.json
-d12c694a2959257f0b273da7cb409f55b4b78755 data\c\tags\item\tools\rolling_pin.json
 e962b08e59aa3e3e071af3aebcc932bd68c4d271 data\c\tags\item\crops.json
+d12c694a2959257f0b273da7cb409f55b4b78755 data\c\tags\item\tools\rolling_pin.json
 2151bb74d673905efe3f0ba3c4b774d80c48d7e2 data\c\tags\item\foods\lemongrass.json
 a59156c9804342e9fe62b93fbcbecfb1920a7930 data\c\tags\item\foods.json
 81a1d5bdaa85afd837d317e23c05969b5efcc264 data\c\tags\item\foods\edible_when_placed.json
@@ -26,8 +26,8 @@ f79ea96a8eae46f174397ae5e4f93ae507e66b45 data\minecraft\tags\item\enchantable\mi
 8173b1a2363d8f1a3670812c5d4d9c88b53dcda7 data\c\tags\item\food_wrappers\lumpia_wrapper.json
 95bb3538d0e0724a8badcc14eafb7233f1c54999 data\c\tags\item\storage_blocks\ube.json
 8f9f33e65018e503dd75014f35525e26ddd2212c data\c\tags\item\foods\ginger.json
-f79ea96a8eae46f174397ae5e4f93ae507e66b45 data\minecraft\tags\item\enchantable\durability.json
 0b93c147311c2c26c6419106a9236ed963549821 data\c\tags\item\foods\soups.json
+f79ea96a8eae46f174397ae5e4f93ae507e66b45 data\minecraft\tags\item\enchantable\durability.json
 c20b2ac37d4e1e789774abb4859865b7bf68f572 data\c\tags\item\foods\ube.json
 db433723554ca0068e238f203205fb258748b3ed data\c\tags\item\foods\garlic.json
 f59e24f06da5df6f5f1599bcf24f8a45de905e79 data\c\tags\item\storage_blocks\lemongrass.json
@@ -39,7 +39,6 @@ d12c694a2959257f0b273da7cb409f55b4b78755 data\ubesdelight\tags\item\tools\rollin
 ee0c679f02fffadcaf18e571d2878c3d23d0e225 data\sereneseasons\tags\item\summer_crops.json
 fc394e8cdbf0b29aca7ca28e60e65a207de1e3b7 data\create\tags\item\upright_on_belt.json
 c20b2ac37d4e1e789774abb4859865b7bf68f572 data\c\tags\item\crops\ube.json
-03814dae1cddef6c1229ef273a83fe0e3d91b5cc data\c\tags\item\foods\milk.json
 2151bb74d673905efe3f0ba3c4b774d80c48d7e2 data\c\tags\item\crops\lemongrass.json
 7b638b15eeb47ac9a249688d612d3eb92477e058 data\minecraft\tags\item\tall_flowers.json
 279d1b9061cde77fce27a1646050698e7ecc6b8f data\minecraft\tags\item\chicken_food.json
