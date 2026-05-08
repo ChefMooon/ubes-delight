@@ -30,6 +30,6 @@ side = "BOTH"
 [[dependencies.ubesdelight]]
 modId="farmersdelight"
 mandatory=true
-versionRange="[1.3.0,)"
+versionRange="[1.20.1-1.3,)"
 ordering="NONE"
 side="BOTH"
