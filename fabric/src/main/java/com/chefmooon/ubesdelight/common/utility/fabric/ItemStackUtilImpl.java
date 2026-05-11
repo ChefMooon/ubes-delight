@@ -6,7 +6,7 @@ import net.minecraft.world.level.Level;
 
 public class ItemStackUtilImpl {
     public static ItemStack getContainer(ItemStack itemStack) {
-        ItemStack container = itemStack.getRecipeRemainder();
+        ItemStack container = itemStack.getCraftingRemainder().create(); // TODO: review for null pointer safety
         if (!container.isEmpty()) {
             return container;
         }

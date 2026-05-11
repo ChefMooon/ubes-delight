@@ -13,6 +13,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.List;
@@ -28,11 +29,11 @@ public class RecipeUtil {
                         + RecipeProvider.getConversionRecipeName(outputItem, inputItem))));
     }
 
-    public static void offerSmeltCampSmokeRecipe(HolderGetter<Item> holderGetter, Item input, RecipeCategory recipeCategory, Item output, float experience, int smeltingTime, RecipeOutput exporter) {
+    public static void offerSmeltCampSmokeRecipe(HolderGetter<Item> holderGetter, Item input, RecipeCategory recipeCategory, CookingBookCategory cookingBookCategory, Item output, float experience, int smeltingTime, RecipeOutput exporter) {
         int campfireTime = smeltingTime * 3;
         int smokingTime = smeltingTime/2;
 
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), recipeCategory, output, experience, smeltingTime)
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), recipeCategory, cookingBookCategory, output, experience, smeltingTime)
                 .unlockedBy(RecipeProvider.getHasName(input), has(holderGetter, input))
                 .save(exporter, ResourceKey.create(Registries.RECIPE, TextUtils.res(MINECRAFT.getNamespace() + "/smelting/"
                         + RecipeProvider.getConversionRecipeName(output, input))));
@@ -48,21 +49,21 @@ public class RecipeUtil {
                         + RecipeProvider.getConversionRecipeName(output, input))));
     }
 
-    public static void offerSmeltCampSmokeFromTag(HolderGetter<Item> holderGetter, TagKey<Item> input, Item output, float experience, int smeltingTime, RecipeOutput exporter) {
+    public static void offerSmeltCampSmokeFromTag(HolderGetter<Item> holderGetter, TagKey<Item> input, RecipeCategory recipeCategory, CookingBookCategory cookingBookCategory, Item output, float experience, int smeltingTime, RecipeOutput exporter) {
         int campfireTime = smeltingTime * 3;
         int smokingTime = smeltingTime/2;
 
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(holderGetter.getOrThrow(input)), RecipeCategory.FOOD, output, experience, smeltingTime)
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(holderGetter.getOrThrow(input)), recipeCategory, cookingBookCategory, output, experience, smeltingTime)
                 .unlockedBy(RecipeUtil.hasItemTag(input), has(holderGetter, input))
                 .save(exporter, ResourceKey.create(Registries.RECIPE, TextUtils.res(MINECRAFT.getNamespace() + "/smelting/"
                         + RecipeProvider.getItemName(output) + "_from_" + getTagName(input))));
 
-        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(holderGetter.getOrThrow(input)), RecipeCategory.FOOD, output, experience, campfireTime)
+        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(holderGetter.getOrThrow(input)), recipeCategory, output, experience, campfireTime)
                 .unlockedBy(RecipeUtil.hasItemTag(input), has(holderGetter, input))
                 .save(exporter, ResourceKey.create(Registries.RECIPE, TextUtils.res(MINECRAFT.getNamespace() + "/campfire_cooking/"
                         + RecipeProvider.getItemName(output) + "_from_" + getTagName(input))));
 
-        SimpleCookingRecipeBuilder.smoking(Ingredient.of(holderGetter.getOrThrow(input)), RecipeCategory.FOOD, output, experience, smokingTime)
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(holderGetter.getOrThrow(input)), recipeCategory, output, experience, smokingTime)
                 .unlockedBy(RecipeUtil.hasItemTag(input), has(holderGetter, input))
                 .save(exporter, ResourceKey.create(Registries.RECIPE, TextUtils.res(MINECRAFT.getNamespace() + "/smoking/"
                         + RecipeProvider.getItemName(output) + "_from_" + getTagName(input))));

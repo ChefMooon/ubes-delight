@@ -44,7 +44,7 @@ dependencies {
     }
 
     // MidnightLib
-    implementation include("maven.modrinth:midnightlib:${project.midnightlib_fabric_version}")
+    implementation include("eu.midnightdust:midnightlib:${project.midnightlib_fabric_version}")
 
     // ModMenu
     localRuntime("com.terraformersmc:modmenu:${mod_menu_version}")

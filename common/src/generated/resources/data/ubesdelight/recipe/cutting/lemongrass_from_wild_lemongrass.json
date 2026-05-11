@@ -6,20 +6,17 @@
   "result": [
     {
       "item": {
-        "count": 1,
         "id": "ubesdelight:lemongrass"
       }
     },
     {
       "item": {
-        "count": 1,
         "id": "minecraft:lime_dye"
       }
     },
     {
       "chance": 0.5,
       "item": {
-        "count": 1,
         "id": "minecraft:lime_dye"
       }
     }

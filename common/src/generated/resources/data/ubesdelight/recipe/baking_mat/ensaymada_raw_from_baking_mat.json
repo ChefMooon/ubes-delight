@@ -21,7 +21,6 @@
     {
       "chance": 0.25,
       "item": {
-        "count": 1,
         "id": "ubesdelight:ensaymada_raw"
       }
     }

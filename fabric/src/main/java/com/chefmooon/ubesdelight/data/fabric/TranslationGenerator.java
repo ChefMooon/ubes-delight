@@ -5,7 +5,7 @@ import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import com.chefmooon.ubesdelight.common.tag.UbesDelightTags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 
@@ -14,7 +14,7 @@ import java.util.concurrent.CompletableFuture;
 import static com.chefmooon.ubesdelight.common.utility.TagUtils.getTranslationKey;
 
 public class TranslationGenerator extends FabricLanguageProvider {
-    public TranslationGenerator(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    public TranslationGenerator(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(dataOutput, "en_us", registryLookup);
     }
 

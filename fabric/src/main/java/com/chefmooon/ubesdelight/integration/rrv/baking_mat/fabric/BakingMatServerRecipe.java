@@ -1,3 +1,4 @@
+/*
 package com.chefmooon.ubesdelight.integration.rrv.baking_mat.fabric;
 
 import cc.cassian.rrv.api.TagUtil;
@@ -104,3 +105,4 @@ public class BakingMatServerRecipe implements ReliableServerRecipe {
         return TYPE;
     }
 }
+*/

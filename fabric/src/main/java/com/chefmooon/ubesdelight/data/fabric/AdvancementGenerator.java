@@ -8,7 +8,7 @@ import com.chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.criterion.ConsumeItemTrigger;
@@ -19,7 +19,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
@@ -28,14 +28,14 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class AdvancementGenerator extends FabricAdvancementProvider {
-    protected AdvancementGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    protected AdvancementGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(output, registryLookup);
     }
 
     @Override
     public void generateAdvancement(HolderLookup.Provider provider, Consumer<AdvancementHolder> consumer) {
         AdvancementHolder root = Advancement.Builder.advancement()
-                .display(new ItemStack(UbesDelightItemsImpl.UBE.get()),
+                .display(new ItemStackTemplate(UbesDelightItemsImpl.UBE.get()),
                         TextUtils.getTranslatable("advancement.root"),
                         TextUtils.getTranslatable("advancement.root.desc"),
                         Identifier.withDefaultNamespace("block/bamboo_block"),
@@ -215,7 +215,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     private static Advancement.Builder getAdvancement(AdvancementHolder parent, ItemLike icon, String name, AdvancementType type, boolean showToast, boolean announceChat, boolean hidden) {
         return Advancement.Builder.advancement()
                 .parent(parent)
-                .display(new ItemStack(icon),
+                .display(new ItemStackTemplate(icon.asItem()),
                         TextUtils.getTranslatable("advancement." + name),
                         TextUtils.getTranslatable("advancement." + name + ".desc"),
                         null, type, showToast, announceChat, hidden);

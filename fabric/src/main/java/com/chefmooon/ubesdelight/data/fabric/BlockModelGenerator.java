@@ -14,7 +14,8 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
-import net.minecraft.client.renderer.block.model.VariantMutator;
+import net.minecraft.client.renderer.block.dispatch.VariantMutator;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
@@ -39,19 +40,19 @@ public class BlockModelGenerator {
 
         Identifier UBE_STAGE0_LOCATION = ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.UBE_CROP.get(), "_stage0");
         Identifier UBE_STAGE0 = UbesDelightModels.TEMPLATE_ODD_CROP.create(UBE_STAGE0_LOCATION,
-                TextureMapping.singleSlot(UbesDelightTextureSlots.ODD_CROP, UBE_STAGE0_LOCATION),
+                TextureMapping.singleSlot(UbesDelightTextureSlots.ODD_CROP, new Material(UBE_STAGE0_LOCATION)),
                 blockStateModelGenerator.modelOutput);
         Identifier UBE_STAGE1_LOCATION = ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.UBE_CROP.get(), "_stage1");
         Identifier UBE_STAGE1 = UbesDelightModels.TEMPLATE_ODD_CROP.create(UBE_STAGE1_LOCATION,
-                TextureMapping.singleSlot(UbesDelightTextureSlots.ODD_CROP, UBE_STAGE1_LOCATION),
+                TextureMapping.singleSlot(UbesDelightTextureSlots.ODD_CROP, new Material(UBE_STAGE1_LOCATION)),
                 blockStateModelGenerator.modelOutput);
         Identifier UBE_STAGE2_LOCATION = ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.UBE_CROP.get(), "_stage2");
         Identifier UBE_STAGE2 = UbesDelightModels.TEMPLATE_ODD_CROP.create(UBE_STAGE2_LOCATION,
-                TextureMapping.singleSlot(UbesDelightTextureSlots.ODD_CROP, UBE_STAGE2_LOCATION),
+                TextureMapping.singleSlot(UbesDelightTextureSlots.ODD_CROP, new Material(UBE_STAGE2_LOCATION)),
                 blockStateModelGenerator.modelOutput);
         Identifier UBE_STAGE3_LOCATION = ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.UBE_CROP.get(), "_stage3");
         Identifier UBE_STAGE3 = UbesDelightModels.TEMPLATE_ODD_CROP.create(UBE_STAGE3_LOCATION,
-                TextureMapping.singleSlot(UbesDelightTextureSlots.ODD_CROP, UBE_STAGE3_LOCATION),
+                TextureMapping.singleSlot(UbesDelightTextureSlots.ODD_CROP, new Material(UBE_STAGE3_LOCATION)),
                 blockStateModelGenerator.modelOutput);
         blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.dispatch(UbesDelightBlocksImpl.UBE_CROP.get())
                 .with(PropertyDispatch.initial(UbeCropBlock.AGE)
@@ -66,20 +67,20 @@ public class BlockModelGenerator {
                 ));
 
         Identifier GARLIC_STAGE0 = UbesDelightModels.TEMPLATE_COMPLEX_CROSS.create(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage0"),
-                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage0_v1"))
-                        .put(UbesDelightTextureSlots.CROSS_V2, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage0_v2")),
+                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage0_v1")))
+                        .put(UbesDelightTextureSlots.CROSS_V2, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage0_v2"))),
                 blockStateModelGenerator.modelOutput);
         Identifier GARLIC_STAGE1 = UbesDelightModels.TEMPLATE_COMPLEX_CROSS.create(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage1"),
-                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage1_v1"))
-                        .put(UbesDelightTextureSlots.CROSS_V2, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage1_v2")),
+                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage1_v1")))
+                        .put(UbesDelightTextureSlots.CROSS_V2, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage1_v2"))),
                 blockStateModelGenerator.modelOutput);
         Identifier GARLIC_STAGE2 = UbesDelightModels.TEMPLATE_COMPLEX_CROSS.create(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage2"),
-                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage2_v1"))
-                        .put(UbesDelightTextureSlots.CROSS_V2, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage2_v2")),
+                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage2_v1")))
+                        .put(UbesDelightTextureSlots.CROSS_V2, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage2_v2"))),
                 blockStateModelGenerator.modelOutput);
         Identifier GARLIC_STAGE3 = UbesDelightModels.TEMPLATE_COMPLEX_CROSS.create(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage3"),
-                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage3_v1"))
-                        .put(UbesDelightTextureSlots.CROSS_V2, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage3_v2")),
+                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage3_v1")))
+                        .put(UbesDelightTextureSlots.CROSS_V2, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GARLIC_CROP.get(), "_stage3_v2"))),
                 blockStateModelGenerator.modelOutput);
         blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.dispatch(UbesDelightBlocksImpl.GARLIC_CROP.get())
                 .with(PropertyDispatch.initial(GarlicCropBlock.AGE)
@@ -94,20 +95,20 @@ public class BlockModelGenerator {
                 ));
 
         Identifier GINGER_STAGE0 = UbesDelightModels.TEMPLATE_COMPLEX_CROSS.create(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage0"),
-                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage0_v1"))
-                        .put(UbesDelightTextureSlots.CROSS_V2, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage0_v2")),
+                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage0_v1")))
+                        .put(UbesDelightTextureSlots.CROSS_V2, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage0_v2"))),
                 blockStateModelGenerator.modelOutput);
         Identifier GINGER_STAGE1 = UbesDelightModels.TEMPLATE_COMPLEX_CROSS.create(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage1"),
-                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage1_v1"))
-                        .put(UbesDelightTextureSlots.CROSS_V2, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage1_v2")),
+                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage1_v1")))
+                        .put(UbesDelightTextureSlots.CROSS_V2, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage1_v2"))),
                 blockStateModelGenerator.modelOutput);
         Identifier GINGER_STAGE2 = UbesDelightModels.TEMPLATE_COMPLEX_CROSS.create(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage2"),
-                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage2_v1"))
-                        .put(UbesDelightTextureSlots.CROSS_V2, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage2_v2")),
+                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage2_v1")))
+                        .put(UbesDelightTextureSlots.CROSS_V2, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage2_v2"))),
                 blockStateModelGenerator.modelOutput);
         Identifier GINGER_STAGE3 = UbesDelightModels.TEMPLATE_COMPLEX_CROSS.create(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage3"),
-                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage3_v1"))
-                        .put(UbesDelightTextureSlots.CROSS_V2, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage3_v2")),
+                TextureMapping.singleSlot(UbesDelightTextureSlots.CROSS_V1, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage3_v1")))
+                        .put(UbesDelightTextureSlots.CROSS_V2, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.GINGER_CROP.get(), "_stage3_v2"))),
                 blockStateModelGenerator.modelOutput);
         blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.dispatch(UbesDelightBlocksImpl.GINGER_CROP.get())
                 .with(PropertyDispatch.initial(GingerCropBlock.AGE)
@@ -122,13 +123,13 @@ public class BlockModelGenerator {
                 ));
 
         Identifier LEMONGRASS_STAGE0 = UbesDelightModels.TEMPLATE_CROP_CROSS.create(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get(), "_stage0"),
-                TextureMapping.singleSlot(TextureSlot.CROSS, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get(), "_stage0")), blockStateModelGenerator.modelOutput);
+                TextureMapping.singleSlot(TextureSlot.CROSS, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get(), "_stage0"))), blockStateModelGenerator.modelOutput);
         Identifier LEMONGRASS_STAGE1 = UbesDelightModels.TEMPLATE_CROP_CROSS.create(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get(), "_stage1"),
-                TextureMapping.singleSlot(TextureSlot.CROSS, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get(), "_stage1")), blockStateModelGenerator.modelOutput);
+                TextureMapping.singleSlot(TextureSlot.CROSS, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get(), "_stage1"))), blockStateModelGenerator.modelOutput);
         Identifier LEMONGRASS_STAGE2 = UbesDelightModels.TEMPLATE_CROP_CROSS.create(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get(), "_stage2"),
-                TextureMapping.singleSlot(TextureSlot.CROSS, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get(), "_stage2")), blockStateModelGenerator.modelOutput);
+                TextureMapping.singleSlot(TextureSlot.CROSS, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get(), "_stage2"))), blockStateModelGenerator.modelOutput);
         Identifier LEMONGRASS_STAGE3 = UbesDelightModels.TEMPLATE_CROP_CROSS.create(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get(), "_stage3"),
-                TextureMapping.singleSlot(TextureSlot.CROSS, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get(), "_stage3")), blockStateModelGenerator.modelOutput);
+                TextureMapping.singleSlot(TextureSlot.CROSS, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get(), "_stage3"))), blockStateModelGenerator.modelOutput);
         blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.dispatch(UbesDelightBlocksImpl.LEMONGRASS_LEAF_CROP.get())
                 .with(PropertyDispatch.initial(LemongrassLeafCropBlock.lEMONGRASS_AGE)
                         .select(0, BlockModelGenerators.plainVariant(LEMONGRASS_STAGE0))
@@ -138,24 +139,24 @@ public class BlockModelGenerator {
                 ));
 
         Identifier LEMONGRASS_STALK_STAGE0_LOCATION = ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP.get(), "_stage0");
-        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_STAGE0_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, LEMONGRASS_STALK_STAGE0_LOCATION), blockStateModelGenerator.modelOutput);
+        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_STAGE0_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, new Material(LEMONGRASS_STALK_STAGE0_LOCATION)), blockStateModelGenerator.modelOutput);
         Identifier LEMONGRASS_STALK_STAGE1_LOCATION = ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP.get(), "_stage1");
-        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_STAGE1_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, LEMONGRASS_STALK_STAGE1_LOCATION), blockStateModelGenerator.modelOutput);
+        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_STAGE1_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, new Material(LEMONGRASS_STALK_STAGE1_LOCATION)), blockStateModelGenerator.modelOutput);
         Identifier LEMONGRASS_STALK_STAGE2_LOCATION = ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP.get(), "_stage2");
-        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_STAGE2_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, LEMONGRASS_STALK_STAGE2_LOCATION), blockStateModelGenerator.modelOutput);
+        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_STAGE2_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, new Material(LEMONGRASS_STALK_STAGE2_LOCATION)), blockStateModelGenerator.modelOutput);
         Identifier LEMONGRASS_STALK_STAGE3_LOCATION = ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP.get(), "_stage3");
-        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_STAGE3_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, LEMONGRASS_STALK_STAGE3_LOCATION), blockStateModelGenerator.modelOutput);
+        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_STAGE3_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, new Material(LEMONGRASS_STALK_STAGE3_LOCATION)), blockStateModelGenerator.modelOutput);
         Identifier LEMONGRASS_STALK_STAGE4_LOCATION = ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP.get(), "_stage4");
-        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_STAGE4_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, LEMONGRASS_STALK_STAGE4_LOCATION), blockStateModelGenerator.modelOutput);
+        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_STAGE4_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, new Material(LEMONGRASS_STALK_STAGE4_LOCATION)), blockStateModelGenerator.modelOutput);
         Identifier LEMONGRASS_STALK_STAGE5_LOCATION = ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP.get(), "_stage5");
-        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_STAGE5_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, LEMONGRASS_STALK_STAGE5_LOCATION), blockStateModelGenerator.modelOutput);
+        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_STAGE5_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, new Material(LEMONGRASS_STALK_STAGE5_LOCATION)), blockStateModelGenerator.modelOutput);
         Identifier LEMONGRASS_STALK_SUPPORTING_LOCATION = ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.LEMONGRASS_STALK_CROP.get(), "_supporting");
-        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_SUPPORTING_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, LEMONGRASS_STALK_SUPPORTING_LOCATION), blockStateModelGenerator.modelOutput);
+        UbesDelightModels.TEMPLATE_CROP_CROSS.create(LEMONGRASS_STALK_SUPPORTING_LOCATION, TextureMapping.singleSlot(TextureSlot.CROSS, new Material(LEMONGRASS_STALK_SUPPORTING_LOCATION)), blockStateModelGenerator.modelOutput);
 
-        TextureMapping textureMapKalan = TextureMapping.singleSlot(TextureSlot.SIDE, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.KALAN.get(), "_side"))
+        TextureMapping textureMapKalan = TextureMapping.singleSlot(TextureSlot.SIDE, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.KALAN.get(), "_side")))
                 .put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(UbesDelightBlocksImpl.KALAN.get(), "_bottom"))
                 .put(TextureSlot.TOP, TextureMapping.getBlockTexture(UbesDelightBlocksImpl.KALAN.get(), "_top"));
-        TextureMapping textureMapKalanOn = TextureMapping.singleSlot(TextureSlot.SIDE, ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.KALAN.get(), "_side_on"))
+        TextureMapping textureMapKalanOn = TextureMapping.singleSlot(TextureSlot.SIDE, new Material(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.KALAN.get(), "_side_on")))
                 .put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(UbesDelightBlocksImpl.KALAN.get(), "_bottom"))
                 .put(TextureSlot.TOP, TextureMapping.getBlockTexture(UbesDelightBlocksImpl.KALAN.get(), "_top_on"));
         Identifier kalan = ModelTemplates.CUBE_BOTTOM_TOP.create(ModelLocationUtils.getModelLocation(UbesDelightBlocksImpl.KALAN.get()), textureMapKalan, blockStateModelGenerator.modelOutput);
@@ -220,9 +221,9 @@ public class BlockModelGenerator {
     private static void registerCrateBlock(Block block, BlockModelGenerators blockStateModelGenerator) {
         blockStateModelGenerator.createTrivialBlock(block, TexturedModel.createDefault((trivialBlock) -> {
             return (new TextureMapping())
-                    .put(TextureSlot.SIDE, Identifier.parse(ModelLocationUtils.getModelLocation(trivialBlock) + "_side"))
-                    .put(TextureSlot.TOP, Identifier.parse(ModelLocationUtils.getModelLocation(trivialBlock) + "_top"))
-                    .put(TextureSlot.BOTTOM, Identifier.fromNamespaceAndPath("farmersdelight", "block/crate_bottom"));
+                    .put(TextureSlot.SIDE, new Material(Identifier.parse(ModelLocationUtils.getModelLocation(trivialBlock) + "_side")))
+                    .put(TextureSlot.TOP, new Material(Identifier.parse(ModelLocationUtils.getModelLocation(trivialBlock) + "_top")))
+                    .put(TextureSlot.BOTTOM, new Material(Identifier.fromNamespaceAndPath("farmersdelight", "block/crate_bottom")));
                 }, ModelTemplates.CUBE_BOTTOM_TOP)
         );
 //        blockStateModelGenerator.createTrivialBlock(block,
@@ -241,7 +242,7 @@ public class BlockModelGenerator {
     }
 
     private static void registerDrinkFeast(Block block, BlockModelGenerators blockStateModelGenerator) {
-        Identifier punchBowl = UbesDelight.res("block/punch_bowl");
+        Material punchBowl = new Material(UbesDelight.res("block/punch_bowl"));
         TextureMapping textureMapping = TextureMapping.particle(punchBowl)
                 .put(UbesDelightTextureSlots.DRINK_FEAST_INSIDE, TextureMapping.getBlockTexture(block))
                 .put(UbesDelightTextureSlots.PUNCH_BOWL, punchBowl);
@@ -273,21 +274,21 @@ public class BlockModelGenerator {
     }
 
     private static void registerBasicCake(Block block, BlockModelGenerators blockStateModelGenerator){
-        TextureMapping CAKE_MAP = TextureMapping.particle(ModelLocationUtils.getModelLocation(block, "_side"))
-                .put(TextureSlot.BOTTOM, ModelLocationUtils.getModelLocation(block, "_bottom"))
-                .put(TextureSlot.TOP, ModelLocationUtils.getModelLocation(block, "_top"))
-                .put(TextureSlot.SIDE, ModelLocationUtils.getModelLocation(block, "_side"));
+        TextureMapping CAKE_MAP = TextureMapping.particle(new Material(ModelLocationUtils.getModelLocation(block, "_side")))
+                .put(TextureSlot.BOTTOM, new Material(ModelLocationUtils.getModelLocation(block, "_bottom")))
+                .put(TextureSlot.TOP, new Material(ModelLocationUtils.getModelLocation(block, "_top")))
+                .put(TextureSlot.SIDE, new Material(ModelLocationUtils.getModelLocation(block, "_side")));
         UbesDelightModels.TEMPLATE_CAKE.create(block, CAKE_MAP, blockStateModelGenerator.modelOutput);
 
         List<ModelTemplate> CAKE_SLICE_MODELS = List.of(UbesDelightModels.TEMPLATE_CAKE_SLICE1, UbesDelightModels.TEMPLATE_CAKE_SLICE2, UbesDelightModels.TEMPLATE_CAKE_SLICE3,
                 UbesDelightModels.TEMPLATE_CAKE_SLICE4, UbesDelightModels.TEMPLATE_CAKE_SLICE5, UbesDelightModels.TEMPLATE_CAKE_SLICE6);
 
         for (int i = 0; i < CAKE_SLICE_MODELS.size(); i++) {
-            TextureMapping CAKE_SLICE_MAP = TextureMapping.particle(ModelLocationUtils.getModelLocation(block, "_side"))
-                    .put(TextureSlot.BOTTOM, ModelLocationUtils.getModelLocation(block, "_bottom"))
-                    .put(TextureSlot.TOP, ModelLocationUtils.getModelLocation(block, "_top"))
-                    .put(TextureSlot.SIDE, ModelLocationUtils.getModelLocation(block, "_side"))
-                    .put(TextureSlot.INSIDE, ModelLocationUtils.getModelLocation(block, "_inner"));
+            TextureMapping CAKE_SLICE_MAP = TextureMapping.particle(new Material(ModelLocationUtils.getModelLocation(block, "_side")))
+                    .put(TextureSlot.BOTTOM, new Material(ModelLocationUtils.getModelLocation(block, "_bottom")))
+                    .put(TextureSlot.TOP, new Material(ModelLocationUtils.getModelLocation(block, "_top")))
+                    .put(TextureSlot.SIDE, new Material(ModelLocationUtils.getModelLocation(block, "_side")))
+                    .put(TextureSlot.INSIDE, new Material(ModelLocationUtils.getModelLocation(block, "_inner")));
             CAKE_SLICE_MODELS.get(i).create(ModelLocationUtils.getModelLocation(block, "_slice" + (i+1)), CAKE_SLICE_MAP, blockStateModelGenerator.modelOutput);
         }
 
@@ -324,16 +325,16 @@ public class BlockModelGenerator {
 
     private static void registerDoublePlant(Block plant, BlockModelGenerators blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleFlatItemModel(plant, "_top");
-        Identifier resourceLocation = UbesDelightModels.TEMPLATE_CROP_CROSS.createWithSuffix(plant, "_top", TextureMapping.cross(ModelLocationUtils.getModelLocation(plant, "_top")), blockStateModelGenerator.modelOutput);
-        Identifier resourceLocation2 = UbesDelightModels.TEMPLATE_CROP_CROSS.createWithSuffix(plant, "_bottom", TextureMapping.cross(ModelLocationUtils.getModelLocation(plant, "_bottom")), blockStateModelGenerator.modelOutput);
+        Identifier resourceLocation = UbesDelightModels.TEMPLATE_CROP_CROSS.createWithSuffix(plant, "_top", TextureMapping.cross(new Material(ModelLocationUtils.getModelLocation(plant, "_top"))), blockStateModelGenerator.modelOutput);
+        Identifier resourceLocation2 = UbesDelightModels.TEMPLATE_CROP_CROSS.createWithSuffix(plant, "_bottom", TextureMapping.cross(new Material(ModelLocationUtils.getModelLocation(plant, "_bottom"))), blockStateModelGenerator.modelOutput);
         blockStateModelGenerator.createDoubleBlock(plant, BlockModelGenerators.plainVariant(resourceLocation), BlockModelGenerators.plainVariant(resourceLocation2));
     }
 
     private static void registerGlassCup(Block block, BlockModelGenerators blockModelGenerators) {
         Identifier blockLocation = ModelLocationUtils.getModelLocation(block);
-        Identifier cupLocation = TextUtils.res("block/glass_cup");
+        Material cupLocation = new Material(TextUtils.res("block/glass_cup"));
         TextureMapping textureMapping = TextureMapping.singleSlot(UbesDelightTextureSlots.CUP, cupLocation)
-                .put(UbesDelightTextureSlots.INSIDE, blockLocation);
+                .put(UbesDelightTextureSlots.INSIDE, new Material(blockLocation));
         Identifier TEMPLATE_GLASS_CUP_1_LOCATION = blockLocation.withSuffix("_servings1");
         UbesDelightModels.TEMPLATE_GLASS_CUP_1.create(TEMPLATE_GLASS_CUP_1_LOCATION, textureMapping, blockModelGenerators.modelOutput);
         Identifier TEMPLATE_GLASS_CUP_2_LOCATION = blockLocation.withSuffix("_servings2");
@@ -406,12 +407,12 @@ public class BlockModelGenerator {
         Identifier baseLocation = location.withSuffix("_base");
         Identifier middleLocation = location.withSuffix("_middle");
 
-        Identifier contentTextureLocation = TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", ""));
-        Identifier contentTextureLocationAlt = TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", "")).withSuffix("_alt");
+        Material contentTextureLocation = new Material(TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", "")));
+        Material contentTextureLocationAlt = new Material(TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", "")).withSuffix("_alt"));
 
         TextureMapping baseTextureMap = new TextureMapping()
-                .put(TextureSlot.TOP, TextUtils.res("block/leaf_feast_top"))
-                .put(TextureSlot.BOTTOM, TextUtils.res("block/leaf_feast_bottom"))
+                .put(TextureSlot.TOP, new Material(TextUtils.res("block/leaf_feast_top")))
+                .put(TextureSlot.BOTTOM, new Material(TextUtils.res("block/leaf_feast_bottom")))
                 .put(TextureSlot.CONTENT, contentTextureLocation)
                 .put(UbesDelightTextureSlots.CONTENT_ALT, contentTextureLocationAlt);
 
@@ -458,21 +459,21 @@ public class BlockModelGenerator {
         Identifier tipLocation = location.withSuffix("_tip");
         Identifier endLocation = location.withSuffix("_end");
 
-        Identifier contentTextureLocation = TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", "").replace("_half", ""));
+        Material contentTextureLocation = new Material(TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", "").replace("_half", "")));
 
         TextureMapping baseTextureMap = new TextureMapping()
-                .put(TextureSlot.TOP, TextUtils.res("block/leaf_feast_top"))
-                .put(TextureSlot.BOTTOM, TextUtils.res("block/leaf_feast_bottom"))
+                .put(TextureSlot.TOP, new Material(TextUtils.res("block/leaf_feast_top")))
+                .put(TextureSlot.BOTTOM, new Material(TextUtils.res("block/leaf_feast_bottom")))
                 .put(TextureSlot.CONTENT, contentTextureLocation);
 
         TextureMapping tipTextureMap = new TextureMapping()
-                .put(TextureSlot.TOP, TextUtils.res("block/leaf_feast_tip_top"))
-                .put(TextureSlot.BOTTOM, TextUtils.res("block/leaf_feast_tip_bottom"))
+                .put(TextureSlot.TOP, new Material(TextUtils.res("block/leaf_feast_tip_top")))
+                .put(TextureSlot.BOTTOM, new Material(TextUtils.res("block/leaf_feast_tip_bottom")))
                 .put(TextureSlot.CONTENT, contentTextureLocation);
 
         TextureMapping endTextureMap =  new TextureMapping()
-                .put(TextureSlot.TOP, TextUtils.res("block/leaf_feast_end_top"))
-                .put(TextureSlot.BOTTOM, TextUtils.res("block/leaf_feast_end_bottom"))
+                .put(TextureSlot.TOP, new Material(TextUtils.res("block/leaf_feast_end_top")))
+                .put(TextureSlot.BOTTOM, new Material(TextUtils.res("block/leaf_feast_end_bottom")))
                 .put(TextureSlot.CONTENT, contentTextureLocation);
 
         for (int i = 0; i < 6;i++) {
@@ -518,31 +519,31 @@ public class BlockModelGenerator {
     private static void registerLeafFeastVariant(Block block, ModelTemplate modelTemplateBase, ModelTemplate modelTemplateTip, ModelTemplate modelTemplateEnd, ModelTemplate modelTemplateMiddle, BlockModelGenerators blockStateModelGenerator) {
         Identifier templateLeafFeast = modelTemplateBase.create(block,
                 new TextureMapping()
-                        .put(TextureSlot.LAYER0, TextUtils.res("block/leaf_feast_top"))
-                        .put(TextureSlot.LAYER1, TextUtils.res("block/leaf_feast_bottom"))
-                        .put(TextureSlot.LAYER2, TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", "")))
-                        .put(TextureSlot.PARTICLE, TextUtils.res("block/leaf_feast_top")),
+                        .put(TextureSlot.LAYER0, new Material(TextUtils.res("block/leaf_feast_top")))
+                        .put(TextureSlot.LAYER1, new Material(TextUtils.res("block/leaf_feast_bottom")))
+                        .put(TextureSlot.LAYER2, new Material(TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", ""))))
+                        .put(TextureSlot.PARTICLE, new Material(TextUtils.res("block/leaf_feast_top"))),
                 blockStateModelGenerator.modelOutput);
         Identifier templateLeafFeastTip = modelTemplateTip.createWithSuffix(block, "_tip",
                 new TextureMapping()
-                        .put(TextureSlot.LAYER0, TextUtils.res("block/leaf_feast_tip_top"))
-                        .put(TextureSlot.LAYER1, TextUtils.res("block/leaf_feast_tip_bottom"))
-                        .put(TextureSlot.LAYER2, TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", "")))
-                        .put(TextureSlot.PARTICLE, TextUtils.res("block/leaf_feast_tip_top")),
+                        .put(TextureSlot.LAYER0, new Material(TextUtils.res("block/leaf_feast_tip_top")))
+                        .put(TextureSlot.LAYER1, new Material(TextUtils.res("block/leaf_feast_tip_bottom")))
+                        .put(TextureSlot.LAYER2, new Material(TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", ""))))
+                        .put(TextureSlot.PARTICLE, new Material(TextUtils.res("block/leaf_feast_tip_top"))),
                 blockStateModelGenerator.modelOutput);
         Identifier templateLeafFeastEnd = modelTemplateEnd.createWithSuffix(block, "_end",
                 new TextureMapping()
-                        .put(TextureSlot.LAYER0, TextUtils.res("block/leaf_feast_end_top"))
-                        .put(TextureSlot.LAYER1, TextUtils.res("block/leaf_feast_end_bottom"))
-                        .put(TextureSlot.LAYER2, TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", "")))
-                        .put(TextureSlot.PARTICLE, TextUtils.res("block/leaf_feast_end_top")),
+                        .put(TextureSlot.LAYER0, new Material(TextUtils.res("block/leaf_feast_end_top")))
+                        .put(TextureSlot.LAYER1, new Material(TextUtils.res("block/leaf_feast_end_bottom")))
+                        .put(TextureSlot.LAYER2, new Material(TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", ""))))
+                        .put(TextureSlot.PARTICLE, new Material(TextUtils.res("block/leaf_feast_end_top"))),
                 blockStateModelGenerator.modelOutput);
         Identifier templateLeafFeastMiddle = modelTemplateMiddle.createWithSuffix(block, "_middle",
                 new TextureMapping()
-                        .put(TextureSlot.LAYER0, TextUtils.res("block/leaf_feast_top"))
-                        .put(TextureSlot.LAYER1, TextUtils.res("block/leaf_feast_bottom"))
-                        .put(TextureSlot.LAYER2, TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", "")))
-                        .put(TextureSlot.PARTICLE, TextUtils.res("block/leaf_feast_top")),
+                        .put(TextureSlot.LAYER0, new Material(TextUtils.res("block/leaf_feast_top")))
+                        .put(TextureSlot.LAYER1, new Material(TextUtils.res("block/leaf_feast_bottom")))
+                        .put(TextureSlot.LAYER2, new Material(TextUtils.res(ModelLocationUtils.getModelLocation(block).getPath().replace("leaf_feast_", ""))))
+                        .put(TextureSlot.PARTICLE, new Material(TextUtils.res("block/leaf_feast_top"))),
                 blockStateModelGenerator.modelOutput);
         blockStateModelGenerator.registerSimpleFlatItemModel(block);
         blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.dispatch(block)

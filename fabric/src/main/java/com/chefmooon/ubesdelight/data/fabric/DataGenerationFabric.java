@@ -23,6 +23,8 @@ public class DataGenerationFabric implements DataGeneratorEntrypoint {
         pack.addProvider(RecipeGenerator::new);
         pack.addProvider(LootTableGenerator::new);
         pack.addProvider(AdvancementGenerator::new);
+        pack.addProvider(VillagerTrades::new);
+        pack.addProvider(VillagerTags::new);
     }
 
     @Override

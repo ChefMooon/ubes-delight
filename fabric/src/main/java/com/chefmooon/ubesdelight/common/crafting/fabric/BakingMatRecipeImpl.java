@@ -19,6 +19,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.StackedItemContents;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import vectorwing.farmersdelight.refabricated.inventory.RecipeWrapper;
@@ -38,6 +39,11 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
     @Override
     public boolean isSpecial() {
         return true;
+    }
+
+    @Override
+    public boolean showNotification() {
+        return false;
     }
 
     @Override
@@ -64,15 +70,15 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
         return this.tool;
     }
 
-    public List<ItemStack> getResultList() {
+    public List<ItemStackTemplate> getResultList() {
         return getRollableResults().stream().map(ChanceResult::stack).collect(Collectors.toList());
     }
 
-    public ItemStack getMandatoryResult() {
+    public ItemStackTemplate getMandatoryResult() {
         return getRollableResults().stream().filter(chanceResult -> chanceResult.chance() == 1).map(ChanceResult::stack).findFirst().get();
     }
 
-    public List<ItemStack> getMandatoryResults() {
+    public List<ItemStackTemplate> getMandatoryResults() {
         return getRollableResults().stream().filter(chanceResult -> chanceResult.chance() == 1).map(ChanceResult::stack).toList();
     }
 
@@ -114,8 +120,8 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
     }
 
     @Override
-    public ItemStack assemble(RecipeWrapper inv, HolderLookup.Provider provider) {
-        return this.resultList.get(0).stack().copy();
+    public ItemStack assemble(RecipeWrapper inv) {
+        return this.resultList.get(0).stack().create().copy();
     }
 
     public List<ItemStack> getRollResults(RandomSource rand, int fortuneLevel) {
@@ -124,7 +130,7 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
         for (ChanceResult output : rollableResults) {
             ItemStack stack;
             if (output.chance() == 1) {
-                stack = output.stack();
+                stack = output.stack().create();
             } else {
                 stack = output.rollStackOutput(rand, fortuneLevel);
             }
@@ -187,7 +193,8 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
         return result;
     }
 
-    public static class Serializer implements RecipeSerializer<BakingMatRecipeImpl> {
+//    public static class Serializer implements RecipeSerializer<BakingMatRecipeImpl> {
+    public static class Serializer {
         private static final MapCodec<BakingMatRecipeImpl> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
                 Codec.STRING.optionalFieldOf("group", "").forGetter(BakingMatRecipeImpl::group),
                 Ingredient.CODEC.listOf(1, BakingMatBlockEntity.MAX_INGREDIENTS).fieldOf("ingredients").forGetter(BakingMatRecipeImpl::getIngredients),
@@ -200,13 +207,11 @@ public class BakingMatRecipeImpl extends BakingMatRecipe implements Recipe<Recip
         public Serializer() {
         }
 
-        @Override
-        public MapCodec<BakingMatRecipeImpl> codec() {
+        public static MapCodec<BakingMatRecipeImpl> codec() {
             return CODEC;
         }
 
-        @Override
-        public StreamCodec<RegistryFriendlyByteBuf, BakingMatRecipeImpl> streamCodec() {
+        public static StreamCodec<RegistryFriendlyByteBuf, BakingMatRecipeImpl> streamCodec() {
             return STREAM_CODEC;
         }
 

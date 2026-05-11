@@ -46,7 +46,7 @@ subprojects {
         maven { url "https://maven.shedaniel.me" } // REI
         maven { url "https://maven.terraformersmc.com/" } // EMI
 
-        maven { url "https://api.modrinth.com/maven" } // MidnightLib
+        maven { url "https://maven.midnightdust.eu/releases" } // MidnightLib
 
         maven {
             url "https://maven2.bai.lol"

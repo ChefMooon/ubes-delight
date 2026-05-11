@@ -10,9 +10,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -63,43 +61,44 @@ public class LemongrassLeafCropBlock extends CropBlock {
         }
     }
 
-    protected static float getGrowthSpeed(Block block, BlockGetter level, BlockPos pos) {
-        float growthSpeed = 1.0F;
-        BlockPos blockPos = pos.below();
-        for(int x = -1; x <= 1; ++x) {
-            for(int y = -1; y <= 1; ++y) {
-                float farmlandBonus = 0.0F;
-                BlockState blockStateBelow = level.getBlockState(blockPos.offset(x, 0, y));
-                if (blockStateBelow.is(Blocks.FARMLAND)) {
-                    farmlandBonus = 1.0F;
-                    if (blockStateBelow.hasProperty(FarmBlock.MOISTURE) && blockStateBelow.getValue(FarmBlock.MOISTURE) > 0) {
-                        farmlandBonus = 3.0F;
-                    }
-                }
-
-                if (x != 0 || y != 0) {
-                    farmlandBonus /= 4.0F;
-                }
-
-                growthSpeed += farmlandBonus;
-            }
-        }
-        BlockPos blockPosNorth = pos.north();
-        BlockPos blockPosSouth = pos.south();
-        BlockPos blockPosWest = pos.west();
-        BlockPos blockPosEast = pos.east();
-        boolean eastWest = level.getBlockState(blockPosWest).is(block) || level.getBlockState(blockPosEast).is(block);
-        boolean northSouth = level.getBlockState(blockPosNorth).is(block) || level.getBlockState(blockPosSouth).is(block);
-        if (eastWest && northSouth) {
-            growthSpeed /= 2.0F;
-        } else {
-            boolean diagonal = level.getBlockState(blockPosWest.north()).is(block) || level.getBlockState(blockPosEast.north()).is(block) || level.getBlockState(blockPosEast.south()).is(block) || level.getBlockState(blockPosWest.south()).is(block);
-            if (diagonal) {
-                growthSpeed /= 2.0F;
-            }
-        }
-        return growthSpeed;
-    }
+    // TODO: test lemongrass growth, then remove
+//    protected static float getGrowthSpeed(Block block, BlockGetter level, BlockPos pos) {
+//        float growthSpeed = 1.0F;
+//        BlockPos blockPos = pos.below();
+//        for(int x = -1; x <= 1; ++x) {
+//            for(int y = -1; y <= 1; ++y) {
+//                float farmlandBonus = 0.0F;
+//                BlockState blockStateBelow = level.getBlockState(blockPos.offset(x, 0, y));
+//                if (blockStateBelow.is(Blocks.FARMLAND)) {
+//                    farmlandBonus = 1.0F;
+//                    if (blockStateBelow.hasProperty(FarmBlock.MOISTURE) && blockStateBelow.getValue(FarmBlock.MOISTURE) > 0) {
+//                        farmlandBonus = 3.0F;
+//                    }
+//                }
+//
+//                if (x != 0 || y != 0) {
+//                    farmlandBonus /= 4.0F;
+//                }
+//
+//                growthSpeed += farmlandBonus;
+//            }
+//        }
+//        BlockPos blockPosNorth = pos.north();
+//        BlockPos blockPosSouth = pos.south();
+//        BlockPos blockPosWest = pos.west();
+//        BlockPos blockPosEast = pos.east();
+//        boolean eastWest = level.getBlockState(blockPosWest).is(block) || level.getBlockState(blockPosEast).is(block);
+//        boolean northSouth = level.getBlockState(blockPosNorth).is(block) || level.getBlockState(blockPosSouth).is(block);
+//        if (eastWest && northSouth) {
+//            growthSpeed /= 2.0F;
+//        } else {
+//            boolean diagonal = level.getBlockState(blockPosWest.north()).is(block) || level.getBlockState(blockPosEast.north()).is(block) || level.getBlockState(blockPosEast.south()).is(block) || level.getBlockState(blockPosWest.south()).is(block);
+//            if (diagonal) {
+//                growthSpeed /= 2.0F;
+//            }
+//        }
+//        return growthSpeed;
+//    }
 
     @Override
     public IntegerProperty getAgeProperty() {

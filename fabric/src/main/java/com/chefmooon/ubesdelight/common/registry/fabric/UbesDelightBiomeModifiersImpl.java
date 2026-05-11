@@ -53,7 +53,7 @@ public class UbesDelightBiomeModifiersImpl {
     public record UDBiomeSelector(TagKey<Biome> allowed, TagKey<Biome> denied) implements Predicate<BiomeSelectionContext> {
         @Override
         public boolean test(BiomeSelectionContext context) {
-            Holder<Biome> biome = context.getBiomeRegistryEntry();
+            Holder<Biome> biome = context.getBiomeHolder();
             return biome.is(allowed) && !biome.is(denied);
         }
     }

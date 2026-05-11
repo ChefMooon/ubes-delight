@@ -33,9 +33,6 @@
     ],
     "rei_common": [
       "com.chefmooon.ubesdelight.integration.rei.fabric.CommonREIPluginImpl"
-    ],
-    "rrv": [
-      "com.chefmooon.ubesdelight.integration.rrv.fabric.RRVPluginImpl"
     ]
   },
   "mixins": [
@@ -43,7 +40,8 @@
     "ubesdelight-common.mixins.json"
   ],
   "depends": {
-    "fabric": "*",
+    "fabricloader": ">=0.19",
+    "fabric-api": "*",
     "minecraft": ">=${minecraft_min_version} <=${minecraft_max_version}",
     "farmersdelight": ">=1.21.1-3.0.1+refabricated"
   },

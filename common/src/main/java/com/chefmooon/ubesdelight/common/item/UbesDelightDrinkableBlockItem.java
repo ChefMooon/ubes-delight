@@ -13,10 +13,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUseAnimation;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -37,13 +34,12 @@ public class UbesDelightDrinkableBlockItem extends UbesDelightBlockItem {
             this.affectConsumer(stack, level, consumer);
         }
 
-//        ItemStack containerStack = new ItemStack(Objects.requireNonNull(stack.getItem().getCraftingRemainder()).getItem());
-        ItemStack containerStack = stack.getRecipeRemainder();
-        Player player;
+        ItemStackTemplate containerStack = stack.getCraftingRemainder();
+
         if (stack.get(DataComponents.FOOD) != null || stack.get(DataComponents.CONSUMABLE) != null) {
             super.finishUsingItem(stack, level, consumer);
         } else {
-            player = consumer instanceof Player ? (Player)consumer : null;
+            Player player = consumer instanceof Player ? (Player)consumer : null;
             if (player instanceof ServerPlayer) {
                 CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer)player, stack);
             }
@@ -56,18 +52,18 @@ public class UbesDelightDrinkableBlockItem extends UbesDelightBlockItem {
             }
         }
 
-        if (stack.isEmpty()) {
-            return containerStack;
-        } else {
-            if (consumer instanceof Player) {
-                player = (Player)consumer;
-                if (!((Player)consumer).getAbilities().instabuild && !player.getInventory().add(containerStack)) {
-                    player.drop(containerStack, false);
+        if (containerStack != null) {
+            if (stack.isEmpty()) {
+                return containerStack.create();
+            } else {
+                if (consumer instanceof Player player && !((Player) consumer).getAbilities().instabuild) {
+                    if (!player.getInventory().add((containerStack.create()))) {
+                        player.drop(containerStack.create(), false);
+                    }
                 }
             }
-
-            return stack;
         }
+        return stack;
     }
 
     public void affectConsumer(ItemStack stack, Level level, LivingEntity consumer) {

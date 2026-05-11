@@ -18,7 +18,6 @@
     {
       "chance": 0.2,
       "item": {
-        "count": 1,
         "id": "farmersdelight:raw_pasta"
       }
     }

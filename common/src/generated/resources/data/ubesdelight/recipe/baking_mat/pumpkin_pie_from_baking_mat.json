@@ -9,14 +9,12 @@
   "result": [
     {
       "item": {
-        "count": 1,
         "id": "minecraft:pumpkin_pie"
       }
     },
     {
       "chance": 0.25,
       "item": {
-        "count": 1,
         "id": "minecraft:pumpkin_pie"
       }
     }

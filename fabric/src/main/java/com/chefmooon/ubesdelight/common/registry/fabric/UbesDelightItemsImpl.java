@@ -5,7 +5,7 @@ import com.chefmooon.ubesdelight.common.item.*;
 import com.chefmooon.ubesdelight.common.item.fabric.RollingPinItemImpl;
 import com.chefmooon.ubesdelight.common.item.fabric.UbesDelightFuelBlockItemImpl;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightItems;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -311,7 +311,7 @@ public class UbesDelightItemsImpl {
     public static Supplier<Item> registerItemWithTab(final Identifier location, final Function<Item.Properties, Item> function, final Item.Properties properties) {
         properties.setId(ResourceKey.create(Registries.ITEM, location));
         Supplier<Item> item = registerItemNoTab(location, () -> function.apply(properties));
-        ItemGroupEvents.modifyEntriesEvent(UbesDelightCreativeTabs.ITEM_GROUP).register(entries -> entries.accept(item.get()));
+        CreativeModeTabEvents.modifyOutputEvent(UbesDelightCreativeTabs.ITEM_GROUP).register(entries -> entries.accept(item.get()));
         return item;
     }
 
@@ -319,7 +319,7 @@ public class UbesDelightItemsImpl {
         properties.setId(ResourceKey.create(Registries.ITEM, location));
         properties.useBlockDescriptionPrefix();
         Supplier<Item> item = registerItemNoTab(location, () -> function.apply(block, properties));
-        ItemGroupEvents.modifyEntriesEvent(UbesDelightCreativeTabs.ITEM_GROUP).register(entries -> entries.accept(item.get()));
+        CreativeModeTabEvents.modifyOutputEvent(UbesDelightCreativeTabs.ITEM_GROUP).register(entries -> entries.accept(item.get()));
         return item;
     }
 

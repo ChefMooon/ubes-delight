@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class CommonSetup {
     public static void init() {
         registerDispenserBehaviors();
-        registerItemSetAdditions();
+//        registerItemSetAdditions(); // TODO: fix villagers can use crops. requires architectury fix
     }
 
     public static void registerDispenserBehaviors() {
@@ -61,12 +61,12 @@ public class CommonSetup {
         ComposterBlock.COMPOSTABLES.put(BuiltInRegistryUtil.getItem(UbesDelightItems.LECHE_FLAN_FEAST), 1.0f);
     }
 
-    public static void registerItemSetAdditions() {
-        HashMap<Item, Integer> foodPoints = new HashMap<>(Villager.FOOD_POINTS);
-        foodPoints.put(BuiltInRegistryUtil.getItem(UbesDelightItems.UBE), 1);
-        foodPoints.put(BuiltInRegistryUtil.getItem(UbesDelightItems.GARLIC), 1);
-        foodPoints.put(BuiltInRegistryUtil.getItem(UbesDelightItems.GINGER), 1);
-        foodPoints.put(BuiltInRegistryUtil.getItem(UbesDelightItems.LEMONGRASS), 1);
-        Villager.FOOD_POINTS = foodPoints;
-    }
+//    public static void registerItemSetAdditions() {
+//        HashMap<Item, Integer> foodPoints = new HashMap<>(Villager.FOOD_POINTS);
+//        foodPoints.put(BuiltInRegistryUtil.getItem(UbesDelightItems.UBE), 1);
+//        foodPoints.put(BuiltInRegistryUtil.getItem(UbesDelightItems.GARLIC), 1);
+//        foodPoints.put(BuiltInRegistryUtil.getItem(UbesDelightItems.GINGER), 1);
+//        foodPoints.put(BuiltInRegistryUtil.getItem(UbesDelightItems.LEMONGRASS), 1);
+//        Villager.FOOD_POINTS = foodPoints;
+//    }
 }

@@ -27,7 +27,7 @@ public class BaseLeafFeastBlockImpl implements LeafFeastBlock {
     }
 
     public static ItemStack getContainer(Level level, ItemStack itemStack) {
-        ItemStack container = itemStack.getRecipeRemainder();
+        ItemStack container = itemStack.getCraftingRemainder().create(); // TODO: review for null pointer
         if (!container.isEmpty()) {
             return container;
         }

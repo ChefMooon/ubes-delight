@@ -157,17 +157,17 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
             if (recipe.get().value().getTool().test(toolStack)) {
                 return recipe;
             } else if (player != null) {
-                player.displayClientMessage(TextUtils.getTranslatable("tooltip.baking_mat.invalid_tool"), true);
+                player.sendOverlayMessage(TextUtils.getTranslatable("tooltip.baking_mat.invalid_tool"));
             }
         } else if (player != null) {
-            player.displayClientMessage(TextUtils.getTranslatable("tooltip.baking_mat.invalid_item"), true);
+            player.sendOverlayMessage(TextUtils.getTranslatable("tooltip.baking_mat.invalid_item"));
         }
 
         return Optional.empty();
     }
 
     private void spawnRolledResults(BakingMatRecipeImpl recipe, BlockPos blockPos, Level level, ItemStack tool, @Nullable List<ItemStack> containers) {
-        List<ItemStack> results = recipe.getRollResults(level.random, EnchantmentHelper.getItemEnchantmentLevel(level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE), tool));
+        List<ItemStack> results = recipe.getRollResults(level.getRandom(), EnchantmentHelper.getItemEnchantmentLevel(level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE), tool));
         if (containers != null && !containers.isEmpty()) results.addAll(containers);
         if (!results.isEmpty()) {
             spawnParticles(level, blockPos, results.get(0).copy(), 5);
@@ -208,11 +208,11 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
 
     public static void spawnParticles(Level level, BlockPos pos, ItemStack stack, int count) {
         for (int i = 0; i < count; ++i) {
-            Vec3 vec3d = new Vec3(((double) level.random.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, ((double) level.random.nextFloat() - 0.5D) * 0.1D);
+            Vec3 vec3d = new Vec3(((double) level.getRandom().nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, ((double) level.getRandom().nextFloat() - 0.5D) * 0.1D);
             if (level instanceof ServerLevel) {
-                ((ServerLevel) level).sendParticles(new ItemParticleOption(ParticleTypes.ITEM, stack), pos.getX() + 0.5F, pos.getY() + 0.1F, pos.getZ() + 0.5F, 1, vec3d.x, vec3d.y + 0.05D, vec3d.z, 0.0D);
+                ((ServerLevel) level).sendParticles(new ItemParticleOption(ParticleTypes.ITEM, stack.getItem()), pos.getX() + 0.5F, pos.getY() + 0.1F, pos.getZ() + 0.5F, 1, vec3d.x, vec3d.y + 0.05D, vec3d.z, 0.0D);
             } else {
-                level.addParticle(new ItemParticleOption(ParticleTypes.ITEM, stack), pos.getX() + 0.5F, pos.getY() + 0.1F, pos.getZ() + 0.5F, vec3d.x, vec3d.y + 0.05D, vec3d.z);
+                level.addParticle(new ItemParticleOption(ParticleTypes.ITEM, stack.getItem()), pos.getX() + 0.5F, pos.getY() + 0.1F, pos.getZ() + 0.5F, vec3d.x, vec3d.y + 0.05D, vec3d.z);
             }
         }
     }
@@ -254,8 +254,8 @@ public class BakingMatBlockEntityImpl extends SyncedBlockEntity {
         for (int i = 0; i < inventory.getSlotCount(); i++) {
             ItemStack itemStack = inventory.getStackInSlot(i);
             if (!itemStack.isEmpty()) {
-                if (!itemStack.getRecipeRemainder().is(Items.AIR)) {
-                    ingredientContainers.add(itemStack.getRecipeRemainder());
+                if (itemStack.getCraftingRemainder() != null && !itemStack.getCraftingRemainder().is(Items.AIR)) {
+                    ingredientContainers.add(itemStack.getCraftingRemainder().create());
                 }
             }
         }

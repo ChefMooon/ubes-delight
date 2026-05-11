@@ -15,14 +15,12 @@
   "result": [
     {
       "item": {
-        "count": 1,
         "id": "farmersdelight:sweet_berry_cheesecake"
       }
     },
     {
       "chance": 0.5,
       "item": {
-        "count": 1,
         "id": "farmersdelight:sweet_berry_cheesecake"
       }
     }

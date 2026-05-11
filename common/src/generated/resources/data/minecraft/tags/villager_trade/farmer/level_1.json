@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "ubesdelight:farmer/1/ube_emerald",
+      "required": false
+    },
+    {
+      "id": "ubesdelight:farmer/1/garlic_emerald",
+      "required": false
+    },
+    {
+      "id": "ubesdelight:farmer/1/ginger_emerald",
+      "required": false
+    },
+    {
+      "id": "ubesdelight:farmer/1/lemongrass_emerald",
+      "required": false
+    }
+  ]
+}

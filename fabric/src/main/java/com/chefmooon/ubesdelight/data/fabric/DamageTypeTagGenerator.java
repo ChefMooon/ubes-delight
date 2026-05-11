@@ -1,18 +1,17 @@
 package com.chefmooon.ubesdelight.data.fabric;
 
 import com.chefmooon.ubesdelight.common.registry.UbesDelightDamageTypes;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageType;
 
 import java.util.concurrent.CompletableFuture;
 
-public class DamageTypeTagGenerator extends FabricTagProvider<DamageType> {
-    public DamageTypeTagGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+public class DamageTypeTagGenerator extends FabricTagsProvider<DamageType> {
+    public DamageTypeTagGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, Registries.DAMAGE_TYPE, registriesFuture);
     }
 

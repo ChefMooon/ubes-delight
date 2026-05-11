@@ -6,8 +6,8 @@ import com.chefmooon.ubesdelight.common.block.leaf_feast.base.SimpleLeafFeastBlo
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightBlocksImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.UbesDelightItemsImpl;
 import com.chefmooon.ubesdelight.common.tag.CommonTags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
 import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.core.HolderGetter;
@@ -26,9 +26,9 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
-public class LootTableGenerator extends FabricBlockLootTableProvider {
+public class LootTableGenerator extends FabricBlockLootSubProvider {
 
-    protected LootTableGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    protected LootTableGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(output, registryLookup);
     }
 

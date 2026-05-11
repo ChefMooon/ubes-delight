@@ -148,7 +148,7 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
             } else {
                 if (!container.isEmpty()) {
                     if (!container.is(player.getItemInHand(hand).getItem())) {
-                        player.displayClientMessage(TextUtils.getTranslatable("container.bowl"), true);
+                        player.sendOverlayMessage(TextUtils.getTranslatable("container.bowl"));
                         return InteractionResult.PASS;
                     } else {
                         if (!player.isCreative()) heldItem.split(1);

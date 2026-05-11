@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "ubesdelight:wandering_trader/ube_emerald",
+      "required": false
+    },
+    {
+      "id": "ubesdelight:wandering_trader/garlic_emerald",
+      "required": false
+    },
+    {
+      "id": "ubesdelight:wandering_trader/ginger_emerald",
+      "required": false
+    },
+    {
+      "id": "ubesdelight:wandering_trader/lemongrass_emerald",
+      "required": false
+    }
+  ]
+}

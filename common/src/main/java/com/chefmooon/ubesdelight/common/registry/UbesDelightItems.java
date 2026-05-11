@@ -2,7 +2,6 @@ package com.chefmooon.ubesdelight.common.registry;
 
 import com.chefmooon.ubesdelight.common.item.RollingPinItem;
 import com.chefmooon.ubesdelight.common.utility.TextUtils;
-import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.annotation.Nullable;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -16,6 +15,7 @@ import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.item.component.Weapon;
 import net.minecraft.world.level.block.Block;
+import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 

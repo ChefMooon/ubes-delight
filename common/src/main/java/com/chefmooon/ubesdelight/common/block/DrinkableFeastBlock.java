@@ -117,7 +117,7 @@ public class DrinkableFeastBlock extends Block {
                     }
                 }
             } else {
-                player.displayClientMessage(TextUtils.getTranslatable("container.punch_bowl"), true);
+                player.sendOverlayMessage(TextUtils.getTranslatable("container.punch_bowl"));
 
             }
         }

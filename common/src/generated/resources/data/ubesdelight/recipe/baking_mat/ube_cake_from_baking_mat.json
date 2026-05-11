@@ -15,14 +15,12 @@
   "result": [
     {
       "item": {
-        "count": 1,
         "id": "ubesdelight:ube_cake"
       }
     },
     {
       "chance": 0.5,
       "item": {
-        "count": 1,
         "id": "ubesdelight:ube_cake"
       }
     }

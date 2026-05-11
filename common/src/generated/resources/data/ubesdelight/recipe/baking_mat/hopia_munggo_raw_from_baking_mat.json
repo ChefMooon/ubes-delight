@@ -20,7 +20,6 @@
     {
       "chance": 0.25,
       "item": {
-        "count": 1,
         "id": "ubesdelight:hopia_munggo_raw"
       }
     }

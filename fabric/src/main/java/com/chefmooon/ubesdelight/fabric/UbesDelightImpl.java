@@ -6,7 +6,6 @@ import com.chefmooon.ubesdelight.common.event.fabric.LootModifierEvents;
 import com.chefmooon.ubesdelight.common.event.fabric.VillagerEventsImpl;
 import com.chefmooon.ubesdelight.common.fabric.CommonSetupImpl;
 import com.chefmooon.ubesdelight.common.registry.fabric.*;
-import com.chefmooon.ubesdelight.integration.jei.fabric.JEIPluginImpl;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 
@@ -38,9 +37,9 @@ public class UbesDelightImpl implements ModInitializer {
 
         UbesDelightBiomeModifiersImpl.init();
 
-        if (FabricLoader.getInstance().isModLoaded("jei")) {
-            JEIPluginImpl.syncRecipes();
-        }
+//        if (FabricLoader.getInstance().isModLoaded("jei")) {
+//            JEIPluginImpl.syncRecipes();
+//        }
     }
 
     public static String findVersion() {
