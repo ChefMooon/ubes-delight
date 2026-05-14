@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_drinks_milk": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:drinks/milk"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ubesdelight:cooking/milk_powder"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_drinks_milk"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ubesdelight:cooking/milk_powder"
+    ]
+  }
+}

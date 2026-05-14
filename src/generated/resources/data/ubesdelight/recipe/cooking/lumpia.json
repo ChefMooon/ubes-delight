@@ -1,0 +1,37 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "fabric:type": "fabric:any",
+      "ingredients": [
+        {
+          "tag": "c:foods/raw_meat"
+        },
+        {
+          "tag": "c:foods/safe_raw_fish"
+        },
+        {
+          "tag": "c:foods/vegetable"
+        },
+        {
+          "tag": "c:mushrooms"
+        }
+      ]
+    },
+    {
+      "tag": "c:foods/leafy_green"
+    },
+    {
+      "tag": "c:crops/lemongrass"
+    },
+    {
+      "tag": "c:food_wrappers/lumpia_wrapper"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "ubesdelight:lumpia"
+  }
+}
