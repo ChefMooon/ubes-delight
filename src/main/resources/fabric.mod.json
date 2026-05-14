@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_authors}"
+  ],
+  "contact": {
+    "homepage": "${mod_homepage}",
+    "issues": "${mod_issues}",
+    "sources": "${mod_github}"
+  },
+  "license": "${mod_license}",
+  "icon": "assets/ubesdelight/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "chefmooon.ubesdelight.UbesDelight"
+    ],
+    "client": [
+      "chefmooon.ubesdelight.client.UbesDelightClient"
+    ],
+    "fabric-datagen": [
+      "chefmooon.ubesdelight.data.DataGenerationFabric"
+    ],
+    "jei_mod_plugin": [
+      "chefmooon.ubesdelight.integration.jei.JEIPlugin"
+    ],
+    "rei_client": [
+      "chefmooon.ubesdelight.integration.rei.ClientREIPlugin"
+    ],
+    "rei_server": [
+      "chefmooon.ubesdelight.integration.rei.ServerREIPlugin"
+    ],
+    "emi": [
+      "chefmooon.ubesdelight.integration.emi.EMIPlugin"
+    ]
+  },
+  "mixins": [
+    "ubesdelight.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=${minecraft_min_version} <=${minecraft_max_version}",
+    "farmersdelight": ">=1.21.1-3.0.1+refabricated"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.wiki": "${mod_homepage}",
+        "modmenu.discord": "${mod_discord}"
+      }
+    }
+  }
+}
