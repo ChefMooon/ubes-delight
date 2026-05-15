@@ -21,7 +21,7 @@ public class UDDataMaps extends DataMapProvider {
     protected void gather(HolderLookup.Provider provider) {
         builder(NeoForgeDataMaps.FURNACE_FUELS)
                 .add(item(UbesDelightItems.BAKING_MAT_BAMBOO.get()), new FurnaceFuel(250), false)
-        ; // TODO: Add furnace fuels
+        ;
 
         builder(NeoForgeDataMaps.COMPOSTABLES)
                 .add(item(UbesDelightItems.LEMONGRASS_SEEDS.get()), new Compostable(0.3F), false)
