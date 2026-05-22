@@ -1,0 +1,376 @@
+package chefmooon.ubesdelight.common.block.entity;
+
+import chefmooon.ubesdelight.common.block.entity.BakingMatBlockEntity;
+import chefmooon.ubesdelight.common.block.BakingMatBlock;
+import chefmooon.ubesdelight.common.crafting.BakingMatRecipe;
+import chefmooon.ubesdelight.common.registry.*;
+import chefmooon.ubesdelight.common.tag.CommonTags;
+import chefmooon.ubesdelight.common.utility.TextUtils;
+import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
+import net.fabricmc.fabric.api.transfer.v1.item.ItemVariant;
+import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.Containers;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.phys.Vec2;
+import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
+import vectorwing.farmersdelight.refabricated.inventory.ItemStackHandler;
+import vectorwing.farmersdelight.refabricated.inventory.RecipeWrapper;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+public class BakingMatBlockEntity extends SyncedBlockEntity {
+    public static final int MAX_INGREDIENTS = 9;
+    public static final int MAX_PROCESSING_STAGES = 5;
+    public static final int MAX_RESULTS = 4;
+    private final ItemStackHandler inventory;
+    private final RecipeManager.CachedCheck<RecipeWrapper, BakingMatRecipe> quickCheck;
+
+    public BakingMatBlockEntity(BlockPos pos, BlockState state) {
+        super(UbesDelightBlockEntityTypes.BAKING_MAT_BAMBOO.get(), pos, state);
+        inventory = createHandler();
+        this.quickCheck = RecipeManager.createCheck(UbesDelightRecipeTypes.BAKING_MAT.get());
+    }
+
+    public static void init() {
+        ItemStorage.SIDED.registerForBlockEntity(BakingMatBlockEntity::getStorage, UbesDelightBlockEntityTypes.BAKING_MAT_BAMBOO.get());
+    }
+
+    @Override
+    public void loadAdditional(ValueInput valueInput) {
+        super.loadAdditional(valueInput);
+        inventory.deserialize(valueInput.childOrEmpty("Inventory"));
+    }
+
+    @Override
+    public void saveAdditional(ValueOutput valueOutput) {
+        super.saveAdditional(valueOutput);
+        inventory.serialize(valueOutput.child("Inventory"));
+    }
+
+    @Override
+    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (blockEntity instanceof BakingMatBlockEntity bakingMatBlockEntity && !state.getValue(BakingMatBlock.PROCESSING)) { // allow drops while processing after item update
+            Containers.dropContents(level, pos, bakingMatBlockEntity.getItems());
+        }
+        super.preRemoveSideEffects(pos, state);
+    }
+
+    public boolean processItemUsingTool(ItemStack tool, @Nullable Player player) {
+        if (level == null) return false;
+        if (!(level instanceof ServerLevel serverLevel)) {
+            return player.level().recipeAccess().propertySet(UbesDelightRecipePropertySets.BAKING_MAT_INPUT_ONE).test(inventory.getStackInSlot(0))
+                    && player.level().recipeAccess().propertySet(UbesDelightRecipePropertySets.BAKING_MAT_INPUT_TWO).test(inventory.getStackInSlot(1))
+                    && player.level().recipeAccess().propertySet(UbesDelightRecipePropertySets.BAKING_MAT_INPUT_THREE).test(inventory.getStackInSlot(2))
+                    && player.level().recipeAccess().propertySet(UbesDelightRecipePropertySets.BAKING_MAT_INPUT_FOUR).test(inventory.getStackInSlot(3))
+                    && player.level().recipeAccess().propertySet(UbesDelightRecipePropertySets.BAKING_MAT_INPUT_FIVE).test(inventory.getStackInSlot(4))
+                    && player.level().recipeAccess().propertySet(UbesDelightRecipePropertySets.BAKING_MAT_INPUT_SIX).test(inventory.getStackInSlot(5))
+                    && player.level().recipeAccess().propertySet(UbesDelightRecipePropertySets.BAKING_MAT_INPUT_SEVEN).test(inventory.getStackInSlot(6))
+                    && player.level().recipeAccess().propertySet(UbesDelightRecipePropertySets.BAKING_MAT_INPUT_EIGHT).test(inventory.getStackInSlot(7))
+                    && player.level().recipeAccess().propertySet(UbesDelightRecipePropertySets.BAKING_MAT_INPUT_NINE).test(inventory.getStackInSlot(8))
+                    && player.level().recipeAccess().propertySet(UbesDelightRecipePropertySets.BAKING_MAT_TOOL).test(tool);
+        }
+
+
+        Optional<RecipeHolder<BakingMatRecipe>> matchingRecipe = getMatchingRecipe(new RecipeWrapper(inventory), tool, player, serverLevel);
+
+        matchingRecipe.ifPresent(recipe -> {
+            List<Ingredient> processStages = recipe.value().getProcessStages();
+            List<ItemStack> ingredientContainers = getInventoryContainers(inventory);
+
+            BlockPos blockPos = getBlockPos();
+
+            if (!recipe.value().getProcessStages().isEmpty()) {
+                if (!getBlockState().getValue(BakingMatBlock.PROCESSING)) {
+                    if (!ingredientContainers.isEmpty()) spawnResults(ingredientContainers);
+                    level.setBlockAndUpdate(blockPos, this.getBlockState().setValue(BakingMatBlock.PROCESSING, true));
+                    clearInventory();
+                    ItemStack itemStack = processStages.getFirst().items().findFirst().map(itemHolder -> itemHolder.value().getDefaultInstance()).orElse(ItemStack.EMPTY);
+                    inventory.setStackInSlot(0, itemStack);
+                    spawnParticles(level, blockPos, itemStack, 5);
+                    inventoryChanged();
+                } else if (getBlockState().getValue(BakingMatBlock.PROCESSING)) {
+                    int currentStage = getProcessStage(inventory.getStackInSlot(0), processStages);
+                    if (currentStage < recipe.value().getProcessStages().size() - 1) {
+                        ItemStack currentStageItem = inventory.getStackInSlot(0);
+                        int nextStage = getNextProcessStage(currentStageItem, processStages);
+                        if (!processStages.get(nextStage).isEmpty()) {
+                            clearInventory();
+                            ItemStack nextStageItem = processStages.get(nextStage).items().findFirst().map(itemHolder -> itemHolder.value().getDefaultInstance()).orElse(ItemStack.EMPTY);
+                            spawnParticles(level, blockPos, nextStageItem, 5);
+                            inventory.setStackInSlot(0, nextStageItem);
+                            inventoryChanged();
+                        }
+                    } else if (currentStage == recipe.value().getProcessStages().size() - 1) {
+                        spawnRolledResults(recipe.value(), blockPos, level, tool, null);
+                        level.setBlockAndUpdate(blockPos, this.getBlockState().setValue(BakingMatBlock.PROCESSING, false));
+                    }
+                }
+            } else {
+                spawnRolledResults(recipe.value(), blockPos, level, tool, ingredientContainers);
+            }
+
+            BakingMatBlockEntity.triggerAdvancement(player);
+            tool.hurtAndBreak(1, serverLevel, (ServerPlayer) player, (item) -> {});
+            playProcessingSound(recipe.value().getSoundEvent().orElse(null), tool);
+        });
+
+        return matchingRecipe.isPresent();
+    }
+
+    private Optional<RecipeHolder<BakingMatRecipe>> getMatchingRecipe(RecipeWrapper inventoryWrapper, ItemStack toolStack, @Nullable Player player, ServerLevel serverlevel) {
+        if (level == null) return Optional.empty();
+
+        Optional<RecipeHolder<BakingMatRecipe>> recipe = quickCheck.getRecipeFor(inventoryWrapper, serverlevel);
+        if (recipe.isPresent()) {
+            if (recipe.get().value().getTool().test(toolStack)) {
+                return recipe;
+            } else if (player != null) {
+                player.sendOverlayMessage(TextUtils.getTranslatable("tooltip.baking_mat.invalid_tool"));
+            }
+        } else if (player != null) {
+            player.sendOverlayMessage(TextUtils.getTranslatable("tooltip.baking_mat.invalid_item"));
+        }
+
+        return Optional.empty();
+    }
+
+    private void spawnRolledResults(BakingMatRecipe recipe, BlockPos blockPos, Level level, ItemStack tool, @Nullable List<ItemStack> containers) {
+        List<ItemStack> results = recipe.getRollResults(level.getRandom(), EnchantmentHelper.getItemEnchantmentLevel(level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE), tool));
+        if (containers != null && !containers.isEmpty()) results.addAll(containers);
+        if (!results.isEmpty()) {
+            spawnParticles(level, blockPos, results.get(0).copy(), 5);
+            spawnResults(results);
+            clearInventory();
+        }
+    }
+
+    private void spawnResults(List<ItemStack> results) {
+        for (ItemStack result : results) {
+            Direction direction = getBlockState().getValue(BakingMatBlock.FACING).getCounterClockWise();
+            ItemEntity entity = new ItemEntity(level,
+                    worldPosition.getX() + 0.5 + (direction.getStepX() * 0.2),
+                    worldPosition.getY() + 0.2,
+                    worldPosition.getZ() + 0.5 + (direction.getStepZ() * 0.2), result.copy());
+            entity.setDeltaMovement(direction.getStepX() * 0.2F, 0.0F, direction.getStepZ() * 0.2F);
+            level.addFreshEntity(entity);
+        }
+    }
+
+    private void playProcessingSound(SoundEvent soundEvent, ItemStack tool) {
+        playProcessingSound(soundEvent, tool, (ItemStack) null);
+    }
+
+    private void playProcessingSound(@Nullable SoundEvent soundEvent, ItemStack tool, @Nullable ItemStack item) {
+        // NOTE: unused inputs for future implementation of specific results
+        if (soundEvent != null) {
+            playSound(soundEvent, 1.0f, 1.0f);
+        } else if (tool.is(CommonTags.C_TOOLS_ROLLING_PIN)) {
+            playSound(UbesDelightSounds.BLOCK_BAKING_MAT_ROLLING_PIN.get(), 1.0f, 0.8f);
+        }
+    }
+
+    private void playSound(SoundEvent sound, float volume, float pitch) {
+        if (level != null)
+            level.playSound(null, worldPosition.getX() + 0.5F, worldPosition.getY() + 0.5F, worldPosition.getZ() + 0.5F, sound, SoundSource.BLOCKS, volume, pitch);
+    }
+
+    public static void spawnParticles(Level level, BlockPos pos, ItemStack stack, int count) {
+        for (int i = 0; i < count; ++i) {
+            Vec3 vec3d = new Vec3(((double) level.getRandom().nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, ((double) level.getRandom().nextFloat() - 0.5D) * 0.1D);
+            if (level instanceof ServerLevel) {
+                ((ServerLevel) level).sendParticles(new ItemParticleOption(ParticleTypes.ITEM, stack.getItem()), pos.getX() + 0.5F, pos.getY() + 0.1F, pos.getZ() + 0.5F, 1, vec3d.x, vec3d.y + 0.05D, vec3d.z, 0.0D);
+            } else {
+                level.addParticle(new ItemParticleOption(ParticleTypes.ITEM, stack.getItem()), pos.getX() + 0.5F, pos.getY() + 0.1F, pos.getZ() + 0.5F, vec3d.x, vec3d.y + 0.05D, vec3d.z);
+            }
+        }
+    }
+
+    private Integer getProcessStage(ItemStack itemStack, List<Ingredient> processStages) {
+        Integer stage = 0;
+        for (int i = 0; i < processStages.size(); i++) {
+            if (!processStages.get(i).isEmpty()) {
+                if (itemStack.is(processStages.get(i).items().findFirst().map(itemHolder -> itemHolder.value().getDefaultInstance()).orElse(ItemStack.EMPTY).getItem())) {
+                    return stage;
+                } else {
+                    stage++;
+                }
+            }
+        }
+        return stage;
+    }
+
+    private Integer getNextProcessStage(ItemStack itemStack, List<Ingredient> processStages) {
+        Integer stage = 0;
+        for (int i = 0; i < processStages.size(); i++) {
+            if (!processStages.get(i).isEmpty()) {
+                if (itemStack.is(processStages.get(i).items().findFirst().map(itemHolder -> itemHolder.value().getDefaultInstance()).orElse(ItemStack.EMPTY).getItem())) {
+                    if (i == processStages.size()-1) {
+                        return stage;
+                    } else {
+                        return stage+1;
+                    }
+                } else {
+                    stage++;
+                }
+            }
+        }
+        return stage;
+    }
+
+    private List<ItemStack> getInventoryContainers(ItemStackHandler inventory) {
+        List<ItemStack> ingredientContainers = new ArrayList<>();
+        for (int i = 0; i < inventory.getSlotCount(); i++) {
+            ItemStack itemStack = inventory.getStackInSlot(i);
+            if (!itemStack.isEmpty()) {
+                if (itemStack.getCraftingRemainder() != null && !itemStack.getCraftingRemainder().is(Items.AIR)) {
+                    ingredientContainers.add(itemStack.getCraftingRemainder().create());
+                }
+            }
+        }
+        return ingredientContainers;
+    }
+
+    public void clearInventory() {
+        for (int i = 0; i < MAX_INGREDIENTS; i++) {
+            this.inventory.setStackInSlot(i, new ItemStack(Items.AIR));
+        }
+        inventoryChanged();
+    }
+
+    public void setInventory(NonNullList<ItemStack> list) {
+        for (int i = 0; i < MAX_INGREDIENTS-1; i++) {
+            this.inventory.setStackInSlot(i, list.get(i));
+        }
+    }
+
+    public int getContainerSize() {
+        return MAX_INGREDIENTS;
+    }
+
+    public NonNullList<ItemStack> getItems() {
+        NonNullList<ItemStack> items = NonNullList.withSize(MAX_INGREDIENTS, ItemStack.EMPTY);
+        for (int i = 0; i < MAX_INGREDIENTS; i++) {
+            items.set(i, inventory.getStackInSlot(i));
+        }
+        return items;
+    }
+
+    public boolean isEmpty() {
+        return inventory.getStackInSlot(0).isEmpty();
+    }
+
+    public boolean isFull() {
+        return !inventory.getStackInSlot(MAX_INGREDIENTS-1).isEmpty();
+    }
+
+    public boolean addItem(ItemStack itemStack) {
+        for (int i = 0; i < inventory.getSlotCount(); i++) {
+            ItemStack inventoryStack = inventory.getStackInSlot(i);
+            if (inventoryStack.isEmpty()) {
+                inventory.setStackInSlot(i, itemStack.split(1));
+                inventoryChanged();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public ItemStack removeItem() {
+        for (int i = MAX_INGREDIENTS-1; i >= 0; i--) {
+            ItemStack itemStack = inventory.getStackInSlot(i);
+            if (!itemStack.isEmpty()) {
+                inventory.setStackInSlot(i, ItemStack.EMPTY);
+                inventoryChanged();
+                return itemStack;
+            }
+        }
+        return ItemStack.EMPTY;
+    }
+
+    public int getItemsQuantity() {
+        int items = 0;
+        for (int i = 0; i <= MAX_INGREDIENTS-1; i++) {
+            ItemStack itemstack = inventory.getStackInSlot(i);
+            if (!itemstack.isEmpty()) {
+                items++;
+            }
+        }
+        return items;
+    }
+
+    public ItemStackHandler getInventory() {
+        return inventory;
+    }
+
+    @NotNull
+    public Storage<ItemVariant> getStorage(@Nullable Direction side) {
+        return getInventory();
+    }
+
+    @Override
+    public void setRemoved() {
+        super.setRemoved();
+    }
+
+    private ItemStackHandler createHandler() {
+        return new ItemStackHandler(MAX_INGREDIENTS)
+        {
+            @Override
+            public int getSlotLimit(int slot) {
+                return 1;
+            }
+
+            @Override
+            protected void onContentsChanged(int slot) {
+                inventoryChanged();
+            }
+        };
+    }
+
+    public static Vec2 getItemOffset(int index) {
+        final float xOffset = .25f;
+        final float yOffset = .25f;
+        final Vec2[] offsets = {
+                new Vec2(.0f, .0f), new Vec2(xOffset, .0f), new Vec2(-xOffset, .0f),
+                new Vec2(.0f, yOffset), new Vec2(.0f, -yOffset), new Vec2(xOffset, yOffset),
+                new Vec2(-xOffset, yOffset), new Vec2(xOffset, -yOffset), new Vec2(-xOffset, -yOffset)
+        };
+
+        return offsets[index];
+    }
+
+    public static void triggerAdvancement(Player player) {
+        if (player instanceof ServerPlayer) {
+            UbesDelightAdvancements.USE_BAKING_MAT.get().trigger((ServerPlayer) player);
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "feature": "ubesdelight:patch_wild_garlic",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 80
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:count",
+      "count": 64
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "MOTION_BLOCKING"
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "farmersdelight:biome_tag",
+      "tag": "minecraft:is_overworld"
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+package chefmooon.ubesdelight.integration.jei.category;
+
+import chefmooon.ubesdelight.common.crafting.BakingMatRecipe;
+import chefmooon.ubesdelight.common.crafting.ingredient.ChanceResult;
+import chefmooon.ubesdelight.common.registry.UbesDelightItems;
+import chefmooon.ubesdelight.common.utility.TextUtils;
+import chefmooon.ubesdelight.integration.jei.UDRecipeTypesImpl;
+import com.mojang.datafixers.util.Pair;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import mezz.jei.api.constants.VanillaTypes;
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
+import mezz.jei.api.helpers.IGuiHelper;
+import mezz.jei.api.recipe.IFocusGroup;
+import mezz.jei.api.recipe.RecipeIngredientRole;
+import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.api.recipe.types.IRecipeType;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeHolder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@MethodsReturnNonnullByDefault
+public class BakingMatRecipeCategory implements IRecipeCategory<RecipeHolder<BakingMatRecipe>> {
+    private final IDrawable slotLarge;
+    private final IDrawable slotChance;
+    private final Component title;
+    private final IDrawable background;
+    private final IDrawable icon;
+
+    public BakingMatRecipeCategory(IGuiHelper helper) {
+        title = TextUtils.getTranslatable("rei.baking_mat");
+        Identifier backgroundImage = TextUtils.res("textures/gui/emi/baking_mat.png");
+        slotLarge = helper.createDrawable(backgroundImage, 0, 80, 18, 18);
+        slotChance = helper.createDrawable(backgroundImage, 18, 80, 18, 18);
+        background = helper.createDrawable(backgroundImage, 7, 9, 149, 56);
+        icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(UbesDelightItems.BAKING_MAT_BAMBOO.get()));
+    }
+
+    @Override
+    public IRecipeType<RecipeHolder<BakingMatRecipe>> getRecipeType() {
+        return UDRecipeTypesImpl.BAKING_MAT;
+    }
+
+    @Override
+    public Component getTitle() {
+        return this.title;
+    }
+
+//    @Override
+//    public IDrawable getBackground() {
+//        return this.background;
+//    }
+
+    @Override
+    public IDrawable getIcon() {
+        return this.icon;
+    }
+
+    @Override
+    public int getWidth() {
+        return 151;
+    }
+
+    @Override
+    public int getHeight() {
+        return 56;
+    }
+
+    @Override
+    public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<BakingMatRecipe> holder, IFocusGroup focusGroup) {
+        BakingMatRecipe recipe = holder.value();
+        List<Ingredient> getIngredients = recipe.getIngredients();
+        List<Ingredient> getProcessStages = recipe.getProcessStages();
+        List<ItemStackTemplate> recipeOutputs = recipe.getMandatoryResults();
+        List<ChanceResult> recipeChanceOutputs = recipe.getVariableResult();
+
+        // Tool
+        builder.addSlot(RecipeIngredientRole.INPUT, 57, 1)
+                .add(recipe.getTool());
+
+        // Input
+        for (int i = 0; i < getIngredients.size(); i++) {
+            Pair<Integer, Integer> slotLoc = getInputItemOffset(19, 20, i);
+            builder.addSlot(RecipeIngredientRole.INPUT, slotLoc.getFirst(), slotLoc.getSecond())
+                    .add(getIngredients.get(i));
+        }
+
+        // Process Stages
+        if (getProcessStages.size() > 0) {
+            for (int j = 0; j < getProcessStages.size(); j++) {
+                builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 57 + j * 19, 39)
+                        .add(getProcessStages.get(j));
+            }
+        }
+
+        // Mandatory Outputs
+        for (int k = 0; k < recipeOutputs.size(); k++) {
+            builder.addSlot(RecipeIngredientRole.OUTPUT, 78 + k * 19, 20)
+                    .add(recipeOutputs.get(k));
+        }
+
+        // Chance Outputs
+        for (int l = 0; l < recipeChanceOutputs.size(); l++) {
+            int index = l;
+            builder.addSlot(RecipeIngredientRole.OUTPUT, 78 + l * 19, 1)
+                    .add(recipeChanceOutputs.get(l).stack())
+                    .addRichTooltipCallback((slotView, tooltip) -> {
+                        ChanceResult output = recipeChanceOutputs.get(index);
+                        float chance = output.chance();
+                        if (chance != 1)
+                            tooltip.add(TextUtils.getTranslatable("rei.chance", chance < 0.01 ? "<1" : (int) (chance * 100))
+                                    .withStyle(ChatFormatting.GOLD));
+                    });
+        }
+    }
+
+    @Override
+    public void draw(RecipeHolder<BakingMatRecipe> holder, IRecipeSlotsView recipeSlotsView, GuiGraphicsExtractor guiGraphics, double mouseX, double mouseY) {
+        BakingMatRecipe recipe = holder.value();
+        List<Ingredient> recipeInputs = recipe.getIngredients();
+        List<Ingredient> recipeProcessStages = recipe.getProcessStages();
+        List<ChanceResult> recipeChanceOutputs = recipe.getVariableResult();
+        List<ItemStackTemplate> recipeOutputs = recipe.getMandatoryResults();
+
+        // Input
+        for (int i = 0; i < recipeInputs.size(); i++) {
+            Pair<Integer, Integer> slotLoc = getInputItemOffset(18, 19, i);
+            slotLarge.draw(guiGraphics, slotLoc.getFirst(), slotLoc.getSecond());
+        }
+
+        // Process Stages
+        if (recipeProcessStages.size() > 0) {
+            for (int j = 0; j < recipeProcessStages.size(); j++) {
+                slotLarge.draw(guiGraphics, 56 + j * 19, 38);
+            }
+        }
+
+        // Mandatory Outputs
+        for (int k = 0; k < recipeOutputs.size(); k++) {
+            slotLarge.draw(guiGraphics, 77 + k * 19, 19);
+        }
+
+        // Chance Outputs
+        for (int l = 0; l < recipeChanceOutputs.size(); l++) {
+            slotChance.draw(guiGraphics, 77 + l * 19, 0);
+        }
+    }
+
+    public static Pair<Integer, Integer> getInputItemOffset(int x, int y, int index) {
+        final int xOffset = 19;
+        final int yOffset = 19;
+        List<Pair<Integer, Integer>> listOfPairs = new ArrayList<>(List.of(
+                Pair.of(x, y), Pair.of(x + xOffset, y), Pair.of(x - xOffset, y),
+                Pair.of(x, y - yOffset), Pair.of(x, y + yOffset), Pair.of(x + xOffset, y - yOffset),
+                Pair.of(x - xOffset, y - yOffset), Pair.of(x + xOffset, y + yOffset), Pair.of(x - xOffset, y + yOffset)));
+
+        return listOfPairs.get(index);
+    }
+}
