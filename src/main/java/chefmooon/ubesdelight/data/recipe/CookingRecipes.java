@@ -5,6 +5,7 @@ import chefmooon.ubesdelight.common.tag.CommonTags;
 import chefmooon.ubesdelight.common.tag.CompatibilityTags;
 import chefmooon.ubesdelight.common.utility.TextUtils;
 import chefmooon.ubesdelight.common.utility.RecipeUtil;
+import net.fabricmc.fabric.api.recipe.v1.ingredient.DefaultCustomIngredients;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.core.HolderGetter;
@@ -130,11 +131,15 @@ public class CookingRecipes {
                 .build(exporter, recipeName(UbesDelightItems.SINANGAG.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.LUMPIA.get(), 1, 200, 2.0F)
-                .addIngredient(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS)
+                .addIngredient(DefaultCustomIngredients.any(
+                        Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.RAW_MEAT_FOODS)),
+                        Ingredient.of(holderGetter.getOrThrow(CommonTags.C_FOODS_SAFE_RAW_FISH)),
+                        Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.VEGETABLE_FOODS)),
+                        Ingredient.of(holderGetter.getOrThrow(ConventionalItemTags.MUSHROOMS))
+                ))
                 .addIngredient(CommonTags.C_FOODS_LEAFY_GREEN)
                 .addIngredient(CommonTags.C_CROPS_LEMONGRASS)
                 .addIngredient(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER)
-                .unlockedBy(RecipeUtil.hasItemTag(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS), RecipeUtil.has(holderGetter, CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_LEAFY_GREEN), RecipeUtil.has(holderGetter, CommonTags.C_FOODS_LEAFY_GREEN))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_LEMONGRASS), RecipeUtil.has(holderGetter, CommonTags.C_CROPS_LEMONGRASS))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER), RecipeUtil.has(holderGetter, CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER))

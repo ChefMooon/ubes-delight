@@ -17,12 +17,7 @@ public class FoodValues {
     public static final int MEDIUM_DURATION = 3600;    // 3 minutes
     public static final int LONG_DURATION = 6000;    // 5 minutes
 
-    private static final Holder<MobEffect> COMFORT = ModEffects.COMFORT;
     private static final Holder<MobEffect> NOURISHMENT = ModEffects.NOURISHMENT;
-
-    public static ApplyStatusEffectsConsumeEffect comfort(int duration) {
-        return new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(COMFORT, duration, 0), 1.0F);
-    }
 
     public static ApplyStatusEffectsConsumeEffect nourishment(int duration) {
         return new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(NOURISHMENT, duration, 0), 1.0F);
@@ -99,11 +94,11 @@ public class FoodValues {
                 .build();
 
         public static final Consumable SINANGAG = Consumables.defaultFood()
-                .onConsume(comfort(BRIEF_DURATION))
+                .onConsume(nourishment(BRIEF_DURATION))
                 .build();
 
         public static final Consumable KINILAW = Consumables.defaultFood()
-                .onConsume(comfort(SHORT_DURATION))
+                .onConsume(nourishment(SHORT_DURATION))
                 .build();
 
         public static final Consumable CHICKEN_INASAL_RICE = Consumables.defaultFood()
@@ -123,15 +118,15 @@ public class FoodValues {
                 .build();
 
         public static final Consumable BULALO = Consumables.defaultFood()
-                .onConsume(comfort(LONG_DURATION))
+                .onConsume(nourishment(LONG_DURATION))
                 .build();
 
         public static final Consumable ARROZ_CALDO = Consumables.defaultFood()
-                .onConsume(comfort(LONG_DURATION))
+                .onConsume(nourishment(LONG_DURATION))
                 .build();
 
         public static final Consumable MECHADO = Consumables.defaultFood()
-                .onConsume(comfort(LONG_DURATION))
+                .onConsume(nourishment(LONG_DURATION))
                 .build();
 
         public static final Consumable CONDENSED_MILK_BOTTLE = Consumables.defaultDrink()

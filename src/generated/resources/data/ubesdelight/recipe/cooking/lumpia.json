@@ -2,7 +2,15 @@
   "type": "farmersdelight:cooking",
   "experience": 2.0,
   "ingredients": [
-    "#farmersdelight:cabbage_roll_ingredients",
+    {
+      "fabric:type": "fabric:any",
+      "ingredients": [
+        "#c:foods/raw_meat",
+        "#c:foods/safe_raw_fish",
+        "#c:foods/vegetable",
+        "#c:mushrooms"
+      ]
+    },
     "#c:foods/leafy_green",
     "#c:crops/lemongrass",
     "#c:food_wrappers/lumpia_wrapper"
