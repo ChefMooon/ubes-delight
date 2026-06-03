@@ -97,10 +97,6 @@ public class UDItemTags extends ItemTagsProvider {
                 .add(UbesDelightItems.ARROZ_CALDO.get())
                 .add(UbesDelightItems.MECHADO.get());
 
-        // Farmers Delight Item Tags
-        tag(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS)
-                .add(UbesDelightItems.UBE.get());
-
         tag(CompatibilityTags.FARMERS_DELIGHT_WILD_CROPS_ITEM)
                 .add(UbesDelightItems.WILD_UBE.get())
                 .add(UbesDelightItems.WILD_GARLIC.get())
