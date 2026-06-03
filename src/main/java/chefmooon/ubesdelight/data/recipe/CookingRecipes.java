@@ -3,8 +3,8 @@ package chefmooon.ubesdelight.data.recipe;
 import chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import chefmooon.ubesdelight.common.tag.CommonTags;
 import chefmooon.ubesdelight.common.tag.CompatibilityTags;
-import chefmooon.ubesdelight.common.utility.TextUtils;
 import chefmooon.ubesdelight.common.utility.RecipeUtil;
+import chefmooon.ubesdelight.common.utility.TextUtils;
 import net.fabricmc.fabric.api.recipe.v1.ingredient.DefaultCustomIngredients;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.advancements.critereon.MinMaxBounds;
@@ -139,7 +139,6 @@ public class CookingRecipes {
                 .addIngredient(CommonTags.C_FOODS_LEAFY_GREEN)
                 .addIngredient(CommonTags.C_CROPS_LEMONGRASS)
                 .addIngredient(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER)
-                .unlockedBy(RecipeUtil.hasItemTag(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS), RecipeProvider.has(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_LEAFY_GREEN), RecipeProvider.has(CommonTags.C_FOODS_LEAFY_GREEN))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_LEMONGRASS), RecipeProvider.has(CommonTags.C_CROPS_LEMONGRASS))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER), RecipeProvider.has(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER))
