@@ -1,17 +1,15 @@
 package chefmooon.ubesdelight.common.block;
 
-import chefmooon.ubesdelight.common.block.LemongrassLeafCropBlock;
 import chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
 import chefmooon.ubesdelight.common.registry.UbesDelightItems;
-import chefmooon.ubesdelight.common.tag.CommonTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -22,7 +20,6 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 public class LemongrassStalkCropBlock extends CropBlock {
     public static final IntegerProperty LEMONGRASS_AGE = BlockStateProperties.AGE_5;
@@ -68,44 +65,6 @@ public class LemongrassStalkCropBlock extends CropBlock {
         }
     }
 
-//    protected static float getGrowthSpeed(Block block, BlockGetter level, BlockPos pos) {
-//        float growthSpeed = 1.0F;
-//        BlockPos blockPos = pos.below();
-//        for(int x = -1; x <= 1; ++x) {
-//            for(int y = -1; y <= 1; ++y) {
-//                float farmlandBonus = 0.0F;
-//                BlockState blockStateBelow = level.getBlockState(blockPos.offset(x, 0, y));
-//                if (blockStateBelow.is(Blocks.FARMLAND)) {
-//                    farmlandBonus = 1.0F;
-//                    if (blockStateBelow.hasProperty(FarmBlock.MOISTURE) && blockStateBelow.getValue(FarmBlock.MOISTURE) > 0) {
-//                        farmlandBonus = 3.0F;
-//                    }
-//                }
-//
-//                if (x != 0 || y != 0) {
-//                    farmlandBonus /= 4.0F;
-//                }
-//
-//                growthSpeed += farmlandBonus;
-//            }
-//        }
-//        BlockPos blockPosNorth = pos.north();
-//        BlockPos blockPosSouth = pos.south();
-//        BlockPos blockPosWest = pos.west();
-//        BlockPos blockPosEast = pos.east();
-//        boolean eastWest = level.getBlockState(blockPosWest).is(block) || level.getBlockState(blockPosEast).is(block);
-//        boolean northSouth = level.getBlockState(blockPosNorth).is(block) || level.getBlockState(blockPosSouth).is(block);
-//        if (eastWest && northSouth) {
-//            growthSpeed /= 2.0F;
-//        } else {
-//            boolean diagonal = level.getBlockState(blockPosWest.north()).is(block) || level.getBlockState(blockPosEast.north()).is(block) || level.getBlockState(blockPosEast.south()).is(block) || level.getBlockState(blockPosWest.south()).is(block);
-//            if (diagonal) {
-//                growthSpeed /= 2.0F;
-//            }
-//        }
-//        return growthSpeed;
-//    }
-
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPE_BY_AGE[state.getValue(this.getAgeProperty())];
@@ -113,7 +72,7 @@ public class LemongrassStalkCropBlock extends CropBlock {
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return state.is(Blocks.FARMLAND) || state.is(CommonTags.C_FARMLAND) || state.is(ModBlocks.RICH_SOIL.get());
+        return state.is(BlockTags.SUPPORTS_CROPS);
     }
 
     protected IntegerProperty getAgeProperty() {
