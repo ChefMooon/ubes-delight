@@ -9,7 +9,7 @@ base {
 
 def buildSuffix = mod_version_type != "STABLE" ? "-${mod_version_type}" + (mod_build_number != "0" ? "-${mod_build_number}" : "") : ""
 
-version = "fabric-${minecraft_version}-${mod_version}${buildSuffix}" + "-3.0.0+refab"
+version = "fabric-${minecraft_version}-${mod_version}${buildSuffix}"
 group = "${maven_group}"
 
 allprojects {
