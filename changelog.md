@@ -6,8 +6,6 @@ This is version is compatible with Minecraft 1.21.11 supporting Farmer's Delight
 
 ***
 
-### Updated
-
-- zh_cn translations (Thank you, Don-Trueno!)
+Initial release for Minecraft 26.1, compatible with Farmer's Delight Refabricated v26.1-3.5.2 and up.
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
