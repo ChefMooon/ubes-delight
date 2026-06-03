@@ -224,7 +224,7 @@ var vName = mod_name + " " + project.version
 publishMods {
     file = jar.archiveFile
     changelog = changelogText
-    version = project.version
+    version = "${minecraft_version}-${mod_version}"
     type = mod_version_type
     displayName = vName
 
@@ -246,7 +246,7 @@ publishMods {
         embeds("midnightlib")
         optional("modmenu")
         optional("jei")
-        optional("roughly-enough-items")
+//        optional("roughly-enough-items")
 //        optional("emi")
         optional("rrv")
     }
@@ -262,7 +262,7 @@ publishMods {
         embeds("midnightlib")
         optional("modmenu")
         optional("jei")
-        optional("rei")
+//        optional("rei")
 //        optional("emi")
         optional("rrv")
     }
