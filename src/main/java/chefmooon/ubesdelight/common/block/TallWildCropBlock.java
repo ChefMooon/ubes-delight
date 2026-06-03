@@ -1,8 +1,8 @@
 package chefmooon.ubesdelight.common.block;
 
+import chefmooon.ubesdelight.common.tag.CompatibilityTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -30,7 +30,7 @@ public class TallWildCropBlock extends DoublePlantBlock implements BonemealableB
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return state.is(BlockTags.DIRT) || state.is(BlockTags.SAND);
+        return state.is(CompatibilityTags.FD_REFABRICATED_GROWS_WILD_CROPS);
     }
 
     @Override

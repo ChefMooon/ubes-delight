@@ -24,8 +24,8 @@
                 "blocks": "minecraft:air"
               },
               {
-                "type": "minecraft:matching_block_tag",
-                "tag": "minecraft:dirt",
+                "type":  "minecraft:matching_blocks",
+                "blocks":  "#minecraft:substrate_overworld",
                 "offset": [
                   0,
                   -1,
@@ -60,8 +60,8 @@
                 "blocks": "minecraft:air"
               },
               {
-                "type": "minecraft:matching_block_tag",
-                "tag": "minecraft:dirt",
+                "type":  "minecraft:matching_blocks",
+                "blocks":  "#minecraft:substrate_overworld",
                 "offset": [
                   0,
                   -1,
@@ -96,8 +96,8 @@
                 "blocks": "minecraft:air"
               },
               {
-                "type": "minecraft:matching_block_tag",
-                "tag": "minecraft:dirt",
+                "type":  "minecraft:matching_blocks",
+                "blocks":  "#minecraft:substrate_overworld",
                 "offset": [
                   0,
                   -1,
