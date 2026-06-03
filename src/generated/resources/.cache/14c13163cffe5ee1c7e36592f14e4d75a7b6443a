@@ -1,4 +1,4 @@
-// 1.21.1	2026-05-14T15:41:12.9612071	Ube's Delight/Tags for minecraft:item
+// 1.21.1	2026-06-03T17:03:16.9547174	Ube's Delight/Tags for minecraft:item
 d12c694a2959257f0b273da7cb409f55b4b78755 data\c\tags\item\tools\rolling_pin.json
 db433723554ca0068e238f203205fb258748b3ed data\c\tags\item\foods\garlic.json
 5d06324b131dfa26a105d6f7d7554f3685a34354 data\origins\tags\item\ignore_diet.json
@@ -38,7 +38,6 @@ ee0c679f02fffadcaf18e571d2878c3d23d0e225 data\minecraft\tags\item\villager_plant
 f59e24f06da5df6f5f1599bcf24f8a45de905e79 data\c\tags\item\storage_blocks\lemongrass.json
 0b93c147311c2c26c6419106a9236ed963549821 data\c\tags\item\foods\soups.json
 ee0c679f02fffadcaf18e571d2878c3d23d0e225 data\sereneseasons\tags\item\summer_crops.json
-c20b2ac37d4e1e789774abb4859865b7bf68f572 data\farmersdelight\tags\item\cabbage_roll_ingredients.json
 009dc1c5b6fd06e9c2393d841ad82e7d14980d41 data\minecraft\tags\item\pig_food.json
 db433723554ca0068e238f203205fb258748b3ed data\c\tags\item\crops\garlic.json
 7b638b15eeb47ac9a249688d612d3eb92477e058 data\minecraft\tags\item\tall_flowers.json

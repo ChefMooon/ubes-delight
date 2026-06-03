@@ -1,4 +1,4 @@
-// 1.21.1	2026-05-14T15:41:12.9582064	Ube's Delight/Recipes
+// 1.21.1	2026-06-03T17:03:16.9517152	Ube's Delight/Recipes
 26665e6ff63dd8d84d3fe48aba0b1a83469edbec data\ubesdelight\recipe\cooking\tosilog.json
 b43b0ed769e7ef2e353ac633ced6a24436be40f8 data\ubesdelight\recipe\baking_mat\cake_from_baking_mat.json
 465ca6d65cb0e9c6b0773564638b728a651db6c2 data\ubesdelight\advancement\recipes\food\minecraft\crafting\ube_from_ube_crate.json
@@ -126,7 +126,7 @@ ccb6d9375524dd45e7b73c29830cd2102dbb697b data\ubesdelight\recipe\minecraft\craft
 8a3d92c26c8e02e77cbde094275b44827706f260 data\ubesdelight\advancement\recipes\cooking\raw_polvorone_cc.json
 6016c6f03331e99a970fe95e09dc245ac444a68e data\ubesdelight\recipe\minecraft\smoking\hopia_munggo_from_hopia_munggo_raw.json
 a27cbe997746db851eebe9ad0a2d52d99eeda6f6 data\ubesdelight\advancement\recipes\food\minecraft\campfire_cooking\milk_powder_from_drinks_milk.json
-e7a36ad7e1eb5d47e7cfcd7e7200a667ac8d2e61 data\ubesdelight\advancement\recipes\cooking\lumpia.json
+b1c9ccc41f18d1b929abcd867aad0783dfc7f0f6 data\ubesdelight\advancement\recipes\cooking\lumpia.json
 1e5a2f67ab241562bf49bc303725ed6bda72d751 data\ubesdelight\recipe\minecraft\crafting\leaf_feast_fried_rice_halffrom_leaf_feast.json
 8daa47283275842eb7758758ed709a2d7e7f3ca3 data\ubesdelight\advancement\recipes\food\minecraft\crafting\leaf_feast_fried_rice_halffrom_leaf_feast.json
 a87a5649813f26139027796f51577bc69e35dc36 data\ubesdelight\recipe\minecraft\smoking\ensaymada_from_ensaymada_raw.json

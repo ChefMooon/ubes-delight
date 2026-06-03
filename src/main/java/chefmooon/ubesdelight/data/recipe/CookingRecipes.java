@@ -327,6 +327,6 @@ public class CookingRecipes {
     }
 
     private static ResourceLocation suffix(String string) {
-        return TextUtils.res(string);
+        return TextUtils.res("cooking/" + string);
     }
 }
