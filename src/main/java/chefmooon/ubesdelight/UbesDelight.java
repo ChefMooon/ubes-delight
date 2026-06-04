@@ -1,5 +1,6 @@
 package chefmooon.ubesdelight;
 
+import chefmooon.ubesdelight.common.CommonSetup;
 import chefmooon.ubesdelight.common.crafting.condition.UDCrateEnabledCondition;
 import chefmooon.ubesdelight.common.registry.*;
 import com.google.gson.Gson;
@@ -26,6 +27,8 @@ public class UbesDelight implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        CommonSetup.init();
+
         UbesDelightSounds.init();
         UbesDelightAdvancements.register();
 
@@ -39,8 +42,6 @@ public class UbesDelight implements ModInitializer {
         UbesDelightRecipeTypes.register();
         UbesDelightRecipeSerializers.register();
 //        Configuration.init();
-
-        UDCrateEnabledCondition.init();
     }
 
 }
