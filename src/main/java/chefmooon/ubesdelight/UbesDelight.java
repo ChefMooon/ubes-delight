@@ -50,6 +50,8 @@ public class UbesDelight implements ModInitializer {
 
         // 3.0.0
         LootModifierEvents.init();
+
+        UbesDelightBiomeModifiers.init();
     }
 
 }
