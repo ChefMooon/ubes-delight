@@ -1,5 +1,6 @@
 package chefmooon.ubesdelight.common.crafting.condition;
 
+import chefmooon.ubesdelight.common.Configuration;
 import chefmooon.ubesdelight.common.utility.TextUtils;
 import com.mojang.serialization.MapCodec;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
@@ -14,16 +15,11 @@ public class UDCrateEnabledCondition implements ResourceCondition {
 
     @Override
     public boolean test(HolderLookup.@Nullable Provider registryLookup) {
-        return true;
-//        return Configuration.isEnableUDCropCrates();
+        return Configuration.isEnableUDCropCrates();
     }
 
     @Override
     public ResourceConditionType<?> getType() {
         return TYPE;
-    }
-
-    public static void init() {
-        ResourceConditions.register(TYPE);
     }
 }
