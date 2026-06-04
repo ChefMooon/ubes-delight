@@ -3,6 +3,8 @@ package chefmooon.ubesdelight;
 import chefmooon.ubesdelight.common.CommonSetup;
 import chefmooon.ubesdelight.common.Configuration;
 import chefmooon.ubesdelight.common.crafting.condition.UDCrateEnabledCondition;
+import chefmooon.ubesdelight.common.event.LootModifierEvents;
+import chefmooon.ubesdelight.common.event.VillagerEvents;
 import chefmooon.ubesdelight.common.registry.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -43,6 +45,11 @@ public class UbesDelight implements ModInitializer {
         UbesDelightPlacementModifiers.register();
         UbesDelightRecipeTypes.register();
         UbesDelightRecipeSerializers.register();
+
+        VillagerEvents.init();
+
+        // 3.0.0
+        LootModifierEvents.init();
     }
 
 }
