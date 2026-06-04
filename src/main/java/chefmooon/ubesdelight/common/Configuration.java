@@ -1,80 +1,88 @@
 package chefmooon.ubesdelight.common;
 
 
-public class Configuration {
+import chefmooon.ubesdelight.UbesDelight;
+import eu.midnightdust.lib.config.MidnightConfig;
 
-    
+public class Configuration extends MidnightConfig {
+
+    //Basic Config
+    @MidnightConfig.Entry(category = "common") public static boolean enableUDCropCrates = true;
+    @MidnightConfig.Entry(category = "common") public static boolean farmersBuyUDCrops = true;
+    @MidnightConfig.Entry(category = "common") public static boolean wanderingTraderSellsUDItems = true;
+
+    //World Generation
+    @MidnightConfig.Comment(category = "common", centered = true) public static MidnightConfig.Comment worldGenerationSettings;
+    @MidnightConfig.Entry(category = "common") public static boolean generateUDChestLoot = true;
+    @MidnightConfig.Entry(category = "common") public static boolean generateWildUbe = true;
+    public static int chanceWildUbe = 50;
+    @MidnightConfig.Entry(category = "common") public static boolean generateWildGarlic = true;
+    public static int chanceWildGarlic = 80;
+    @MidnightConfig.Entry(category = "common") public static boolean generateWildGinger = true;
+    public static int chanceWildGinger = 80;
+    @MidnightConfig.Entry(category = "common") public static boolean generateWildLemongrass = true;
+    public static int chanceWildLemongrass = 80;
+    @MidnightConfig.Entry(category = "common", min = 0.0D, max = 1.0D) public static double bakingMatFortuneBonus = 0.1D;
+
+    @MidnightConfig.Entry(category = "client") public static boolean isFoodEffectTooltip = true;
+
     public static boolean isEnableUDCropCrates() {
-        return false;
+        return enableUDCropCrates;
     }
 
-    
     public static boolean farmersBuyUDCrops() {
-        return false;
+        return farmersBuyUDCrops;
     }
 
-    
     public static boolean wanderingTraderSellsUDItems() {
-        return false;
+        return wanderingTraderSellsUDItems;
     }
 
-    
     public static boolean generateUDChestLoot() {
-        return false;
+        return generateUDChestLoot;
     }
 
-    
     public static boolean generateWildUbe() {
-        return false;
+        return generateWildUbe;
     }
 
-    
     public static int chanceWildUbe() {
-        return 0;
+        return chanceWildUbe;
     }
 
-    
     public static boolean generateWildGarlic() {
-        return false;
+        return generateWildGarlic;
     }
 
-    
     public static int chanceWildGarlic() {
-        return 0;
+        return chanceWildGarlic;
     }
 
-    
     public static boolean generateWildGinger() {
-        return false;
+        return generateWildGinger;
     }
 
-    
     public static int chanceWildGinger() {
-        return 0;
+        return chanceWildGinger;
     }
 
-    
     public static boolean generateWildLemongrass() {
-        return false;
+        return generateWildLemongrass;
     }
 
-    
     public static int chanceWildLemongrass() {
-        return 0;
+        return chanceWildLemongrass;
     }
 
-    
     public static double bakingMatFortuneBonus() {
-        return 0.0D;
+        return bakingMatFortuneBonus;
     }
 
-    
     public static boolean isFoodEffectTooltip() {
-        return false;
+        return isFoodEffectTooltip;
     }
 
-    
     public static void init() {
-        throw new AssertionError();
+        MidnightConfig.init(UbesDelight.MOD_ID, Configuration.class);
     }
 }
