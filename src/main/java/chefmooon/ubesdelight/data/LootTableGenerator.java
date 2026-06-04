@@ -1,21 +1,29 @@
 package chefmooon.ubesdelight.data;
 
+import chefmooon.ubesdelight.common.block.DrinkableFeastBlock;
 import chefmooon.ubesdelight.common.block.GlassCupBlock;
+import chefmooon.ubesdelight.common.block.LecheFlanFeastBlock;
+import chefmooon.ubesdelight.common.block.UbesDelightCakeBlock;
 import chefmooon.ubesdelight.common.block.leaf_feast.base.LargeLeafFeastBlock;
 import chefmooon.ubesdelight.common.block.leaf_feast.base.SimpleLeafFeastBlock;
 import chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
 import chefmooon.ubesdelight.common.registry.UbesDelightItems;
+import chefmooon.ubesdelight.common.tag.CommonTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 import java.util.concurrent.CompletableFuture;
@@ -58,6 +66,12 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         dropContainerLeaftContents(UbesDelightBlocks.LEAF_FEAST_COOKED_RICE.get());
         dropContainerLeaftContents(UbesDelightBlocks.LEAF_FEAST_FRIED_RICE.get());
         dropContainerLeaftContents(UbesDelightBlocks.LEAF_FEAST_SINANGAG.get());
+
+        add(UbesDelightBlocks.UBE_CAKE.get(), block -> createKnifeSliceFeastDrops(block, UbesDelightCakeBlock.BITES, UbesDelightCakeBlock.MAX_BITES, UbesDelightItems.UBE_CAKE_SLICE.get()));
+        add(UbesDelightBlocks.LECHE_FLAN_FEAST.get(), block -> createKnifeSliceFeastDrops(block, LecheFlanFeastBlock.BITES, LecheFlanFeastBlock.MAX_BITES, UbesDelightItems.LECHE_FLAN.get()));
+
+        add(UbesDelightBlocks.MILK_TEA_UBE_FEAST.get(), block -> createDrinkableFeastDrops(block, UbesDelightItems.MILK_TEA_UBE.get()));
+        add(UbesDelightBlocks.HALO_HALO_FEAST.get(), block -> createDrinkableFeastDrops(block, UbesDelightItems.HALO_HALO.get()));
 
         // todo - V0.2.0 - these stopped working,
 //        createCropDrops(UbesDelightBlocks.UBE_CROP, UbesDelightItems.UBE, UbesDelightItems.UBE,
@@ -140,5 +154,40 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         this.add(block, this.applyExplosionDecay(block, LootTable.lootTable()
                 .withPool(LootPool.lootPool().add(LootItem.lootTableItem(UbesDelightItems.LEAF_FEAST.get())))
         ));
+    }
+
+    private LootTable.Builder createKnifeSliceFeastDrops(Block block, IntegerProperty bitesProperty, int maxBites, Item servingItem) {
+        LootTable.Builder builder = LootTable.lootTable();
+        LootItemCondition.Builder knifeCondition = MatchTool.toolMatches(ItemPredicate.Builder.item().of(CommonTags.C_TOOLS_KNIFE));
+
+        for (int bites = maxBites - 1; bites >= 0; bites--) {
+            float servingsRemaining = maxBites - bites;
+            builder.withPool(LootPool.lootPool()
+                    .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                            .setProperties(StatePropertiesPredicate.Builder.properties()
+                                    .hasProperty(bitesProperty, bites)))
+                    .when(knifeCondition)
+                    .add(LootItem.lootTableItem(servingItem)
+                            .apply(SetItemCountFunction.setCount(ConstantValue.exactly(servingsRemaining)))));
+        }
+
+        return this.applyExplosionDecay(block, builder);
+    }
+
+    private LootTable.Builder createDrinkableFeastDrops(Block block, Item servingItem) {
+        LootTable.Builder builder = LootTable.lootTable();
+        LootItemCondition.Builder knifeCondition = MatchTool.toolMatches(ItemPredicate.Builder.item().of(CommonTags.C_TOOLS_KNIFE));
+
+        for (int servings = DrinkableFeastBlock.MAX_SERVINGS; servings >= 1; servings--) {
+            builder.withPool(LootPool.lootPool()
+                    .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                            .setProperties(StatePropertiesPredicate.Builder.properties()
+                                    .hasProperty(DrinkableFeastBlock.SERVINGS, servings)))
+                    .when(knifeCondition)
+                    .add(LootItem.lootTableItem(servingItem)
+                            .apply(SetItemCountFunction.setCount(ConstantValue.exactly(servings)))));
+        }
+
+        return this.applyExplosionDecay(block, builder);
     }
 }
