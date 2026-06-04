@@ -23,7 +23,6 @@ import java.util.Optional;
 
 public class UbesDelightClient {
     public static void init(final FMLClientSetupEvent event) {
-//        UbesDelightClient.init();
     }
 
     public static void onBuiltinPackRegistration(AddPackFindersEvent event) {

@@ -35,7 +35,7 @@ public class UbesDelight {
         modEventBus.addListener(CommonSetup::init);
         if (FMLEnvironment.dist.isClient()) {
             modEventBus.addListener(UbesDelightClient::init);
-//            modEventBus.addListener(UbesDelightClient::onBuiltinPackRegistration);
+            modEventBus.addListener(UbesDelightClient::onBuiltinPackRegistration);
         }
 
         UbesDelightSounds.register(modEventBus);
