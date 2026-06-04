@@ -23,7 +23,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.FluidState;
@@ -82,7 +81,7 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
     }
 
     public static ItemInteractionResult transformToUniversal(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player) {
-        BaseLeafFeastBlock baseLeafFeastBlock = new BaseLeafFeastBlock(BlockBehaviour.Properties.ofFullCopy(state.getBlock())); // TODO: review
+        BaseLeafFeastBlock baseLeafFeastBlock = (BaseLeafFeastBlock) state.getBlock();
         if (level.setBlock(pos, baseLeafFeastBlock.getTransformState(UbesDelightBlocks.UNIVERSAL_LEAF_FEAST.get(), state), 3)) {
             if (level.getBlockEntity(pos) instanceof UniversalLeafFeastBlockEntity universalLeafFeastBlockEntity) {
                 universalLeafFeastBlockEntity.addItem(player, player.getAbilities().instabuild ? itemStack.copy() : itemStack);
