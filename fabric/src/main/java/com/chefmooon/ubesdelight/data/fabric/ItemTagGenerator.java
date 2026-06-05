@@ -75,10 +75,6 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(UbesDelightItemsImpl.ARROZ_CALDO)
                 .add(UbesDelightItemsImpl.MECHADO);
 
-        // Farmers Delight Item Tags
-        getOrCreateTagBuilder(CompatibilityTags.FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS)
-                .add(UbesDelightItemsImpl.UBE);
-
         getOrCreateTagBuilder(CompatibilityTags.FARMERS_DELIGHT_WILD_CROPS_ITEM)
                 .add(UbesDelightItemsImpl.WILD_UBE)
                 .add(UbesDelightItemsImpl.WILD_GARLIC)

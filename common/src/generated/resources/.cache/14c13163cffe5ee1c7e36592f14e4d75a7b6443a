@@ -1,4 +1,4 @@
-// 1.20.1	2026-02-19T12:17:54.2589264	Ube's Delight/Tags for minecraft:item
+// 1.20.1	2026-06-05T13:58:16.7489423	Ube's Delight/Tags for minecraft:item
 11f9436b8e0c038dc9e12cf5eedcd1d4beaf98a2 data\create\tags\items\upright_on_belt.json
 a04cb697144147f60a3ffb78564f6fce98b3ef4f data\minecraft\tags\items\small_flowers.json
 e24b7903102c8bf6b26cddc2de5030a99be6fa84 data\sereneseasons\tags\items\spring_crops.json
@@ -8,7 +8,6 @@ d4d19baeff907626cef93b8719b18b49d7d6ce5f data\minecraft\tags\items\tools.json
 6877cb2c0b43d9e96eb9d27f07ca10c69a7faeb5 data\origins\tags\items\meat.json
 e38068d3e243aad20db0a0f80bfcf9075c0c7639 data\c\tags\items\food_wrappers.json
 2776aa504c6b58ab3a809c0325abfe3db06be684 data\minecraft\tags\items\tall_flowers.json
-34ffa64266b49a87157ccf311288bd7d74129158 data\farmersdelight\tags\items\cabbage_roll_ingredients.json
 b18ab914a402e6d7652887d5bc32214f9d770996 data\sereneseasons\tags\items\autumn_crops.json
 4f7fc7c85b8cde0f02b6aaf5699dd51f6602b263 data\c\tags\items\tea_ingredients\sweet\weak.json
 e9ead6642e05cd1674b3b1c3e0ab941913ba0fde data\dehydration\tags\items\hydrating_drinks.json
