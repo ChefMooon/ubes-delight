@@ -9,6 +9,10 @@ NeoForge and Fabric.
 
 ### Updated
 
-- zh_cn translations (Thank you, Don-Trueno!)
+- ru_ru translations (Thank you, SlendRaR!)
+
+### Fixed
+
+- Removed deprecated tag cabbage_roll_ingredients
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
