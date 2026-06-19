@@ -1,5 +1,5 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version '1.16-SNAPSHOT'
+    id 'net.fabricmc.fabric-loom' version '1.17-SNAPSHOT'
     id "me.modmuss50.mod-publish-plugin" version "2.0.0-beta.1"
 }
 
@@ -110,10 +110,13 @@ dependencies {
 
 //    compileOnly("com.blamejared.crafttweaker:CraftTweaker-fabric-${minecraft_version}:${crafttweaker_version}")
 
-    dependencies {
-        implementation("vectorwing:FarmersDelight:${fdrf_version}") {
-            exclude(group: "net.fabricmc")
-        }
+//    dependencies {
+//        implementation("vectorwing:FarmersDelight:${fdrf_version}") {
+//            exclude(group: "net.fabricmc")
+//        }
+//    }
+    implementation("maven.modrinth:farmers-delight-refabricated:${fdrf_version}") {
+        exclude(group: "net.fabricmc")
     }
 
     // MidnightLib
