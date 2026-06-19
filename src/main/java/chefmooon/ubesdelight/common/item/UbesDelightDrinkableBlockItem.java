@@ -2,10 +2,9 @@ package chefmooon.ubesdelight.common.item;
 
 import chefmooon.ubesdelight.common.Configuration;
 import chefmooon.ubesdelight.common.block.GlassCupBlock;
-import chefmooon.ubesdelight.common.item.UbesDelightBlockItem;
 import chefmooon.ubesdelight.common.utility.TextUtils;
 import net.minecraft.ChatFormatting;
-import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.triggers.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;

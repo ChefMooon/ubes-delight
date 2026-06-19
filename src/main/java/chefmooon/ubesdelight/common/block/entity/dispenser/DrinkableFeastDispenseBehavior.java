@@ -2,7 +2,6 @@ package chefmooon.ubesdelight.common.block.entity.dispenser;
 
 import chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import chefmooon.ubesdelight.common.block.DrinkableFeastBlock;
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
@@ -14,7 +13,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-@MethodsReturnNonnullByDefault
 public class DrinkableFeastDispenseBehavior extends OptionalDispenseItemBehavior {
     public DrinkableFeastDispenseBehavior() {
     }

@@ -4,7 +4,7 @@ import chefmooon.ubesdelight.common.utility.RegistrationUtils;
 import chefmooon.ubesdelight.common.advancement.BakingMatTrigger;
 import chefmooon.ubesdelight.common.advancement.LeafFeastConsumeTrigger;
 import chefmooon.ubesdelight.common.advancement.LeafFeastInsertTrigger;
-import net.minecraft.advancements.CriterionTrigger;
+import net.minecraft.advancements.triggers.CriterionTrigger;
 import net.minecraft.core.registries.BuiltInRegistries;
 
 import java.util.function.Supplier;

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "ud_leaf_feast",
   "key": {
     "A": "ubesdelight:lumpia",

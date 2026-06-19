@@ -3,7 +3,6 @@ package chefmooon.ubesdelight.common.block.entity.dispenser;
 import chefmooon.ubesdelight.common.block.BakingMatBlock;
 import chefmooon.ubesdelight.common.block.entity.BakingMatBlockEntity;
 import chefmooon.ubesdelight.common.registry.UbesDelightItems;
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.dispenser.BlockSource;
@@ -14,7 +13,6 @@ import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-@MethodsReturnNonnullByDefault
 public class BakingMatDispenseBehavior extends OptionalDispenseItemBehavior {
     public BakingMatDispenseBehavior() {
     }

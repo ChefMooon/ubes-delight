@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -111,7 +112,7 @@ public class GlassCupBlock extends Block {
     }
 
     protected InteractionResult rotate(Level level, BlockPos pos, BlockState state, Player player) {
-        if (player.getBoundingBox().distanceToSqr(pos.getBottomCenter()) < 0.5) return InteractionResult.CONSUME;
+        if (player.getBoundingBox().distanceToSqr(Vec3.atBottomCenterOf(pos)) < 0.5) return InteractionResult.CONSUME;
 
         if (level.setBlock(pos, state.setValue(FACING, state.getValue(FACING).getClockWise()), 3)) return InteractionResult.SUCCESS;
 

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "A": "ubesdelight:sinangag",
     "B": "#minecraft:leaves"

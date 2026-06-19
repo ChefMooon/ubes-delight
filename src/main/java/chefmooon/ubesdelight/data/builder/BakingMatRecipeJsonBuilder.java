@@ -3,7 +3,7 @@ package chefmooon.ubesdelight.data.builder;
 import chefmooon.ubesdelight.common.crafting.BakingMatRecipe;
 import chefmooon.ubesdelight.common.crafting.ingredient.ChanceResult;
 import chefmooon.ubesdelight.common.utility.TextUtils;
-import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.triggers.Criterion;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;

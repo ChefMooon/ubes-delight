@@ -36,7 +36,7 @@ public class UbesDelightBlocks {
     public static final Supplier<Block> KALAN = registerBlock("kalan",
             KalanBlock::new, Block.Properties.ofFullCopy(Blocks.BRICKS).lightLevel(UbesDelightBlocks.litBlockEmission(13)));
     public static final Supplier<Block> BAKING_MAT_BAMBOO = registerBlock("baking_mat_bamboo",
-            BakingMatBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.0f).sound(SoundType.BAMBOO));
+            BakingMatBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.white()).strength(1.0f).sound(SoundType.BAMBOO));
 
     public static final Supplier<Block> UBE_CRATE = registerBlock("ube_crate",
             Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD));

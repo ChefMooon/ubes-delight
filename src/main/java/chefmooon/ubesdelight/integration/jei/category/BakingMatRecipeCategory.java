@@ -6,7 +6,6 @@ import chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import chefmooon.ubesdelight.common.utility.TextUtils;
 import chefmooon.ubesdelight.integration.jei.UDRecipeTypesImpl;
 import com.mojang.datafixers.util.Pair;
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -28,7 +27,6 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import java.util.ArrayList;
 import java.util.List;
 
-@MethodsReturnNonnullByDefault
 public class BakingMatRecipeCategory implements IRecipeCategory<RecipeHolder<BakingMatRecipe>> {
     private final IDrawable slotLarge;
     private final IDrawable slotChance;

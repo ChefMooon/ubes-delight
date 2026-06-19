@@ -5,10 +5,11 @@ import chefmooon.ubesdelight.common.tag.CommonTags;
 import chefmooon.ubesdelight.common.tag.CompatibilityTags;
 import chefmooon.ubesdelight.common.utility.RecipeUtil;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
-import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.advancements.triggers.InventoryChangeTrigger;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.*;
+import net.minecraft.tags.BlockItemTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -55,7 +56,7 @@ public class CraftingRecipes {
                 .pattern(" B ")
                 .pattern("A  ")
                 .define('A', Items.STICK)
-                .define('B', ItemTags.FENCES)
+                .define('B', BlockItemTags.FENCES.item())
                 .unlockedBy(RecipeProvider.getHasName(Items.STICK), InventoryChangeTrigger.TriggerInstance.hasItems(Items.STICK))
                 .save(exporter, suffix(RecipeProvider.getItemName(UbesDelightItems.ROLLING_PIN_WOOD.get())));
 
@@ -123,11 +124,11 @@ public class CraftingRecipes {
 
         /** MISC **/
 
-        ShapelessRecipeBuilder.shapeless(holderGetter, RecipeCategory.MISC, Items.PURPLE_DYE, 1)
+        ShapelessRecipeBuilder.shapeless(holderGetter, RecipeCategory.MISC, Items.DYE.purple(), 1)
                 .requires(UbesDelightItems.UBE.get(), 1)
                 .group("purple_dye")
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.UBE.get()), InventoryChangeTrigger.TriggerInstance.hasItems(UbesDelightItems.UBE.get()))
-                .save(exporter, suffix(RecipeProvider.getConversionRecipeName(Items.PURPLE_DYE, UbesDelightItems.UBE.get())));
+                .save(exporter, suffix(RecipeProvider.getConversionRecipeName(Items.DYE.purple(), UbesDelightItems.UBE.get())));
 
         /** LEAF FEASTS **/
 

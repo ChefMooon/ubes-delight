@@ -7,7 +7,6 @@
   ],
   "pools": [
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "condition": "minecraft:all_of",
@@ -36,7 +35,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 5.0,
           "function": "minecraft:set_count"
         }
@@ -44,7 +42,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "condition": "minecraft:all_of",
@@ -73,7 +70,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -81,7 +77,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "condition": "minecraft:all_of",
@@ -110,7 +105,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -118,7 +112,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "condition": "minecraft:all_of",
@@ -147,7 +140,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -155,7 +147,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "condition": "minecraft:all_of",
@@ -184,7 +175,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }

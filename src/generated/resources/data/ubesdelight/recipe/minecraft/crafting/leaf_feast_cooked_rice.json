@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "A": "farmersdelight:cooked_rice",
     "B": "#minecraft:leaves"

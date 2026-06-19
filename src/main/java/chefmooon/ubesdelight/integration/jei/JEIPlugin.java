@@ -3,7 +3,6 @@ package chefmooon.ubesdelight.integration.jei;
 import chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import chefmooon.ubesdelight.common.utility.TextUtils;
 import chefmooon.ubesdelight.integration.jei.category.BakingMatRecipeCategory;
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
@@ -16,7 +15,6 @@ import net.minecraft.world.item.ItemStack;
 import java.util.List;
 
 @JeiPlugin
-@MethodsReturnNonnullByDefault
 public class JEIPlugin implements IModPlugin {
     public static final Identifier ID = TextUtils.res("jei_plugin");
     @Override

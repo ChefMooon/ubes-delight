@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "A": "#c:drinks/milk",
     "B": "#c:tea_ingredients/sweet/weak",

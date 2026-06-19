@@ -22,13 +22,13 @@ public class CuttingRecipes {
         basicCuttingRecipeBuilder(holderGetter, UbesDelightItems.WILD_GARLIC.get(), UbesDelightItems.GARLIC.get(), 1, 1.0F, exporter);
         basicCuttingRecipeBuilder(holderGetter, UbesDelightItems.WILD_GINGER.get(), UbesDelightItems.GINGER.get(), 1, 1.0F, exporter);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(UbesDelightItems.WILD_UBE.get()), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TOOLS_KNIFE)), UbesDelightItems.UBE.get())
-                .addResult(Items.PURPLE_DYE)
-                .addResultWithChance(Items.PURPLE_DYE, 0.5F)
+                .addResult(Items.DYE.purple())
+                .addResultWithChance(Items.DYE.purple(), 0.5F)
 //                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_TOOLS_KNIFE), RecipeUtil.has(holderGetter, CommonTags.C_TOOLS_KNIFE))
                 .build(exporter, suffix(RecipeProvider.getConversionRecipeName(UbesDelightItems.UBE.get(), UbesDelightItems.WILD_UBE.get())));
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(UbesDelightItems.WILD_LEMONGRASS.get()), Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TOOLS_KNIFE)), UbesDelightItems.LEMONGRASS.get())
-                .addResult(Items.LIME_DYE)
-                .addResultWithChance(Items.LIME_DYE, 0.5F)
+                .addResult(Items.DYE.lime())
+                .addResultWithChance(Items.DYE.lime(), 0.5F)
 //                .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_TOOLS_KNIFE), RecipeUtil.has(holderGetter, CommonTags.C_TOOLS_KNIFE))
                 .build(exporter, suffix(RecipeProvider.getConversionRecipeName(UbesDelightItems.LEMONGRASS.get(), UbesDelightItems.WILD_LEMONGRASS.get())));
         basicCuttingRecipeBuilder(holderGetter, UbesDelightItems.HALO_HALO_FEAST.get(), UbesDelightItems.HALO_HALO.get(), 4, 1.0F, exporter);

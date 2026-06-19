@@ -6,7 +6,6 @@ import chefmooon.ubesdelight.common.block.leaf_feast.base.SimpleLeafFeastBlock;
 import chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import chefmooon.ubesdelight.common.utility.ItemStackUtil;
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
@@ -18,7 +17,6 @@ import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
-@MethodsReturnNonnullByDefault
 public class BaseLeafFeastDispenseBehavior extends OptionalDispenseItemBehavior {
 
     public BaseLeafFeastDispenseBehavior() {
