@@ -6,8 +6,16 @@ This is version is compatible with Minecraft 1.21.11 supporting Farmer's Delight
 
 ***
 
+### Added
+
+- Support for Minecraft 26.2
+
 ### Updated
 
 - ru_ru translations (Thank you, SlendRaR!)
+
+### Fixed
+
+- Removed deprecated tag cabbage_roll_ingredients
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
