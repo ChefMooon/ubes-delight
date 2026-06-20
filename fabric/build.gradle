@@ -146,7 +146,6 @@ publishMods {
     displayName = vName
 
     modLoaders.add("fabric")
-    modLoaders.add("quilt")
 
     curseforge("curseforgeFabric") {
         accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
