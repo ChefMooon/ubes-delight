@@ -40,7 +40,7 @@
     "fabricloader": ">=0.19",
     "fabric-api": "*",
     "minecraft": ">=${minecraft_min_version} <=${minecraft_max_version}",
-    "farmersdelight": ">=26.1-3.5.2+refabricated"
+    "farmersdelight": ">=26.2-3.6.6+refabricated"
   },
   "conflicts": {
     "rrv": "<8.0.0"
