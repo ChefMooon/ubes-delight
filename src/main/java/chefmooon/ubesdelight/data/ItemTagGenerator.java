@@ -1,6 +1,7 @@
 package chefmooon.ubesdelight.data;
 
-import chefmooon.ubesdelight.common.registry.UbesDelightItems;
+import chefmooon.ubesdelight.common.references.UDBlockItemIds;
+import chefmooon.ubesdelight.common.references.UDItemIds;
 import chefmooon.ubesdelight.common.tag.CommonTags;
 import chefmooon.ubesdelight.common.tag.CompatibilityTags;
 import chefmooon.ubesdelight.common.tag.UbesDelightTags;
@@ -8,14 +9,12 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
+import net.minecraft.references.BlockItemId;
+import net.minecraft.references.ItemIds;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockItemTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -35,135 +34,135 @@ public class ItemTagGenerator extends FabricTagsProvider.ItemTagsProvider {
 
     private void registerModItemTags() {
         tag(UbesDelightTags.TOOLS_ROLLING_PIN)
-                .add(key(UbesDelightItems.ROLLING_PIN_WOOD.get()))
-                .add(key(UbesDelightItems.ROLLING_PIN_IRON.get()))
-                .add(key(UbesDelightItems.ROLLING_PIN_GOLD.get()))
-                .add(key(UbesDelightItems.ROLLING_PIN_DIAMOND.get()))
-                .add(key(UbesDelightItems.ROLLING_PIN_NETHERITE.get()))
+                .add(UDItemIds.ROLLING_PIN_WOOD)
+                .add(UDItemIds.ROLLING_PIN_IRON)
+                .add(UDItemIds.ROLLING_PIN_GOLD)
+                .add(UDItemIds.ROLLING_PIN_DIAMOND)
+                .add(UDItemIds.ROLLING_PIN_NETHERITE)
         ;
     }
 
     private void registerMinecraftItemTags() {
         // Minecraft Item Tags
         tag(BlockItemTags.SMALL_FLOWERS.item())
-                .add(key(UbesDelightItems.WILD_UBE.get()))
-                .add(key(UbesDelightItems.WILD_GARLIC.get()))
-                .add(key(UbesDelightItems.WILD_GINGER.get()));
+                .add(key(UDBlockItemIds.WILD_UBE))
+                .add(key(UDBlockItemIds.WILD_GARLIC))
+                .add(key(UDBlockItemIds.WILD_GINGER));
 
         tag(ConventionalItemTags.TALL_FLOWERS)
-                .add(key(UbesDelightItems.WILD_LEMONGRASS.get()));
+                .add(key(UDBlockItemIds.WILD_LEMONGRASS));
 
         tag(ItemTags.PARROT_FOOD)
-                .add(key(UbesDelightItems.LEMONGRASS_SEEDS.get()));
+                .add(key(UDBlockItemIds.LEMONGRASS_STALK_CROP));
 
         tag(ItemTags.CHICKEN_FOOD)
-                .add(key(UbesDelightItems.LEMONGRASS_SEEDS.get()));
+                .add(key(UDBlockItemIds.LEMONGRASS_STALK_CROP));
 
         tag(ItemTags.PIG_FOOD)
-                .add(key(UbesDelightItems.UBE.get()))
-                .add(key(UbesDelightItems.GARLIC.get()))
-                .add(key(UbesDelightItems.GINGER.get()))
-                .add(key(UbesDelightItems.LEMONGRASS.get()));
+                .add(key(UDBlockItemIds.UBE_CROP))
+                .add(key(UDBlockItemIds.GARLIC_CROP))
+                .add(key(UDBlockItemIds.GINGER_CROP))
+                .add(UDItemIds.LEMONGRASS);
 
         tag(ItemTags.RABBIT_FOOD)
-                .add(key(UbesDelightItems.GINGER.get()))
-                .add(key(UbesDelightItems.LEMONGRASS.get()));
+                .add(key(UDBlockItemIds.GINGER_CROP))
+                .add(UDItemIds.LEMONGRASS);
 
         tag(ItemTags.DURABILITY_ENCHANTABLE).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
         tag(ItemTags.MINING_LOOT_ENCHANTABLE).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
         tag(ItemTags.BREAKS_DECORATED_POTS).addTag(UbesDelightTags.TOOLS_ROLLING_PIN);
 
         tag(ItemTags.VILLAGER_PICKS_UP)
-                .add(key(UbesDelightItems.UBE.get()))
-                .add(key(UbesDelightItems.GARLIC.get()))
-                .add(key(UbesDelightItems.GINGER.get()))
-                .add(key(UbesDelightItems.LEMONGRASS.get()))
-                .add(key(UbesDelightItems.LEMONGRASS_SEEDS.get()));
+                .add(key(UDBlockItemIds.UBE_CROP))
+                .add(key(UDBlockItemIds.GARLIC_CROP))
+                .add(key(UDBlockItemIds.GINGER_CROP))
+                .add(UDItemIds.LEMONGRASS)
+                .add(key(UDBlockItemIds.LEMONGRASS_STALK_CROP));
 
         tag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
-                .add(key(UbesDelightItems.UBE.get()))
-                .add(key(UbesDelightItems.GARLIC.get()))
-                .add(key(UbesDelightItems.GINGER.get()))
-                .add(key(UbesDelightItems.LEMONGRASS_SEEDS.get()));
+                .add(key(UDBlockItemIds.UBE_CROP))
+                .add(key(UDBlockItemIds.GARLIC_CROP))
+                .add(key(UDBlockItemIds.GINGER_CROP))
+                .add(key(UDBlockItemIds.LEMONGRASS_STALK_CROP));
     }
     private void registerCompatibiltyItemTags() {
         // Create Item Tags
         tag(CompatibilityTags.CREATE_UPRIGHT_ON_BELT)
-                .add(key(UbesDelightItems.MILK_TEA_UBE.get()))
-                .add(key(UbesDelightItems.HALO_HALO.get()))
-                .add(key(UbesDelightItems.FISH_SAUCE_BOTTLE.get()))
-                .add(key(UbesDelightItems.CONDENSED_MILK_BOTTLE.get()))
-                .add(key(UbesDelightItems.UBE_CAKE.get()))
-                .add(key(UbesDelightItems.LECHE_FLAN_FEAST.get()))
-                .add(key(UbesDelightItems.HALO_HALO_FEAST.get()))
-                .add(key(UbesDelightItems.MILK_TEA_UBE_FEAST.get()))
-                .add(key(UbesDelightItems.SINANGAG.get()))
-                .add(key(UbesDelightItems.KINILAW.get()))
-                .add(key(UbesDelightItems.CHICKEN_INASAL_RICE.get()))
-                .add(key(UbesDelightItems.TOSILOG.get()))
-                .add(key(UbesDelightItems.BANGSILOG.get()))
-                .add(key(UbesDelightItems.SISIG.get()))
-                .add(key(UbesDelightItems.BULALO.get()))
-                .add(key(UbesDelightItems.ARROZ_CALDO.get()))
-                .add(key(UbesDelightItems.MECHADO.get()));
+                .add(key(UDBlockItemIds.GLASS_CUP_MILK_TEA_UBE))
+                .add(key(UDBlockItemIds.GLASS_CUP_HALO_HALO))
+                .add(UDItemIds.FISH_SAUCE_BOTTLE)
+                .add(UDItemIds.CONDENSED_MILK_BOTTLE)
+                .add(key(UDBlockItemIds.UBE_CAKE))
+                .add(key(UDBlockItemIds.LECHE_FLAN_FEAST))
+                .add(key(UDBlockItemIds.HALO_HALO_FEAST))
+                .add(key(UDBlockItemIds.MILK_TEA_UBE_FEAST))
+                .add(UDItemIds.SINANGAG)
+                .add(UDItemIds.KINILAW)
+                .add(UDItemIds.CHICKEN_INASAL_RICE)
+                .add(UDItemIds.TOSILOG)
+                .add(UDItemIds.BANGSILOG)
+                .add(UDItemIds.SISIG)
+                .add(UDItemIds.BULALO)
+                .add(UDItemIds.ARROZ_CALDO)
+                .add(UDItemIds.MECHADO);
 
         // Farmers Delight Item Tags
         tag(CompatibilityTags.FARMERS_DELIGHT_WILD_CROPS_ITEM)
-                .add(key(UbesDelightItems.WILD_UBE.get()))
-                .add(key(UbesDelightItems.WILD_GARLIC.get()))
-                .add(key(UbesDelightItems.WILD_GINGER.get()))
-                .add(key(UbesDelightItems.WILD_LEMONGRASS.get()));
+                .add(key(UDBlockItemIds.WILD_UBE))
+                .add(key(UDBlockItemIds.WILD_GARLIC))
+                .add(key(UDBlockItemIds.WILD_GINGER))
+                .add(key(UDBlockItemIds.WILD_LEMONGRASS));
 
         // Supplementaries Item Tags
         tag(CompatibilityTags.SUPPLEMENTARIES_COOKIES)
-                .add(key(UbesDelightItems.COOKIE_UBE.get()))
-                .add(key(UbesDelightItems.COOKIE_GINGER.get()))
-                .add(key(UbesDelightItems.POLVORONE.get()))
-                .add(key(UbesDelightItems.POLVORONE_PINIPIG.get()))
-                .add(key(UbesDelightItems.POLVORONE_UBE.get()))
-                .add(key(UbesDelightItems.POLVORONE_CC.get()));
+                .add(UDItemIds.COOKIE_UBE)
+                .add(UDItemIds.COOKIE_GINGER)
+                .add(UDItemIds.POLVORONE)
+                .add(UDItemIds.POLVORONE_PINIPIG)
+                .add(UDItemIds.POLVORONE_UBE)
+                .add(UDItemIds.POLVORONE_CC);
 
         // Dehydration Item Tags
         tag(CompatibilityTags.DEHYDRATION_HYDRATING_DRINKS)
-                .add(key(UbesDelightItems.CONDENSED_MILK_BOTTLE.get()))
-                .add(key(UbesDelightItems.FISH_SAUCE_BOTTLE.get()))
-                .add(key(UbesDelightItems.MILK_TEA_UBE.get()))
-                .add(key(UbesDelightItems.HALO_HALO.get()));
+                .add(UDItemIds.CONDENSED_MILK_BOTTLE)
+                .add(UDItemIds.FISH_SAUCE_BOTTLE)
+                .add(key(UDBlockItemIds.GLASS_CUP_MILK_TEA_UBE))
+                .add(key(UDBlockItemIds.GLASS_CUP_HALO_HALO));
 
         tag(CompatibilityTags.DEHYDRATION_HYDRATING_STEW)
-                .add(key(UbesDelightItems.BULALO.get()))
-                .add(key(UbesDelightItems.ARROZ_CALDO.get()))
-                .add(key(UbesDelightItems.MECHADO.get()));
+                .add(UDItemIds.BULALO)
+                .add(UDItemIds.ARROZ_CALDO)
+                .add(UDItemIds.MECHADO);
 
         // Origins Item Tags
         tag(CompatibilityTags.ORIGINS_IGNORE_DIET)
-                .add(key(UbesDelightItems.CONDENSED_MILK_BOTTLE.get()))
-                .add(key(UbesDelightItems.FISH_SAUCE_BOTTLE.get()));
+                .add(UDItemIds.CONDENSED_MILK_BOTTLE)
+                .add(UDItemIds.FISH_SAUCE_BOTTLE);
 
         tag(CompatibilityTags.ORIGINS_MEAT)
-                .add(key(UbesDelightItems.LUMPIA.get()))
-                .add(key(UbesDelightItems.TOCINO.get()))
-                .add(key(UbesDelightItems.CHICKEN_INASAL.get()))
-                .add(key(UbesDelightItems.CHICKEN_INASAL_RICE.get()))
-                .add(key(UbesDelightItems.TOSILOG.get()))
-                .add(key(UbesDelightItems.BANGSILOG.get()))
-                .add(key(UbesDelightItems.SISIG.get()))
-                .add(key(UbesDelightItems.BULALO.get()))
-                .add(key(UbesDelightItems.ARROZ_CALDO.get()))
-                .add(key(UbesDelightItems.MECHADO.get()));
+                .add(UDItemIds.LUMPIA)
+                .add(UDItemIds.TOCINO)
+                .add(UDItemIds.CHICKEN_INASAL)
+                .add(UDItemIds.CHICKEN_INASAL_RICE)
+                .add(UDItemIds.TOSILOG)
+                .add(UDItemIds.BANGSILOG)
+                .add(UDItemIds.SISIG)
+                .add(UDItemIds.BULALO)
+                .add(UDItemIds.ARROZ_CALDO)
+                .add(UDItemIds.MECHADO);
 
         // Serene Seasons
         tag(CompatibilityTags.SERENE_SEASONS_AUTUMN_CROPS)
-                .add(key(UbesDelightItems.GARLIC.get()))
-                .add(key(UbesDelightItems.GINGER.get()));
+                .add(key(UDBlockItemIds.GARLIC_CROP))
+                .add(key(UDBlockItemIds.GINGER_CROP));
         tag(CompatibilityTags.SERENE_SEASONS_SPRING_CROPS)
-                .add(key(UbesDelightItems.UBE.get()))
-                .add(key(UbesDelightItems.LEMONGRASS_SEEDS.get()));
+                .add(key(UDBlockItemIds.UBE_CROP))
+                .add(key(UDBlockItemIds.LEMONGRASS_STALK_CROP));
         tag(CompatibilityTags.SERENE_SEASONS_SUMMER_CROPS)
-                .add(key(UbesDelightItems.UBE.get()))
-                .add(key(UbesDelightItems.GARLIC.get()))
-                .add(key(UbesDelightItems.GINGER.get()))
-                .add(key(UbesDelightItems.LEMONGRASS_SEEDS.get()));
+                .add(key(UDBlockItemIds.UBE_CROP))
+                .add(key(UDBlockItemIds.GARLIC_CROP))
+                .add(key(UDBlockItemIds.GINGER_CROP))
+                .add(key(UDBlockItemIds.LEMONGRASS_STALK_CROP));
     }
 
     @SuppressWarnings("unchecked")
@@ -171,50 +170,50 @@ public class ItemTagGenerator extends FabricTagsProvider.ItemTagsProvider {
         tag(CommonTags.C_FOOD_WRAPPERS)
                 .forceAddTag(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER);
         tag(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER)
-                .add(key(UbesDelightItems.LUMPIA_WRAPPER.get()));
+                .add(UDItemIds.LUMPIA_WRAPPER);
 
         tag(CommonTags.C_TOOLS_ROLLING_PIN)
-                .add(key(UbesDelightItems.ROLLING_PIN_WOOD.get()))
-                .add(key(UbesDelightItems.ROLLING_PIN_IRON.get()))
-                .add(key(UbesDelightItems.ROLLING_PIN_GOLD.get()))
-                .add(key(UbesDelightItems.ROLLING_PIN_DIAMOND.get()))
-                .add(key(UbesDelightItems.ROLLING_PIN_NETHERITE.get()));
+                .add(UDItemIds.ROLLING_PIN_WOOD)
+                .add(UDItemIds.ROLLING_PIN_IRON)
+                .add(UDItemIds.ROLLING_PIN_GOLD)
+                .add(UDItemIds.ROLLING_PIN_DIAMOND)
+                .add(UDItemIds.ROLLING_PIN_NETHERITE);
 
         tag(CommonTags.C_TEA_INGREDIENTS)
                 .forceAddTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK);
         tag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)
-                .add(key(Items.SUGAR))
-                .add(key(UbesDelightItems.SUGAR_BROWN.get()));
+                .add(ItemIds.SUGAR)
+                .add(UDItemIds.SUGAR_BROWN);
 
         tag(CommonTags.C_CROPS_GARLIC)
-                .add(key(UbesDelightItems.GARLIC.get()))
-                .add(key(UbesDelightItems.GARLIC_CHOP.get()));
+                .add(key(UDBlockItemIds.GARLIC_CROP))
+                .add(UDItemIds.GARLIC_CHOP);
         tag(CommonTags.C_CROPS_GINGER)
-                .add(key(UbesDelightItems.GINGER.get()))
-                .add(key(UbesDelightItems.GINGER_CHOP.get()));
+                .add(key(UDBlockItemIds.GINGER_CROP))
+                .add(UDItemIds.GINGER_CHOP);
         tag(CommonTags.C_CROPS_LEMONGRASS)
-                .add(key(UbesDelightItems.LEMONGRASS.get()));
+                .add(UDItemIds.LEMONGRASS);
         tag(CommonTags.C_CROPS_UBE)
-                .add(key(UbesDelightItems.UBE.get()));
+                .add(key(UDBlockItemIds.UBE_CROP));
 
         tag(CommonTags.C_FOODS_GARLIC)
-                .add(key(UbesDelightItems.GARLIC.get()))
-                .add(key(UbesDelightItems.GARLIC_CHOP.get()));
+                .add(key(UDBlockItemIds.GARLIC_CROP))
+                .add(UDItemIds.GARLIC_CHOP);
         tag(CommonTags.C_FOODS_GINGER)
-                .add(key(UbesDelightItems.GINGER.get()))
-                .add(key(UbesDelightItems.GINGER_CHOP.get()));
+                .add(key(UDBlockItemIds.GINGER_CROP))
+                .add(UDItemIds.GINGER_CHOP);
         tag(CommonTags.C_FOODS_LEMONGRASS)
-                .add(key(UbesDelightItems.LEMONGRASS.get()));
+                .add(UDItemIds.LEMONGRASS);
         tag(CommonTags.C_FOODS_UBE)
-                .add(key(UbesDelightItems.UBE.get()));
+                .add(key(UDBlockItemIds.UBE_CROP));
 
         tag(CommonTags.C_FOODS_LEAFY_GREEN)
                 .forceAddTag(CommonTags.C_FOODS_LEMONGRASS);
 
-        tag(CommonTags.C_STORAGE_BLOCKS_ITEM_UBE).add(key(UbesDelightItems.UBE_CRATE.get()));
-        tag(CommonTags.C_STORAGE_BLOCKS_ITEM_GARLIC).add(key(UbesDelightItems.GARLIC_CRATE.get()));
-        tag(CommonTags.C_STORAGE_BLOCKS_ITEM_GINGER).add(key(UbesDelightItems.GINGER_CRATE.get()));
-        tag(CommonTags.C_STORAGE_BLOCKS_ITEM_LEMONGRASS).add(key(UbesDelightItems.LEMONGRASS_CRATE.get()));
+        tag(CommonTags.C_STORAGE_BLOCKS_ITEM_UBE).add(key(UDBlockItemIds.UBE_CRATE));
+        tag(CommonTags.C_STORAGE_BLOCKS_ITEM_GARLIC).add(key(UDBlockItemIds.GARLIC_CRATE));
+        tag(CommonTags.C_STORAGE_BLOCKS_ITEM_GINGER).add(key(UDBlockItemIds.GINGER_CRATE));
+        tag(CommonTags.C_STORAGE_BLOCKS_ITEM_LEMONGRASS).add(key(UDBlockItemIds.LEMONGRASS_CRATE));
 
         // Create Dough Compat
         // todo - when create 1.21 releases check compatibility
@@ -227,90 +226,90 @@ public class ItemTagGenerator extends FabricTagsProvider.ItemTagsProvider {
         tag(ConventionalItemTags.TOOLS).forceAddTag(CommonTags.C_TOOLS_ROLLING_PIN);
 
         tag(ConventionalItemTags.VEGETABLE_FOODS)
-                .add(key(UbesDelightItems.UBE.get()))
-                .add(key(UbesDelightItems.GARLIC.get()))
-                .add(key(UbesDelightItems.GINGER.get()))
-                .add(key(UbesDelightItems.LEMONGRASS.get()));
+                .add(key(UDBlockItemIds.UBE_CROP))
+                .add(key(UDBlockItemIds.GARLIC_CROP))
+                .add(key(UDBlockItemIds.GINGER_CROP))
+                .add(UDItemIds.LEMONGRASS);
 
         tag(ConventionalItemTags.COOKIE_FOODS)
-                .add(key(UbesDelightItems.COOKIE_UBE.get()))
-                .add(key(UbesDelightItems.COOKIE_GINGER.get()))
-                .add(key(UbesDelightItems.POLVORONE.get()))
-                .add(key(UbesDelightItems.POLVORONE_PINIPIG.get()))
-                .add(key(UbesDelightItems.POLVORONE_UBE.get()))
-                .add(key(UbesDelightItems.POLVORONE_CC.get()));
+                .add(UDItemIds.COOKIE_UBE)
+                .add(UDItemIds.COOKIE_GINGER)
+                .add(UDItemIds.POLVORONE)
+                .add(UDItemIds.POLVORONE_PINIPIG)
+                .add(UDItemIds.POLVORONE_UBE)
+                .add(UDItemIds.POLVORONE_CC);
 
         tag(ConventionalItemTags.EDIBLE_WHEN_PLACED_FOODS)
-                .add(key(UbesDelightItems.UBE_CAKE.get()))
-                .add(key(UbesDelightItems.LECHE_FLAN_FEAST.get()))
-                .add(key(UbesDelightItems.HALO_HALO_FEAST.get()))
-                .add(key(UbesDelightItems.MILK_TEA_UBE_FEAST.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_ENSAYMADA.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_ENSAYMADA_HALF.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_ENSAYMADA_UBE.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_ENSAYMADA_UBE_HALF.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_PANDESAL.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_PANDESAL_HALF.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_PANDESAL_UBE.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_PANDESAL_UBE_HALF.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_HOPIA_MUNGGO.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_HOPIA_MUNGGO_HALF.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_HOPIA_UBE.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_HOPIA_UBE_HALF.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_COOKED_RICE.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_COOKED_RICE_HALF.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_FRIED_RICE.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_FRIED_RICE_HALF.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_SINANGAG.get()))
-                .add(key(UbesDelightItems.LEAF_FEAST_SINANGAG_HALF.get()))
+                .add(key(UDBlockItemIds.UBE_CAKE))
+                .add(key(UDBlockItemIds.LECHE_FLAN_FEAST))
+                .add(key(UDBlockItemIds.HALO_HALO_FEAST))
+                .add(key(UDBlockItemIds.MILK_TEA_UBE_FEAST))
+                .add(key(UDBlockItemIds.LEAF_FEAST_ENSAYMADA))
+                .add(UDItemIds.LEAF_FEAST_ENSAYMADA_HALF)
+                .add(key(UDBlockItemIds.LEAF_FEAST_ENSAYMADA_UBE))
+                .add(UDItemIds.LEAF_FEAST_ENSAYMADA_UBE_HALF)
+                .add(key(UDBlockItemIds.LEAF_FEAST_PANDESAL))
+                .add(UDItemIds.LEAF_FEAST_PANDESAL_HALF)
+                .add(key(UDBlockItemIds.LEAF_FEAST_PANDESAL_UBE))
+                .add(UDItemIds.LEAF_FEAST_PANDESAL_UBE_HALF)
+                .add(key(UDBlockItemIds.LEAF_FEAST_HOPIA_MUNGGO))
+                .add(UDItemIds.LEAF_FEAST_HOPIA_MUNGGO_HALF)
+                .add(key(UDBlockItemIds.LEAF_FEAST_HOPIA_UBE))
+                .add(UDItemIds.LEAF_FEAST_HOPIA_UBE_HALF)
+                .add(key(UDBlockItemIds.LEAF_FEAST_COOKED_RICE))
+                .add(UDItemIds.LEAF_FEAST_COOKED_RICE_HALF)
+                .add(key(UDBlockItemIds.LEAF_FEAST_FRIED_RICE))
+                .add(UDItemIds.LEAF_FEAST_FRIED_RICE_HALF)
+                .add(key(UDBlockItemIds.LEAF_FEAST_SINANGAG))
+                .add(UDItemIds.LEAF_FEAST_SINANGAG_HALF)
         ;
 
         tag(ConventionalItemTags.FOODS)
-                .add(key(UbesDelightItems.POISONOUS_UBE.get()))
-                .add(key(UbesDelightItems.UBE.get()))
-                .add(key(UbesDelightItems.GARLIC.get()))
-                .add(key(UbesDelightItems.GARLIC_CHOP.get()))
-                .add(key(UbesDelightItems.GINGER.get()))
-                .add(key(UbesDelightItems.GINGER_CHOP.get()))
-                .add(key(UbesDelightItems.CONDENSED_MILK_BOTTLE.get()))
-                .add(key(UbesDelightItems.FISH_SAUCE_BOTTLE.get()))
-                .add(key(UbesDelightItems.MILK_TEA_UBE.get()))
-                .add(key(UbesDelightItems.HALO_HALO.get()))
-                .add(key(UbesDelightItems.SINANGAG.get()))
-                .add(key(UbesDelightItems.KINILAW.get()))
-                .add(key(UbesDelightItems.LUMPIA.get()))
-                .add(key(UbesDelightItems.TOCINO.get()))
-                .add(key(UbesDelightItems.CHICKEN_INASAL.get()))
-                .add(key(UbesDelightItems.CHICKEN_INASAL_RICE.get()))
-                .add(key(UbesDelightItems.TOSILOG.get()))
-                .add(key(UbesDelightItems.BANGSILOG.get()))
-                .add(key(UbesDelightItems.SISIG.get()))
-                .add(key(UbesDelightItems.BULALO.get()))
-                .add(key(UbesDelightItems.ARROZ_CALDO.get()))
-                .add(key(UbesDelightItems.MECHADO.get()))
-                .add(key(UbesDelightItems.COOKIE_UBE.get()))
-                .add(key(UbesDelightItems.COOKIE_GINGER.get()))
-                .add(key(UbesDelightItems.LECHE_FLAN.get()))
-                .add(key(UbesDelightItems.UBE_CAKE_SLICE.get()))
-                .add(key(UbesDelightItems.POLVORONE.get()))
-                .add(key(UbesDelightItems.POLVORONE_PINIPIG.get()))
-                .add(key(UbesDelightItems.POLVORONE_UBE.get()))
-                .add(key(UbesDelightItems.POLVORONE_CC.get()))
-                .add(key(UbesDelightItems.PANDESAL.get()))
-                .add(key(UbesDelightItems.PANDESAL_UBE.get()))
-                .add(key(UbesDelightItems.ENSAYMADA.get()))
-                .add(key(UbesDelightItems.ENSAYMADA_UBE.get()))
-                .add(key(UbesDelightItems.HOPIA_MUNGGO.get()))
-                .add(key(UbesDelightItems.HOPIA_UBE.get()))
+                .add(UDItemIds.POISONOUS_UBE)
+                .add(key(UDBlockItemIds.UBE_CROP))
+                .add(key(UDBlockItemIds.GARLIC_CROP))
+                .add(UDItemIds.GARLIC_CHOP)
+                .add(key(UDBlockItemIds.GINGER_CROP))
+                .add(UDItemIds.GINGER_CHOP)
+                .add(UDItemIds.CONDENSED_MILK_BOTTLE)
+                .add(UDItemIds.FISH_SAUCE_BOTTLE)
+                .add(key(UDBlockItemIds.GLASS_CUP_MILK_TEA_UBE))
+                .add(key(UDBlockItemIds.GLASS_CUP_HALO_HALO))
+                .add(UDItemIds.SINANGAG)
+                .add(UDItemIds.KINILAW)
+                .add(UDItemIds.LUMPIA)
+                .add(UDItemIds.TOCINO)
+                .add(UDItemIds.CHICKEN_INASAL)
+                .add(UDItemIds.CHICKEN_INASAL_RICE)
+                .add(UDItemIds.TOSILOG)
+                .add(UDItemIds.BANGSILOG)
+                .add(UDItemIds.SISIG)
+                .add(UDItemIds.BULALO)
+                .add(UDItemIds.ARROZ_CALDO)
+                .add(UDItemIds.MECHADO)
+                .add(UDItemIds.COOKIE_UBE)
+                .add(UDItemIds.COOKIE_GINGER)
+                .add(UDItemIds.LECHE_FLAN)
+                .add(UDItemIds.UBE_CAKE_SLICE)
+                .add(UDItemIds.POLVORONE)
+                .add(UDItemIds.POLVORONE_PINIPIG)
+                .add(UDItemIds.POLVORONE_UBE)
+                .add(UDItemIds.POLVORONE_CC)
+                .add(UDItemIds.PANDESAL)
+                .add(UDItemIds.PANDESAL_UBE)
+                .add(UDItemIds.ENSAYMADA)
+                .add(UDItemIds.ENSAYMADA_UBE)
+                .add(UDItemIds.HOPIA_MUNGGO)
+                .add(UDItemIds.HOPIA_UBE)
         ;
 
         tag(ConventionalItemTags.SEEDS)
-                .add(key(UbesDelightItems.LEMONGRASS_SEEDS.get()));
+                .add(key(UDBlockItemIds.LEMONGRASS_STALK_CROP));
 
         tag(ConventionalItemTags.SOUP_FOODS)
-                .add(key(UbesDelightItems.BULALO.get()))
-                .add(key(UbesDelightItems.ARROZ_CALDO.get()))
-                .add(key(UbesDelightItems.MECHADO.get()));
+                .add(UDItemIds.BULALO)
+                .add(UDItemIds.ARROZ_CALDO)
+                .add(UDItemIds.MECHADO);
 
         tag(ConventionalItemTags.CROPS)
                 .forceAddTag(CommonTags.C_CROPS_UBE)
@@ -320,7 +319,7 @@ public class ItemTagGenerator extends FabricTagsProvider.ItemTagsProvider {
                 .forceAddTag(CommonTags.C_CROPS_LEMONGRASS);
 
         tag(ConventionalItemTags.MILK_DRINKS)
-                .add(key(UbesDelightItems.CONDENSED_MILK_BOTTLE.get()));
+                .add(UDItemIds.CONDENSED_MILK_BOTTLE);
 
         tag(ConventionalItemTags.STORAGE_BLOCKS)
                 .forceAddTag(CommonTags.C_STORAGE_BLOCKS_ITEM_UBE)
@@ -329,17 +328,16 @@ public class ItemTagGenerator extends FabricTagsProvider.ItemTagsProvider {
                 .forceAddTag(CommonTags.C_STORAGE_BLOCKS_ITEM_LEMONGRASS);
 
         tag(ConventionalItemTags.FOOD_POISONING_FOODS)
-                .add(key(UbesDelightItems.PANDESAL_RAW.get()))
-                .add(key(UbesDelightItems.PANDESAL_UBE_RAW.get()))
-                .add(key(UbesDelightItems.ENSAYMADA_RAW.get()))
-                .add(key(UbesDelightItems.ENSAYMADA_UBE_RAW.get()))
-                .add(key(UbesDelightItems.HOPIA_MUNGGO_RAW.get()))
-                .add(key(UbesDelightItems.HOPIA_UBE_RAW.get()))
+                .add(UDItemIds.PANDESAL_RAW)
+                .add(UDItemIds.PANDESAL_UBE_RAW)
+                .add(UDItemIds.ENSAYMADA_RAW)
+                .add(UDItemIds.ENSAYMADA_UBE_RAW)
+                .add(UDItemIds.HOPIA_MUNGGO_RAW)
+                .add(UDItemIds.HOPIA_UBE_RAW)
         ;
     }
 
-    private static ResourceKey<Item> key(Item item) {
-        Identifier location = BuiltInRegistries.ITEM.getKey(item);
-        return ResourceKey.create(Registries.ITEM, location);
+    private static ResourceKey<Item> key(BlockItemId blockItemId) {
+        return blockItemId.item();
     }
 }
