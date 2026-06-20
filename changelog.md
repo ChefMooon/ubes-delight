@@ -7,6 +7,10 @@ NeoForge, and Fabric
 
 ***
 
+### Added
+
+- Support for Minecraft 26.2
+
 ### Updated
 
 - ru_ru translations (Thank you, SlendRaR!)
