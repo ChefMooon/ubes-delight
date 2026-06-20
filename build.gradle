@@ -94,13 +94,6 @@ repositories {
 dependencies {
     minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
 
-//    mappings loom.layered() {
-//        it.officialMojangMappings {
-//            setNameSyntheticMembers(false)
-//        }
-//        it.parchment("org.parchmentmc.data:parchment-${project.parchment_version}")
-//    }
-
     compileOnly("me.shedaniel.cloth:basic-math:0.6.1")
     compileOnly("dev.architectury:architectury-fabric:13.0.6")
 
@@ -110,11 +103,6 @@ dependencies {
 
 //    compileOnly("com.blamejared.crafttweaker:CraftTweaker-fabric-${minecraft_version}:${crafttweaker_version}")
 
-//    dependencies {
-//        implementation("vectorwing:FarmersDelight:${fdrf_version}") {
-//            exclude(group: "net.fabricmc")
-//        }
-//    }
     implementation("maven.modrinth:farmers-delight-refabricated:${fdrf_version}") {
         exclude(group: "net.fabricmc")
     }
@@ -232,7 +220,6 @@ publishMods {
     displayName = vName
 
     modLoaders.add("fabric")
-    modLoaders.add("quilt")
 
     curseforge("curseforgeFabric") {
         accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
