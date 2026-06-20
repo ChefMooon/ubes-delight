@@ -22,7 +22,6 @@ public class CompatibilityTags {
     public static final TagKey<Block> FARMERS_DELIGHT_HEAT_SOURCES = getBlockTagKey(FARMERS_DELIGHT, "heat_sources");
     public static final TagKey<Block> FARMERS_DELIGHT_WILD_CROPS = getBlockTagKey(FARMERS_DELIGHT, "wild_crops");
     public static final TagKey<Item> FARMERS_DELIGHT_WILD_CROPS_ITEM = getItemTagKey(FARMERS_DELIGHT, "wild_crops");
-    public static final TagKey<Item> FARMERS_DELIGHT_CABBAGE_ROLL_INGREDIENTS = getItemTagKey(FARMERS_DELIGHT, "cabbage_roll_ingredients");
 
 
     public static final String SUPPLEMENTARIES = "supplementaries";
