@@ -11,4 +11,8 @@ NeoForge, and Fabric
 
 - uk_ua translations (Thank you, Ch1sho!)
 
+### Changed
+
+- 1.20.1 Fabric minimum Farmer's Delight Refabricated version is now 1.20.1-2.5.0
+
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
