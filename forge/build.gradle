@@ -34,6 +34,10 @@ dependencies {
 
     modImplementation "curse.maven:farmers-delight-398521:${farmersdelight_version}"
 
+    // Mixin Extras, Required for FD Forge
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${mixin_extras_version}"))
+    implementation(include("io.github.llamalad7:mixinextras-forge:${mixin_extras_version}"))
+
     // MidnightLib
     modImplementation include("maven.modrinth:midnightlib:${project.midnightlib_forge_version}")
 

@@ -25,7 +25,13 @@ subprojects {
         // for more information about repositories.
         maven { url "https://maven.parchmentmc.org" } // Parchment mappings
 
-        maven { url 'https://maven.greenhouse.lgbt/releases/' } // Farmers Delight Refabricated
+        maven { // Farmers Delight Refabricated
+            name = "Cassian's Maven"
+            url = 'https://maven.cassian.cc/'
+            content {
+                includeGroup "vectorwing"
+            }
+        }
         maven { url "https://mvn.devos.one/snapshots/" } // Registrate, Porting Lib, Forge Tags, Milk Lib
         maven { url "https://mvn.devos.one/releases/" } // Porting Lib
         maven {

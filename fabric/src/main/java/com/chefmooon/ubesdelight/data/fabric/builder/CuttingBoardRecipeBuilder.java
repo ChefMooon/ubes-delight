@@ -71,7 +71,7 @@ public class CuttingBoardRecipeBuilder implements RecipeBuilder {
     @Override
     public Item getResult() {
         if (!this.results.isEmpty()) {
-            return this.results.get(0).stack().getItem();
+            return this.results.get(0).getStack().getItem();
         }
         return null;
     }
