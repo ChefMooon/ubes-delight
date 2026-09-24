@@ -9,14 +9,6 @@ NeoForge and Fabric.
 
 ### Added
 
-- Support for Minecraft 26.2
-
-### Updated
-
-- ru_ru translations (Thank you, SlendRaR!)
-
-### Fixed
-
-- Removed deprecated tag cabbage_roll_ingredients
+- uk_ua translations (Thank you, Ch1sho!)
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
