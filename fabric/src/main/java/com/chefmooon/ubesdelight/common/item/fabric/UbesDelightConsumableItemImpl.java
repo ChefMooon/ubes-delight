@@ -40,9 +40,6 @@ public class UbesDelightConsumableItemImpl extends ConsumableItem {
             if (this.hasCustomTooltip) {
                 tooltip.add(TextUtils.getTranslatable("tooltip." + this).withStyle(ChatFormatting.BLUE));
             }
-            if (this.hasFoodEffectTooltip) {
-                TextUtils.addFoodEffectTooltip(stack, tooltip, 1.0F);
-            }
         }
     }
 }

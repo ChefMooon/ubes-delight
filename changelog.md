@@ -13,6 +13,10 @@ NeoForge, and Fabric
 
 ### Changed
 
-- 1.20.1 Fabric minimum Farmer's Delight Refabricated version is now 1.20.1-2.5.0
+- [1.20.1 Fabric] Minimum Farmer's Delight Refabricated version is now 1.20.1-2.5.0
+
+### Fixed
+
+- [1.20.1 Fabric] Fixed consumable item effect tooltip duplication
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
