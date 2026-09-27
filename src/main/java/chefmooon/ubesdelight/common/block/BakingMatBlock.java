@@ -3,9 +3,9 @@ package chefmooon.ubesdelight.common.block;
 import chefmooon.ubesdelight.common.block.entity.BakingMatBlockEntity;
 import chefmooon.ubesdelight.common.registry.UbesDelightBlockEntityTypes;
 import chefmooon.ubesdelight.common.registry.UbesDelightSounds;
+import chefmooon.ubesdelight.common.tag.CommonTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -63,7 +63,7 @@ public class BakingMatBlock extends BaseEntityBlock implements SimpleWaterlogged
             return result;
         }
 
-        boolean isValidTool = heldStack.has(DataComponents.TOOL);
+        boolean isValidTool = heldStack.is(CommonTags.C_TOOLS_ROLLING_PIN);
 
         if (!bakingMatBlockEntity.isEmpty() && !heldStack.isEmpty() && isValidTool) {
             if (tryProcessBakingMatUsingToolInHand(level, bakingMatBlockEntity, heldStack, offHandStack, player, hand).consumesAction()) {
@@ -114,7 +114,7 @@ public class BakingMatBlock extends BaseEntityBlock implements SimpleWaterlogged
     private InteractionResult tryProcessBakingMatUsingToolInHand(Level level, BakingMatBlockEntity bakingMatBlockEntity, ItemStack heldStack, ItemStack offHandStack, Player player, InteractionHand hand) {
         InteractionResult result = InteractionResult.PASS;
 
-        if (heldStack.has(DataComponents.TOOL) && bakingMatBlockEntity.processItemUsingTool(heldStack, player)) {
+        if (heldStack.is(CommonTags.C_TOOLS_ROLLING_PIN) && bakingMatBlockEntity.processItemUsingTool(heldStack, player)) {
             return InteractionResult.SUCCESS;
         }
         return result;
