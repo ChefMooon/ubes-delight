@@ -43,7 +43,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/raw_polvorone_cc"
+        "recipes": "ubesdelight:cooking/raw_polvorone_cc"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

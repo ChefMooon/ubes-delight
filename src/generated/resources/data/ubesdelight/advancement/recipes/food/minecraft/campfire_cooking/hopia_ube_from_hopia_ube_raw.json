@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/campfire_cooking/hopia_ube_from_hopia_ube_raw"
+        "recipes": "ubesdelight:minecraft/campfire_cooking/hopia_ube_from_hopia_ube_raw"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

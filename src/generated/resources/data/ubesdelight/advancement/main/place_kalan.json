@@ -3,12 +3,10 @@
   "criteria": {
     "place_kalan": {
       "conditions": {
-        "location": [
-          {
-            "block": "ubesdelight:kalan",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "ubesdelight:kalan"
+        }
       },
       "trigger": "minecraft:placed_block"
     }

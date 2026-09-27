@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/smelting/sugar_brown_from_sugar"
+        "recipes": "ubesdelight:minecraft/smelting/sugar_brown_from_sugar"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

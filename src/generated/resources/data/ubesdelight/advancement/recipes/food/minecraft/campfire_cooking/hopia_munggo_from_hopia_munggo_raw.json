@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/campfire_cooking/hopia_munggo_from_hopia_munggo_raw"
+        "recipes": "ubesdelight:minecraft/campfire_cooking/hopia_munggo_from_hopia_munggo_raw"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

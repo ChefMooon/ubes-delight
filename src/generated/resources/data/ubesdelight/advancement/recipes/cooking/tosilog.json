@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/tosilog"
+        "recipes": "ubesdelight:cooking/tosilog"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

@@ -36,7 +36,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/leche_flan"
+        "recipes": "ubesdelight:cooking/leche_flan"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

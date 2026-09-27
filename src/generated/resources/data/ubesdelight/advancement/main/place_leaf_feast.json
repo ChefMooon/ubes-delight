@@ -3,43 +3,37 @@
   "criteria": {
     "place_has_leaf_feast_end": {
       "conditions": {
-        "location": [
-          {
-            "block": "ubesdelight:leaf_feast",
-            "condition": "minecraft:block_state_property",
-            "properties": {
-              "leaf_feast_type": "end"
-            }
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "ubesdelight:leche_flan_feast",
+          "state": {
+            "leaf_feast_type": "end"
           }
-        ]
+        }
       },
       "trigger": "minecraft:placed_block"
     },
     "place_has_leaf_feast_middle": {
       "conditions": {
-        "location": [
-          {
-            "block": "ubesdelight:leaf_feast",
-            "condition": "minecraft:block_state_property",
-            "properties": {
-              "leaf_feast_type": "middle"
-            }
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "ubesdelight:leaf_feast",
+          "state": {
+            "leaf_feast_type": "middle"
           }
-        ]
+        }
       },
       "trigger": "minecraft:placed_block"
     },
     "place_has_leaf_feast_tip": {
       "conditions": {
-        "location": [
-          {
-            "block": "ubesdelight:leaf_feast",
-            "condition": "minecraft:block_state_property",
-            "properties": {
-              "leaf_feast_type": "tip"
-            }
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "ubesdelight:leche_flan_feast",
+          "state": {
+            "leaf_feast_type": "tip"
           }
-        ]
+        }
       },
       "trigger": "minecraft:placed_block"
     }

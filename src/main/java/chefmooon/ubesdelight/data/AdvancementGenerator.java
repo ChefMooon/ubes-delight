@@ -19,23 +19,36 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchBlock;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.function.Consumer;
 
 public class AdvancementGenerator extends FabricAdvancementProvider {
+    private final CompletableFuture<HolderLookup.Provider> lookup;
+    private HolderLookup.Provider registries;
+    private HolderLookup.RegistryLookup<Block> blocks;
     protected AdvancementGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(output, registryLookup);
+        this.lookup = registryLookup;
     }
 
     @Override
     public void generateAdvancement(HolderLookup.Provider provider, Consumer<AdvancementHolder> consumer) {
+        try {
+            this.registries = lookup.get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+        this.blocks = provider.lookupOrThrow(Registries.BLOCK);
+
         AdvancementHolder root = Advancement.Builder.advancement()
-                .display(new ItemStackTemplate(UbesDelightItems.UBE.get()),
+                .rootDisplay(UbesDelightItems.UBE.get(),
                         TextUtils.getTranslatable("advancement.root"),
                         TextUtils.getTranslatable("advancement.root.desc"),
                         Identifier.withDefaultNamespace("block/bamboo_block"),
@@ -54,10 +67,10 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         consumer.accept(getUDSeed);
 
         AdvancementHolder plantAllCrops = getAdvancement(getUDSeed, UbesDelightItems.LEMONGRASS.get(), "plant_all_crops", AdvancementType.CHALLENGE, true, true, false)
-                .addCriterion(RecipeProvider.getItemName(UbesDelightItems.UBE.get()), ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(UbesDelightBlocks.UBE_CROP.get()))
-                .addCriterion(RecipeProvider.getItemName(UbesDelightItems.GINGER.get()), ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(UbesDelightBlocks.GINGER_CROP.get()))
-                .addCriterion(RecipeProvider.getItemName(UbesDelightItems.GARLIC.get()), ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(UbesDelightBlocks.GARLIC_CROP.get()))
-                .addCriterion(RecipeProvider.getItemName(UbesDelightItems.LEMONGRASS_SEEDS.get()), ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(UbesDelightBlocks.LEMONGRASS_STALK_CROP.get()))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItems.UBE.get()), ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(blocks, UbesDelightBlocks.UBE_CROP.get()))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItems.GINGER.get()), ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(blocks, UbesDelightBlocks.GINGER_CROP.get()))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItems.GARLIC.get()), ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(blocks, UbesDelightBlocks.GARLIC_CROP.get()))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItems.LEMONGRASS_SEEDS.get()), ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(blocks, UbesDelightBlocks.LEMONGRASS_STALK_CROP.get()))
                 .requirements(AdvancementRequirements.Strategy.AND)
                 .rewards(AdvancementRewards.Builder.experience(100))
                 .build(getAdvancementName("plant_all_crops"));
@@ -102,7 +115,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         consumer.accept(netheriteRollingPin);
 
         AdvancementHolder placeKalan = getAdvancement(root, UbesDelightItems.KALAN.get(), "place_kalan", AdvancementType.TASK, true, true, false)
-                .addCriterion("place_kalan", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(UbesDelightBlocks.KALAN.get()))
+                .addCriterion("place_kalan", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(blocks, UbesDelightBlocks.KALAN.get()))
                 .build(getAdvancementName("place_kalan"));
         consumer.accept(placeKalan);
 
@@ -119,8 +132,8 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         consumer.accept(ubeMaster);
 
         AdvancementHolder placeDrinkableFeast = getAdvancement(placeKalan, UbesDelightItems.HALO_HALO_FEAST.get(), "place_drinkable_feast", AdvancementType.TASK, true, true, false)
-                .addCriterion(RecipeProvider.getItemName(UbesDelightItems.HALO_HALO_FEAST.get()), ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(UbesDelightBlocks.HALO_HALO_FEAST.get()))
-                .addCriterion(RecipeProvider.getItemName(UbesDelightItems.MILK_TEA_UBE_FEAST.get()), ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(UbesDelightBlocks.MILK_TEA_UBE_FEAST.get()))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItems.HALO_HALO_FEAST.get()), ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(blocks, UbesDelightBlocks.HALO_HALO_FEAST.get()))
+                .addCriterion(RecipeProvider.getItemName(UbesDelightItems.MILK_TEA_UBE_FEAST.get()), ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(blocks, UbesDelightBlocks.MILK_TEA_UBE_FEAST.get()))
                 .requirements(AdvancementRequirements.Strategy.OR)
                 .build(getAdvancementName("place_drinkable_feast"));
         consumer.accept(placeDrinkableFeast);
@@ -132,14 +145,16 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
 
         AdvancementHolder placeLeafFeast = getAdvancement(leafFeast, UbesDelightItems.LEAF_FEAST.get(), "place_leaf_feast", AdvancementType.TASK, true, true, false)
                 .addCriterion("place_" + RecipeProvider.getHasName(UbesDelightItems.LEAF_FEAST.get()) + "_tip",
-                        ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(LootItemBlockStatePropertyCondition.hasBlockStateProperties(UbesDelightBlocks.LEAF_FEAST.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.TIP))))
+                        ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(
+                                hasBlockStateProperties(UbesDelightBlocks.LECHE_FLAN_FEAST.get(),
+                                        StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.TIP))))
                 .addCriterion("place_" + RecipeProvider.getHasName(UbesDelightItems.LEAF_FEAST.get()) + "_end",
-                        ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(LootItemBlockStatePropertyCondition.hasBlockStateProperties(UbesDelightBlocks.LEAF_FEAST.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.END))))
+                        ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(
+                                hasBlockStateProperties(UbesDelightBlocks.LECHE_FLAN_FEAST.get(),
+                                StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.END))))
                 .addCriterion("place_" + RecipeProvider.getHasName(UbesDelightItems.LEAF_FEAST.get()) + "_middle",
-                        ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(LootItemBlockStatePropertyCondition.hasBlockStateProperties(UbesDelightBlocks.LEAF_FEAST.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.MIDDLE))))
+                        ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(hasBlockStateProperties(UbesDelightBlocks.LEAF_FEAST.get(),
+                                StatePropertiesPredicate.Builder.properties().hasProperty(LeafFeastBlock.LEAF_FEAST_TYPE, LeafFeastTypes.MIDDLE))))
                 .requirements(AdvancementRequirements.Strategy.OR)
                 .build(getAdvancementName("place_leaf_feast"));
         consumer.accept(placeLeafFeast);
@@ -212,13 +227,17 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         consumer.accept(udMaster);
     }
 
+    private LootItemCondition.Builder hasBlockStateProperties(Block block, StatePropertiesPredicate.Builder builder) {
+        return MatchBlock.blockMatches(registries.lookupOrThrow(Registries.BLOCK), block, builder);
+    }
+
     private static Advancement.Builder getAdvancement(AdvancementHolder parent, ItemLike icon, String name, AdvancementType type, boolean showToast, boolean announceChat, boolean hidden) {
         return Advancement.Builder.advancement()
                 .parent(parent)
-                .display(new ItemStackTemplate(icon.asItem()),
+                .display(icon.asItem(),
                         TextUtils.getTranslatable("advancement." + name),
                         TextUtils.getTranslatable("advancement." + name + ".desc"),
-                        null, type, showToast, announceChat, hidden);
+                        type, showToast, announceChat, hidden);
     }
 
     private static Identifier getAdvancementName(String string) {

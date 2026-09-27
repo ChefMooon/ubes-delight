@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/rolling_pin_diamond"
+        "recipes": "ubesdelight:minecraft/crafting/rolling_pin_diamond"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

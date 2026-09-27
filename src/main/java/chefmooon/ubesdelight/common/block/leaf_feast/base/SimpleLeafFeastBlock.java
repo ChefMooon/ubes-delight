@@ -1,22 +1,18 @@
 package chefmooon.ubesdelight.common.block.leaf_feast.base;
 
-import chefmooon.ubesdelight.common.block.leaf_feast.base.BaseLeafFeastBlock;
-import chefmooon.ubesdelight.common.block.leaf_feast.base.LeafFeastBlock;
 import chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
 import chefmooon.ubesdelight.common.registry.UbesDelightDataComponentTypes;
-import chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil;
 import chefmooon.ubesdelight.common.utility.ItemStackUtil;
 import chefmooon.ubesdelight.common.utility.TextUtils;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Prediction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -97,7 +93,7 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
                     ItemStack container = ItemStackUtil.getContainer(itemStack);
                     if (!container.isEmpty()) {
                         if (!player.getInventory().add(container)) {
-                            player.drop(container, false);
+                            player.drop(container, false, Prediction.PREDICTED);
                         }
                     }
                 }
@@ -155,7 +151,7 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
                     } else {
                         if (!player.isCreative()) heldItem.split(1);
                         if (!player.getInventory().add(itemStack)) {
-                            player.drop(itemStack, false);
+                            player.drop(itemStack, false, Prediction.PREDICTED);
                         }
                         return removeServing(state, level, pos, servings);
                     }
@@ -164,7 +160,7 @@ public class SimpleLeafFeastBlock extends BaseLeafFeastBlock {
                 } else if (heldItem.isEmpty()) {
                     if (!player.isCreative()) {
                         if (!player.getInventory().add(itemStack)) {
-                            player.drop(itemStack, false);
+                            player.drop(itemStack, false, Prediction.PREDICTED);
                         }
                     }
                     return removeServing(state, level, pos, servings);

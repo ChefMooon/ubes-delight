@@ -1,10 +1,8 @@
 {
   "type": "minecraft:block",
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
-    }
-  ],
+  "modifier": {
+    "type": "minecraft:explosion_decay"
+  },
   "pools": [
     {
       "entries": [
@@ -13,151 +11,127 @@
           "name": "ubesdelight:leaf_feast"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "ubesdelight:leaf_feast_pandesal_ube",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "servings": "6"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "ubesdelight:leaf_feast_pandesal_ube",
+        "state": {
+          "servings": "6"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 6.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 6
+          },
           "name": "ubesdelight:pandesal_ube"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "ubesdelight:leaf_feast_pandesal_ube",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "servings": "5"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "ubesdelight:leaf_feast_pandesal_ube",
+        "state": {
+          "servings": "5"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 5.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 5
+          },
           "name": "ubesdelight:pandesal_ube"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "ubesdelight:leaf_feast_pandesal_ube",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "servings": "4"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "ubesdelight:leaf_feast_pandesal_ube",
+        "state": {
+          "servings": "4"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 4.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 4
+          },
           "name": "ubesdelight:pandesal_ube"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "ubesdelight:leaf_feast_pandesal_ube",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "servings": "3"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "ubesdelight:leaf_feast_pandesal_ube",
+        "state": {
+          "servings": "3"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 3.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 3
+          },
           "name": "ubesdelight:pandesal_ube"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "ubesdelight:leaf_feast_pandesal_ube",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "servings": "2"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "ubesdelight:leaf_feast_pandesal_ube",
+        "state": {
+          "servings": "2"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 2.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 2
+          },
           "name": "ubesdelight:pandesal_ube"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "ubesdelight:leaf_feast_pandesal_ube",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "servings": "1"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "ubesdelight:leaf_feast_pandesal_ube",
+        "state": {
+          "servings": "1"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 1
+          },
           "name": "ubesdelight:pandesal_ube"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ]
 }

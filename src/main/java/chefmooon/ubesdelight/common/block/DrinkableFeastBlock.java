@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -113,7 +114,7 @@ public class DrinkableFeastBlock extends Block {
                 if (!player.isCreative()) {
                     heldItem.shrink(1);
                     if (!player.getInventory().add(serving)) {
-                        player.drop(serving, false);
+                        player.drop(serving, false, Prediction.PREDICTED);
                     }
                 }
             } else {
@@ -136,7 +137,7 @@ public class DrinkableFeastBlock extends Block {
             if (!player.isCreative()) {
                 heldItem.shrink(1);
                 if (!player.getInventory().add(container)) {
-                    player.drop(container, false);
+                    player.drop(container, false, Prediction.PREDICTED);
                 }
             }
             return InteractionResult.SUCCESS;

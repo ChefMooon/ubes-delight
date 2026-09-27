@@ -3,23 +3,19 @@
   "criteria": {
     "halo_halo_feast": {
       "conditions": {
-        "location": [
-          {
-            "block": "ubesdelight:halo_halo_feast",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "ubesdelight:halo_halo_feast"
+        }
       },
       "trigger": "minecraft:placed_block"
     },
     "milk_tea_ube_feast": {
       "conditions": {
-        "location": [
-          {
-            "block": "ubesdelight:milk_tea_ube_feast",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "ubesdelight:milk_tea_ube_feast"
+        }
       },
       "trigger": "minecraft:placed_block"
     }

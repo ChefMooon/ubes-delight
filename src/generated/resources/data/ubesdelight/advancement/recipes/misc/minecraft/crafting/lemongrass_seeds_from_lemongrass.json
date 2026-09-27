@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/lemongrass_seeds_from_lemongrass"
+        "recipes": "ubesdelight:minecraft/crafting/lemongrass_seeds_from_lemongrass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

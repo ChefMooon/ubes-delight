@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/condensed_milk_bottle_from_milk_bottle"
+        "recipes": "ubesdelight:cooking/condensed_milk_bottle_from_milk_bottle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/sugar_brown"
+        "recipes": "ubesdelight:cooking/sugar_brown"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

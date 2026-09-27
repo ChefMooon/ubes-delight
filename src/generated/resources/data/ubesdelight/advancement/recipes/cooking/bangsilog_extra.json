@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/bangsilog_extra"
+        "recipes": "ubesdelight:cooking/bangsilog_extra"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

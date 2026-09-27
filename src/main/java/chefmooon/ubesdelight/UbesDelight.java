@@ -2,7 +2,6 @@ package chefmooon.ubesdelight;
 
 import chefmooon.ubesdelight.common.CommonSetup;
 import chefmooon.ubesdelight.common.Configuration;
-import chefmooon.ubesdelight.common.event.LootModifierEvents;
 import chefmooon.ubesdelight.common.registry.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -25,8 +24,6 @@ public class UbesDelight implements ModInitializer {
         UbesDelightBlocks.register();
         UbesDelightBlockEntityTypes.register();
         UbesDelightItems.register();
-        UbesDelightBiomeFeatures.register();
-        UbesDelightPlacementModifiers.register();
         UbesDelightCreativeTabs.register();
         UbesDelightDataComponentTypes.register();
         UbesDelightRecipeTypes.register();
@@ -37,10 +34,9 @@ public class UbesDelight implements ModInitializer {
 
         UbesDelightRecipeBookCategories.register();
 
-        // 3.0.0
-        LootModifierEvents.init();
-
         UbesDelightBiomeModifiers.init();
+
+        UDChestLootTables.init();
 
         RecipeSynchronization.synchronizeRecipeSerializer(UbesDelightRecipeSerializers.BAKING_MAT.get());
     }

@@ -1,0 +1,65 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:random_chance",
+            "chance": 0.2
+          },
+          {
+            "type": "minecraft:inverted",
+            "term": {
+              "type": "farmersdelight:can_item_perform_ability",
+              "ability": "shears_harvest"
+            }
+          }
+        ]
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ubesdelight:garlic"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "condition": {
+                "type": "farmersdelight:can_item_perform_ability",
+                "ability": "shears_harvest"
+              },
+              "name": "ubesdelight:wild_garlic"
+            },
+            {
+              "type": "minecraft:item",
+              "modifier": [
+                {
+                  "type": "minecraft:explosion_decay"
+                },
+                {
+                  "type": "minecraft:apply_bonus",
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:uniform_bonus_count",
+                  "parameters": {
+                    "bonusMultiplier": 2
+                  }
+                }
+              ],
+              "name": "ubesdelight:garlic"
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    }
+  ]
+}

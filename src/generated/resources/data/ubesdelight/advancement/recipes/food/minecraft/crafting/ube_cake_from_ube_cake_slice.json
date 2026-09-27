@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/ube_cake_from_ube_cake_slice"
+        "recipes": "ubesdelight:minecraft/crafting/ube_cake_from_ube_cake_slice"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

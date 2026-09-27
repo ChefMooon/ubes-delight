@@ -63,7 +63,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/halo_halo"
+        "recipes": "ubesdelight:cooking/halo_halo"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

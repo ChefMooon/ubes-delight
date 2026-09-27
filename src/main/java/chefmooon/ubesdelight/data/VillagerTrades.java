@@ -2,7 +2,6 @@ package chefmooon.ubesdelight.data;
 
 import chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import chefmooon.ubesdelight.common.utility.TextUtils;
-import com.mojang.serialization.Lifecycle;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.minecraft.core.Holder;
@@ -18,9 +17,8 @@ import net.minecraft.world.item.trading.TradeCost;
 import net.minecraft.world.item.trading.VillagerTrade;
 import net.minecraft.world.level.ItemLike;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Stream;
 
 public class VillagerTrades extends FabricDynamicRegistryProvider {
     public VillagerTrades(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
@@ -57,11 +55,11 @@ public class VillagerTrades extends FabricDynamicRegistryProvider {
     }
 
     public static VillagerTrade emeraldsForItemsTrade(ItemLike item, int count, int maxTrades, int xp) {
-        return new VillagerTrade(new TradeCost(item.asItem(), count), new ItemStackTemplate(Items.EMERALD), maxTrades, xp, 0.05f, Optional.empty(), List.of());
+        return VillagerTrade.builder(new TradeCost(item.asItem(), count), new ItemStackTemplate(Items.EMERALD), maxTrades, xp, 0.05f).build();
     }
 
     public static VillagerTrade itemForEmeraldTrade(ItemLike item, int maxTrades, int xp) {
-        return new VillagerTrade(new TradeCost(item, 1), new ItemStackTemplate(Items.EMERALD, 1), maxTrades, xp, 0.05f, Optional.empty(), List.of());
+        return VillagerTrade.builder(new TradeCost(item, 1), new ItemStackTemplate(Items.EMERALD, 1), maxTrades, xp, 0.05f).build();
     }
 
     public static ResourceKey<VillagerTrade> resourceKey(final String path) {
@@ -72,13 +70,18 @@ public class VillagerTrades extends FabricDynamicRegistryProvider {
     protected void configure(HolderLookup.Provider provider, Entries entries) {
         init(new BootstrapContext<>() {
             @Override
-            public Holder.Reference<VillagerTrade> register(ResourceKey<VillagerTrade> resourceKey, VillagerTrade object, Lifecycle lifecycle) {
+            public Holder.Reference<VillagerTrade> register(ResourceKey<VillagerTrade> resourceKey, VillagerTrade object) {
                 return (Holder.Reference<VillagerTrade>) entries.add(resourceKey, object);
             }
 
             @Override
             public <S> HolderGetter<S> lookup(ResourceKey<? extends Registry<? extends S>> resourceKey) {
                 return provider.lookupOrThrow(resourceKey);
+            }
+
+            @Override
+            public <S> Stream<Holder.Reference<S>> listContextElements(ResourceKey<? extends Registry<? extends S>> key) {
+                return Stream.empty();
             }
         });
     }

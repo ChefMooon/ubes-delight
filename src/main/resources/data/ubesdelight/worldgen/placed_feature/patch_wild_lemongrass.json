@@ -9,6 +9,10 @@
       "type": "minecraft:in_square"
     },
     {
+      "type": "minecraft:count",
+      "count": 64
+    },
+    {
       "type": "minecraft:heightmap",
       "heightmap": "MOTION_BLOCKING"
     },
@@ -16,7 +20,8 @@
       "type": "minecraft:biome"
     },
     {
-      "type": "ubesdelight:biome_is_overworld"
+      "type": "farmersdelight:biome_tag",
+      "tag": "minecraft:is_overworld"
     }
   ]
 }

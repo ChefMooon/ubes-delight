@@ -1,255 +1,225 @@
 {
   "type": "minecraft:block",
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
-    }
-  ],
+  "modifier": {
+    "type": "minecraft:explosion_decay"
+  },
   "pools": [
     {
-      "conditions": [
-        {
-          "condition": "minecraft:all_of",
-          "terms": [
-            {
-              "block": "ubesdelight:ube_cake",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "bites": "0"
-              }
-            },
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "#c:tools/knife"
-              }
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "ubesdelight:ube_cake",
+            "state": {
+              "bites": "0"
             }
-          ]
-        }
-      ],
+          },
+          {
+            "type": "minecraft:match_tool",
+            "predicate": {
+              "items": "#c:tools/knife"
+            }
+          }
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 7.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 7
+          },
           "name": "ubesdelight:ube_cake_slice"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "condition": "minecraft:all_of",
-          "terms": [
-            {
-              "block": "ubesdelight:ube_cake",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "bites": "1"
-              }
-            },
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "#c:tools/knife"
-              }
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "ubesdelight:ube_cake",
+            "state": {
+              "bites": "1"
             }
-          ]
-        }
-      ],
+          },
+          {
+            "type": "minecraft:match_tool",
+            "predicate": {
+              "items": "#c:tools/knife"
+            }
+          }
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 6.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 6
+          },
           "name": "ubesdelight:ube_cake_slice"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "condition": "minecraft:all_of",
-          "terms": [
-            {
-              "block": "ubesdelight:ube_cake",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "bites": "2"
-              }
-            },
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "#c:tools/knife"
-              }
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "ubesdelight:ube_cake",
+            "state": {
+              "bites": "2"
             }
-          ]
-        }
-      ],
+          },
+          {
+            "type": "minecraft:match_tool",
+            "predicate": {
+              "items": "#c:tools/knife"
+            }
+          }
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 5.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 5
+          },
           "name": "ubesdelight:ube_cake_slice"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "condition": "minecraft:all_of",
-          "terms": [
-            {
-              "block": "ubesdelight:ube_cake",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "bites": "3"
-              }
-            },
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "#c:tools/knife"
-              }
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "ubesdelight:ube_cake",
+            "state": {
+              "bites": "3"
             }
-          ]
-        }
-      ],
+          },
+          {
+            "type": "minecraft:match_tool",
+            "predicate": {
+              "items": "#c:tools/knife"
+            }
+          }
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 4.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 4
+          },
           "name": "ubesdelight:ube_cake_slice"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "condition": "minecraft:all_of",
-          "terms": [
-            {
-              "block": "ubesdelight:ube_cake",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "bites": "4"
-              }
-            },
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "#c:tools/knife"
-              }
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "ubesdelight:ube_cake",
+            "state": {
+              "bites": "4"
             }
-          ]
-        }
-      ],
+          },
+          {
+            "type": "minecraft:match_tool",
+            "predicate": {
+              "items": "#c:tools/knife"
+            }
+          }
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 3.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 3
+          },
           "name": "ubesdelight:ube_cake_slice"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "condition": "minecraft:all_of",
-          "terms": [
-            {
-              "block": "ubesdelight:ube_cake",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "bites": "5"
-              }
-            },
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "#c:tools/knife"
-              }
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "ubesdelight:ube_cake",
+            "state": {
+              "bites": "5"
             }
-          ]
-        }
-      ],
+          },
+          {
+            "type": "minecraft:match_tool",
+            "predicate": {
+              "items": "#c:tools/knife"
+            }
+          }
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 2.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 2
+          },
           "name": "ubesdelight:ube_cake_slice"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "condition": "minecraft:all_of",
-          "terms": [
-            {
-              "block": "ubesdelight:ube_cake",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "bites": "6"
-              }
-            },
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "#c:tools/knife"
-              }
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "ubesdelight:ube_cake",
+            "state": {
+              "bites": "6"
             }
-          ]
-        }
-      ],
+          },
+          {
+            "type": "minecraft:match_tool",
+            "predicate": {
+              "items": "#c:tools/knife"
+            }
+          }
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 1
+          },
           "name": "ubesdelight:ube_cake_slice"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ]
 }

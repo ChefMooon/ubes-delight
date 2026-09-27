@@ -6,12 +6,14 @@ import chefmooon.ubesdelight.common.block.entity.dispenser.BaseLeafFeastDispense
 import chefmooon.ubesdelight.common.block.entity.dispenser.DrinkableFeastDispenseBehavior;
 import chefmooon.ubesdelight.common.crafting.condition.UDCrateEnabledCondition;
 import chefmooon.ubesdelight.common.registry.UbesDelightItems;
+import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
-import net.minecraft.world.entity.npc.villager.Villager;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.ComposterBlock;
-
-import java.util.HashMap;
+import net.minecraft.world.item.component.Compostable;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProvider;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 
 public class CommonSetup {
     public static void init() {
@@ -31,48 +33,65 @@ public class CommonSetup {
     }
 
     public static void registerCompostables() {
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.LEMONGRASS_SEEDS.get(), 0.3f);
+        compostable(UbesDelightItems.LEMONGRASS_SEEDS.get(), 30);
 
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.GARLIC_CHOP.get(), 0.4f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.GINGER_CHOP.get(), 0.4f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.LUMPIA_WRAPPER.get(), 0.4f);
+        compostable(UbesDelightItems.GARLIC_CHOP.get(), 30);
+        compostable(UbesDelightItems.GINGER_CHOP.get(), 30);
+        compostable(UbesDelightItems.LUMPIA_WRAPPER.get(), 30);
 
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.WILD_UBE.get(), 0.65f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.WILD_GARLIC.get(), 0.65f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.WILD_GINGER.get(), 0.65f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.WILD_LEMONGRASS.get(), 0.65f);
+        compostable(UbesDelightItems.WILD_UBE.get(), 65);
+        compostable(UbesDelightItems.WILD_GARLIC.get(), 65);
+        compostable(UbesDelightItems.WILD_GINGER.get(), 65);
+        compostable(UbesDelightItems.WILD_LEMONGRASS.get(), 65);
 
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.UBE.get(), 0.65f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.GARLIC.get(), 0.65f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.GINGER.get(), 0.65f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.LEMONGRASS.get(), 0.65f);
+        compostable(UbesDelightItems.UBE.get(), 65);
+        compostable(UbesDelightItems.GARLIC.get(), 65);
+        compostable(UbesDelightItems.GINGER.get(), 65);
+        compostable(UbesDelightItems.LEMONGRASS.get(), 65);
 
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.PANDESAL.get(), 0.7f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.PANDESAL_UBE.get(), 0.7f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.ENSAYMADA.get(), 0.7f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.ENSAYMADA_UBE.get(), 0.7f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.HOPIA_MUNGGO.get(), 0.7f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.HOPIA_UBE.get(), 0.7f);
+        compostable(UbesDelightItems.PANDESAL.get(), 65);
+        compostable(UbesDelightItems.PANDESAL_UBE.get(), 65);
+        compostable(UbesDelightItems.ENSAYMADA.get(), 65);
+        compostable(UbesDelightItems.ENSAYMADA_UBE.get(), 65);
+        compostable(UbesDelightItems.HOPIA_MUNGGO.get(), 65);
+        compostable(UbesDelightItems.HOPIA_UBE.get(), 65);
 
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.COOKIE_UBE.get(), 0.85f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.COOKIE_GINGER.get(), 0.85f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.POLVORONE.get(), 0.85f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.POLVORONE_PINIPIG.get(), 0.85f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.POLVORONE_UBE.get(), 0.85f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.POLVORONE_CC.get(), 0.85f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.LECHE_FLAN.get(), 0.85f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.UBE_CAKE_SLICE.get(), 0.85f);
+        compostable(UbesDelightItems.COOKIE_UBE.get(), 85);
+        compostable(UbesDelightItems.COOKIE_GINGER.get(), 85);
+        compostable(UbesDelightItems.POLVORONE.get(), 85);
+        compostable(UbesDelightItems.POLVORONE_PINIPIG.get(), 85);
+        compostable(UbesDelightItems.POLVORONE_UBE.get(), 85);
+        compostable(UbesDelightItems.POLVORONE_CC.get(), 85);
+        compostable(UbesDelightItems.LECHE_FLAN.get(), 85);
+        compostable(UbesDelightItems.UBE_CAKE_SLICE.get(), 85);
 
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.UBE_CAKE.get(), 1.0f);
-        ComposterBlock.COMPOSTABLES.put(UbesDelightItems.LECHE_FLAN_FEAST.get(), 1.0f);
+        compostable(UbesDelightItems.UBE_CAKE.get(), 100);
+        compostable(UbesDelightItems.LECHE_FLAN_FEAST.get(), 100);
+    }
+
+    private static void compostable(Item item, int compostingChance) {
+        ResourceKey<ContextIntProvider> compostingResourceKey = switch (compostingChance) {
+            case 100 -> ContextIntProviders.COMPOSTABLE_ALWAYS_ADD_ONE;
+            case 85 -> ContextIntProviders.COMPOSTABLE_MEDIUM_HIGH;
+            case 65 -> ContextIntProviders.COMPOSTABLE_MEDIUM;
+            case 50 -> ContextIntProviders.COMPOSTABLE_LOW_MEDIUM;
+            case 30 -> ContextIntProviders.COMPOSTABLE_LOW;
+            default -> throw new IllegalStateException("Unexpected composting chance: " + compostingChance);
+        };
+        DefaultItemComponentEvents.MODIFY.register(modifyContext -> {
+            modifyContext.modify(item, builder -> {
+                builder.set(DataComponents.COMPOSTABLE,
+                        new Compostable(compostingResourceKey));
+            });
+        });
     }
 
     public static void registerItemSetAdditions() {
-        HashMap<Item, Integer> foodPoints = new HashMap<>(Villager.FOOD_POINTS);
-        foodPoints.put(UbesDelightItems.UBE.get(), 1);
-        foodPoints.put(UbesDelightItems.GARLIC.get(), 1);
-        foodPoints.put(UbesDelightItems.GINGER.get(), 1);
-        foodPoints.put(UbesDelightItems.LEMONGRASS.get(), 1);
-        Villager.FOOD_POINTS = foodPoints;
+//        HashMap<Item, Integer> foodPoints = new HashMap<>(Villager.FOOD_POINTS);
+//        foodPoints.put(UbesDelightItems.UBE.get(), 1);
+//        foodPoints.put(UbesDelightItems.GARLIC.get(), 1);
+//        foodPoints.put(UbesDelightItems.GINGER.get(), 1);
+//        foodPoints.put(UbesDelightItems.LEMONGRASS.get(), 1);
+//        Villager.FOOD_POINTS = foodPoints;
     }
 }

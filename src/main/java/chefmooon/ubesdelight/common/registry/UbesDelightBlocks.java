@@ -78,14 +78,14 @@ public class UbesDelightBlocks {
                     .instabreak()
                     .strength(0.2F)
                     .sound(SoundType.CROP)
-                    .pushReaction(PushReaction.DESTROY));
+                    .pushReaction(PushReaction.PUSH_PULL));
     public static final Supplier<Block> LEMONGRASS_LEAF_CROP = registerBlock(UDBlockIds.LEMONGRASS_LEAF_CROP,
             LemongrassLeafCropBlock::new, BlockBehaviour.Properties.of()
                     .noCollision()
                     .randomTicks()
                     .instabreak()
                     .sound(SoundType.CROP)
-                    .pushReaction(PushReaction.DESTROY));
+                    .pushReaction(PushReaction.PUSH_PULL));
 
     public static final Supplier<Block> GLASS_CUP_HALO_HALO = registerBlock(UDBlockItemIds.GLASS_CUP_HALO_HALO,
             (properties) -> new GlassCupBlock(() -> UbesDelightItems.HALO_HALO.get(), properties),  BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).lightLevel(value -> 4));
@@ -102,33 +102,33 @@ public class UbesDelightBlocks {
             (properties) -> new DrinkableFeastBlock(() -> UbesDelightItems.MILK_TEA_UBE.get(), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).strength(2.0f).sound(SoundType.GLASS));
 
     public static final Supplier<Block> LEAF_FEAST = registerBlock(UDBlockItemIds.LEAF_FEAST,
-            BaseLeafFeastBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            BaseLeafFeastBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.POPPED));
     public static final Supplier<Block> UNIVERSAL_LEAF_FEAST = registerBlock(UDBlockIds.UNIVERSAL_LEAF_FEAST,
-            UniversalLeafFeastBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            UniversalLeafFeastBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.POPPED));
     public static final Supplier<Block> LUMPIA_FEAST = registerBlock(UDBlockItemIds.LUMPIA_FEAST,
-            (properties) -> new LumpiaLeafFeastBlock(() -> UbesDelightItems.LUMPIA.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            (properties) -> new LumpiaLeafFeastBlock(() -> UbesDelightItems.LUMPIA.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.POPPED));
 
     public static final Supplier<Block> LEAF_FEAST_ENSAYMADA = registerBlock(UDBlockItemIds.LEAF_FEAST_ENSAYMADA,
-            (properties) -> new EnsaymadaLeafFeastBlock(() -> UbesDelightItems.ENSAYMADA.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            (properties) -> new EnsaymadaLeafFeastBlock(() -> UbesDelightItems.ENSAYMADA.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.POPPED));
     public static final Supplier<Block> LEAF_FEAST_ENSAYMADA_UBE = registerBlock(UDBlockItemIds.LEAF_FEAST_ENSAYMADA_UBE,
-            (properties) -> new EnsaymadaLeafFeastBlock(() -> UbesDelightItems.ENSAYMADA_UBE.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            (properties) -> new EnsaymadaLeafFeastBlock(() -> UbesDelightItems.ENSAYMADA_UBE.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.POPPED));
 
     public static final Supplier<Block> LEAF_FEAST_PANDESAL = registerBlock(UDBlockItemIds.LEAF_FEAST_PANDESAL,
-            (properties) -> new PandesalLeafFeastBlock(() -> UbesDelightItems.PANDESAL.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            (properties) -> new PandesalLeafFeastBlock(() -> UbesDelightItems.PANDESAL.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.POPPED));
     public static final Supplier<Block> LEAF_FEAST_PANDESAL_UBE = registerBlock(UDBlockItemIds.LEAF_FEAST_PANDESAL_UBE,
-            (properties) -> new PandesalLeafFeastBlock(() -> UbesDelightItems.PANDESAL_UBE.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            (properties) -> new PandesalLeafFeastBlock(() -> UbesDelightItems.PANDESAL_UBE.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.POPPED));
 
     public static final Supplier<Block> LEAF_FEAST_HOPIA_MUNGGO = registerBlock(UDBlockItemIds.LEAF_FEAST_HOPIA_MUNGGO,
-            (properties) -> new HopiaLeafFeastBlock(() -> UbesDelightItems.HOPIA_MUNGGO.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            (properties) -> new HopiaLeafFeastBlock(() -> UbesDelightItems.HOPIA_MUNGGO.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.POPPED));
     public static final Supplier<Block> LEAF_FEAST_HOPIA_UBE = registerBlock(UDBlockItemIds.LEAF_FEAST_HOPIA_UBE,
-            (properties) -> new HopiaLeafFeastBlock(() -> UbesDelightItems.HOPIA_UBE.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            (properties) -> new HopiaLeafFeastBlock(() -> UbesDelightItems.HOPIA_UBE.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.POPPED));
 
     public static final Supplier<Block> LEAF_FEAST_COOKED_RICE = registerBlock(UDBlockItemIds.LEAF_FEAST_COOKED_RICE,
-            (properties) -> new RiceLeafFeastBlock(() -> BuiltInRegistries.ITEM.get(Identifier.fromNamespaceAndPath("farmersdelight", "cooked_rice")).get().value(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            (properties) -> new RiceLeafFeastBlock(() -> BuiltInRegistries.ITEM.get(Identifier.fromNamespaceAndPath("farmersdelight", "cooked_rice")).get().value(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.POPPED));
     public static final Supplier<Block> LEAF_FEAST_FRIED_RICE = registerBlock(UDBlockItemIds.LEAF_FEAST_FRIED_RICE,
-            (properties) -> new RiceLeafFeastBlock(() -> BuiltInRegistries.ITEM.get(Identifier.fromNamespaceAndPath("farmersdelight", "fried_rice")).get().value(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            (properties) -> new RiceLeafFeastBlock(() -> BuiltInRegistries.ITEM.get(Identifier.fromNamespaceAndPath("farmersdelight", "fried_rice")).get().value(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.POPPED));
     public static final Supplier<Block> LEAF_FEAST_SINANGAG = registerBlock(UDBlockItemIds.LEAF_FEAST_SINANGAG,
-            (properties) -> new RiceLeafFeastBlock(() -> UbesDelightItems.SINANGAG.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY));
+            (properties) -> new RiceLeafFeastBlock(() -> UbesDelightItems.SINANGAG.get(), properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.AZALEA).pushReaction(PushReaction.POPPED));
 
     private static Supplier<Block> registerBlock(final ResourceKey<Block> key, final Function<BlockBehaviour.Properties, Block> function, final BlockBehaviour.Properties properties) {
         return registerBlock(key.identifier(), function, properties);

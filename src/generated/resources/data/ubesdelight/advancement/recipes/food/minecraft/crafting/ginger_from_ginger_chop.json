@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/ginger_from_ginger_chop"
+        "recipes": "ubesdelight:minecraft/crafting/ginger_from_ginger_chop"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

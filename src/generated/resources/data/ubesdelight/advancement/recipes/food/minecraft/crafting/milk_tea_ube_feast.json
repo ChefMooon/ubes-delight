@@ -17,7 +17,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/milk_tea_ube_feast"
+        "recipes": "ubesdelight:minecraft/crafting/milk_tea_ube_feast"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

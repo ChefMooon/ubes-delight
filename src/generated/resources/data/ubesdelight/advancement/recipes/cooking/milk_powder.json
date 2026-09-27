@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/milk_powder"
+        "recipes": "ubesdelight:cooking/milk_powder"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

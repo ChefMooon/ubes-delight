@@ -63,7 +63,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/arroz_caldo"
+        "recipes": "ubesdelight:cooking/arroz_caldo"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

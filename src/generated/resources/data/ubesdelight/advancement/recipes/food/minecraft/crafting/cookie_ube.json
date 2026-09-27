@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/cookie_ube"
+        "recipes": "ubesdelight:minecraft/crafting/cookie_ube"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,4 +1,9 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "ubesdelight:ud_crates_enabled"
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_any_ingredient": {
@@ -15,7 +20,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/decorations/ube_crate"
+        "recipes": "ubesdelight:minecraft/decorations/ube_crate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

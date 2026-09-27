@@ -1,106 +1,88 @@
 {
   "type": "minecraft:block",
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
-    }
-  ],
+  "modifier": {
+    "type": "minecraft:explosion_decay"
+  },
   "pools": [
     {
-      "conditions": [
-        {
-          "block": "ubesdelight:glass_cup_milk_tea_ube",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "servings": "3"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "ubesdelight:glass_cup_milk_tea_ube",
+        "state": {
+          "servings": "3"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 4.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 4
+          },
           "name": "ubesdelight:milk_tea_ube"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "ubesdelight:glass_cup_milk_tea_ube",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "servings": "2"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "ubesdelight:glass_cup_milk_tea_ube",
+        "state": {
+          "servings": "2"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 3.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 3
+          },
           "name": "ubesdelight:milk_tea_ube"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "ubesdelight:glass_cup_milk_tea_ube",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "servings": "1"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "ubesdelight:glass_cup_milk_tea_ube",
+        "state": {
+          "servings": "1"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 2.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 2
+          },
           "name": "ubesdelight:milk_tea_ube"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "ubesdelight:glass_cup_milk_tea_ube",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "servings": "0"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "ubesdelight:glass_cup_milk_tea_ube",
+        "state": {
+          "servings": "0"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 1
+          },
           "name": "ubesdelight:milk_tea_ube"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ]
 }

@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/chicken_inasal"
+        "recipes": "ubesdelight:cooking/chicken_inasal"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

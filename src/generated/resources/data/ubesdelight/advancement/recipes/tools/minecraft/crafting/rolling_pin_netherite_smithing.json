@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/rolling_pin_netherite_smithing"
+        "recipes": "ubesdelight:minecraft/crafting/rolling_pin_netherite_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

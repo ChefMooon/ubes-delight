@@ -3,12 +3,15 @@ package chefmooon.ubesdelight.data;
 import chefmooon.ubesdelight.data.recipe.*;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Recipe;
+import vectorwing.farmersdelight.data.Recipes;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -18,17 +21,18 @@ public class RecipeGenerator extends FabricRecipeProvider {
     }
 
     @Override
-    protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
-        return new RecipeProvider(provider, recipeOutput) {
+    protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, BootstrapContext<Recipe<?>> recipeBootstrapContext, BootstrapContext<Advancement> advancementBootstrapContext) {
+        return new RecipeProvider(recipeBootstrapContext, advancementBootstrapContext) {
             @Override
             public void buildRecipes() {
+                Recipes.recipeContext = recipeBootstrapContext;
                 HolderGetter<Item> holderGetter = provider.lookupOrThrow(Registries.ITEM);
 
-                CookingRecipes.register(holderGetter, provider, recipeOutput);
-                CraftingRecipes.register(holderGetter, provider, recipeOutput);
-                CuttingRecipes.register(holderGetter, provider, recipeOutput);
-                SmeltingRecipes.register(holderGetter, provider, recipeOutput);
-                BakingMatRecipes.register(holderGetter, provider, recipeOutput);
+                CookingRecipes.register(holderGetter, provider, output);
+                CraftingRecipes.register(holderGetter, provider, output);
+                CuttingRecipes.register(holderGetter, provider, output);
+                SmeltingRecipes.register(holderGetter, provider, output);
+                BakingMatRecipes.register(holderGetter, provider, output);
             }
         };
     }

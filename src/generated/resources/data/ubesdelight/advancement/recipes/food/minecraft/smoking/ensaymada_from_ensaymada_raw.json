@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/smoking/ensaymada_from_ensaymada_raw"
+        "recipes": "ubesdelight:minecraft/smoking/ensaymada_from_ensaymada_raw"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

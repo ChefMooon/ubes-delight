@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/leaf_feast_hopia_munggo"
+        "recipes": "ubesdelight:minecraft/crafting/leaf_feast_hopia_munggo"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

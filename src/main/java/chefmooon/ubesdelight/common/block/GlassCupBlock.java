@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Prediction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -144,7 +145,7 @@ public class GlassCupBlock extends Block {
             level.playSound(player, pos, SoundEvents.GLASS_PLACE, SoundSource.BLOCKS, 0.8F, 0.8F);
             if (!player.isCreative()) {
                 if (!player.getInventory().add(servingItem)) {
-                    player.drop(servingItem, false);
+                    player.drop(servingItem, false, Prediction.PREDICTED);
                 }
             }
             return InteractionResult.SUCCESS;
@@ -153,7 +154,7 @@ public class GlassCupBlock extends Block {
             level.playSound(player, pos, SoundEvents.GLASS_PLACE, SoundSource.BLOCKS, 0.8F, 0.8F);
             if (!player.isCreative()) {
                 if (!player.getInventory().add(servingItem)) {
-                    player.drop(servingItem, false);
+                    player.drop(servingItem, false, Prediction.PREDICTED);
                 }
             }
             return InteractionResult.SUCCESS;

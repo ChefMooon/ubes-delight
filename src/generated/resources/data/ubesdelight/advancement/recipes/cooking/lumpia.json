@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/lumpia"
+        "recipes": "ubesdelight:cooking/lumpia"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -2,6 +2,8 @@ package chefmooon.ubesdelight.data;
 
 import chefmooon.ubesdelight.UbesDelight;
 import chefmooon.ubesdelight.common.registry.UbesDelightDamageTypes;
+import chefmooon.ubesdelight.data.loot.UDBlockLootTableGenerator;
+import chefmooon.ubesdelight.data.loot.UDChestLootTableGenerator;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
@@ -21,7 +23,8 @@ public class DataGenerationFabric implements DataGeneratorEntrypoint {
         pack.addProvider(TranslationGenerator::new);
         pack.addProvider(ModelGenerator::new);
         pack.addProvider(RecipeGenerator::new);
-        pack.addProvider(LootTableGenerator::new);
+        pack.addProvider(UDBlockLootTableGenerator::new);
+        pack.addProvider(UDChestLootTableGenerator::new);
         pack.addProvider(AdvancementGenerator::new);
         pack.addProvider(VillagerTrades::new);
         pack.addProvider(VillagerTags::new);

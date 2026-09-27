@@ -1,14 +1,13 @@
 package chefmooon.ubesdelight.common.block.leaf_feast.base;
 
-import chefmooon.ubesdelight.common.block.leaf_feast.base.BaseLeafFeastBlock;
 import chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
-import chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Prediction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -112,7 +111,7 @@ public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
                     tryEat(itemStack, level, pos, player);
                 } else {
                     if (!player.getInventory().add(itemStack)) {
-                        player.drop(itemStack, false);
+                        player.drop(itemStack, false, Prediction.PREDICTED);
                     }
                 }
             }
@@ -127,7 +126,7 @@ public class LargeLeafFeastBlock extends BaseLeafFeastBlock {
                     tryEat(itemStack, level, pos, player);
                 } else {
                     if (!player.getInventory().add(itemStack)) {
-                        player.drop(itemStack, false);
+                        player.drop(itemStack, false, Prediction.PREDICTED);
                     }
                 }
             }

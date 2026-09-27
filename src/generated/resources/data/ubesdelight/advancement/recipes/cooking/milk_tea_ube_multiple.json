@@ -46,7 +46,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/milk_tea_ube_multiple"
+        "recipes": "ubesdelight:cooking/milk_tea_ube_multiple"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

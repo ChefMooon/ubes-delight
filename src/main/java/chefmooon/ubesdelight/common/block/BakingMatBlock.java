@@ -3,7 +3,6 @@ package chefmooon.ubesdelight.common.block;
 import chefmooon.ubesdelight.common.block.entity.BakingMatBlockEntity;
 import chefmooon.ubesdelight.common.registry.UbesDelightBlockEntityTypes;
 import chefmooon.ubesdelight.common.registry.UbesDelightSounds;
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
@@ -38,7 +37,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 public class BakingMatBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
-    public static final MapCodec<BakingMatBlock> CODEC = simpleCodec(BakingMatBlock::new);
     public static final BooleanProperty PROCESSING = BooleanProperty.create("processing");
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final Property<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -47,11 +45,6 @@ public class BakingMatBlock extends BaseEntityBlock implements SimpleWaterlogged
     public BakingMatBlock(BlockBehaviour.Properties properties) {
         super(properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(PROCESSING, Boolean.FALSE).setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
-    }
-
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
     }
 
     @Override

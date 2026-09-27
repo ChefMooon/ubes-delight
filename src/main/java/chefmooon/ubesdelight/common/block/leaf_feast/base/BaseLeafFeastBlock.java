@@ -4,20 +4,17 @@ import chefmooon.ubesdelight.common.block.entity.UniversalLeafFeastBlockEntity;
 import chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
 import chefmooon.ubesdelight.common.registry.UbesDelightItems;
-import chefmooon.ubesdelight.common.utility.BuiltInRegistryUtil;
 import chefmooon.ubesdelight.common.utility.ItemStackUtil;
-import chefmooon.ubesdelight.common.utility.TextUtils;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Prediction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -25,7 +22,6 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.ConsumableListener;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -34,7 +30,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -109,7 +104,7 @@ public class BaseLeafFeastBlock extends Block implements LeafFeastBlock, SimpleW
                     ItemStack container = ItemStackUtil.getContainer(itemStack);
                     if (!container.isEmpty()) {
                         if (!player.getInventory().add(container)) {
-                            player.drop(container, false);
+                            player.drop(container, false, Prediction.PREDICTED);
                         }
                     }
                 }

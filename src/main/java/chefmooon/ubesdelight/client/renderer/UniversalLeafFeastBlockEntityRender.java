@@ -71,9 +71,9 @@ public class UniversalLeafFeastBlockEntityRender implements BlockEntityRenderer<
         poseStack.translate(0.5D, 0.08D, 0.5D);
 
         float f = -direction.toYRot();
-        poseStack.mulPose(Axis.YP.rotationDegrees(f));
+        PoseStackUtils.mulPose(poseStack, Axis.YP, f);
 
-        poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+        PoseStackUtils.mulPose(poseStack, Axis.XP, 90.0F);
 
         poseStack.translate(itemOffset.x, itemOffset.y, 0.0D);
 

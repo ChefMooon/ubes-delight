@@ -14,15 +14,15 @@ import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.food.VillagerFood;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ToolMaterial;
-import net.minecraft.world.item.component.Consumable;
-import net.minecraft.world.item.component.Consumables;
-import net.minecraft.world.item.component.Tool;
-import net.minecraft.world.item.component.Weapon;
+import net.minecraft.world.item.component.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProvider;
+import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.Nullable;
 
 import java.util.List;
@@ -66,6 +66,11 @@ public class UbesDelightItems {
     public static Item.Properties foodItem(FoodProperties food, @Nullable Consumable consumable) {
         return new Item.Properties().food(food)
                 .component(DataComponents.CONSUMABLE, consumable != null ? consumable : Consumables.DEFAULT_FOOD);
+    }
+    public static Item.Properties foodItem(FoodProperties food, @Nullable Consumable consumable, ResourceKey<@NotNull ContextIntProvider> compostingChance) {
+        return new Item.Properties().food(food)
+                .component(DataComponents.CONSUMABLE, consumable != null ? consumable : Consumables.DEFAULT_FOOD)
+                .component(DataComponents.COMPOSTABLE, new Compostable(compostingChance));
     }
 
     public static Item.Properties bowlFoodItem(FoodProperties food) {
@@ -181,13 +186,13 @@ public class UbesDelightItems {
 
     public static final Supplier<Item> POISONOUS_UBE = registerItemWithTab(UDItemIds.POISONOUS_UBE, Item::new, basicItem());
     public static final Supplier<Item> UBE = registerItemWithTab(UDBlockItemIds.UBE_CROP,
-            (properties) -> new BlockItem(UbesDelightBlocks.UBE_CROP.get(), properties), foodItem(FoodValues.UBE));
+            (properties) -> new BlockItem(UbesDelightBlocks.UBE_CROP.get(), properties), foodItem(FoodValues.UBE).component(DataComponents.VILLAGER_FOOD, new VillagerFood(1)));
     public static final Supplier<Item> GARLIC = registerItemWithTab(UDBlockItemIds.GARLIC_CROP,
-            (properties) -> new BlockItem(UbesDelightBlocks.GARLIC_CROP.get(), properties), foodItem(FoodValues.GARLIC));
+            (properties) -> new BlockItem(UbesDelightBlocks.GARLIC_CROP.get(), properties), foodItem(FoodValues.GARLIC).component(DataComponents.VILLAGER_FOOD, new VillagerFood(1)));
     public static final Supplier<Item> GINGER = registerItemWithTab(UDBlockItemIds.GINGER_CROP,
-            (properties) -> new BlockItem(UbesDelightBlocks.GINGER_CROP.get(), properties), foodItem(FoodValues.GINGER));
+            (properties) -> new BlockItem(UbesDelightBlocks.GINGER_CROP.get(), properties), foodItem(FoodValues.GINGER).component(DataComponents.VILLAGER_FOOD, new VillagerFood(1)));
     public static final Supplier<Item> LEMONGRASS = registerItemWithTab(UDItemIds.LEMONGRASS,
-            UbesDelightConsumableItem::new, foodItem(FoodValues.LEMONGRASS));
+            UbesDelightConsumableItem::new, foodItem(FoodValues.LEMONGRASS).component(DataComponents.VILLAGER_FOOD, new VillagerFood(1)));
     public static final Supplier<Item> LEMONGRASS_SEEDS = registerItemWithTab(UDBlockItemIds.LEMONGRASS_STALK_CROP,
             (properties) -> new BlockItem(UbesDelightBlocks.LEMONGRASS_STALK_CROP.get(), properties), basicItem());
 

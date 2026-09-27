@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/fish_sauce_bottle_from_water_bucket"
+        "recipes": "ubesdelight:cooking/fish_sauce_bottle_from_water_bucket"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

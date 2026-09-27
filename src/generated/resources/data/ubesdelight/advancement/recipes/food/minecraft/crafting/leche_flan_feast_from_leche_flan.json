@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/leche_flan_feast_from_leche_flan"
+        "recipes": "ubesdelight:minecraft/crafting/leche_flan_feast_from_leche_flan"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

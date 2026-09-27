@@ -43,7 +43,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/raw_polvorone_pinipig"
+        "recipes": "ubesdelight:cooking/raw_polvorone_pinipig"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

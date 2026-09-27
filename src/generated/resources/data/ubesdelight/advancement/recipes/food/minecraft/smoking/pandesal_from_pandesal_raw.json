@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/smoking/pandesal_from_pandesal_raw"
+        "recipes": "ubesdelight:minecraft/smoking/pandesal_from_pandesal_raw"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

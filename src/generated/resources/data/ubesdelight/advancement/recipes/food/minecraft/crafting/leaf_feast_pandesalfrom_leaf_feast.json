@@ -16,7 +16,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/leaf_feast_pandesalfrom_leaf_feast"
+        "recipes": "ubesdelight:minecraft/crafting/leaf_feast_pandesalfrom_leaf_feast"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

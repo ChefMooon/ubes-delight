@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/sinangag"
+        "recipes": "ubesdelight:cooking/sinangag"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

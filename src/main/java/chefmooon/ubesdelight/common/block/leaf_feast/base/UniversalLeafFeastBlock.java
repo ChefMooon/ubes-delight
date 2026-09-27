@@ -1,17 +1,14 @@
 package chefmooon.ubesdelight.common.block.leaf_feast.base;
 
 import chefmooon.ubesdelight.common.block.entity.UniversalLeafFeastBlockEntity;
-import chefmooon.ubesdelight.common.block.leaf_feast.base.LeafFeastBlock;
 import chefmooon.ubesdelight.common.core.LeafFeastTypes;
 import chefmooon.ubesdelight.common.registry.UbesDelightBlockEntityTypes;
 import chefmooon.ubesdelight.common.registry.UbesDelightBlocks;
 import chefmooon.ubesdelight.common.utility.ItemStackUtil;
 import com.mojang.datafixers.util.Pair;
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -47,15 +44,9 @@ import java.util.Objects;
 import static chefmooon.ubesdelight.common.utility.VoxelShapeUtil.getRotatedShapes;
 
 public class UniversalLeafFeastBlock extends BaseEntityBlock implements LeafFeastBlock, SimpleWaterloggedBlock {
-    public static final MapCodec<UniversalLeafFeastBlock> CODEC = simpleCodec(UniversalLeafFeastBlock::new);
     private final VoxelShape[] CONNECT_SHAPES;
     private final VoxelShape[] TIP_SHAPES;
     private final VoxelShape[] END_SHAPES;
-
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
-    }
 
     public UniversalLeafFeastBlock(Properties properties) {
         super(properties);

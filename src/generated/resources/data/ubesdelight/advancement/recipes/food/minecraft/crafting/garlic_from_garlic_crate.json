@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/garlic_from_garlic_crate"
+        "recipes": "ubesdelight:minecraft/crafting/garlic_from_garlic_crate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

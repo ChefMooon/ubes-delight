@@ -17,7 +17,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/halo_halo_feast"
+        "recipes": "ubesdelight:minecraft/crafting/halo_halo_feast"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

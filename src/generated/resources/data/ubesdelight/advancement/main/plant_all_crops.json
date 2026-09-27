@@ -3,45 +3,37 @@
   "criteria": {
     "garlic": {
       "conditions": {
-        "location": [
-          {
-            "block": "ubesdelight:garlic_crop",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "ubesdelight:garlic_crop"
+        }
       },
       "trigger": "minecraft:placed_block"
     },
     "ginger": {
       "conditions": {
-        "location": [
-          {
-            "block": "ubesdelight:ginger_crop",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "ubesdelight:ginger_crop"
+        }
       },
       "trigger": "minecraft:placed_block"
     },
     "lemongrass_seeds": {
       "conditions": {
-        "location": [
-          {
-            "block": "ubesdelight:lemongrass_stalk_crop",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "ubesdelight:lemongrass_stalk_crop"
+        }
       },
       "trigger": "minecraft:placed_block"
     },
     "ube": {
       "conditions": {
-        "location": [
-          {
-            "block": "ubesdelight:ube_crop",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "ubesdelight:ube_crop"
+        }
       },
       "trigger": "minecraft:placed_block"
     }

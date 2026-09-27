@@ -10,6 +10,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BonemealSource;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -118,7 +119,7 @@ public class LemongrassStalkCropBlock extends CropBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, BonemealSource source) {
         BlockState upperState = level.getBlockState(pos.above());
         if (upperState.getBlock() instanceof LemongrassLeafCropBlock) {
             return !((LemongrassLeafCropBlock) upperState.getBlock()).isMaxAge(upperState);
@@ -127,7 +128,7 @@ public class LemongrassStalkCropBlock extends CropBlock {
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state, BonemealSource source) {
         return true;
     }
 
@@ -136,7 +137,7 @@ public class LemongrassStalkCropBlock extends CropBlock {
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state, BonemealSource source) {
         int ageGrowth = Math.min(this.getAge(state) + this.getBonemealAgeIncrease(level), 6);
         if (ageGrowth <= this.getMaxAge()) {
             level.setBlockAndUpdate(pos, state.setValue(LEMONGRASS_AGE, ageGrowth));
@@ -144,8 +145,8 @@ public class LemongrassStalkCropBlock extends CropBlock {
             BlockState top = level.getBlockState(pos.above());
             if (top.getBlock() == UbesDelightBlocks.LEMONGRASS_LEAF_CROP.get()) {
                 BonemealableBlock growable = (BonemealableBlock) level.getBlockState(pos.above()).getBlock();
-                if (growable.isValidBonemealTarget(level, pos.above(), top)) {
-                    growable.performBonemeal(level, level.getRandom(), pos.above(), top);
+                if (growable.isValidBonemealTarget(level, pos.above(), top, source)) {
+                    growable.performBonemeal(level, level.getRandom(), pos.above(), top, source);
                 }
             } else {
                 LemongrassLeafCropBlock lemongrassLeafCropBlock = (LemongrassLeafCropBlock) UbesDelightBlocks.LEMONGRASS_LEAF_CROP.get();

@@ -63,7 +63,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:cooking/mechado"
+        "recipes": "ubesdelight:cooking/mechado"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

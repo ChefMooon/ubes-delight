@@ -1,16 +1,16 @@
 package chefmooon.ubesdelight.common.item;
 
-import chefmooon.ubesdelight.common.item.UbesDelightBlockItem;
-import net.fabricmc.fabric.api.registry.FuelValueEvents;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.component.CookingFuel;
 import net.minecraft.world.level.block.Block;
-
-import java.util.Properties;
+import net.minecraft.world.level.storage.loot.providers.number.floats.ContextFloatProviders;
+import net.minecraft.world.level.storage.loot.providers.number.floats.ResolvableFloat;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ResolvableInt;
 
 public class UbesDelightFuelBlockItem extends UbesDelightBlockItem {
     private final int burnTime;
     public UbesDelightFuelBlockItem(Block block, Properties properties, boolean hasFoodEffectTooltip, boolean hasCustomTooltip, int burnTime) {
-        super(block, properties, hasFoodEffectTooltip, hasCustomTooltip);
+        super(block, properties.component(DataComponents.COOKING_FUEL, new CookingFuel(new ResolvableInt.Constant(burnTime), ResolvableFloat.fromKey(ContextFloatProviders.COOKING_DEFAULT_SPEED_MULTIPLIER))), hasFoodEffectTooltip, hasCustomTooltip);
         this.burnTime = burnTime;
-        if (burnTime > 0) FuelValueEvents.BUILD.register(((builder, context) -> builder.add(this, this.burnTime)));
     }
 }

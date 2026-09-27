@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/lumpia_feast"
+        "recipes": "ubesdelight:minecraft/crafting/lumpia_feast"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

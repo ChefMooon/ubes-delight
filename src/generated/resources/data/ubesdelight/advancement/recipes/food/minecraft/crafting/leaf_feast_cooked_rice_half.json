@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/crafting/leaf_feast_cooked_rice_half"
+        "recipes": "ubesdelight:minecraft/crafting/leaf_feast_cooked_rice_half"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -3,8 +3,8 @@ package chefmooon.ubesdelight.data.recipe;
 import chefmooon.ubesdelight.common.registry.UbesDelightItems;
 import chefmooon.ubesdelight.common.tag.CommonTags;
 import chefmooon.ubesdelight.common.tag.CompatibilityTags;
-import chefmooon.ubesdelight.common.utility.TextUtils;
 import chefmooon.ubesdelight.common.utility.RecipeUtil;
+import chefmooon.ubesdelight.common.utility.TextUtils;
 import net.fabricmc.fabric.api.recipe.v1.ingredient.DefaultCustomIngredients;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.advancements.triggers.InventoryChangeTrigger;
@@ -24,15 +24,14 @@ public class CookingRecipes {
     // Farmer's Delight compatibility items
     static Item MILK_BOTTLE = ModItems.MILK_BOTTLE.get();
 
-    public static void register(HolderGetter<Item> holderGetter, HolderLookup.Provider provider, RecipeOutput exporter) {
-
+    public static void register(HolderGetter<Item> holderGetter, HolderLookup.Provider registryLookup, RecipeOutput output) {
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.CONDENSED_MILK_BOTTLE.get(), 1, 50, .0F)
                 .addIngredient(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)
                 .addIngredient(MILK_BOTTLE)
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), RecipeUtil.has(holderGetter, CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK))
                 .unlockedBy(RecipeProvider.getHasName(MILK_BOTTLE), RecipeUtil.has(holderGetter, MILK_BOTTLE))
                 .setRecipeBookCategory(CookingPotBookCategory.DRINKS)
-                .build(exporter, recipeConversionName(UbesDelightItems.CONDENSED_MILK_BOTTLE.get(), MILK_BOTTLE));
+                .build(output, recipeConversionName(UbesDelightItems.CONDENSED_MILK_BOTTLE.get(), MILK_BOTTLE));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.CONDENSED_MILK_BOTTLE.get(), 4, 200, .0F)
                 .addIngredient(Ingredient.of(holderGetter.getOrThrow(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK)), 4)
@@ -40,7 +39,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), RecipeUtil.has(holderGetter, 4, CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK))
                 .unlockedBy(RecipeProvider.getHasName(Items.MILK_BUCKET), InventoryChangeTrigger.TriggerInstance.hasItems(Items.MILK_BUCKET))
                 .setRecipeBookCategory(CookingPotBookCategory.DRINKS)
-                .build(exporter, recipeConversionName(UbesDelightItems.CONDENSED_MILK_BOTTLE.get(), Items.MILK_BUCKET));
+                .build(output, recipeConversionName(UbesDelightItems.CONDENSED_MILK_BOTTLE.get(), Items.MILK_BUCKET));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.FISH_SAUCE_BOTTLE.get(), 4, 200, .0F)
                 .addIngredient(CompatibilityTags.MINECRAFT_FISHES)
@@ -48,13 +47,13 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(CompatibilityTags.MINECRAFT_FISHES), RecipeUtil.has(holderGetter, CompatibilityTags.MINECRAFT_FISHES))
                 .unlockedBy(RecipeProvider.getHasName(Items.WATER_BUCKET), RecipeUtil.has(holderGetter, Items.WATER_BUCKET))
                 .setRecipeBookCategory(CookingPotBookCategory.DRINKS)
-                .build(exporter, recipeConversionName(UbesDelightItems.FISH_SAUCE_BOTTLE.get(), Items.WATER_BUCKET) + "_extra");
+                .build(output, recipeConversionName(UbesDelightItems.FISH_SAUCE_BOTTLE.get(), Items.WATER_BUCKET) + "_extra");
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.SUGAR_BROWN.get(), 1,  200, 0.5F)
                 .addIngredient(Items.SUGAR)
                 .unlockedBy(RecipeProvider.getHasName(Items.SUGAR), RecipeUtil.has(holderGetter, Items.SUGAR))
                 .setRecipeBookCategory(CookingPotBookCategory.DRINKS)
-                .build(exporter, recipeName(UbesDelightItems.SUGAR_BROWN.get()));
+                .build(output, recipeName(UbesDelightItems.SUGAR_BROWN.get()));
 
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.CHICKEN_INASAL_RICE.get(), 1, 200, 3.0F)
@@ -63,7 +62,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.CHICKEN_INASAL.get()), RecipeUtil.has(holderGetter, UbesDelightItems.CHICKEN_INASAL.get()))
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.SINANGAG.get()), RecipeUtil.has(holderGetter, UbesDelightItems.SINANGAG.get()))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.CHICKEN_INASAL_RICE.get()));
+                .build(output, recipeName(UbesDelightItems.CHICKEN_INASAL_RICE.get()));
 
 
 
@@ -73,13 +72,13 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_SAFE_RAW_FISH), RecipeUtil.has(holderGetter, CommonTags.C_FOODS_SAFE_RAW_FISH))
                 .unlockedBy(RecipeProvider.getHasName(Items.WATER_BUCKET), RecipeUtil.has(holderGetter, Items.WATER_BUCKET))
                 .setRecipeBookCategory(CookingPotBookCategory.DRINKS)
-                .build(exporter, recipeConversionName(UbesDelightItems.FISH_SAUCE_BOTTLE.get(), Items.WATER_BUCKET));
+                .build(output, recipeConversionName(UbesDelightItems.FISH_SAUCE_BOTTLE.get(), Items.WATER_BUCKET));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.MILK_POWDER.get(), 1, 200,  0.2F)
                 .addIngredient(ConventionalItemTags.MILK_DRINKS)
                 .unlockedBy(RecipeUtil.hasItemTag(ConventionalItemTags.MILK_DRINKS), RecipeUtil.has(holderGetter, ConventionalItemTags.MILK_DRINKS))
                 .setRecipeBookCategory(CookingPotBookCategory.DRINKS)
-                .build(exporter, recipeName(UbesDelightItems.MILK_POWDER.get()));
+                .build(output, recipeName(UbesDelightItems.MILK_POWDER.get()));
 
         // ** DRINKS **
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.MILK_TEA_UBE.get(), 1, 50, 0.25F)
@@ -91,7 +90,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), RecipeUtil.has(holderGetter, CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK))
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.CONDENSED_MILK_BOTTLE.get()), RecipeUtil.has(holderGetter, UbesDelightItems.CONDENSED_MILK_BOTTLE.get()))
                 .setRecipeBookCategory(CookingPotBookCategory.DRINKS)
-                .build(exporter, recipeName(UbesDelightItems.MILK_TEA_UBE.get()) + "_single");
+                .build(output, recipeName(UbesDelightItems.MILK_TEA_UBE.get()) + "_single");
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.MILK_TEA_UBE.get(), 4, 200, 1.0F)
                 .addIngredient(CommonTags.C_CROPS_UBE)
@@ -102,7 +101,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), RecipeUtil.has(holderGetter, CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK))
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.CONDENSED_MILK_BOTTLE.get()), RecipeUtil.has(holderGetter, 4, UbesDelightItems.CONDENSED_MILK_BOTTLE.get()))
                 .setRecipeBookCategory(CookingPotBookCategory.DRINKS)
-                .build(exporter, recipeName(UbesDelightItems.MILK_TEA_UBE.get()) + "_multiple");
+                .build(output, recipeName(UbesDelightItems.MILK_TEA_UBE.get()) + "_multiple");
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.HALO_HALO.get(), 1, 200, 1.0F)
                 .addIngredient(CommonTags.C_CROPS_UBE)
@@ -118,7 +117,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeProvider.getHasName(Items.GLOW_BERRIES), RecipeUtil.has(holderGetter, Items.GLOW_BERRIES))
                 .unlockedBy(RecipeProvider.getHasName(Items.MELON_SLICE), RecipeUtil.has(holderGetter, Items.MELON_SLICE))
                 .setRecipeBookCategory(CookingPotBookCategory.DRINKS)
-                .build(exporter, recipeName(UbesDelightItems.HALO_HALO.get()));
+                .build(output, recipeName(UbesDelightItems.HALO_HALO.get()));
 
         // ** FOOD **
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.SINANGAG.get(), 1, 200, 1.0F)
@@ -128,7 +127,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_RICE), RecipeUtil.has(holderGetter, CommonTags.C_CROPS_RICE))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_GARLIC), RecipeUtil.has(holderGetter, CommonTags.C_CROPS_GARLIC))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.SINANGAG.get()));
+                .build(output, recipeName(UbesDelightItems.SINANGAG.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.LUMPIA.get(), 1, 200, 2.0F)
                 .addIngredient(DefaultCustomIngredients.any(
@@ -144,7 +143,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_LEMONGRASS), RecipeUtil.has(holderGetter, CommonTags.C_CROPS_LEMONGRASS))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER), RecipeUtil.has(holderGetter, CommonTags.C_FOOD_WRAPPERS_LUMPIA_WRAPPER))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.LUMPIA.get()));
+                .build(output, recipeName(UbesDelightItems.LUMPIA.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.TOCINO.get(), 1, 200, 2.0F)
                 .addIngredient(CommonTags.C_FOODS_RAW_PORK)
@@ -156,7 +155,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_GINGER), RecipeUtil.has(holderGetter, CommonTags.C_CROPS_GINGER))
                 .unlockedBy(RecipeProvider.getHasName(Items.BEETROOT), RecipeUtil.has(holderGetter, Items.BEETROOT))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.TOCINO.get()));
+                .build(output, recipeName(UbesDelightItems.TOCINO.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.CHICKEN_INASAL.get(), 1, 200, 2.0F)
                 .addIngredient(CommonTags.C_FOODS_RAW_CHICKEN)
@@ -166,7 +165,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_LEMONGRASS), RecipeUtil.has(holderGetter, CommonTags.C_CROPS_LEMONGRASS))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), RecipeUtil.has(holderGetter, CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.CHICKEN_INASAL.get()));
+                .build(output, recipeName(UbesDelightItems.CHICKEN_INASAL.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.TOSILOG.get(), 1, 200, 3.0F)
                 .addIngredient(UbesDelightItems.TOCINO.get())
@@ -176,7 +175,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.SINANGAG.get()), RecipeUtil.has(holderGetter, UbesDelightItems.SINANGAG.get()))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_COOKED_EGG), RecipeUtil.has(holderGetter, CommonTags.C_FOODS_COOKED_EGG))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.TOSILOG.get()));
+                .build(output, recipeName(UbesDelightItems.TOSILOG.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.BANGSILOG.get(), 1, 200, 3.0F)
                 .addIngredient(CommonTags.C_FOODS_SAFE_RAW_FISH)
@@ -186,7 +185,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.SINANGAG.get()), RecipeUtil.has(holderGetter, UbesDelightItems.SINANGAG.get()))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_COOKED_EGG), RecipeUtil.has(holderGetter, CommonTags.C_FOODS_COOKED_EGG))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.BANGSILOG.get()));
+                .build(output, recipeName(UbesDelightItems.BANGSILOG.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.BANGSILOG.get(), 1, 200, 3.0F)
                 .addIngredient(CompatibilityTags.MINECRAFT_FISHES)
@@ -196,7 +195,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.SINANGAG.get()), RecipeUtil.has(holderGetter, UbesDelightItems.SINANGAG.get()))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_FOODS_COOKED_EGG), RecipeUtil.has(holderGetter, CommonTags.C_FOODS_COOKED_EGG))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, suffix(RecipeProvider.getItemName(UbesDelightItems.BANGSILOG.get()) + "_extra"));
+                .build(output, suffix(RecipeProvider.getItemName(UbesDelightItems.BANGSILOG.get()) + "_extra"));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.SISIG.get(), 1, 200, 4.0F)
                 .addIngredient(CommonTags.C_FOODS_RAW_PORK)
@@ -210,7 +209,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_GARLIC), RecipeUtil.has(holderGetter, CommonTags.C_CROPS_GARLIC))
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.FISH_SAUCE_BOTTLE.get()), RecipeUtil.has(holderGetter, UbesDelightItems.FISH_SAUCE_BOTTLE.get()))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.SISIG.get()));
+                .build(output, recipeName(UbesDelightItems.SISIG.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.BULALO.get(), 1, 200, 4.0F)
                 .addIngredient(CommonTags.C_FOODS_RAW_BEEF)
@@ -226,7 +225,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.FISH_SAUCE_BOTTLE.get()), RecipeUtil.has(holderGetter, UbesDelightItems.FISH_SAUCE_BOTTLE.get()))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_LEMONGRASS), RecipeUtil.has(holderGetter, CommonTags.C_CROPS_LEMONGRASS))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.BULALO.get()));
+                .build(output, recipeName(UbesDelightItems.BULALO.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.ARROZ_CALDO.get(), 1, 200, 4.0F)
                 .addIngredient(CommonTags.C_FOODS_RAW_CHICKEN)
@@ -242,7 +241,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_LEMONGRASS), RecipeUtil.has(holderGetter, CommonTags.C_CROPS_LEMONGRASS))
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.FISH_SAUCE_BOTTLE.get()), RecipeUtil.has(holderGetter, UbesDelightItems.FISH_SAUCE_BOTTLE.get()))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.ARROZ_CALDO.get()));
+                .build(output, recipeName(UbesDelightItems.ARROZ_CALDO.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.MECHADO.get(), 1, 200, 4.0F)
                 .addIngredient(CommonTags.C_FOODS_RAW_BEEF)
@@ -258,7 +257,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(ConventionalItemTags.VEGETABLE_FOODS), RecipeUtil.has(holderGetter, ConventionalItemTags.VEGETABLE_FOODS))
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.FISH_SAUCE_BOTTLE.get()), RecipeUtil.has(holderGetter, UbesDelightItems.FISH_SAUCE_BOTTLE.get()))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.MECHADO.get()));
+                .build(output, recipeName(UbesDelightItems.MECHADO.get()));
 
         // ** SWEETS **
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.LECHE_FLAN.get(), 4, 100, 0.5F)
@@ -269,7 +268,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), RecipeUtil.has(holderGetter, CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK))
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.CONDENSED_MILK_BOTTLE.get()), RecipeUtil.has(holderGetter, UbesDelightItems.CONDENSED_MILK_BOTTLE.get()))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.LECHE_FLAN.get()));
+                .build(output, recipeName(UbesDelightItems.LECHE_FLAN.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.RAW_POLVORONE.get(), 4, 100, 0.0f)
                 .addIngredient(CommonTags.C_CROPS_GRAIN)
@@ -279,7 +278,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK), RecipeUtil.has(holderGetter, CommonTags.C_TEA_INGREDIENTS_SWEET_WEAK))
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.MILK_POWDER.get()), RecipeUtil.has(holderGetter, UbesDelightItems.MILK_POWDER.get()))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.RAW_POLVORONE.get()));
+                .build(output, recipeName(UbesDelightItems.RAW_POLVORONE.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.RAW_POLVORONE_PINIPIG.get(), 4, 100, 0.0f)
                 .addIngredient(CommonTags.C_CROPS_GRAIN)
@@ -291,7 +290,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.MILK_POWDER.get()), RecipeUtil.has(holderGetter, UbesDelightItems.MILK_POWDER.get()))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_RICE), RecipeUtil.has(holderGetter, CommonTags.C_CROPS_RICE))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.RAW_POLVORONE_PINIPIG.get()));
+                .build(output, recipeName(UbesDelightItems.RAW_POLVORONE_PINIPIG.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.RAW_POLVORONE_UBE.get(), 4, 100, 0.0f)
                 .addIngredient(CommonTags.C_CROPS_GRAIN)
@@ -303,7 +302,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.MILK_POWDER.get()), RecipeUtil.has(holderGetter, UbesDelightItems.MILK_POWDER.get()))
                 .unlockedBy(RecipeUtil.hasItemTag(CommonTags.C_CROPS_UBE), RecipeUtil.has(holderGetter, CommonTags.C_CROPS_UBE))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.RAW_POLVORONE_UBE.get()));
+                .build(output, recipeName(UbesDelightItems.RAW_POLVORONE_UBE.get()));
 
         CookingPotRecipeBuilder.cookingPotRecipe(holderGetter, UbesDelightItems.RAW_POLVORONE_CC.get(), 4, 100, 0.0f)
                 .addIngredient(CommonTags.C_CROPS_GRAIN)
@@ -315,7 +314,7 @@ public class CookingRecipes {
                 .unlockedBy(RecipeProvider.getHasName(UbesDelightItems.MILK_POWDER.get()), RecipeUtil.has(holderGetter, UbesDelightItems.MILK_POWDER.get()))
                 .unlockedBy(RecipeProvider.getHasName(Items.COOKIE), RecipeUtil.has(holderGetter, Items.COOKIE))
                 .setRecipeBookCategory(CookingPotBookCategory.MEALS)
-                .build(exporter, recipeName(UbesDelightItems.RAW_POLVORONE_CC.get()));
+                .build(output, recipeName(UbesDelightItems.RAW_POLVORONE_CC.get()));
     }
 
     private static Identifier recipeConversionName(Item output, Item input) {

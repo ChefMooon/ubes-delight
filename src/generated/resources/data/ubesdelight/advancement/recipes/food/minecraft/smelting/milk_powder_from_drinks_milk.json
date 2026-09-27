@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ubesdelight:minecraft/smelting/milk_powder_from_drinks_milk"
+        "recipes": "ubesdelight:minecraft/smelting/milk_powder_from_drinks_milk"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

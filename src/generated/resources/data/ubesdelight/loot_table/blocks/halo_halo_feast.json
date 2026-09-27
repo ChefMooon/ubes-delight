@@ -1,150 +1,132 @@
 {
   "type": "minecraft:block",
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
-    }
-  ],
+  "modifier": {
+    "type": "minecraft:explosion_decay"
+  },
   "pools": [
     {
-      "conditions": [
-        {
-          "condition": "minecraft:all_of",
-          "terms": [
-            {
-              "block": "ubesdelight:halo_halo_feast",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "servings": "4"
-              }
-            },
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "#c:tools/knife"
-              }
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "ubesdelight:halo_halo_feast",
+            "state": {
+              "servings": "4"
             }
-          ]
-        }
-      ],
+          },
+          {
+            "type": "minecraft:match_tool",
+            "predicate": {
+              "items": "#c:tools/knife"
+            }
+          }
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 4.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 4
+          },
           "name": "ubesdelight:halo_halo"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "condition": "minecraft:all_of",
-          "terms": [
-            {
-              "block": "ubesdelight:halo_halo_feast",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "servings": "3"
-              }
-            },
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "#c:tools/knife"
-              }
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "ubesdelight:halo_halo_feast",
+            "state": {
+              "servings": "3"
             }
-          ]
-        }
-      ],
+          },
+          {
+            "type": "minecraft:match_tool",
+            "predicate": {
+              "items": "#c:tools/knife"
+            }
+          }
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 3.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 3
+          },
           "name": "ubesdelight:halo_halo"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "condition": "minecraft:all_of",
-          "terms": [
-            {
-              "block": "ubesdelight:halo_halo_feast",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "servings": "2"
-              }
-            },
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "#c:tools/knife"
-              }
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "ubesdelight:halo_halo_feast",
+            "state": {
+              "servings": "2"
             }
-          ]
-        }
-      ],
+          },
+          {
+            "type": "minecraft:match_tool",
+            "predicate": {
+              "items": "#c:tools/knife"
+            }
+          }
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 2.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 2
+          },
           "name": "ubesdelight:halo_halo"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "condition": "minecraft:all_of",
-          "terms": [
-            {
-              "block": "ubesdelight:halo_halo_feast",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "servings": "1"
-              }
-            },
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "#c:tools/knife"
-              }
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "ubesdelight:halo_halo_feast",
+            "state": {
+              "servings": "1"
             }
-          ]
-        }
-      ],
+          },
+          {
+            "type": "minecraft:match_tool",
+            "predicate": {
+              "items": "#c:tools/knife"
+            }
+          }
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 1
+          },
           "name": "ubesdelight:halo_halo"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ]
 }

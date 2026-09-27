@@ -1,0 +1,145 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "ubesdelight:wild_lemongrass",
+            "state": {
+              "half": "lower"
+            }
+          },
+          {
+            "type": "minecraft:location_check",
+            "offsetY": 1,
+            "predicate": {
+              "block": {
+                "blocks": "ubesdelight:wild_lemongrass",
+                "state": {
+                  "half": "upper"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "condition": {
+                "type": "farmersdelight:can_item_perform_ability",
+                "ability": "shears_harvest"
+              },
+              "name": "ubesdelight:wild_lemongrass"
+            },
+            {
+              "type": "minecraft:group",
+              "children": [
+                {
+                  "type": "minecraft:item",
+                  "condition": {
+                    "type": "minecraft:survives_explosion"
+                  },
+                  "name": "ubesdelight:lemongrass_seeds"
+                },
+                {
+                  "type": "minecraft:item",
+                  "condition": {
+                    "type": "minecraft:all_of",
+                    "terms": [
+                      {
+                        "type": "minecraft:survives_explosion"
+                      },
+                      {
+                        "type": "minecraft:random_chance",
+                        "chance": 0.125
+                      }
+                    ]
+                  },
+                  "name": "ubesdelight:lemongrass"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "ubesdelight:wild_lemongrass",
+            "state": {
+              "half": "upper"
+            }
+          },
+          {
+            "type": "minecraft:location_check",
+            "offsetY": -1,
+            "predicate": {
+              "block": {
+                "blocks": "ubesdelight:wild_lemongrass",
+                "state": {
+                  "half": "lower"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "condition": {
+                "type": "farmersdelight:can_item_perform_ability",
+                "ability": "shears_harvest"
+              },
+              "name": "ubesdelight:wild_lemongrass"
+            },
+            {
+              "type": "minecraft:group",
+              "children": [
+                {
+                  "type": "minecraft:item",
+                  "condition": {
+                    "type": "minecraft:survives_explosion"
+                  },
+                  "name": "ubesdelight:lemongrass_seeds"
+                },
+                {
+                  "type": "minecraft:item",
+                  "condition": {
+                    "type": "minecraft:all_of",
+                    "terms": [
+                      {
+                        "type": "minecraft:survives_explosion"
+                      },
+                      {
+                        "type": "minecraft:random_chance",
+                        "chance": 0.125
+                      }
+                    ]
+                  },
+                  "name": "ubesdelight:lemongrass"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    }
+  ]
+}

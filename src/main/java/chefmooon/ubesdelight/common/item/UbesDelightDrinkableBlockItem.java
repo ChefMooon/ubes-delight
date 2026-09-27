@@ -10,6 +10,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -57,7 +58,7 @@ public class UbesDelightDrinkableBlockItem extends UbesDelightBlockItem {
             } else {
                 if (consumer instanceof Player player && !((Player) consumer).getAbilities().instabuild) {
                     if (!player.getInventory().add((containerStack.create()))) {
-                        player.drop(containerStack.create(), false);
+                        player.drop(containerStack.create(), false, Prediction.PREDICTED);
                     }
                 }
             }
