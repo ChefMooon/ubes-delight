@@ -1,16 +1,18 @@
 package com.chefmooon.ubesdelight.common.block.fabric;
 
-import com.chefmooon.ubesdelight.UbesDelight;
 import com.chefmooon.ubesdelight.common.block.BakingMatBlock;
 import com.chefmooon.ubesdelight.common.block.entity.fabric.BakingMatBlockEntityImpl;
 import com.chefmooon.ubesdelight.common.registry.UbesDelightSounds;
+import com.chefmooon.ubesdelight.common.tag.CommonTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ShearsItem;
+import net.minecraft.world.item.TridentItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -48,7 +50,7 @@ public class BakingMatBlockImpl extends BakingMatBlock {
             return result;
         }
 
-        boolean isValidTool = heldStack.getItem() instanceof DiggerItem;
+        boolean isValidTool = heldStack.is(CommonTags.C_TOOLS_ROLLING_PIN);
 
         if (!bakingMatBlockEntity.isEmpty() && !heldStack.isEmpty() && isValidTool) {
             if (tryProcessBakingMatUsingToolInHand(level, bakingMatBlockEntity, heldStack, offHandStack, player, hand).consumesAction()) {
@@ -117,7 +119,7 @@ public class BakingMatBlockImpl extends BakingMatBlock {
     private ItemInteractionResult tryProcessBakingMatUsingToolInHand(Level level, BakingMatBlockEntityImpl bakingMatBlockEntity, ItemStack heldStack, ItemStack offHandStack, Player player, InteractionHand hand) {
         ItemInteractionResult result = ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
-        if (heldStack.getItem() instanceof DiggerItem && bakingMatBlockEntity.processItemUsingTool(heldStack, player)) {
+        if (heldStack.is(CommonTags.C_TOOLS_ROLLING_PIN) && bakingMatBlockEntity.processItemUsingTool(heldStack, player)) {
             return ItemInteractionResult.SUCCESS;
         }
         return result;

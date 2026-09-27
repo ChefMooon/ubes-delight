@@ -11,4 +11,8 @@ NeoForge and Fabric.
 
 - uk_ua translations (Thank you, Ch1sho!)
 
+### Fixed
+
+- Baking Mat can now be properly used by tools in the c:rolling_pin tag (Thank you, aerhazu for opening the bug report!)
+
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
