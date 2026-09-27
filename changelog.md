@@ -17,6 +17,7 @@ NeoForge, and Fabric
 
 ### Fixed
 
+- Baking Mat can now be properly used by tools in the c:rolling_pins tag (Thank you, aerhazu for opening the bug report!)
 - [1.20.1 Fabric] Fixed consumable item effect tooltip duplication
 
 [Detailed Changelog](https://chefmooon.github.io/ubesdelight/changelog)
